@@ -1,0 +1,9 @@
+{
+  "name": "@pansy/react-amap",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@pansy/amap-types": "^1.3.0"
+  }
+}

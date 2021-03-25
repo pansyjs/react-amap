@@ -1,0 +1,1 @@
+/// <reference path="./overlay.d.ts" />

@@ -1,0 +1,55 @@
+---
+title: Map 地图
+nav:
+  title: 组件
+  path: /components
+order: 3
+group:
+  path: /amap
+  title: '高德地图'
+  order: 1
+---
+
+# Map 地图
+
+> 官方文档 [map](https://lbs.amap.com/api/javascript-api/reference/map)
+
+Map 组件是其他组件的基础，其他地图组件必须作为 Map 的子组件使用，Map 组件会给所有的子组件注入两个属性 `map`，`AMap`，在拥有访问这两个属性的能力后，就可以根据高德原生 API 做高德允许你做的一切事情。
+
+## 何时使用
+
+-  在需要显示地图的地方使用；
+
+## 代码示例
+
+### 基础用法
+
+Map 的父组件必须具有宽度和高度；
+
+<code src="./demo/demo-01.tsx" />
+
+## API
+
+| 属性 |说明|类型|默认值|
+|-----|----|----|----|
+|classname| 额外的样式类 | `string` | -- |
+|style| 额外的样式 | `React.CSSProperties` | -- |
+|loading| 地图加载中的UI | `React.ReactNode` | -- |
+|center|地图中心点坐标值|`Position`| --|
+|mapKey|高德地图的开发者Key|`string`| --|
+|version|高德地图的版本|`string`| `1.4.0` |
+|protocol|加载高德API协议|`string`| --|
+|hostAndPath| 加载高德API的前半部分 |`string`|`webapi.amap.com/maps`|
+
+```ts
+type Position = [number, number] | 
+  { lng: number; lat: number; } | 
+  { longitude: number; latitude: number; } |
+  AMap.LngLat;
+```
+
+更多参数请查看 [map](https://lbs.amap.com/api/javascript-api/reference/map)
+
+**注意:** 
+
+- 组件对 center 进行了扩展，兼容了常见的经纬度数据格式。
