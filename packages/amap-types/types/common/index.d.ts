@@ -1,6 +1,7 @@
 /// <reference path="./event.d.ts" />
 
 declare namespace AMap {
+  type SizeValue = Size | [number, number];
   type Lang = 'zh_cn' | 'en' | 'zh_en';
   type Crs = 'EPSG3857' | 'EPSG3395' | 'EPSG4326';
   type LocationValue = LngLat | [number, number];

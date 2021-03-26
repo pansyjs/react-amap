@@ -4,3 +4,4 @@
 /// <reference path="./overlay/index.d.ts" />
 /// <reference path="./utils/index.d.ts" />
 /// <reference path="./map/index.d.ts" />
+/// <reference path="./info-window/index.d.ts" />
