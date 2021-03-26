@@ -1,5 +1,5 @@
 ---
-title: Map 地图组件
+title: Map 组件
 nav:
   title: 组件
   path: /components
@@ -12,9 +12,7 @@ group:
 
 # Map 地图
 
-> 官方文档 [map](https://lbs.amap.com/api/javascript-api/reference/map)
-
-Map 组件是其他组件的基础，其他地图组件必须作为 Map 的子组件使用，Map 组件会给所有的子组件注入两个属性 `map`，`AMap`，在拥有访问这两个属性的能力后，就可以根据高德原生 API 做高德允许你做的一切事情。
+Map 组件是其他组件的基础，其他地图组件必须作为 Map 的子组件使用，Map 组件会给所有的子组件注入 `map` 属性，在拥有访问这个属性的能力后，就可以根据高德原生 API 做高德允许你做的一切事情。
 
 ## 何时使用
 

@@ -22,12 +22,14 @@ export function withPropsReactive<
       this.onInstanceCreated = this.onInstanceCreated.bind(this);
     }
 
-    componentDidUpdate(nextProps) {
-      this.reactivePropChange(nextProps, true)
-    }
+    shouldComponentUpdate(nextProps) {
+      this.reactivePropChange(nextProps, true);
+
+      return true;
+    };
 
     omponentWillUnmount() {
-      const { instance } = this.myMapComponent
+      const { instance } = this.myMapComponent;
       if (!instance) return
       if ('destroy' in instance) {
         setTimeout(() => {
@@ -65,7 +67,7 @@ export function withPropsReactive<
       if (!this.instanceCreated) {
         return false
       }
-      const { setterMap = {}, converterMap = {}, instance = {} } = this.myMapComponent
+      const { setterMap = {}, converterMap = {}, instance } = this.myMapComponent
       const list = Object.keys(nextProps);
       list.length && list.forEach(key => {
         if (key === 'events') {
@@ -79,10 +81,13 @@ export function withPropsReactive<
         if (!willReactive) {
           return false
         }
-        let setterParam = nextProps[key]
+        let setterParam = nextProps[key];
+
+        // 对值进行转换
         if (key in converterMap) {
           setterParam = converterMap[key](nextProps[key])
         }
+
         if (key in setterMap) {
           setterMap[key](setterParam)
         } else {

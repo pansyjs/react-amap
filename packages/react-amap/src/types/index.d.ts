@@ -1,17 +1,21 @@
 /// <reference types="@pansy/amap-types" />
 
 declare namespace PansyMap {
-  type Position = [number, number] | 
-    { lng: number; lat: number; } | 
+  type Position = [number, number] |
+    { lng: number; lat: number; } |
     { longitude: number; latitude: number; } |
     AMap.LngLat;
 
-  type Offset = AMap.Pixel | 
-    [number, number] | 
+  type Offset = AMap.Pixel |
+    [number, number] |
     { x: number, y: number };
 
-  type Size = AMap.Size | 
+  type Size = AMap.Size |
     { width: number, height: number };
+
+  interface BaseChildrenComponentProps {
+    map?: AMap.Map;
+  }
 
   class BaseInstance extends AMap.EventEmitter {
     /**
