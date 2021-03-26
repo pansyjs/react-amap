@@ -5,7 +5,6 @@ export const NativeDynamicProps: string[] = [
   'zoom',
   'center',
   'labelzIndex',
-
   'mapStyle',
   'features',
   'cursor',

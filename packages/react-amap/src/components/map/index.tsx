@@ -1,9 +1,9 @@
 import React from 'react';
 import { toLnglat, APILoader, hasWindow, withPropsReactive } from '../../utils';
-import { 
-  CreateProps, 
-  wrapperStyle, 
-  containerStyle, 
+import {
+  CreateProps,
+  wrapperStyle,
+  containerStyle,
   StatusDynamicProps
 } from './config';
 import { MapProps, MapState } from './types';
@@ -12,6 +12,11 @@ import { AbstractComponent } from '../AbstractComponent';
 class BaseMap extends AbstractComponent<AMap.Map, MapProps, MapState> {
   /** 存放地图的容器 */
   private mapWrapper: HTMLDivElement;
+
+  static defaultProps: MapProps = {
+    logoUrl: ' ',
+    logoUrlRetina: ' '
+  }
 
   constructor(props: MapProps) {
     super(props);
@@ -63,7 +68,7 @@ class BaseMap extends AbstractComponent<AMap.Map, MapProps, MapState> {
     }
   }
 
-  componentWillReceiveProps(nextProps: MapProps) {
+  componentDidUpdate(nextProps: MapProps) {
     if (this.state.mapLoaded) {
       this.updateMapProps(this.props, nextProps)
     }
@@ -80,7 +85,7 @@ class BaseMap extends AbstractComponent<AMap.Map, MapProps, MapState> {
 
   /**
    * 渲染子组件
-   * @returns 
+   * @returns
    */
   renderChildren() {
     return React.Children.map(this.props.children, (child: any) => {
@@ -121,9 +126,9 @@ class BaseMap extends AbstractComponent<AMap.Map, MapProps, MapState> {
 
   /**
    * 处理需要转换的参数
-   * @param key 
-   * @param props 
-   * @returns 
+   * @param key
+   * @param props
+   * @returns
    */
   private getSetterValue(key: string, props: MapProps) {
     if (key in this.converterMap) {
@@ -148,7 +153,7 @@ class BaseMap extends AbstractComponent<AMap.Map, MapProps, MapState> {
     return prevProps[key] !== nextProps[key]
   }
 
-  private handleSaveWrapper = (wrapper: HTMLDivElement) => { 
+  private handleSaveWrapper = (wrapper: HTMLDivElement) => {
     this.mapWrapper = wrapper;
   }
 

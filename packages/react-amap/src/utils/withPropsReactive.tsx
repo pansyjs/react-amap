@@ -3,7 +3,7 @@ import { toCapitalString } from './';
 import { AbstractComponent, AbstractComponentProps } from '../components/AbstractComponent';
 
 export function withPropsReactive<
-  Instance extends PansyMap.BaseInstance = any, 
+  Instance extends PansyMap.BaseInstance = any,
   Props extends AbstractComponentProps = any
 >(MapComponent) {
   class InternalComponent extends React.Component<Props> {
@@ -22,7 +22,7 @@ export function withPropsReactive<
       this.onInstanceCreated = this.onInstanceCreated.bind(this);
     }
 
-    componentWillReceiveProps(nextProps) {
+    componentDidUpdate(nextProps) {
       this.reactivePropChange(nextProps, true)
     }
 
@@ -41,7 +41,7 @@ export function withPropsReactive<
         instance.setMap(null)
       }
     }
-    
+
     /**
      * 实例创建成功的回调
      */
@@ -56,10 +56,10 @@ export function withPropsReactive<
     }
 
     /**
-     * 
-     * @param nextProps 
-     * @param shouldDetectChange 
-     * @returns 
+     *
+     * @param nextProps
+     * @param shouldDetectChange
+     * @returns
      */
     reactivePropChange(nextProps, shouldDetectChange = true) {
       if (!this.instanceCreated) {
@@ -96,7 +96,7 @@ export function withPropsReactive<
 
     /**
      * 绑定事件
-     * @param props 
+     * @param props
      */
     createEventsProxy(props) {
       const self = this;

@@ -29,7 +29,7 @@ export class APILoader {
 
   constructor(opts: Omit<Partial<APILoaderOptions>, 'callback'>) {
     const { key, useAMapUI, version, protocol, hostAndPath } = opts;
-    this.config = { ...DEFAULT_CONFIG, useAMapUI, protocol, hostAndPath };
+    this.config = { ...DEFAULT_CONFIG, useAMapUI, protocol };
 
     if (hasWindow) {
       if (key) {
@@ -37,9 +37,15 @@ export class APILoader {
       } else if ('amapkey' in window) {
         this.config.key = window['amapkey'];
       }
+
       if (version) {
         this.config.version = version
       }
+
+      if (hostAndPath) {
+        this.config.hostAndPath;
+      }
+
       this.protocol = protocol || window.location.protocol;
       if (this.protocol.indexOf(':') === -1) {
         this.protocol += ':'
