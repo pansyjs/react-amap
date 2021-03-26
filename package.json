@@ -10,14 +10,14 @@
     "commit": "commit"
   },
   "devDependencies": {
-    "@types/react": "^17.0.3",
-    "@types/react-dom": "^17.0.3",
-    "@walrus/commit": "^1.2.0",
-    "dumi": "^1.1.10",
-    "lerna": "^4.0.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "typescript": "^4.2.3"
+    "@types/react": "17.0.3",
+    "@types/react-dom": "17.0.3",
+    "@walrus/commit": "1.2.0",
+    "dumi": "1.1.10",
+    "lerna": "4.0.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "typescript": "4.2.3"
   },
   "workspaces": [
     "packages/*"
