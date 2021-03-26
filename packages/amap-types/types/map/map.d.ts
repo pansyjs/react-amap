@@ -172,6 +172,8 @@ declare namespace AMap {
        * 为 Map 实例指定掩模的路径，各图层将只显示路径范围内图像，3D视图下有效。
        */
       mask?: Array<[number, number]> | Array<Array<[number, number]>> | Array<Array<Array<[number, number]>>>;
+      logoUrl?: string;
+      logoUrlRetina?: string;
     }
 
     interface Status {
@@ -260,25 +262,25 @@ declare namespace AMap {
      * @param opts 地图初始化参数对象
      */
     constructor(container: string | HTMLElement, opts?: Map.Options);
-    
+
     /**
      * 唤起高德地图客户端marker页
      * @param obj 唤起参数
      */
     poiOnAMAP(obj: { id: string; location?: LocationValue; name?: string }): void;
-    
+
     /**
      * 唤起高德地图客户端marker详情页
      * @param obj 唤起参数
      */
     detailOnAMAP(obj: { id: string; location?: LocationValue; name?: string }): void;
-    
+
     /** 获取当前地图缩放级别 */
     getZoom(): number;
 
     /** 获取地图图层数组 */
     getLayers(): Layer[];
-    
+
     /** 获取地图中心点经纬度坐标值 */
     getCenter(): LngLat;
 
@@ -350,7 +352,7 @@ declare namespace AMap {
     * @param dpi dpi
     */
     getScale(dpi?: number): number;
-  
+
     /**
      * 设置地图显示的缩放级别
      * @param level 缩放级别
@@ -362,7 +364,7 @@ declare namespace AMap {
      * @param index 显示顺序
      */
     setLabelzIndex(index: number): void;
-    
+
     /**
     * 设置地图图层数组
     * @param layers 图层数组
@@ -374,7 +376,7 @@ declare namespace AMap {
      * @param overlay 覆盖物/图层
      */
     add(overlay: Overlay | Overlay[]): void;
-    
+
     /**
     * 删除覆盖物/图层
     * @param overlay 覆盖物/图层
@@ -399,14 +401,14 @@ declare namespace AMap {
     * @param center 缩放中心
     */
     setZoomAndCenter(zoomLevel: number, center: LocationValue): void;
-    
+
     /**
      * 按照行政区名称或adcode来设置地图显示的中心点。
      * @param city 城市名称或城市编码
      * @param callback 回调
      */
     setCity(city: string, callback: (this: this, coord: [string, string], zoom: number) => void): void;
-    
+
     /**
     * 指定当前地图显示范围
     * @param bound 显示范围
@@ -441,7 +443,7 @@ declare namespace AMap {
      * @param cursor
      */
     setDefaultCursor(cursor: string): void;
-    
+
     /**
      * 设置当前地图显示状态
      * @param status 状态
@@ -510,7 +512,7 @@ declare namespace AMap {
      * @param callback 插件加载完成后的回调函数
      */
     plugin(name: string | string[], callback: () => void): this;
-    
+
     /**
      * 添加控件
      * @param control 控件
@@ -534,49 +536,49 @@ declare namespace AMap {
      * @param level 缩放等级
      */
     pixelToLngLat(pixel: Pixel, level?: number): LngLat;
-    
+
     /**
     * 地图经纬度坐标转换为平面地图像素坐标
     * @param lnglat 经纬度坐标
     * @param level 缩放等级
     */
     lnglatToPixel(lnglat: LocationValue, level?: number): Pixel;
-    
+
     /**
     * 地图容器像素坐标转为地图经纬度坐标
     * @param pixel 地图像素坐标
     */
     containerToLngLat(pixel: Pixel): LngLat;
-    
+
     /**
     * 地图经纬度坐标转为地图容器像素坐标
     * @param lnglat 经纬度坐标
     */
     lngLatToContainer(lnglat: LocationValue): Pixel;
-    
+
     /**
     * 地图经纬度坐标转为地图容器像素坐标
     * @param lnglat 经纬度坐标
     */
     lnglatTocontainer(lnglat: LocationValue): Pixel;
-    
+
     /**
     * 设置地图的显示样式
     * @param style 地图样式
     */
     setMapStyle(style: string): void;
-    
+
     /**
     * 获取地图显示样式
     */
     getMapStyle(): string;
-    
+
     /**
     * 设置地图上显示的元素种类
     * @param feature 元素
     */
     setFeatures(feature: Map.Feature | Map.Feature[] | 'all'): void;
-    
+
     /**
     * 获取地图显示元素种类
     */
