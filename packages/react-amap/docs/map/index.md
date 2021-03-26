@@ -1,12 +1,12 @@
 ---
-title: Map 地图
+title: Map 地图组件
 nav:
   title: 组件
   path: /components
 order: 3
 group:
-  path: /amap
-  title: '高德地图'
+  path: /map
+  title: '地图'
   order: 1
 ---
 
