@@ -11,14 +11,14 @@ export function withPropsReactive<
     private instanceCreated: boolean;
     /** 需要包装的组件 */
     private myMapComponent: AbstractComponent<Instance>;
-    /** 需要绑定的事件 */
+    /** 已注册的事件 */
     private registeredEvents: string[];
 
     constructor(props: Props) {
-      super(props)
-      this.instanceCreated = false
-      this.myMapComponent = null
-      this.registeredEvents = []
+      super(props);
+      this.instanceCreated = false;
+      this.myMapComponent = null;
+      this.registeredEvents = [];
       this.onInstanceCreated = this.onInstanceCreated.bind(this);
     }
 
@@ -30,40 +30,41 @@ export function withPropsReactive<
 
     omponentWillUnmount() {
       const { instance } = this.myMapComponent;
-      if (!instance) return
+      if (!instance) return;
       if ('destroy' in instance) {
         setTimeout(() => {
           instance.destroy()
-        }, 10)
+        }, 10);
       }
       if ('hide' in instance) {
-        instance.hide()
+        instance.hide();
       }
       if ('map' in this.props && 'setMap' in instance) {
-        instance.setMap(null)
+        instance.setMap(null);
       }
     }
 
     /**
      * 实例创建成功的回调
      */
-    onInstanceCreated() {
+    private onInstanceCreated() {
       this.instanceCreated = true
       if ('events' in this.props) {
         // 获取地图组件的实例
         const { instance } = this.myMapComponent
+        // 执行创建事件
         this.props.events.created?.(instance);
       }
       this.reactivePropChange(this.props, false)
     }
 
     /**
-     *
+     * 执行对props改变的反应
      * @param nextProps
      * @param shouldDetectChange
      * @returns
      */
-    reactivePropChange(nextProps, shouldDetectChange = true) {
+     private reactivePropChange(nextProps, shouldDetectChange = true) {
       if (!this.instanceCreated) {
         return false
       }
@@ -103,7 +104,7 @@ export function withPropsReactive<
      * 绑定事件
      * @param props
      */
-    createEventsProxy(props) {
+    private createEventsProxy(props) {
       const self = this;
       const { instance } = this.myMapComponent
       const evs = Object.keys(props.events || {})
@@ -121,11 +122,11 @@ export function withPropsReactive<
       })
     }
 
-    detectPropChange(key, nextProps, oldProps) {
+    private detectPropChange(key, nextProps, oldProps) {
       return nextProps[key] !== oldProps[key]
     }
 
-    public saveComponent = (component) => {
+    private saveComponent = (component) => {
       this.myMapComponent = component
     }
 

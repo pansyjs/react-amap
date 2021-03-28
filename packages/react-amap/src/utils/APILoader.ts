@@ -1,7 +1,7 @@
 import { hasWindow } from './';
 
 const DEFAULT_CONFIG = {
-  version: '1.4.0',
+  version: '1.4.15',
   hostAndPath: 'webapi.amap.com/maps',
   key: 'f97efc35164149d0c0f299e7a8adb3d2',
   callback: '__amap_init_callback',

@@ -1,10 +1,11 @@
 export const configurableProps = [
+  /** 动态属性 */
   'center',
   'radius',
   'draggable',
   'extData',
 
-  /* 原生的接口中并没有这些对象，这是本组件的扩展 */
+  /* 扩展属性 */
   'visible',
   'style'
 ]

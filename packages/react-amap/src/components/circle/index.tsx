@@ -1,7 +1,7 @@
 import React from 'react';
 import { withPropsReactive, toLnglat, hasWindow } from '../../utils';
 import { AbstractComponent } from '../AbstractComponent';
-import { CircleProps, CircleState } from './types';
+import { CircleProps, CircleState, CircleStyle } from './types';
 import { allProps } from './config';
 
 class Circle extends AbstractComponent<AMap.Circle, CircleProps, CircleState> {
@@ -10,18 +10,19 @@ class Circle extends AbstractComponent<AMap.Circle, CircleProps, CircleState> {
 
   constructor(props: CircleProps) {
     super(props);
+
     if (hasWindow) {
       if (props.map) {
         const self = this;
 
+        this.map = props.map;
+        this.element = this.map.getContainer();
         this.state = {
           loaded: false
         };
-        this.map = props.map;
-        this.element = this.map.getContainer()
 
         this.setterMap = {
-          visible(val) {
+          visible(val: boolean) {
             if (self.internalObj) {
               if (val) {
                 self.internalObj.show()
@@ -30,8 +31,8 @@ class Circle extends AbstractComponent<AMap.Circle, CircleProps, CircleState> {
               }
             }
           },
-          style(val) {
-            self.internalObj.setOptions(val)
+          style(val: CircleStyle) {
+            self.internalObj.setOptions(val);
           }
         }
 
@@ -39,21 +40,22 @@ class Circle extends AbstractComponent<AMap.Circle, CircleProps, CircleState> {
           center: toLnglat
         }
 
-        this.createInstance(props).then(() => {
-          this.setState({
-            loaded: true
+        this.createInstance(props)
+          .then(() => {
+            this.setState({
+              loaded: true
+            })
+            this.props.onInstanceCreated?.()
           })
-          this.props.onInstanceCreated && this.props.onInstanceCreated()
-        })
       }
     }
   }
 
   createInstance(props: CircleProps) {
     const options = this.buildCreateOptions(props)
-    options.map = this.map
+    options.map = this.map;
     this.setInstance(new window.AMap.Circle(options));
-    return Promise.resolve(this.instance)
+    return Promise.resolve(this.instance);
   }
 
   buildCreateOptions(props: CircleProps) {
@@ -65,19 +67,12 @@ class Circle extends AbstractComponent<AMap.Circle, CircleProps, CircleState> {
           styleItem.forEach((item) => {
             options[item] = props.style[item]
           })
-        } else {
+        } else if (key !== 'visible') {
           options[key] = this.getSetterValue(key, props)
         }
       }
     })
-    return options
-  }
-
-  getSetterValue(key: string, props: CircleProps) {
-    if (key in this.converterMap) {
-      return this.converterMap[key](props[key])
-    }
-    return props[key]
+    return options;
   }
 
   renderEditor(children: any) {
@@ -88,9 +83,9 @@ class Circle extends AbstractComponent<AMap.Circle, CircleProps, CircleState> {
       return null
     }
     return React.cloneElement(React.Children.only(children), {
-      __circle__: this.internalObj,
-      __map__: this.map,
-      __ele__: this.element
+      circle: this.internalObj,
+      map: this.map,
+      ele: this.element
     })
   }
 

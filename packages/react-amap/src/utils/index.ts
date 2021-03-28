@@ -2,7 +2,7 @@ export const hasWindow = (typeof window !== 'undefined');
 
 /**
  * 将经纬度转换为AMap.LngLat对象
- * @param position 
+ * @param position
  * @returns AMap.LngLat
  */
 export const toLnglat = (position: PansyMap.Position): AMap.LngLat | null => {
@@ -30,8 +30,8 @@ export const toLnglat = (position: PansyMap.Position): AMap.LngLat | null => {
 
 /**
  * 将普通数据转换为 AMap.Pixel 类
- * @param offset 
- * @returns 
+ * @param offset
+ * @returns
  */
 export const toPixel = (offset: PansyMap.Offset): AMap.Pixel | null => {
   if (!offset) return null;
@@ -55,8 +55,8 @@ export const toPixel = (offset: PansyMap.Offset): AMap.Pixel | null => {
 
 /**
  * 将普通数据转换为 AMap.Size 类
- * @param size 
- * @returns 
+ * @param size
+ * @returns
  */
 export const toSize = (size: PansyMap.Size): AMap.Size | null => {
   if (!size) return null;
@@ -69,11 +69,15 @@ export const toSize = (size: PansyMap.Size): AMap.Size | null => {
 
 /**
  * 将字符串的首字母大写
- * @param str 
- * @returns 
+ * @param str
+ * @returns
  */
 export const toCapitalString = (str: string): string => {
   return str[0].toUpperCase() + str.slice(1, str.length);
+};
+
+export const isFun = (arg) => {
+  return !!arg && (typeof arg === 'function');
 };
 
 export { APILoader } from './APILoader';

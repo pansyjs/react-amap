@@ -1,7 +1,7 @@
 
 import { AbstractComponentProps } from '../AbstractComponent';
 
-type StyleTypes =
+export type StyleTypes =
   'strokeColor' |
   'strokeOpacity' |
   'strokeWeight' |
@@ -10,6 +10,8 @@ type StyleTypes =
   'strokeStyle' |
   'strokeDasharray';
 
+export type CircleEventMap = PansyMap.GetEventFunObject<AMap.Circle.EventMap<AMap.Circle>>
+
 export interface CircleProps extends
   Omit<AMap.Circle.Options, StyleTypes>,
   PansyMap.BaseChildrenComponentProps,
@@ -17,6 +19,7 @@ export interface CircleProps extends
 {
   style?: CircleStyle;
   visible?: boolean;
+  events?: CircleEventMap;
 }
 
 export interface CircleStyle {
