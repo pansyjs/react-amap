@@ -3,16 +3,16 @@ title: Map 组件
 nav:
   title: 组件
   path: /components
-order: 3
+order: 1
 group:
   path: /map
-  title: '地图'
+  title: 地图
   order: 1
 ---
 
 # Map 地图
 
-Map 组件是其他组件的基础，其他地图组件必须作为 Map 的子组件使用，Map 组件会给所有的子组件注入 `map` 属性，在拥有访问这个属性的能力后，就可以根据高德原生 API 做高德允许你做的一切事情。
+Map 组件是其他组件的基础，其他地图组件必须作为 Map 的子组件使用，Map 组件会给所有的子组件注入 `map` 属性，在拥有访问这个属性的能力后，就可以根据高德原生 API 做高德允许你做的一切事情。`@pansy/react-amap` 中的其他组件就是这么做的。所以，你也可以写出满足你业务需求的地图组件。
 
 ## 何时使用
 
@@ -22,9 +22,15 @@ Map 组件是其他组件的基础，其他地图组件必须作为 Map 的子�
 
 ### 基础用法
 
-Map 的父组件必须具有宽度和高度；
-
 <code src="./demo/demo-01.tsx" />
+
+### 事件绑定
+
+<code src="./demo/demo-02.tsx" />
+
+### 动态改变属性
+
+<code src="./demo/demo-03.tsx" />
 
 ## API
 

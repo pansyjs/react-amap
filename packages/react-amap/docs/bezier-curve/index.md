@@ -1,18 +1,20 @@
 ---
-title: Circle 组件
+title: BezierCurve 组件
 nav:
   title: 组件
   path: /components
+order: 1
 group:
   path: /overlay
   title: 覆盖物
+  order: 400
 ---
 
-# Circle 组件
+# BezierCurve 组件
 
 ## 何时使用
 
-- 需要在地图上显示一个圆形时
+- 需要在地图上一个弧线的时候；
 
 ## 代码示例
 
@@ -26,9 +28,8 @@ group:
 
 | 属性 |说明|类型|默认值|
 |-----|----|----|----|
-|center| 圆心位置 | `Position` \| `HTMLElement` | -- |
-|radius| 圆半径，单位:米 | `number` | -- |
-|draggable| 圆形是否可拖拽 | `boolean` | -- |
+|path| 折线的节点坐标数组 | `Position[]` | -- |
+|draggable| 实例线段图形是否可拖拽 | `boolean` | -- |
 |extData| 用户自定义属性 | `any` | -- |
 
 ### 静态属性

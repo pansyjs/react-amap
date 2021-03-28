@@ -1,5 +1,5 @@
 ---
-title: Circle 组件
+title: Marker 组件
 nav:
   title: 组件
   path: /components
@@ -8,11 +8,11 @@ group:
   title: 覆盖物
 ---
 
-# Circle 组件
+# Marker 组件
 
 ## 何时使用
 
-- 需要在地图上显示一个圆形时
+- 显示单个坐标点的时候使用
 
 ## 代码示例
 

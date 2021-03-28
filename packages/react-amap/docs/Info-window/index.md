@@ -3,14 +3,14 @@ title: InfoWindow 组件
 nav:
   title: 组件
   path: /components
-order: 99
+order: 200
 group:
-  path: /map
-  title: '地图'
-  order: 1
+  path: /info-window
+  title: 信息窗体
+  order: 100
 ---
 
-# Map 地图
+# InfoWindow 组件
 
 ## 何时使用
 
@@ -19,6 +19,10 @@ group:
 注意：在一个地图上最多只能同时显示一个信息窗体
 
 ## 代码示例
+
+### 基础用法
+
+<code src="./demo/demo-01.tsx" />
 
 ### 自定义窗体内容
 
@@ -50,6 +54,9 @@ group:
 | 属性 |说明|类型|默认值|
 |-----|----|----|----|
 |visible| 是否显示信息窗体。 | `boolean` | `false` |
+
+
+**类型说明**
 
 ```ts
 type Position = [number, number] | 
