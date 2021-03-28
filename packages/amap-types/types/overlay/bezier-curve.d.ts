@@ -8,7 +8,7 @@ declare namespace AMap {
       /**
        * 贝瑟尔曲线的路径
        */
-      path: Array<Array<number | string | Array<string | number>>>;
+      path?: Array<Array<number | string | Array<string | number>>>;
       // internal
       tolerance?: number;
       interpolateNumLimit?: [number | number];
