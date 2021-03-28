@@ -9,7 +9,7 @@ import {
 import { MapProps, MapState } from './types';
 import { AbstractComponent } from '../AbstractComponent';
 
-class BaseMap extends AbstractComponent<AMap.Map, MapProps, MapState> {
+class Map extends AbstractComponent<AMap.Map, MapProps, MapState> {
   /** 存放地图的容器 */
   private mapWrapper: HTMLDivElement;
 
@@ -75,12 +75,24 @@ class BaseMap extends AbstractComponent<AMap.Map, MapProps, MapState> {
   }
 
   /** 创建地图实例 */
-  private createInstance() {
+  createInstance() {
     if (!this.internalObj) {
       const options = this.buildCreateOptions()
       this.setInstance(new window.AMap.Map(this.mapWrapper, options));
       this.props.onInstanceCreated?.()
     }
+  }
+
+  /** 获取创建地图的参数 */
+  buildCreateOptions() {
+    const props = this.props
+    const options: AMap.Map.Options = {}
+    CreateProps.forEach((key) => {
+      if (key in props) {
+        options[key] = this.getSetterValue(key, props)
+      }
+    })
+    return options;
   }
 
   /**
@@ -124,31 +136,6 @@ class BaseMap extends AbstractComponent<AMap.Map, MapProps, MapState> {
     statusChangeFlag && this.internalObj.setStatus(nextMapStatus);
   }
 
-  /**
-   * 处理需要转换的参数
-   * @param key
-   * @param props
-   * @returns
-   */
-  private getSetterValue(key: string, props: MapProps) {
-    if (key in this.converterMap) {
-      return this.converterMap[key](props[key])
-    }
-    return props[key]
-  }
-
-  /** 获取创建地图的参数 */
-  private buildCreateOptions() {
-    const props = this.props
-    const options: AMap.Map.Options = {}
-    CreateProps.forEach((key) => {
-      if (key in props) {
-        options[key] = this.getSetterValue(key, props)
-      }
-    })
-    return options;
-  }
-
   detectPropChanged(key: string, prevProps: MapProps, nextProps: MapProps) {
     return prevProps[key] !== nextProps[key]
   }
@@ -173,4 +160,4 @@ class BaseMap extends AbstractComponent<AMap.Map, MapProps, MapState> {
   }
 }
 
-export default withPropsReactive<AMap.Map, MapProps>(BaseMap);
+export default withPropsReactive<AMap.Map, MapProps>(Map);

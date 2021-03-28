@@ -1,5 +1,9 @@
 import { AbstractComponentProps } from '../AbstractComponent';
 
+export type MapEventMap = PansyMap.GetEventFunObject<AMap.Map.EventMap> & {
+  created?: (map: AMap.Map) => void;
+}
+
 export interface MapProps extends AbstractComponentProps, Omit<AMap.Map.Options, 'center'> {
   /** 样式类 */
   className?: string;
@@ -19,6 +23,8 @@ export interface MapProps extends AbstractComponentProps, Omit<AMap.Map.Options,
   hostAndPath?: string;
   /** 是否使用AMapUI */
   useAMapUI?: false | (() => void);
+  /** 事件绑定 */
+  events?: MapEventMap;
 }
 
 export interface MapState {
