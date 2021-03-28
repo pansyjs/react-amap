@@ -36,4 +36,8 @@ declare namespace PansyMap {
      */
     setMap?(map?: AMap.Map | null): void;
   }
+
+  export type GetEventFunObject<E extends {}> = {
+    [Key in keyof E]?: (e: E[Key]) => void;
+  }
 }
