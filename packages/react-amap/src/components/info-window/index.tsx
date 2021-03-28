@@ -34,9 +34,9 @@ class InfoWindow extends AbstractComponent<AMap.InfoWindow, InfoWindowProps> {
           position: toLnglat
         };
 
-        setTimeout(() => {
-          this.createInfoWindow(props)
-        }, 0);
+        this.createInstance(props).then(() => {
+          this.props.onInstanceCreated?.()
+        });
       }
     }
   }
@@ -64,10 +64,10 @@ class InfoWindow extends AbstractComponent<AMap.InfoWindow, InfoWindowProps> {
     this.internalObj.close()
   }
 
-  createInfoWindow(props: InfoWindowProps) {
+  createInstance(props: InfoWindowProps) {
     const options = this.buildCreateOptions(props);
     this.setInstance(new window.AMap.InfoWindow(options));
-    this.props.onInstanceCreated?.()
+    return Promise.resolve(this.instance);
   }
 
   buildCreateOptions(props: InfoWindowProps) {
@@ -90,18 +90,11 @@ class InfoWindow extends AbstractComponent<AMap.InfoWindow, InfoWindowProps> {
     allProps.forEach((key) => {
       if (key in props) {
         if (['visible', 'isCustom', 'content'].indexOf(key) === -1) {
-          options[key] = this.getSetterValue(key, props[key])
+          options[key] = this.getSetterValue(key, props);
         }
       }
     })
-    return options
-  }
-
-  getSetterValue(key: string, value: any) {
-    if (key in this.converterMap) {
-      return this.converterMap[key](value)
-    }
-    return value
+    return options;
   }
 
   setChild(props: InfoWindowProps) {
