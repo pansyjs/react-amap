@@ -1,9 +1,10 @@
 export const configurableProps = [
+  /** 动态属性 */
   'path',
   'extData',
   'draggable',
 
-  /* 扩展属性*/
+  /* 扩展属性 */
   'visible',
   'style'
 ]

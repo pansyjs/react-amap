@@ -16,17 +16,19 @@ class Polyline extends AbstractComponent<AMap.Polyline, PolylineProps, PolylineS
         const self = this;
 
         this.map = props.map;
+        this.element = this.map.getContainer();
         this.state = {
           loaded: false
         }
-        this.element = this.map.getContainer()
 
         this.setterMap = {
-          visible(val) {
-            if (val) {
-              self.internalObj && self.internalObj.show()
-            } else {
-              self.internalObj && self.internalObj.hide()
+          visible(val: boolean) {
+            if (self.internalObj) {
+              if (val) {
+                self.internalObj.show()
+              } else {
+                self.internalObj.hide()
+              }
             }
           },
           style(val) {
@@ -35,26 +37,26 @@ class Polyline extends AbstractComponent<AMap.Polyline, PolylineProps, PolylineS
         }
 
         this.converterMap = {
-          path(val) {
-            return self.buildPathValue(val)
+          path(val: PansyMap.Position[]) {
+            return self.buildPathValue(val);
           }
         }
 
-        setTimeout(() => {
-          this.createMapPolyline(props)
-        }, 13)
+        this.createInstance(props).then(() => {
+          this.setState({
+            loaded: true
+          })
+          this.props.onInstanceCreated?.()
+        })
       }
     }
   }
 
-  createMapPolyline(props: PolylineProps) {
+  createInstance(props: PolylineProps) {
     const options: AMap.Polyline.Options = this.buildCreateOptions(props)
     options.map = this.map;
     this.setInstance(new window.AMap.Polyline(options));
-    this.setState({
-      loaded: true
-    })
-    this.props.onInstanceCreated?.()
+    return Promise.resolve(this.instance);
   }
 
   buildCreateOptions(props: PolylineProps) {
@@ -64,33 +66,25 @@ class Polyline extends AbstractComponent<AMap.Polyline, PolylineProps, PolylineS
         if ((key === 'style') && props.style) {
           const styleItem = Object.keys(props.style)
           styleItem.forEach((item) => {
-            // $FlowFixMe
             options[item] = props.style[item]
           })
           // visible 做特殊处理
         } else if (key !== 'visible') {
-          options[key] = this.getSetterValue(key, props[key])
+          options[key] = this.getSetterValue(key, props)
         }
       }
     })
-    return options
+    return options;
   }
 
-  buildPathValue(path: AMap.Polyline.Options['path']) {
+  buildPathValue(path: PansyMap.Position[]) {
     if (path.length) {
       if ('getLng' in path[0]) {
-        return path
+        return path;
       }
-      return path.map((p) => (toLnglat(p)))
+      return path.map((p) => toLnglat(p));
     }
-    return path
-  }
-
-  getSetterValue(key: string, value: any) {
-    if (key in this.converterMap) {
-      return this.converterMap[key](value)
-    }
-    return value
+    return path;
   }
 
   renderEditor(children: any) {
@@ -102,9 +96,10 @@ class Polyline extends AbstractComponent<AMap.Polyline, PolylineProps, PolylineS
     }
     const child = React.Children.only(children)
     return React.cloneElement(child, {
-      __poly__: this.internalObj,
-      __map__: this.map
-    })
+      polyline: this.internalObj,
+      map: this.map,
+      ele: this.element
+    });
     return null
   }
 
