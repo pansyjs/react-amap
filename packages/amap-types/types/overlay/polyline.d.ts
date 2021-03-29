@@ -1,6 +1,6 @@
-/// <reference types="../common" />
-/// <reference types="./path-overlay" />
-/// <reference types="./bezier-curve" />
+/// <reference path="../common/index.d.ts" />
+/// <reference path="./path-overlay.d.ts" />
+/// <reference path="./bezier-curve.d.ts" />
 
 declare namespace AMap {
   namespace Polyline {

@@ -1,5 +1,3 @@
-/// <reference types="../" />
-
 declare namespace AMap {
   namespace Scale {
     interface EventMap {

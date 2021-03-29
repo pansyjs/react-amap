@@ -1,5 +1,5 @@
-/// <reference types="../common" />
-/// <reference types="./circle" />
+/// <reference path="../common/index.d.ts" />
+/// <reference path="./circle.d.ts" />
 
 declare namespace AMap {
   namespace CircleMarker {

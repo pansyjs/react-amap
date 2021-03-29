@@ -1,5 +1,3 @@
-/// <reference types="../" />
-
 declare namespace AMap {
   namespace ToolBar {
     interface EventMap {

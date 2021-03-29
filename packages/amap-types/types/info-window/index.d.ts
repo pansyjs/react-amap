@@ -1,5 +1,5 @@
-/// <reference types="../common" />
-/// <reference types="../overlay/overlay" />
+/// <reference path="../common/index.d.ts" />
+/// <reference path="../overlay/index.d.ts" />
 
 declare namespace AMap {
   namespace InfoWindow {

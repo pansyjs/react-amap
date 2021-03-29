@@ -1,5 +1,5 @@
-/// <reference types="./layer" />
-/// <reference types="../common/event" />
+/// <reference path="./layer.d.ts" />
+/// <reference path="../common/index.d.ts" />
 
 declare namespace AMap {
   namespace TileLayer {

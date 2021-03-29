@@ -1,8 +1,7 @@
-/// <reference types="../common/event" />
-/// <reference types="../common" />
-/// <reference types="./icon" />
-/// <reference types="./overlay" />
-/// <reference types="./marker-shape" />
+/// <reference path="../common/index.d.ts" />
+/// <reference path="./icon.d.ts" />
+/// <reference path="./overlay.d.ts" />
+/// <reference path="./marker-shape.d.ts" />
 
 declare namespace AMap {
   namespace Marker {

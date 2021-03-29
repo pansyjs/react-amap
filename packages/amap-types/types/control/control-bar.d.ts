@@ -1,5 +1,5 @@
-/// <reference types="../core" />
-/// <reference types="../common" />
+/// <reference path="../core/index.d.ts" />
+/// <reference path="../common/index.d.ts" />
 
 declare namespace AMap {
   namespace ControlBar {
