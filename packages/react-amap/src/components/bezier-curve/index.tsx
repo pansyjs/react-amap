@@ -1,10 +1,10 @@
 import React from 'react';
 import { AbstractComponent } from '../AbstractComponent';
 import { hasWindow, withPropsReactive } from '../../utils';
-import { BezierCurveProps, BezierCurveState } from './types';
+import { BezierCurveProps, BezierCurveState, Style } from './types';
 import { allProps } from './config';
 
-class BezierCurve extends AbstractComponent<AMap.BezierCurve, BezierCurveProps, BezierCurveState> {
+class InternalBezierCurve extends AbstractComponent<AMap.BezierCurve, BezierCurveProps, BezierCurveState> {
   private map: AMap.Map;
   private element: HTMLElement;
 
@@ -16,7 +16,7 @@ class BezierCurve extends AbstractComponent<AMap.BezierCurve, BezierCurveProps, 
         const self = this;
 
         this.map = props.map;
-        this.element = this.map.getContainer();
+        this.element = this.map.getContainer() as HTMLDivElement;
         this.state = {
           loaded: false
         };
@@ -31,7 +31,7 @@ class BezierCurve extends AbstractComponent<AMap.BezierCurve, BezierCurveProps, 
               }
             }
           },
-          style(val) {
+          style(val: Style) {
             self.internalObj.setOptions(val)
           }
         }
@@ -94,4 +94,4 @@ class BezierCurve extends AbstractComponent<AMap.BezierCurve, BezierCurveProps, 
   }
 }
 
-export default withPropsReactive<AMap.BezierCurve, BezierCurveProps>(BezierCurve);
+export const BezierCurve = withPropsReactive<AMap.BezierCurve, BezierCurveProps>(InternalBezierCurve);

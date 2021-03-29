@@ -4,7 +4,7 @@ import { toLnglat, hasWindow, withPropsReactive } from '../../utils';
 import { PolylineProps, PolylineState } from './types';
 import { allProps } from './config';
 
-class Polyline extends AbstractComponent<AMap.Polyline, PolylineProps, PolylineState> {
+class InternalPolyline extends AbstractComponent<AMap.Polyline, PolylineProps, PolylineState> {
   private map: AMap.Map;
   private element: HTMLElement;
 
@@ -108,4 +108,4 @@ class Polyline extends AbstractComponent<AMap.Polyline, PolylineProps, PolylineS
   }
 }
 
-export default withPropsReactive<AMap.Polyline, PolylineProps>(Polyline);
+export const Polyline = withPropsReactive<AMap.Polyline, PolylineProps>(InternalPolyline);

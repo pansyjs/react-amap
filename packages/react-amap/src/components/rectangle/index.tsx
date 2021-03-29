@@ -4,7 +4,7 @@ import { AbstractComponent } from '../AbstractComponent';
 import { RectangleProps, RectangleState, Style, Bounds } from './types';
 import { allProps } from './config';
 
-class Rectangle extends AbstractComponent<AMap.Rectangle, RectangleProps, RectangleState> {
+class InternalRectangle extends AbstractComponent<AMap.Rectangle, RectangleProps, RectangleState> {
   private map: AMap.Map;
   private element: HTMLElement;
 
@@ -115,4 +115,4 @@ class Rectangle extends AbstractComponent<AMap.Rectangle, RectangleProps, Rectan
   }
 }
 
-export default withPropsReactive<AMap.Rectangle, RectangleProps>(Rectangle);
+export const Rectangle = withPropsReactive<AMap.Rectangle, RectangleProps>(InternalRectangle);

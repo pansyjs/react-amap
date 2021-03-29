@@ -5,7 +5,7 @@ import { MarkerProps, MarkerState } from './types';
 import { renderMarkerComponent } from './utils';
 import { allProps } from './config';
 
-class Marker extends AbstractComponent<AMap.Marker, MarkerProps, MarkerState> {
+class InternalMarker extends AbstractComponent<AMap.Marker, MarkerProps, MarkerState> {
   private map: AMap.Map;
   private contentWrapper: HTMLDivElement;
 
@@ -121,4 +121,4 @@ class Marker extends AbstractComponent<AMap.Marker, MarkerProps, MarkerState> {
   }
 }
 
-export default withPropsReactive<AMap.Marker, MarkerProps>(Marker);
+export const Marker = withPropsReactive<AMap.Marker, MarkerProps>(InternalMarker);

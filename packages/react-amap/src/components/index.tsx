@@ -1,8 +1,8 @@
-import Map from './map';
+import { Map } from './map';
 
 export default () => {
   return (
-    <Map> 
+    <Map zoom={1}>
 
     </Map>
   )

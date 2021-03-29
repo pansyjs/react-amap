@@ -4,7 +4,7 @@ import { AbstractComponent } from '../AbstractComponent';
 import { EllipseProps, EllipseState, Style } from './types';
 import { allProps } from './config';
 
-class Ellipse extends AbstractComponent<AMap.Ellipse, EllipseProps, EllipseState> {
+class InternalEllipse extends AbstractComponent<AMap.Ellipse, EllipseProps, EllipseState> {
   private map: AMap.Map;
   private element: HTMLElement;
 
@@ -94,4 +94,4 @@ class Ellipse extends AbstractComponent<AMap.Ellipse, EllipseProps, EllipseState
   }
 }
 
-export default withPropsReactive<AMap.Ellipse, EllipseProps>(Ellipse);
+export const Ellipse = withPropsReactive<AMap.Ellipse, EllipseProps>(InternalEllipse);

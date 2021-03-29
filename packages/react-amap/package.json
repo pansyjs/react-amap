@@ -1,9 +1,24 @@
 {
   "name": "@pansy/react-amap",
   "version": "1.0.0",
-  "main": "index.js",
+  "files": [
+    "es",
+    "lib",
+    "types",
+    "index.d.ts"
+  ],
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "index.d.ts",
   "license": "MIT",
+  "scripts": {
+    "build": "father-build && tsc -p tsconfig.build.json"
+  },
   "dependencies": {
     "@pansy/amap-types": "^1.3.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
   }
 }

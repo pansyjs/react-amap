@@ -4,7 +4,7 @@ import { AbstractComponent } from '../AbstractComponent';
 import { InfoWindowProps } from './types';
 import { allProps } from './config';
 
-class InfoWindow extends AbstractComponent<AMap.InfoWindow, InfoWindowProps> {
+class InternalInfoWindow extends AbstractComponent<AMap.InfoWindow, InfoWindowProps> {
   private map: AMap.Map;
   private infoDOM: HTMLDivElement;
 
@@ -118,4 +118,4 @@ class InfoWindow extends AbstractComponent<AMap.InfoWindow, InfoWindowProps> {
   }
 }
 
-export default withPropsReactive<AMap.InfoWindow, InfoWindowProps>(InfoWindow)
+export const InfoWindow = withPropsReactive<AMap.InfoWindow, InfoWindowProps>(InternalInfoWindow)

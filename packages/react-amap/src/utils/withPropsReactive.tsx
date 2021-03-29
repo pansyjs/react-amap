@@ -5,14 +5,16 @@ import { AbstractComponent, AbstractComponentProps } from '../components/Abstrac
 export function withPropsReactive<
   Instance extends ReactAMap.BaseInstance = any,
   Props extends AbstractComponentProps = any
->(MapComponent) {
-  class InternalComponent extends React.Component<Props> {
+>(MapComponent: any) {
+
+  // @ts-ignore
+  return class InternalComponent extends React.Component<Props> {
     /** 实例是否创建 */
-    private instanceCreated: boolean;
+    public instanceCreated: boolean;
     /** 需要包装的组件 */
-    private myMapComponent: AbstractComponent<Instance>;
+    public myMapComponent: AbstractComponent<Instance>;
     /** 已注册的事件 */
-    private registeredEvents: string[];
+    public registeredEvents: string[];
 
     constructor(props: Props) {
       super(props);
@@ -22,7 +24,7 @@ export function withPropsReactive<
       this.onInstanceCreated = this.onInstanceCreated.bind(this);
     }
 
-    shouldComponentUpdate(nextProps) {
+    shouldComponentUpdate(nextProps: Props) {
       this.reactivePropChange(nextProps, true);
 
       return true;
@@ -47,7 +49,7 @@ export function withPropsReactive<
     /**
      * 实例创建成功的回调
      */
-    private onInstanceCreated() {
+     public onInstanceCreated() {
       this.instanceCreated = true
       if ('events' in this.props) {
         // 获取地图组件的实例
@@ -64,7 +66,7 @@ export function withPropsReactive<
      * @param shouldDetectChange
      * @returns
      */
-     private reactivePropChange(nextProps, shouldDetectChange = true) {
+     public reactivePropChange(nextProps, shouldDetectChange = true) {
       if (!this.instanceCreated) {
         return false
       }
@@ -104,7 +106,7 @@ export function withPropsReactive<
      * 绑定事件
      * @param props
      */
-    private createEventsProxy(props) {
+    public createEventsProxy(props) {
       const self = this;
       const { instance } = this.myMapComponent
       const evs = Object.keys(props.events || {})
@@ -113,6 +115,7 @@ export function withPropsReactive<
           self.registeredEvents.push(ev)
           instance.on(ev, (function(ev) {
             return function(...args) {
+              // @ts-ignore
               if (self.props.events && ev in self.props.events) {
                 self.props.events[ev].apply(null, args)
               }
@@ -122,15 +125,15 @@ export function withPropsReactive<
       })
     }
 
-    private detectPropChange(key, nextProps, oldProps) {
+    public detectPropChange(key, nextProps, oldProps) {
       return nextProps[key] !== oldProps[key]
     }
 
-    private saveComponent = (component) => {
+    public saveComponent = (component) => {
       this.myMapComponent = component
     }
 
-    render() {
+    public render() {
       return (
         <MapComponent
           onInstanceCreated={this.onInstanceCreated}
@@ -140,6 +143,4 @@ export function withPropsReactive<
       );
     }
   }
-
-  return InternalComponent;
 }

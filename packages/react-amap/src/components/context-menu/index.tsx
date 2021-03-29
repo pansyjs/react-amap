@@ -4,7 +4,7 @@ import { AbstractComponent } from '../AbstractComponent';
 import { ContextMenuProps, ContextMenuState } from './types';
 import { allProps } from './config';
 
-class ContextMenu extends AbstractComponent<AMap.ContextMenu, ContextMenuProps, ContextMenuState> {
+class InternalContextMenu extends AbstractComponent<AMap.ContextMenu, ContextMenuProps, ContextMenuState> {
   private map: AMap.Map;
   private element: HTMLElement;
 
@@ -104,4 +104,4 @@ class ContextMenu extends AbstractComponent<AMap.ContextMenu, ContextMenuProps, 
   }
 }
 
-export default withPropsReactive<AMap.ContextMenu, ContextMenuProps>(ContextMenu);
+export const ContextMenu = withPropsReactive<AMap.ContextMenu, ContextMenuProps>(InternalContextMenu);

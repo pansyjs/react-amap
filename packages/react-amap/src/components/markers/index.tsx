@@ -5,7 +5,7 @@ import { renderMarkerComponent, getPropValue } from '../marker/utils';
 import { allProps, defaultOpts, IdKey, ClusterProps } from './config';
 import { MarkersProps,  MarkerClustererOptions, MarkerClustererEventFunObject } from './types';
 
-class Markers extends AbstractComponent<any, MarkersProps> {
+class InternalMarkers extends AbstractComponent<any, MarkersProps> {
   private map: AMap.Map;
   private mapCluster: AMap.MarkerClusterer;
   /** 存储所有的Marker对象 */
@@ -305,4 +305,4 @@ class Markers extends AbstractComponent<any, MarkersProps> {
   }
 }
 
-export default withPropsReactive<any, MarkersProps>(Markers);
+export const Markers = withPropsReactive<any, MarkersProps>(InternalMarkers);

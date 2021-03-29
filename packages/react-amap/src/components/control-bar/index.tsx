@@ -3,7 +3,7 @@ import { AbstractComponent } from '../AbstractComponent';
 import { ControlBarProps, ControlBarState } from './types';
 import { allProps } from './config';
 
-class ControlBar extends AbstractComponent<AMap.ControlBar, ControlBarProps, ControlBarState> {
+class InternalControlBar extends AbstractComponent<AMap.ControlBar, ControlBarProps, ControlBarState> {
   private map: AMap.Map;
 
   static defaultProps: ControlBarProps = {
@@ -71,4 +71,4 @@ class ControlBar extends AbstractComponent<AMap.ControlBar, ControlBarProps, Con
   }
 }
 
-export default withPropsReactive<AMap.ControlBar, ControlBarProps>(ControlBar);
+export const ControlBar = withPropsReactive<AMap.ControlBar, ControlBarProps>(InternalControlBar);

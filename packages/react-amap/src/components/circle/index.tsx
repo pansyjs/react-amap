@@ -4,7 +4,7 @@ import { AbstractComponent } from '../AbstractComponent';
 import { CircleProps, CircleState, Style } from './types';
 import { allProps } from './config';
 
-class Circle extends AbstractComponent<AMap.Circle, CircleProps, CircleState> {
+class InternalCircle extends AbstractComponent<AMap.Circle, CircleProps, CircleState> {
   private map: AMap.Map;
   private element: HTMLElement;
 
@@ -94,4 +94,4 @@ class Circle extends AbstractComponent<AMap.Circle, CircleProps, CircleState> {
   }
 }
 
-export default withPropsReactive<AMap.Circle, CircleProps>(Circle);
+export const Circle = withPropsReactive<AMap.Circle, CircleProps>(InternalCircle);

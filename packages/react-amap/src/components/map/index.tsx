@@ -9,7 +9,7 @@ import {
 import { MapProps, MapState } from './types';
 import { AbstractComponent } from '../AbstractComponent';
 
-class Map extends AbstractComponent<AMap.Map, MapProps, MapState> {
+class InternalMap extends AbstractComponent<AMap.Map, MapProps, MapState> {
   /** 存放地图的容器 */
   private mapWrapper: HTMLDivElement;
 
@@ -160,4 +160,4 @@ class Map extends AbstractComponent<AMap.Map, MapProps, MapState> {
   }
 }
 
-export default withPropsReactive<AMap.Map, MapProps>(Map);
+export const Map = withPropsReactive<AMap.Map, MapProps>(InternalMap);

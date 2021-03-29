@@ -4,7 +4,7 @@ import { AbstractComponent } from '../AbstractComponent';
 import { PolygonProps, PolygonState, Style } from './types';
 import { allProps } from './config';
 
-class Polygon extends AbstractComponent<AMap.Polygon, PolygonProps, PolygonState> {
+class InternalPolygon extends AbstractComponent<AMap.Polygon, PolygonProps, PolygonState> {
   private map: AMap.Map;
   private element: HTMLElement;
 
@@ -108,4 +108,4 @@ class Polygon extends AbstractComponent<AMap.Polygon, PolygonProps, PolygonState
   }
 }
 
-export default withPropsReactive<AMap.Polygon, PolygonProps>(Polygon);
+export const Polygon = withPropsReactive<AMap.Polygon, PolygonProps>(InternalPolygon);

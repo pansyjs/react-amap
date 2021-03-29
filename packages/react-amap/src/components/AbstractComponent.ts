@@ -21,7 +21,7 @@ export abstract class AbstractComponent<
   /** 转换器配置  */
   public converterMap: Record<string, any> = {};
 
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
   }
 
