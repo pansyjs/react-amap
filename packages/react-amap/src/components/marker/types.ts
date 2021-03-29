@@ -7,8 +7,12 @@ export interface EventMap<D = any> extends ReactAMap.GetEventFunObject<AMap.Mark
   created?: (instance: AMap.Marker<D>) => void;
 }
 
+export interface MarkerOptions extends Omit<AMap.Marker.Options, 'position'> {
+  position?: ReactAMap.Position;
+}
+
 export interface MarkerProps<D = any> extends
-  AMap.Marker.Options,
+  MarkerOptions,
   ReactAMap.BaseChildrenComponentProps,
   AbstractComponentProps
 {

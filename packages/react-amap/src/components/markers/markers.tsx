@@ -2,6 +2,7 @@ import { render } from 'react-dom';
 import { hasWindow, isFun } from '../../utils';
 import { AbstractComponent } from '../AbstractComponent';
 import { renderMarkerComponent, getPropValue } from '../marker/utils';
+import { MarkerOptions } from '../marker';
 import { allProps, defaultOpts, IdKey, ClusterProps } from './config';
 import { MarkersProps,  MarkerClustererOptions, MarkerClustererEventFunObject } from './types';
 
@@ -100,7 +101,7 @@ export class InternalMarkers extends AbstractComponent<any, MarkersProps> {
    * 获取创建标记点的参数
    */
   // @ts-ignore
-  buildCreateOptions(props: MarkersProps, raw: AMap.Marker.Options, idx: number) {
+  buildCreateOptions(props: MarkersProps, raw: MarkerOptions, idx: number) {
     const result: AMap.Marker.Options = {};
 
     const disabledKeys = ['extData'];

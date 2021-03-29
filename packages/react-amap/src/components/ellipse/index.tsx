@@ -5,3 +5,4 @@ import { InternalEllipse } from './ellipse';
 export const Ellipse = withPropsReactive<AMap.Ellipse, EllipseProps>(InternalEllipse);
 export * from './ellipse';
 export * from './config';
+export * from './types';

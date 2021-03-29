@@ -1,6 +1,6 @@
 import React from 'react';
 import { AbstractComponentProps } from '../AbstractComponent';
-import { MarkerProps as MarkerOptions } from '../marker/types';
+import { MarkerProps as MarkerOptions } from '../marker';
 
 /** Marker 标记点的事件对象 */
 export type MarkerEventFunObject = ReactAMap.GetEventFunObject<AMap.Marker.EventMap<AMap.Marker>>;
