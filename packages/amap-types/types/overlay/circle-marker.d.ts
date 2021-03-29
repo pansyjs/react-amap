@@ -3,6 +3,8 @@
 
 declare namespace AMap {
   namespace CircleMarker {
+    interface EventMap<I = CircleMarker> extends ShapeOverlay.EventMap<I> {}
+
     interface Options<T = any> {
       map?: Map;
 
