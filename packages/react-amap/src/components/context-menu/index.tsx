@@ -32,12 +32,13 @@ class ContextMenu extends AbstractComponent<AMap.ContextMenu, ContextMenuProps, 
             }
           },
           style(val: ContextMenuProps) {
+            // @ts-ignore
             self.internalObj.setOptions(val);
           }
         }
 
         this.converterMap = {
-          path(val: PansyMap.Position[]) {
+          path(val: ReactAMap.Position[]) {
             return self.buildPathValue(val);
           }
         }
@@ -53,23 +54,18 @@ class ContextMenu extends AbstractComponent<AMap.ContextMenu, ContextMenuProps, 
     }
   }
 
-  createInstance(props: PolygonProps) {
+  createInstance(props: ContextMenuProps) {
     const options = this.buildCreateOptions(props)
     options.map = this.map;
-    this.setInstance(new window.AMap.Polygon(options));
+    this.setInstance(new window.AMap.ContextMenu(options));
     return Promise.resolve(this.instance);
   }
 
-  buildCreateOptions(props: PolygonProps) {
+  buildCreateOptions(props: ContextMenuProps) {
     const options: AMap.Circle.Options = {}
     allProps.forEach((key) => {
       if (key in props) {
-        if (key === 'style' && (props.style !== undefined)) {
-          const styleItem = Object.keys(props.style)
-          styleItem.forEach((item) => {
-            options[item] = props.style[item]
-          })
-        } else if (key !== 'visible') {
+        if (key !== 'visible') {
           options[key] = this.getSetterValue(key, props)
         }
       }
@@ -77,7 +73,7 @@ class ContextMenu extends AbstractComponent<AMap.ContextMenu, ContextMenuProps, 
     return options;
   }
 
-  buildPathValue(path: PansyMap.Position[] | PansyMap.Position[][]) {
+  buildPathValue(path: ReactAMap.Position[] | ReactAMap.Position[][]) {
     if (path.length) {
       return path.map((p, index) => {
         if (Array.isArray(p[index])) {
@@ -108,4 +104,4 @@ class ContextMenu extends AbstractComponent<AMap.ContextMenu, ContextMenuProps, 
   }
 }
 
-export default withPropsReactive<AMap.ContextMenu, PolygonProps>(ContextMenu);
+export default withPropsReactive<AMap.ContextMenu, ContextMenuProps>(ContextMenu);

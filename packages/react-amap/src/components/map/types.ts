@@ -1,6 +1,6 @@
 import { AbstractComponentProps } from '../AbstractComponent';
 
-export type MapEventMap = PansyMap.GetEventFunObject<AMap.Map.EventMap> & {
+export type MapEventMap = ReactAMap.GetEventFunObject<AMap.Map.EventMap> & {
   created?: (map: AMap.Map) => void;
 }
 
@@ -16,7 +16,7 @@ export interface MapProps extends AbstractComponentProps, Omit<AMap.Map.Options,
   /** 高德地图的版本 */
   version?: string;
   /** 地图中心点坐标值 */
-  center?: PansyMap.Position;
+  center?: ReactAMap.Position;
   /** 加载高德地图JS使用的协议 */
   protocol?: string;
   /** 加载高德API的前半部分 */

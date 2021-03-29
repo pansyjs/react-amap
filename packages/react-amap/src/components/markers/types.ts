@@ -3,10 +3,10 @@ import { AbstractComponentProps } from '../AbstractComponent';
 import { MarkerProps as MarkerOptions } from '../marker/types';
 
 /** Marker 标记点的事件对象 */
-export type MarkerEventFunObject = PansyMap.GetEventFunObject<AMap.Marker.EventMap<AMap.Marker>>;
+export type MarkerEventFunObject = ReactAMap.GetEventFunObject<AMap.Marker.EventMap<AMap.Marker>>;
 
 /** MarkerClusterer 聚合对象的事件对象  */
-export type MarkerClustererEventFunObject = PansyMap.GetEventFunObject<AMap.MarkerClusterer.EventMap<AMap.MarkerClusterer>>;
+export type MarkerClustererEventFunObject = ReactAMap.GetEventFunObject<AMap.MarkerClusterer.EventMap<AMap.MarkerClusterer>>;
 
 /** Marker 标记点的事件对象 添加创建事件 */
 export interface MarkerEventMap extends MarkerEventFunObject {
@@ -25,7 +25,7 @@ export interface MarkerClustererOptions<ExtraData = any> extends AMap.MarkerClus
 
 export interface MarkersProps<D = any> extends
   AMap.Marker.Options,
-  PansyMap.BaseChildrenComponentProps,
+  ReactAMap.BaseChildrenComponentProps,
   AbstractComponentProps
 {
   useCluster?: boolean | MarkerClustererOptions<D>;

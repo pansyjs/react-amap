@@ -1,32 +1,21 @@
 
 import { AbstractComponentProps } from '../AbstractComponent';
 
-type StyleTypes =
-  'strokeColor' |
-  'strokeOpacity' |
-  'strokeWeight' |
-  'fillColor' |
-  'fillOpacity' |
-  'strokeStyle' |
-  'strokeDasharray';
-
-export interface CircleMarkerProps extends
-  Omit<AMap.CircleMarker.Options, StyleTypes>,
-  PansyMap.BaseChildrenComponentProps,
-  AbstractComponentProps
-{
-  style?: CircleMarkerStyle;
-  visible?: boolean;
+export interface Style extends ReactAMap.StrokeStyle, ReactAMap.FillStyle {};
+export type StyleKeys = ReactAMap.$Keys<Style>;
+export interface EventMap extends ReactAMap.GetEventFunObject<AMap.CircleMarker.EventMap<AMap.CircleMarker>> {
+  /** 创建事件 */
+  created?: (instance: AMap.CircleMarker) => void;
 }
 
-export interface CircleMarkerStyle {
-  strokeColor?: string;
-  strokeOpacity?: number;
-  strokeWeight?: number;
-  fillColor?: string;
-  fillOpacity?: number;
-  strokeStyle?: AMap.StrokeStyle;
-  strokeDasharray?: number[];
+export interface CircleMarkerProps extends
+  Omit<AMap.CircleMarker.Options, StyleKeys>,
+  ReactAMap.BaseChildrenComponentProps,
+  AbstractComponentProps
+{
+  style?: Style;
+  visible?: boolean;
+  events?: EventMap;
 }
 
 export interface CircleMarkerState {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { withPropsReactive, toLnglat, hasWindow } from '../../utils';
 import { AbstractComponent } from '../AbstractComponent';
-import { CircleProps, CircleState, CircleStyle } from './types';
+import { CircleProps, CircleState, Style } from './types';
 import { allProps } from './config';
 
 class Circle extends AbstractComponent<AMap.Circle, CircleProps, CircleState> {
@@ -31,7 +31,7 @@ class Circle extends AbstractComponent<AMap.Circle, CircleProps, CircleState> {
               }
             }
           },
-          style(val: CircleStyle) {
+          style(val: Style) {
             self.internalObj.setOptions(val);
           }
         }

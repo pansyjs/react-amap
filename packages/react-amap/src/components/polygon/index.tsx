@@ -1,7 +1,7 @@
 import React from 'react';
 import { withPropsReactive, toLnglat, hasWindow } from '../../utils';
 import { AbstractComponent } from '../AbstractComponent';
-import { PolygonProps, PolygonState, PolygonStyle } from './types';
+import { PolygonProps, PolygonState, Style } from './types';
 import { allProps } from './config';
 
 class Polygon extends AbstractComponent<AMap.Polygon, PolygonProps, PolygonState> {
@@ -31,13 +31,13 @@ class Polygon extends AbstractComponent<AMap.Polygon, PolygonProps, PolygonState
               }
             }
           },
-          style(val: PolygonStyle) {
+          style(val: Style) {
             self.internalObj.setOptions(val);
           }
         }
 
         this.converterMap = {
-          path(val: PansyMap.Position[]) {
+          path(val: ReactAMap.Position[]) {
             return self.buildPathValue(val);
           }
         }
@@ -77,7 +77,7 @@ class Polygon extends AbstractComponent<AMap.Polygon, PolygonProps, PolygonState
     return options;
   }
 
-  buildPathValue(path: PansyMap.Position[] | PansyMap.Position[][]) {
+  buildPathValue(path: ReactAMap.Position[] | ReactAMap.Position[][]) {
     if (path.length) {
       return path.map((p, index) => {
         if (Array.isArray(p[index])) {

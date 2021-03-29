@@ -1,56 +1,23 @@
 
 import { AbstractComponentProps } from '../AbstractComponent';
 
-type StyleTypes =
-  'strokeColor' |
-  'strokeOpacity' |
-  'strokeWeight' |
-  'strokeStyle' |
-  'strokeDasharray' |
-  'fillColor' |
-  'fillOpacity';
-
-export type Bounds = AMap.Bounds | [PansyMap.Position, PansyMap.Position];
-
-export interface RectangleProps extends
-  Omit<AMap.Rectangle.Options, StyleTypes | 'bounds'>,
-  PansyMap.BaseChildrenComponentProps,
-  AbstractComponentProps
-{
-  style?: RectangleStyle;
-  visible?: boolean;
-  bounds?: Bounds;
+export interface Style extends ReactAMap.StrokeStyle, ReactAMap.FillStyle {}
+export type StyleKeys = ReactAMap.$Keys<Style>
+export interface EventMap extends ReactAMap.GetEventFunObject<AMap.Rectangle.EventMap<AMap.Rectangle>> {
+  /** 创建事件 */
+  created?: (instance: AMap.Rectangle) => void;
 }
 
-export interface RectangleStyle {
-  /**
-   * 描边线条颜色
-   */
-  strokeColor?: string;
-  /**
-  * 描边线条透明度
-  */
-  strokeOpacity?: number;
-  /**
-  * 描边宽度
-  */
-  strokeWeight?: number;
-  /**
-  * 描边样式
-  */
-  strokeStyle?: AMap.StrokeStyle;
-  /**
-  * 虚线间隔
-  */
-  strokeDasharray?: number[];
-  /**
-   * 多边形填充颜色
-   */
-  fillColor?: string;
-  /**
-  * 边形填充透明度
-  */
-  fillOpacity?: number;
+export type Bounds = AMap.Bounds | [ReactAMap.Position, ReactAMap.Position];
+
+export interface RectangleProps extends
+  Omit<AMap.Rectangle.Options, StyleKeys | 'bounds'>,
+  ReactAMap.BaseChildrenComponentProps,
+  AbstractComponentProps
+{
+  style?: Style;
+  visible?: boolean;
+  bounds?: Bounds;
 }
 
 export interface RectangleState {

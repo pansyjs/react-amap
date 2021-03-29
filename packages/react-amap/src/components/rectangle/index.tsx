@@ -1,7 +1,7 @@
 import React from 'react';
 import { toLnglat, hasWindow, withPropsReactive } from '../../utils';
 import { AbstractComponent } from '../AbstractComponent';
-import { RectangleProps, RectangleState, RectangleStyle, Bounds } from './types';
+import { RectangleProps, RectangleState, Style, Bounds } from './types';
 import { allProps } from './config';
 
 class Rectangle extends AbstractComponent<AMap.Rectangle, RectangleProps, RectangleState> {
@@ -31,7 +31,7 @@ class Rectangle extends AbstractComponent<AMap.Rectangle, RectangleProps, Rectan
               }
             }
           },
-          style(val: RectangleStyle) {
+          style(val: Style) {
             self.internalObj.setOptions(val)
           }
         }

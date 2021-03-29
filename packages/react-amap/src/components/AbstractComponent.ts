@@ -1,13 +1,16 @@
 import React from 'react';
 
-export interface AbstractComponentProps<E = any> {
+export interface InternalAbstractComponentProps<E = any> {
+  /** 需要绑定的事件对象 */
   events?: E;
+  /** 实例创建的回调，内部使用 */
   onInstanceCreated?: () => void;
-  children?: React.ReactNode;
 }
 
+export type AbstractComponentProps<E = any> = React.PropsWithChildren<InternalAbstractComponentProps<E>>
+
 export abstract class AbstractComponent<
-  Instance extends PansyMap.BaseInstance,
+  Instance extends ReactAMap.BaseInstance,
   Props extends AbstractComponentProps = {},
   State = {}
 > extends React.Component<Props, State> {

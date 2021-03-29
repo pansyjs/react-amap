@@ -1,35 +1,24 @@
 
 import { AbstractComponentProps } from '../AbstractComponent';
 
-export type StyleTypes =
-  'strokeColor' |
-  'strokeOpacity' |
-  'strokeWeight' |
-  'fillColor' |
-  'fillOpacity' |
-  'strokeStyle' |
-  'strokeDasharray';
-
-export type CircleEventMap = PansyMap.GetEventFunObject<AMap.Circle.EventMap<AMap.Circle>>
-
-export interface CircleProps extends
-  Omit<AMap.Circle.Options, StyleTypes>,
-  PansyMap.BaseChildrenComponentProps,
-  AbstractComponentProps
-{
-  style?: CircleStyle;
-  visible?: boolean;
-  events?: CircleEventMap;
+export interface Style extends ReactAMap.StrokeStyle, ReactAMap.FillStyle {}
+export type StyleKeys = ReactAMap.$Keys<Style>
+export interface EventMap extends ReactAMap.GetEventFunObject<AMap.Circle.EventMap<AMap.Circle>> {
+  /** 创建事件 */
+  created?: (instance: AMap.Circle) => void;
 }
 
-export interface CircleStyle {
-  strokeColor?: string;
-  strokeOpacity?: number;
-  strokeWeight?: number;
-  fillColor?: string;
-  fillOpacity?: number;
-  strokeStyle?: AMap.StrokeStyle;
-  strokeDasharray?: number[];
+export interface CircleProps extends
+  Omit<AMap.Circle.Options, StyleKeys>,
+  ReactAMap.BaseChildrenComponentProps,
+  AbstractComponentProps
+{
+  /** 样式 */
+  style?: Style;
+  /** 是否显示 */
+  visible?: boolean;
+  /** 绑定事件 */
+  events?: EventMap;
 }
 
 export interface CircleState {

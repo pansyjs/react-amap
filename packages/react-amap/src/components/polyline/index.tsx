@@ -37,7 +37,7 @@ class Polyline extends AbstractComponent<AMap.Polyline, PolylineProps, PolylineS
         }
 
         this.converterMap = {
-          path(val: PansyMap.Position[]) {
+          path(val: ReactAMap.Position[]) {
             return self.buildPathValue(val);
           }
         }
@@ -77,7 +77,7 @@ class Polyline extends AbstractComponent<AMap.Polyline, PolylineProps, PolylineS
     return options;
   }
 
-  buildPathValue(path: PansyMap.Position[]) {
+  buildPathValue(path: ReactAMap.Position[]) {
     if (path.length) {
       if ('getLng' in path[0]) {
         return path;

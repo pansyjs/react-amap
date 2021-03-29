@@ -1,6 +1,6 @@
 /// <reference types="@pansy/amap-types" />
 
-declare namespace PansyMap {
+declare namespace ReactAMap {
   type Position = [number, number] |
     { lng: number; lat: number; } |
     { longitude: number; latitude: number; } |
@@ -14,7 +14,41 @@ declare namespace PansyMap {
     { width: number, height: number };
 
   interface BaseChildrenComponentProps {
+    /** 由父组件注入的地图实例对象 */
     map?: AMap.Map;
+  }
+
+  export type $Keys<T extends object> = keyof T;
+
+  /** 线条的样式 */
+  interface StrokeStyle {
+    /** 线条颜色 */
+    strokeColor?: string;
+    /** 线条透明度 */
+    strokeOpacity?: number;
+    /** 线条宽度 */
+    strokeWeight?: number;
+    /** 虚线或者视线 */
+    strokeStyle?: AMap.StrokeStyle;
+    /** 虚线的分段  */
+    strokeDasharray?: [number, number];
+  }
+
+  /** 填充的样式 */
+  interface FillStyle {
+    /** 填充的颜色 */
+    fillColor?: string;
+    /** 填充的透明度 */
+    fillOpacity?: number;
+  }
+
+  interface OutlineStyle {
+    /** 是否描边 */
+    isOutline?: boolean;
+    /** 描边颜色 */
+    outlineColor?: string;
+    /** 描边宽度 */
+    borderWeight?: number;
   }
 
   class BaseInstance extends AMap.EventEmitter {

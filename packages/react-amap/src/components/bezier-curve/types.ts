@@ -1,56 +1,24 @@
 
 import { AbstractComponentProps } from '../AbstractComponent';
 
-export interface BezierCurveProps extends
-  AMap.BezierCurve.Options,
-  PansyMap.BaseChildrenComponentProps,
-  AbstractComponentProps
-{
-  style?: BezierCurveStyle;
-  visible?: boolean;
+export interface Style extends ReactAMap.StrokeStyle, ReactAMap.OutlineStyle {};
+export type StyleKeys = ReactAMap.$Keys<Style>;
+export interface EventMap extends ReactAMap.GetEventFunObject<AMap.BezierCurve.EventMap<AMap.BezierCurve>> {
+  /** 创建事件 */
+  created?: (instance: AMap.BezierCurve) => void;
 }
 
-interface BezierCurveStyle {
-  /**
-   * 线条是否带描边
-   */
-  isOutline?: boolean;
-  /**
-  * 线条描边颜色
-  */
-  outlineColor?: string;
-  /**
-  * 是否绘制成大地线
-  */
-  geodesic?: boolean;
-  /**
-   * 描边线条颜色
-   */
-  strokeColor?: string;
-  /**
-   * 描边线条透明度
-   */
-  strokeOpacity?: number;
-  /**
-   * 描边宽度
-   */
-  strokeWeight?: number;
-  /**
-   * 描边样式
-   */
-  strokeStyle?: AMap.StrokeStyle;
-  /**
-   * 虚线间隔
-   */
-  strokeDasharray?: number[];
-  /**
-   * 折线拐点的绘制样式
-   */
-  lineJoin?: AMap.StrokeLineJoin;
-  /**
-   * 折线两端线帽的绘制样式
-   */
-  lineCap?: AMap.StrokeLineCap;
+export interface BezierCurveProps extends
+  Omit<AMap.BezierCurve.Options, StyleKeys>,
+  ReactAMap.BaseChildrenComponentProps,
+  AbstractComponentProps
+{
+  /** 曲线的样式 */
+  style?: Style;
+  /** 是否显示 */
+  visible?: boolean;
+   /** 绑定事件 */
+  events?: EventMap;
 }
 
 export interface BezierCurveState {

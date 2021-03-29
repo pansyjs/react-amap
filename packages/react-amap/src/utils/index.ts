@@ -5,7 +5,7 @@ export const hasWindow = (typeof window !== 'undefined');
  * @param position
  * @returns AMap.LngLat
  */
-export const toLnglat = (position: PansyMap.Position): AMap.LngLat | null => {
+export const toLnglat = (position: ReactAMap.Position): AMap.LngLat | null => {
   if (!position) return null;
 
   // 高德原生 AMap.LngLat 类
@@ -33,7 +33,7 @@ export const toLnglat = (position: PansyMap.Position): AMap.LngLat | null => {
  * @param offset
  * @returns
  */
-export const toPixel = (offset: PansyMap.Offset): AMap.Pixel | null => {
+export const toPixel = (offset: ReactAMap.Offset): AMap.Pixel | null => {
   if (!offset) return null;
 
   // 高德原生 AMap.Pixel 类
@@ -58,7 +58,7 @@ export const toPixel = (offset: PansyMap.Offset): AMap.Pixel | null => {
  * @param size
  * @returns
  */
-export const toSize = (size: PansyMap.Size): AMap.Size | null => {
+export const toSize = (size: ReactAMap.Size): AMap.Size | null => {
   if (!size) return null;
 
   if ('getWidth' in size) {

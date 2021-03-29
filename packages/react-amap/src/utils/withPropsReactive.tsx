@@ -3,7 +3,7 @@ import { toCapitalString } from './';
 import { AbstractComponent, AbstractComponentProps } from '../components/AbstractComponent';
 
 export function withPropsReactive<
-  Instance extends PansyMap.BaseInstance = any,
+  Instance extends ReactAMap.BaseInstance = any,
   Props extends AbstractComponentProps = any
 >(MapComponent) {
   class InternalComponent extends React.Component<Props> {

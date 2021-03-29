@@ -1,7 +1,7 @@
 import React from 'react';
 import { withPropsReactive, toLnglat, hasWindow } from '../../utils';
 import { AbstractComponent } from '../AbstractComponent';
-import { EllipseProps, EllipseState, EllipseStyle } from './types';
+import { EllipseProps, EllipseState, Style } from './types';
 import { allProps } from './config';
 
 class Ellipse extends AbstractComponent<AMap.Ellipse, EllipseProps, EllipseState> {
@@ -31,7 +31,7 @@ class Ellipse extends AbstractComponent<AMap.Ellipse, EllipseProps, EllipseState
               }
             }
           },
-          style(val: EllipseStyle) {
+          style(val: Style) {
             self.internalObj.setOptions(val);
           }
         }
