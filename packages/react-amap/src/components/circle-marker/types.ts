@@ -9,11 +9,12 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.CircleMarker.
 }
 
 export interface CircleMarkerProps extends
-  Omit<AMap.CircleMarker.Options, StyleKeys>,
+  Omit<AMap.CircleMarker.Options, StyleKeys | 'center'>,
   ReactAMap.BaseChildrenComponentProps,
   AbstractComponentProps
 {
   style?: Style;
+  center?: ReactAMap.Position;
   visible?: boolean;
   events?: EventMap;
 }

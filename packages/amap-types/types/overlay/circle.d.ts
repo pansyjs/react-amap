@@ -24,6 +24,7 @@ declare namespace AMap {
       strokeStyle?: StrokeStyle;
       extData?: ExtraData;
       strokeDasharray?: number[];
+      draggable?: boolean;
 
       // internal
       visible?: boolean;
