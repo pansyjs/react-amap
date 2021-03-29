@@ -1,6 +1,6 @@
 {
   "name": "@pansy/react-amap",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "files": [
     "es",
     "lib"
@@ -13,7 +13,7 @@
     "build": "father-build"
   },
   "dependencies": {
-    "@pansy/amap-types": "1.3.2"
+    "@pansy/amap-types": "1.3.3"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
