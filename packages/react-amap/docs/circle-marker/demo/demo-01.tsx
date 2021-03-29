@@ -1,4 +1,3 @@
-// @ts-ignore
 import { Map, CircleMarker } from '@pansy/react-amap';
 
 export default () => {

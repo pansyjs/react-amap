@@ -2,7 +2,6 @@
   * desc: Map 的父组件必须具有宽度和高度；
   */
 import { useState } from 'react';
-// @ts-ignore
 import { Map } from '@pansy/react-amap';
 
 export default () => {

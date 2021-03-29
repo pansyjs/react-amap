@@ -1,4 +1,3 @@
-// @ts-ignore
 import { Map, Marker } from '@pansy/react-amap';
 
 export default () => {

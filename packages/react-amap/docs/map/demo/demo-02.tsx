@@ -1,7 +1,6 @@
 /**
   * desc: 可以通过events属性给地图绑定事件；
   */
-// @ts-ignore
 import { Map } from '@pansy/react-amap';
 
 export default () => {

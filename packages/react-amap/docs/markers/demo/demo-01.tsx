@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// @ts-ignore
 import { Map, Markers } from '@pansy/react-amap';
 
 const randomPosition = () => ({

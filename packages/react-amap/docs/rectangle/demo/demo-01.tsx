@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// @ts-ignore
 import { Map, Rectangle } from '@pansy/react-amap';
 
 const randomIndex = (len) => (Math.floor(Math.random() * len));

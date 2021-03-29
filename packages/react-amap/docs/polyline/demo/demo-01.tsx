@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// @ts-ignore
 import { Map, Polyline } from '@pansy/react-amap';
 
 const randomPath = () => ({

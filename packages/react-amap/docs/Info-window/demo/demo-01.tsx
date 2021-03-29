@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// @ts-ignore
 import { Map, InfoWindow } from '@pansy/react-amap';
 
 export default () => {
