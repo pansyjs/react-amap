@@ -9,6 +9,13 @@
 
 本库主要参考 饿了么[react-amap](https://github.com/ElemeFE/react-amap)，API基本一致。
 
+## ✨ 特性
+
+- 📦 开箱即用，本组件支持了大部分的常用地图组件
+- 🎉 可扩展，支持自定义地图组件
+- 💻 使用 TypeScript 编写，提供完善的类型定义，包含高德地图 JS SDK 声明。
+- 💝 无任何第三方依赖
+
 ## 🏗 安装
 
 ```sh
