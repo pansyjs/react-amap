@@ -7,7 +7,7 @@ hero:
   desc: 基于 React 封装的高德地图组件，助你轻松的接入到 React 项目中。
   actions:
     - text: 快速开始 →
-      link: /docs/getting-started-table
+      link: /docs/getting-started
 
 features:
   - icon: https://gw.alipayobjects.com/os/q/cms/images/k9ziitmp/13668549-b393-42a2-97c3-a6365ba87ac2_w96_h96.png

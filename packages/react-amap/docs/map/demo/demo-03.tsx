@@ -1,5 +1,5 @@
 /**
-  * desc: Map 的父组件必须具有宽度和高度；
+  * desc: 地图的动态属性在地图创建成功后可以动态的改变；
   */
 import { useState } from 'react';
 import { Map } from '@pansy/react-amap';

@@ -1,12 +1,17 @@
+import React from 'react';
 import { render } from 'react-dom';
 import { hasWindow, isFun } from '../../utils';
 import { AbstractComponent } from '../AbstractComponent';
 import { renderMarkerComponent, getPropValue } from '../marker/utils';
 import { MarkerOptions } from '../marker';
 import { allProps, defaultOpts, IdKey, ClusterProps } from './config';
-import { MarkersProps,  MarkerClustererOptions, MarkerClustererEventFunObject } from './types';
+import {
+  MarkersProps,
+  MarkerClustererOptions,
+  MarkerClustererEventFunObject
+} from './types';
 
-export class InternalMarkers extends AbstractComponent<any, MarkersProps> {
+export class InternalMarkers<ExtraData = any> extends AbstractComponent<any, MarkersProps> {
   private map: AMap.Map;
   private mapCluster: AMap.MarkerClusterer;
   /** 存储所有的Marker对象 */
@@ -26,14 +31,11 @@ export class InternalMarkers extends AbstractComponent<any, MarkersProps> {
     }
   }
 
-  shouldComponentUpdate() {
-    return false;
-  }
-
-  componentWillReceiveProps(nextProps: MarkersProps) {
+  shouldComponentUpdate(nextProps: MarkersProps) {
     if (this.map) {
       this.refreshMarkersLayout(nextProps);
     }
+    return false;
   }
 
   componentDidMount() {
@@ -185,11 +187,11 @@ export class InternalMarkers extends AbstractComponent<any, MarkersProps> {
    * @returns
    */
   createClusterPlugin(config: MarkerClustererOptions) {
-    let options: AMap.MarkerClusterer.Options = {};
+    const options: MarkerClustererOptions<ExtraData> = {};
 
     const defalutOptions = {
       minClusterSize: 2,
-      zoomOnClick: false,
+      zoomOnClick: true,
       maxZoom: 18,
       gridSize: 60,
       averageCenter: true
@@ -202,6 +204,26 @@ export class InternalMarkers extends AbstractComponent<any, MarkersProps> {
         options[key] = defalutOptions[key];
       }
     });
+
+    // 扩展 render 方法，支持 react 组件
+    if ('render' in config && isFun(config.render)) {
+      options.renderClusterMarker = ({ count, marker }) => {
+        const result = config.render();
+
+        if (result && React.isValidElement(result)) {
+          const contentWrapper = document.createElement('div');
+
+          marker.setContent(contentWrapper);
+
+          const children = React.cloneElement(result, {
+            count,
+            marker
+          });
+
+          render(<div>{children}</div>, contentWrapper)
+        }
+      }
+    }
 
     this.mapCluster = new window.AMap.MarkerClusterer(this.map, [], options);
     let events: Record<string, any>= {};

@@ -14,5 +14,5 @@ export const ClusterProps = [
   'averageCenter',
   'styles',
   'zoomOnClick',
-  'renderCluserMarker'
+  'renderClusterMarker',
 ];

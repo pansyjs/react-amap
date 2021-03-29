@@ -46,14 +46,11 @@ export class InternalMarker extends AbstractComponent<AMap.Marker, MarkerProps, 
     }
   }
 
-  shouldComponentUpdate() {
-    return false
-  }
-
-  componentWillReceiveProps(nextProps: MarkerProps) {
+  shouldComponentUpdate(nextProps) {
     if (this.map) {
       this.refreshMarkerLayout(nextProps);
     }
+    return false
   }
 
   createInstance(props: MarkerProps) {

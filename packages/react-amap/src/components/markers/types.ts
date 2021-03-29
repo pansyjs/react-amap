@@ -20,7 +20,14 @@ export interface MarkerClustererEventMap extends MarkerClustererEventFunObject {
 
 /** 创建聚合对象的参数 */
 export interface MarkerClustererOptions<ExtraData = any> extends AMap.MarkerClusterer.Options<ExtraData> {
+  render?: () => React.ReactNode;
   events?: MarkerClustererEventMap
+}
+
+/** 聚合点组件参数 */
+export interface ClusterComponentProps {
+  count?: number;
+  marker?: AMap.Marker;
 }
 
 export interface MarkersProps<D = any> extends

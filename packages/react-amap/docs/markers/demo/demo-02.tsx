@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// @ts-ignore
 import { Map, Markers, ControlBar } from '@pansy/react-amap';
 
 const randomPosition = () => ({
@@ -13,6 +12,14 @@ const randomMarker = (len) => (
   }))
 );
 
+const ChildrenComponent = (props: any) => {
+  return (
+    <div>
+      {props.count}
+    </div>
+  )
+}
+
 export default () => {
   const [markers] = useState(randomMarker(100));
 
@@ -22,12 +29,16 @@ export default () => {
         <ControlBar
           position={{
             right: '10px',
-            bottom: 0
+            bottom: '10px'
           }}
         />
         <Markers
           markers={markers}
-          useCluster
+          useCluster={{
+            render: () => {
+              return <ChildrenComponent />
+            }
+          }}
         />
       </Map>
     </div>

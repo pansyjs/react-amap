@@ -32,6 +32,10 @@ Map 组件是其他组件的基础，其他地图组件必须作为 Map 的子�
 
 <code src="./demo/demo-03.tsx" />
 
+### 在 Map 下添加自定义 DOM 组件
+
+<code src="./demo/demo-04.tsx" />
+
 ## API
 
 | 属性 |说明|类型|默认值|
