@@ -1,3 +1,5 @@
+/// <reference path="../types/index.d.ts" />
+
 import React from 'react';
 
 export interface InternalAbstractComponentProps<E = any> {

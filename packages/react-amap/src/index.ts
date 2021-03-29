@@ -1,4 +1,4 @@
-/// <reference types="@pansy/amap-types" />
+/// <reference path="./types/index.d.ts" />
 
 import { Map } from './components/map';
 import { Ellipse } from './components/ellipse';

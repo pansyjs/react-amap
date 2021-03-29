@@ -3,6 +3,5 @@ export default {
     type: 'babel',
     importLibToEs: true
   },
-  cjs: 'babel',
-  disableTypeCheck: true
+  cjs: 'babel'
 };

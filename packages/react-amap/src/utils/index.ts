@@ -1,3 +1,5 @@
+/// <reference path="../types/index.d.ts" />
+
 export const hasWindow = (typeof window !== 'undefined');
 
 /**
