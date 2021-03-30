@@ -30,6 +30,7 @@ export function withPropsReactive<
       return true;
     };
 
+    /** 实例销毁相关逻辑 */
     omponentWillUnmount() {
       const { instance } = this.myMapComponent;
       if (!instance) return;
