@@ -1,13 +1,12 @@
 import React from 'react';
 import { toLnglat, APILoader, hasWindow } from '../../utils';
 import {
-  CreateProps,
+  allProps,
   wrapperStyle,
   containerStyle,
   StatusDynamicProps
 } from './config';
 import { MapProps, MapState } from './types';
-import { MapContext } from './context';
 import { AbstractComponent } from '../AbstractComponent';
 
 export class InternalMap extends AbstractComponent<AMap.Map, MapProps, MapState> {
@@ -88,7 +87,7 @@ export class InternalMap extends AbstractComponent<AMap.Map, MapProps, MapState>
   buildCreateOptions() {
     const props = this.props
     const options: AMap.Map.Options = {}
-    CreateProps.forEach((key) => {
+    allProps.forEach((key) => {
       if (key in props) {
         options[key] = this.getSetterValue(key, props)
       }
@@ -123,10 +122,10 @@ export class InternalMap extends AbstractComponent<AMap.Map, MapProps, MapState>
   }
 
   public render() {
-    const { loading = null, className, style } = this.props;
+    const { loading = null } = this.props;
 
     return (
-      <div className={className} style={{ ...wrapperStyle, ...style }}>
+      <div style={wrapperStyle}>
         <div ref={this.handleSaveWrapper} style={containerStyle}>
           {this.state.mapLoaded ? null : loading}
         </div>

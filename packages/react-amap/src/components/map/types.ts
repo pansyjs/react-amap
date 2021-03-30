@@ -4,11 +4,15 @@ export type MapEventMap = ReactAMap.GetEventFunObject<AMap.Map.EventMap> & {
   created?: (map: AMap.Map) => void;
 }
 
-export interface MapProps extends AbstractComponentProps, Omit<AMap.Map.Options, 'center'> {
-  /** 样式类 */
-  className?: string;
-  /** 样式 */
-  style?: React.CSSProperties;
+export interface MapOptions extends Omit<AMap.Map.Options, 'defaultCursor'> {
+  cursor?: string;
+}
+
+export type StatusPropKey = ReactAMap.$Keys<AMap.Map.Status>;
+
+export type PropKey = ReactAMap.$Keys<MapOptions>;
+
+export interface MapProps extends AbstractComponentProps, Omit<MapOptions, 'center'> {
   /** 地图Loading组件 */
   loading?: React.ReactNode;
   /** 高德地图开发者账号的Key */

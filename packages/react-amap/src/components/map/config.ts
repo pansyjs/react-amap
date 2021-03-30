@@ -1,40 +1,49 @@
 import React from 'react';
+import { StatusPropKey, PropKey } from './types';
 
-export const NativeDynamicProps: string[] = [
+/** 动态属性 */
+export const NativeDynamicProps: PropKey[] = [
   'layers',
   'zoom',
+  'zooms',
   'center',
   'labelzIndex',
+  'lang',
   'mapStyle',
   'features',
+  // defaultCursor
   'cursor',
-  'pitch'
+  'pitch',
+  'mask',
+  'defaultLayer',
 ];
 
-export const StatusDynamicProps: string[] = [
+/** 状态属性 */
+export const StatusDynamicProps: StatusPropKey[] = [
   'animateEnable',
   'doubleClickZoom',
   'dragEnable',
   'isHotspot',
   'jogEnable',
   'keyboardEnable',
+  'pitchEnable',
   'resizeEnable',
   'rotateEnable',
   'scrollWheel',
   'touchZoom',
   'zoomEnable',
-  'touchZoomCenter'
 ];
 
-export const StaticProps: string[] = [
+/** 静态属性 */
+export const StaticProps: PropKey[] = [
   'view',
-  'zooms',
+  // 'crs',
   'showIndoorMap',
   'indoorMap',
   'expandZoomRange',
+  'touchZoomCenter',
   'showBuildingBlock',
   'viewMode',
-  'pitchEnable',
   'buildingAnimation',
   'skyColor'
 ];
@@ -50,4 +59,4 @@ export const containerStyle: React.CSSProperties = {
   height: '100%'
 }
 
-export const CreateProps = NativeDynamicProps.concat(StatusDynamicProps, StaticProps)
+export const allProps = NativeDynamicProps.concat(StatusDynamicProps, StaticProps);

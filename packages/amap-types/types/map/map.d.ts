@@ -98,7 +98,7 @@ declare namespace AMap {
       /**
        * 在展示矢量图的时候自动展示室内地图图层
        */
-      // indoorMap?: IndorMap
+      indoorMap?: any;
       /**
       * 是否支持可以扩展最大缩放级别
       */
