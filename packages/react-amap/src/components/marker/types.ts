@@ -7,9 +7,18 @@ export interface EventMap<D = any> extends ReactAMap.GetEventFunObject<AMap.Mark
   created?: (instance: AMap.Marker<D>) => void;
 }
 
-export interface MarkerOptions extends Omit<AMap.Marker.Options, 'position'> {
+interface ExpandMarkerOptions {
   position?: ReactAMap.Position;
+  offset?: ReactAMap.Offset;
 }
+
+/** 高德标记点的参数 */
+export interface MarkerOptions extends
+  Omit<AMap.Marker.Options, ReactAMap.$Keys<ExpandMarkerOptions>>,
+  ExpandMarkerOptions
+  {};
+
+export type PropKey = ReactAMap.$Keys<MarkerOptions>
 
 export interface MarkerProps<D = any> extends
   MarkerOptions,

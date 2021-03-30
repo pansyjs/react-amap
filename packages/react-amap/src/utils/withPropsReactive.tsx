@@ -50,7 +50,7 @@ export function withPropsReactive<
     /**
      * 实例创建成功的回调
      */
-     public onInstanceCreated() {
+    public onInstanceCreated() {
       this.instanceCreated = true
       if ('events' in this.props) {
         // 获取地图组件的实例
