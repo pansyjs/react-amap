@@ -1,6 +1,7 @@
 /// <reference path="./types/index.d.ts" />
 
 import { Map } from './components/map';
+import { useMap } from './components/map/context';
 import { Ellipse } from './components/ellipse';
 import { InfoWindow } from './components/info-window';
 import { Circle } from './components/circle';
@@ -15,6 +16,7 @@ import { ControlBar } from './components/control-bar';
 
 export {
   Map,
+  useMap,
   Marker,
   Markers,
   Ellipse,
@@ -30,6 +32,7 @@ export {
 
 export default {
   Map,
+  useMap,
   Marker,
   Markers,
   Ellipse,

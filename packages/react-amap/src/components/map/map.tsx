@@ -7,6 +7,7 @@ import {
   StatusDynamicProps
 } from './config';
 import { MapProps, MapState } from './types';
+import { MapContext } from './context';
 import { AbstractComponent } from '../AbstractComponent';
 
 export class InternalMap extends AbstractComponent<AMap.Map, MapProps, MapState> {
@@ -95,29 +96,6 @@ export class InternalMap extends AbstractComponent<AMap.Map, MapProps, MapState>
     return options;
   }
 
-  /**
-   * 渲染子组件
-   * @returns
-   */
-  renderChildren() {
-    return React.Children.map(this.props.children, (child: any) => {
-      if (child) {
-        const cType = child.type
-        /* 针对下面两种组件不注入地图相关属性
-         * 1. 明确声明不需要注入的
-         * 2. DOM 元素
-         */
-        if (cType.preventAmap || (typeof cType === 'string')) {
-          return child
-        }
-        return React.cloneElement(child, {
-          map: this.internalObj
-        })
-      }
-      return child
-    })
-  }
-
   updateMapProps(prevProps: MapProps, nextProps: MapProps) {
     const nextMapStatus = {};
     let statusChangeFlag = false;
@@ -153,7 +131,7 @@ export class InternalMap extends AbstractComponent<AMap.Map, MapProps, MapState>
           {this.state.mapLoaded ? null : loading}
         </div>
         <div>
-          { this.state.mapLoaded ? this.renderChildren() : null }
+          { this.state.mapLoaded ? this.props.children : null }
         </div>
       </div>
     )
