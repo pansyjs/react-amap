@@ -6,7 +6,10 @@ export default () => {
       <Map zoom={4}>
         <div>
           <Marker
-            position={{longitude: 121, latitude: 36}}
+            position={{
+              longitude: 121,
+              latitude: 36
+            }}
           />
         </div>
       </Map>
