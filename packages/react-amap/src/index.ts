@@ -1,18 +1,18 @@
 /// <reference path="./types/index.d.ts" />
 
-import { Map } from './components/map';
-import { useMap } from './components/map/context';
-import { Ellipse } from './components/ellipse';
-import { InfoWindow } from './components/info-window';
-import { Circle } from './components/circle';
-import { CircleMarker } from './components/circle-marker';
-import { Polyline } from './components/polyline';
-import { Polygon } from './components/polygon';
-import { BezierCurve } from './components/bezier-curve';
-import { Rectangle } from './components/rectangle';
-import { Marker } from './components/marker';
-import { Markers } from './components/markers';
-import { ControlBar } from './components/control-bar';
+import { Map } from './map';
+import { useMap } from './map/context';
+import { Ellipse } from './ellipse';
+import { InfoWindow } from './info-window';
+import { Circle } from './circle';
+import { CircleMarker } from './circle-marker';
+import { Polyline } from './polyline';
+import { Polygon } from './polygon';
+import { BezierCurve } from './bezier-curve';
+import { Rectangle } from './rectangle';
+import { Marker } from './marker';
+import { Markers } from './markers';
+import { ControlBar } from './control-bar';
 
 export {
   Map,

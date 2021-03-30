@@ -1,6 +1,6 @@
 import React from 'react';
 import { toCapitalString } from './';
-import { AbstractComponent, AbstractComponentProps } from '../components/AbstractComponent';
+import { AbstractComponent, AbstractComponentProps } from '../AbstractComponent';
 
 export function withPropsReactive<
   Instance extends ReactAMap.BaseInstance = any,
