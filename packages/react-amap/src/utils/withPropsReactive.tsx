@@ -6,8 +6,6 @@ export function withPropsReactive<
   Instance extends ReactAMap.BaseInstance = any,
   Props extends AbstractComponentProps = any
 >(MapComponent: any) {
-
-  // @ts-ignore
   return class InternalComponent extends React.Component<Props> {
     /** 实例是否创建 */
     public instanceCreated: boolean;
@@ -109,15 +107,15 @@ export function withPropsReactive<
      */
     public createEventsProxy(props) {
       const self = this;
-      const { instance } = this.myMapComponent
+      const { instance } = this.myMapComponent;
+
       const evs = Object.keys(props.events || {})
       evs.length && evs.forEach(ev => {
         if (self.registeredEvents.indexOf(ev) === -1) {
           self.registeredEvents.push(ev)
-          instance.on(ev, (function(ev) {
+          instance.on(ev, ((ev) => {
             return function(...args) {
-              // @ts-ignore
-              if (self.props.events && ev in self.props.events) {
+              if (self.props.events && ev in this.props.events) {
                 self.props.events[ev].apply(null, args)
               }
             }
