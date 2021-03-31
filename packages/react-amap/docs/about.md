@@ -15,15 +15,19 @@ group:
 
 |名称|说明|
 |--|--|
-|Map|显示地图，下面的组件都必须作为`Map`的子组件使用|
-|Marker|在地图上显示单个坐标点|
-|BezierCurve|在地图上曲线|
-|Polygon|在地图上显示多边形|
-|Ellipse|在地图上显示椭圆|
-|Polyline|在地图上显示折线|
+|Map|地图组件|
+|BezierCurve|在地图上显示曲线|
 |Circle|在地图上显示圆形|
-|Rectangle|在地图上显示矩形|
+|CircleMarker|在地图上显示圆点标记|
+|ContextMenu|地图右键菜单|
+|ControlBar|组合了旋转、倾斜、复位、缩放在内的地图控件|
+|Ellipse|在地图上显示椭圆|
 |InfoWindow|在地图上显示信息窗体|
+|Marker|在地图上显示单个坐标点|
+|Markers|在地图上显示大量标记|
+|Polygon|在地图上显示多边形|
+|Polyline|在地图上显示折线|
+|Rectangle|在地图上显示矩形|
 
 ### 术语说明
 
