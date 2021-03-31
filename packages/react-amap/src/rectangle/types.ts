@@ -15,8 +15,11 @@ export interface RectangleProps extends
   ReactAMap.BaseChildrenComponentProps,
   AbstractComponentProps
 {
+  /** 矩形的样式 */
   style?: Style;
+  /** 是否显示 */
   visible?: boolean;
+  /** 矩形的范围 */
   bounds?: Bounds;
 }
 
