@@ -11,7 +11,6 @@ export interface ContextMenuProps extends
   ReactAMap.BaseChildrenComponentProps,
   AbstractComponentProps
 {
-  visible?: boolean;
   events?: EventMap;
 }
 

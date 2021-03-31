@@ -1,105 +1,96 @@
 import React from 'react';
-import { toLnglat, hasWindow } from '../utils';
+import { hasWindow } from '../utils';
+import { MapEventMap } from '../map/types';
 import { AbstractComponent } from '../AbstractComponent';
 import { ContextMenuProps, ContextMenuState } from './types';
 import { allProps } from './config';
 
-export class InternalContextMenu extends AbstractComponent<AMap.ContextMenu, ContextMenuProps, ContextMenuState> {
+export class InternalContextMenu extends AbstractComponent<
+  AMap.ContextMenu,
+  ContextMenuProps,
+  ContextMenuState
+> {
   private map: AMap.Map;
-  private element: HTMLElement;
 
   constructor(props: ContextMenuProps) {
     super(props);
 
     if (hasWindow) {
       if (props.map) {
-        const self = this;
-
         this.map = props.map;
-        this.element = this.map.getContainer();
         this.state = {
           loaded: false
         };
 
-        this.setterMap = {
-          visible(val: boolean) {
-            if (self.internalObj) {
-              if (val) {
-                self.internalObj.show()
-              } else {
-                self.internalObj.hide()
-              }
-            }
-          },
-          style(val: ContextMenuProps) {
-            // @ts-ignore
-            self.internalObj.setOptions(val);
-          }
-        }
-
-        this.converterMap = {
-          path(val: ReactAMap.Position[]) {
-            return self.buildPathValue(val);
-          }
-        }
+        this.setterMap = {}
+        this.converterMap = {}
 
         this.createInstance(props)
           .then(() => {
             this.setState({
               loaded: true
-            })
-            this.props.onInstanceCreated?.()
+            });
+            this.map.on('rightclick', this.mapRightClick);
+            this.internalObj.close();
+
+            // TODO: 需要找下原因，暂时这么解决
+            setTimeout(() => {
+              this.internalObj.close();
+            }, 200);
+            this.props.onInstanceCreated?.();
           })
       }
     }
   }
 
+  componentWillUnmount() {
+    if (this.internalObj) {
+      this.map.off('rightclick', this.mapRightClick);
+      this.map.remove(this.internalObj);
+    }
+  }
+
   createInstance(props: ContextMenuProps) {
-    const options = this.buildCreateOptions(props)
-    options.map = this.map;
+    const options = this.buildCreateOptions(props);
     this.setInstance(new window.AMap.ContextMenu(options));
     return Promise.resolve(this.instance);
   }
 
+  mapRightClick: MapEventMap['rightclick'] = (e) => {
+    this.internalObj.open(this.map, e.lnglat);
+  }
+
   buildCreateOptions(props: ContextMenuProps) {
-    const options: AMap.Circle.Options = {}
+    const options: AMap.ContextMenu.Options = {}
     allProps.forEach((key) => {
       if (key in props) {
-        if (key !== 'visible') {
-          options[key] = this.getSetterValue(key, props)
-        }
+        options[key] = this.getSetterValue(key, props);
       }
     })
     return options;
   }
 
-  buildPathValue(path: ReactAMap.Position[] | ReactAMap.Position[][]) {
-    if (path.length) {
-      return path.map((p, index) => {
-        if (Array.isArray(p[index])) {
-          return this.buildPathValue(p);
-        }
-        return toLnglat(p);
-      });
-    }
-    return path;
-  }
+  renderChildren = () => {
+    const childs = React.Children.toArray(this.props.children);
 
-  renderEditor(children: any) {
-    if (!children) {
-      return null
-    }
-    if (React.Children.count(children) !== 1) {
-      return null
-    }
-    return React.cloneElement(React.Children.only(children), {
-      polygon: this.internalObj,
-      map: this.map,
-      ele: this.element
-    })
+    return (
+      <>
+        {
+          childs.map((child, key) => {
+            if (!React.isValidElement(child)) return null;
+            return React.cloneElement(child, {
+              ...child.props,
+              map: this.map,
+              contextMenu: this.internalObj,
+              key
+            });
+          })
+        }
+      </>
+    );
   }
 
   render() {
-    return this.state.loaded ? (this.renderEditor(this.props.children)) : null
+    return this.state.loaded ? this.renderChildren() : null
   }
 }

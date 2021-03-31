@@ -69,6 +69,8 @@ export const toSize = (size: ReactAMap.Size): AMap.Size | null => {
   return hasWindow ? new window.AMap.Size(size.width, size.height) : null
 }
 
+export const noop = function () {};
+
 /**
  * 将字符串的首字母大写
  * @param str

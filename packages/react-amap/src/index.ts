@@ -6,6 +6,7 @@ import { Ellipse } from './ellipse';
 import { InfoWindow } from './info-window';
 import { Circle } from './circle';
 import { CircleMarker } from './circle-marker';
+import { ContextMenu } from './context-menu';
 import { Polyline } from './polyline';
 import { Polygon } from './polygon';
 import { BezierCurve } from './bezier-curve';
@@ -27,6 +28,7 @@ export {
   ControlBar,
   BezierCurve,
   InfoWindow,
+  ContextMenu,
   CircleMarker
 }
 
@@ -43,5 +45,6 @@ export default {
   ControlBar,
   BezierCurve,
   InfoWindow,
+  ContextMenu,
   CircleMarker
 }
