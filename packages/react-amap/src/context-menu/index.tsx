@@ -16,7 +16,7 @@ export const PContextMenu: React.FC<ContextMenuProps> = (props) => {
 };
 
 type InternalContextMenuType = typeof PContextMenu;
-interface CircleMarkerInterface extends InternalContextMenuType {
+export interface CircleMarkerInterface extends InternalContextMenuType {
   Item: typeof Item;
 }
 
