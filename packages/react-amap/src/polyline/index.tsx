@@ -14,6 +14,5 @@ export const Polyline: React.FC<PolylineProps> = (props) => {
   )
 };
 
-export * from './polyline';
 export * from './config';
 export * from './types';

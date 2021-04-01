@@ -14,6 +14,5 @@ export const Rectangle: React.FC<RectangleProps> = (props) => {
   )
 };
 
-export * from './rectangle';
 export * from './config';
 export * from './types';

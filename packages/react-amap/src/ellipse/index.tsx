@@ -14,6 +14,5 @@ export const Ellipse: React.FC<EllipseProps> = (props) => {
   )
 };
 
-export * from './ellipse';
 export * from './config';
 export * from './types';

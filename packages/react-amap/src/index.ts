@@ -14,6 +14,7 @@ import { Rectangle } from './rectangle';
 import { Marker } from './marker';
 import { Markers } from './markers';
 import { ControlBar } from './control-bar';
+import { ToolBar } from './tool-bar';
 
 export {
   Map,
@@ -29,7 +30,8 @@ export {
   BezierCurve,
   InfoWindow,
   ContextMenu,
-  CircleMarker
+  CircleMarker,
+  ToolBar
 }
 
 export default {
@@ -46,5 +48,6 @@ export default {
   BezierCurve,
   InfoWindow,
   ContextMenu,
-  CircleMarker
+  CircleMarker,
+  ToolBar
 }

@@ -39,6 +39,6 @@ export const ForwardRefMap: MapType = (
 
 export const Map = React.forwardRef(ForwardRefMap);
 
-export * from './map';
 export * from './config';
 export * from './types';
+export * from './context';

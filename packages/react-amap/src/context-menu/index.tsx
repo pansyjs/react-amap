@@ -26,6 +26,5 @@ ContextMenu.Item = Item;
 
 export { ContextMenu }
 
-export * from './context-menu';
 export * from './config';
 export * from './types';
