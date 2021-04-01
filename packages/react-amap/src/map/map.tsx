@@ -13,11 +13,6 @@ export class InternalMap extends AbstractComponent<AMap.Map, MapProps, MapState>
   /** 存放地图的容器 */
   private mapWrapper: HTMLDivElement;
 
-  static defaultProps: MapProps = {
-    logoUrl: ' ',
-    logoUrlRetina: ' '
-  }
-
   constructor(props: MapProps) {
     super(props);
     const self = this

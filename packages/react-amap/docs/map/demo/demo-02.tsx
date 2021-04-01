@@ -4,14 +4,13 @@
 import { Map } from '@pansy/react-amap';
 
 export default () => {
-  const events = {
-    created: (map) => { console.log(map) },
+  const mapEvents = {
     click: () => { console.log('You Clicked The Map'); }
   }
 
   return (
     <div style={{ height: 500 }}>
-      <Map events={events} />
+      <Map events={mapEvents} />
     </div>
   );
 };

@@ -1,5 +1,7 @@
 import { AbstractComponentProps } from '../AbstractComponent';
 
+export type MapType = React.ForwardRefRenderFunction<AMap.Map, MapProps>;
+
 export type MapEventMap = ReactAMap.GetEventFunObject<AMap.Map.EventMap> & {
   created?: (map: AMap.Map) => void;
 }
