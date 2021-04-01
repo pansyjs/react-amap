@@ -10,7 +10,7 @@ export const Circle: React.FC<CircleProps> = (props) => {
   const { map } = useMap();
 
   return (
-    <CircleReactive {...props} map={map}  />
+    <CircleReactive map={map} {...props}  />
   )
 };
 

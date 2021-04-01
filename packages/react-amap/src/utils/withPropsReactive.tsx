@@ -105,7 +105,7 @@ export function withPropsReactive<
      * 绑定事件
      * @param props
      */
-    public createEventsProxy(props) {
+    public createEventsProxy = (props) => {
       const self = this;
       const { instance } = this.myMapComponent;
 
@@ -115,7 +115,8 @@ export function withPropsReactive<
           self.registeredEvents.push(ev)
           instance.on(ev, ((ev) => {
             return function(...args) {
-              if (self.props.events && ev in this.props.events) {
+              // @ts-ignore
+              if (self.props.events && ev in self.props.events) {
                 self.props.events[ev].apply(null, args)
               }
             }
