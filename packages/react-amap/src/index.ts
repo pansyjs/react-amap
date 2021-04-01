@@ -15,6 +15,7 @@ import { Marker } from './marker';
 import { Markers } from './markers';
 import { ControlBar } from './control-bar';
 import { ToolBar } from './tool-bar';
+import { MouseTool } from './mouse-tool';
 
 export {
   Map,
@@ -31,7 +32,8 @@ export {
   InfoWindow,
   ContextMenu,
   CircleMarker,
-  ToolBar
+  ToolBar,
+  MouseTool,
 }
 
 export default {
@@ -49,5 +51,6 @@ export default {
   InfoWindow,
   ContextMenu,
   CircleMarker,
-  ToolBar
+  ToolBar,
+  MouseTool,
 }
