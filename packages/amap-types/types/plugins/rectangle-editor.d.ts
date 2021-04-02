@@ -1,17 +1,15 @@
 /// <reference path="../common/index.d.ts" />
 
 declare namespace AMap {
-  namespace BezierCurveEditor {
+  namespace RectangleEditor {
     interface EventMap<I = BezierCurve> {
-      addnode: MapsEvent<'addnode', I>;
-      adjust: MapsEvent<'adjust', I>;
-      removenode: MapsEvent<'removenode', I>;
+      adjust: MapsEvent<'adjust', { radius: number, target: I }>;
       end: MapsEvent<'end', I>;
     }
   }
 
-  class BezierCurveEditor {
-    constructor(map: AMap.Map, circle: AMap.BezierCurve);
+  class RectangleEditor {
+    constructor(map: AMap.Map, circle: AMap.Rectangle);
     /**
      * 打开编辑功能
      */

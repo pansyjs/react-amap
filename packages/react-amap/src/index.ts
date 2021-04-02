@@ -17,6 +17,7 @@ import { MouseTool } from './mouse-tool';
 import { CircleEditor } from './circle-editor';
 import { PolyEditor } from './poly-editor';
 import { BezierCurveEditor } from './bezier-curve-editor';
+import { RectangleEditor } from './rectangle-editor';
 import { Scale } from './scale';
 import { OverView } from './over-view';
 import { MapType } from './map-type';
@@ -41,6 +42,7 @@ export {
   CircleEditor,
   PolyEditor,
   BezierCurveEditor,
+  RectangleEditor,
   Scale,
   OverView,
   MapType,
@@ -66,6 +68,7 @@ export default {
   CircleEditor,
   PolyEditor,
   BezierCurveEditor,
+  RectangleEditor,
   Scale,
   OverView,
   MapType,
