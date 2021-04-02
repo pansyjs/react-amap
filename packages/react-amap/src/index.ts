@@ -17,6 +17,7 @@ import { ControlBar } from './control-bar';
 import { ToolBar } from './tool-bar';
 import { MouseTool } from './mouse-tool';
 import { CircleEditor } from './circle-editor';
+import { Scale } from './scale';
 
 export {
   Map,
@@ -36,6 +37,7 @@ export {
   ToolBar,
   MouseTool,
   CircleEditor,
+  Scale,
 }
 
 export default {
@@ -56,4 +58,5 @@ export default {
   ToolBar,
   MouseTool,
   CircleEditor,
+  Scale,
 }
