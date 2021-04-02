@@ -6,7 +6,6 @@ import { allProps } from './config';
 
 export class InternalBezierCurve extends AbstractComponent<AMap.BezierCurve, BezierCurveProps, BezierCurveState> {
   private map: AMap.Map;
-  private element: HTMLElement;
 
   constructor(props: BezierCurveProps) {
     super(props);
@@ -16,7 +15,6 @@ export class InternalBezierCurve extends AbstractComponent<AMap.BezierCurve, Bez
         const self = this;
 
         this.map = props.map;
-        this.element = this.map.getContainer() as HTMLDivElement;
         this.state = {
           loaded: false
         };
@@ -83,8 +81,7 @@ export class InternalBezierCurve extends AbstractComponent<AMap.BezierCurve, Bez
     const child = React.Children.only(children)
     return React.cloneElement(child, {
       bezierCurve: this.internalObj,
-      map: this.map,
-      ele: this.element
+      map: this.map
     });
     return null
   }

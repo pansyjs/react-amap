@@ -1,4 +1,4 @@
-/// <reference types="../" />
+/// <reference path="../common/index.d.ts" />
 
 declare namespace AMap {
 

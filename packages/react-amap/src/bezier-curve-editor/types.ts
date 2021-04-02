@@ -1,11 +1,11 @@
 import { AbstractComponentProps } from '../AbstractComponent';
 
-export interface EventMap extends ReactAMap.GetEventFunObject<AMap.CircleEditor.EventMap> {
+export interface EventMap extends ReactAMap.GetEventFunObject<AMap.BezierCurveEditor.EventMap> {
   /** 创建事件 */
-  created?: (instance: AMap.CircleEditor) => void;
+  created?: (instance: AMap.BezierCurveEditor) => void;
 }
 
-export interface CircleEditorProps extends
+export interface BezierCurveEditorProps extends
   ReactAMap.BaseChildrenComponentProps,
   AbstractComponentProps
 {
@@ -14,9 +14,9 @@ export interface CircleEditorProps extends
   /** 绑定的事件 */
   events?: EventMap;
   /** 需要操作的圆，由父组件注入 */
-  circle?: AMap.Circle;
+  bezierCurve?: AMap.BezierCurve;
 }
 
-export interface CircleEditorState {
+export interface BezierCurveEditorState {
   loaded: boolean
 }

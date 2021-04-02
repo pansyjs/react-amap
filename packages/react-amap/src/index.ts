@@ -1,5 +1,3 @@
-/// <reference path="./types/index.d.ts" />
-
 import { Map } from './map';
 import { useMap } from './map/context';
 import { Ellipse } from './ellipse';
@@ -18,6 +16,7 @@ import { ToolBar } from './tool-bar';
 import { MouseTool } from './mouse-tool';
 import { CircleEditor } from './circle-editor';
 import { PolyEditor } from './poly-editor';
+import { BezierCurveEditor } from './bezier-curve-editor';
 import { Scale } from './scale';
 import { OverView } from './over-view';
 import { MapType } from './map-type';
@@ -41,6 +40,7 @@ export {
   MouseTool,
   CircleEditor,
   PolyEditor,
+  BezierCurveEditor,
   Scale,
   OverView,
   MapType,
@@ -65,6 +65,7 @@ export default {
   MouseTool,
   CircleEditor,
   PolyEditor,
+  BezierCurveEditor,
   Scale,
   OverView,
   MapType,
