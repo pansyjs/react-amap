@@ -1,5 +1,5 @@
 ---
-title: ToolBar 组件
+title: ToolBar 工具条
 nav:
   title: 组件
   path: /components
@@ -10,7 +10,7 @@ group:
   order: 200
 ---
 
-# ToolBar 组件
+# ToolBar 工具条
 
 ## 何时使用
 

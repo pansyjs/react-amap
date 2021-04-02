@@ -6,7 +6,6 @@ import { allProps } from './config';
 
 export class InternalCircle extends AbstractComponent<AMap.Circle, CircleProps, CircleState> {
   private map: AMap.Map;
-  private element: HTMLElement;
 
   constructor(props: CircleProps) {
     super(props);
@@ -16,7 +15,6 @@ export class InternalCircle extends AbstractComponent<AMap.Circle, CircleProps, 
         const self = this;
 
         this.map = props.map;
-        this.element = this.map.getContainer();
         this.state = {
           loaded: false
         };
@@ -84,8 +82,7 @@ export class InternalCircle extends AbstractComponent<AMap.Circle, CircleProps, 
     }
     return React.cloneElement(React.Children.only(children), {
       circle: this.internalObj,
-      map: this.map,
-      ele: this.element
+      map: this.map
     })
   }
 

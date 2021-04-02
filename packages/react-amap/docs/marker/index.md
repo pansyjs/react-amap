@@ -1,5 +1,5 @@
 ---
-title: Marker 组件
+title: Marker 点标记
 nav:
   title: 组件
   path: /components
@@ -8,7 +8,7 @@ group:
   title: 覆盖物
 ---
 
-# Marker 组件
+# Marker 点标记
 
 ## 何时使用
 

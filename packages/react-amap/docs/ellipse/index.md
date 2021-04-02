@@ -1,5 +1,5 @@
 ---
-title: Ellipse 组件
+title: Ellipse 椭圆
 nav:
   title: 组件
   path: /components
@@ -8,7 +8,7 @@ group:
   title: 覆盖物
 ---
 
-# Ellipse 组件
+# Ellipse 椭圆
 
 ## 何时使用
 

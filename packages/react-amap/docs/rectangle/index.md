@@ -1,5 +1,5 @@
 ---
-title: Rectangle 组件
+title: Rectangle 矩形
 nav:
   title: 组件
   path: /components
@@ -8,7 +8,7 @@ group:
   title: 覆盖物
 ---
 
-# Rectangle 组件
+# Rectangle 矩形
 
 ## 何时使用
 

@@ -16,6 +16,7 @@ import { Markers } from './markers';
 import { ControlBar } from './control-bar';
 import { ToolBar } from './tool-bar';
 import { MouseTool } from './mouse-tool';
+import { CircleEditor } from './circle-editor';
 
 export {
   Map,
@@ -34,6 +35,7 @@ export {
   CircleMarker,
   ToolBar,
   MouseTool,
+  CircleEditor,
 }
 
 export default {
@@ -53,4 +55,5 @@ export default {
   CircleMarker,
   ToolBar,
   MouseTool,
+  CircleEditor,
 }

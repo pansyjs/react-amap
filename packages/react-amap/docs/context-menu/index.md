@@ -1,5 +1,5 @@
 ---
-title: ContextMenu 组件
+title: ContextMenu 右键菜单
 nav:
   title: 组件
   path: /components
@@ -8,7 +8,7 @@ group:
   title: 覆盖物
 ---
 
-# ContextMenu 组件
+# ContextMenu 右键菜单
 
 ## 何时使用
 

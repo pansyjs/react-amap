@@ -1,16 +1,15 @@
 ---
-title: MouseTool 组件
+title: MouseTool 鼠标工具
 nav:
   title: 组件
   path: /components
 order: 1
 group:
-  path: /control
-  title: 控件
-  order: 200
+  path: /plugin
+  title: 插件
 ---
 
-# MouseTool 组件
+# MouseTool 鼠标工具
 
 ## 何时使用
 

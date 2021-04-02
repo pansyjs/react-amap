@@ -1,5 +1,5 @@
 ---
-title: CircleMarker 组件
+title: CircleMarker 圆点标记
 nav:
   title: 组件
   path: /components
@@ -8,7 +8,7 @@ group:
   title: 覆盖物
 ---
 
-# CircleMarker 组件
+# CircleMarker 圆点标记
 
 ## 何时使用
 
