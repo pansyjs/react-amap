@@ -1,5 +1,5 @@
 ---
-title: Markers 组件
+title: Markers 海量点标记
 nav:
   title: 组件
   path: /components
@@ -8,7 +8,7 @@ group:
   title: 覆盖物
 ---
 
-# Markers 组件
+# Markers 海量点标记
 
 ## 何时使用
 

@@ -1,5 +1,5 @@
 ---
-title: Polyline 组件
+title: Polyline 折线
 nav:
   title: 组件
   path: /components
@@ -8,7 +8,7 @@ group:
   title: 覆盖物
 ---
 
-# Polyline 组件
+# Polyline 折线
 
 ## 何时使用
 

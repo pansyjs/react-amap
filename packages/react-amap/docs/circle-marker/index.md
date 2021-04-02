@@ -1,5 +1,5 @@
 ---
-title: CircleMarker 组件
+title: CircleMarker 圆点标记
 nav:
   title: 组件
   path: /components
@@ -8,11 +8,11 @@ group:
   title: 覆盖物
 ---
 
-# CircleMarker 组件
+# CircleMarker 圆点标记
 
 ## 何时使用
 
-- 需要在地图上显示一个圆形时
+- 需要在地图上显示一个圆形标记时
 
 ## 代码示例
 

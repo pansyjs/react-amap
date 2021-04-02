@@ -1,5 +1,5 @@
 ---
-title: Polygon 组件
+title: Polygon 多边形
 nav:
   title: 组件
   path: /components
@@ -8,11 +8,11 @@ group:
   title: 覆盖物
 ---
 
-# Polygon 组件
+# Polygon 多边形
 
 ## 何时使用
 
-- 需要在地图上一个折线段的时候；
+- 需要在地图上显示一个多边形的时候；
 
 ## 代码示例
 

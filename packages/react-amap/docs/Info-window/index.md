@@ -1,5 +1,5 @@
 ---
-title: InfoWindow 组件
+title: InfoWindow 信息窗体
 nav:
   title: 组件
   path: /components
@@ -10,7 +10,7 @@ group:
   order: 100
 ---
 
-# InfoWindow 组件
+# InfoWindow 信息窗体
 
 ## 何时使用
 

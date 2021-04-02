@@ -1,13 +1,11 @@
 import React from 'react';
 import { toCapitalString } from './';
-import { AbstractComponent, AbstractComponentProps } from '../components/AbstractComponent';
+import { AbstractComponent, AbstractComponentProps } from '../AbstractComponent';
 
 export function withPropsReactive<
   Instance extends ReactAMap.BaseInstance = any,
   Props extends AbstractComponentProps = any
 >(MapComponent: any) {
-
-  // @ts-ignore
   return class InternalComponent extends React.Component<Props> {
     /** 实例是否创建 */
     public instanceCreated: boolean;
@@ -50,7 +48,7 @@ export function withPropsReactive<
     /**
      * 实例创建成功的回调
      */
-     public onInstanceCreated() {
+    public onInstanceCreated() {
       this.instanceCreated = true
       if ('events' in this.props) {
         // 获取地图组件的实例
@@ -107,14 +105,15 @@ export function withPropsReactive<
      * 绑定事件
      * @param props
      */
-    public createEventsProxy(props) {
+    public createEventsProxy = (props) => {
       const self = this;
-      const { instance } = this.myMapComponent
+      const { instance } = this.myMapComponent;
+
       const evs = Object.keys(props.events || {})
       evs.length && evs.forEach(ev => {
         if (self.registeredEvents.indexOf(ev) === -1) {
           self.registeredEvents.push(ev)
-          instance.on(ev, (function(ev) {
+          instance.on(ev, ((ev) => {
             return function(...args) {
               // @ts-ignore
               if (self.props.events && ev in self.props.events) {

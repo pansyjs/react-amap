@@ -4,7 +4,7 @@ order: 10
 sidebar: false
 hero:
   title: React AMap
-  desc: 基于 React 封装的高德地图组件，助你轻松的接入到 React 项目中。
+  desc: 基于 React 封装的高德地图组件，助你轻松的接入高德地图到 React 项目中。
   actions:
     - text: 快速开始 →
       link: /docs/getting-started

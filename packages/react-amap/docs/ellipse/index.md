@@ -1,5 +1,5 @@
 ---
-title: Ellipse 组件
+title: Ellipse 椭圆
 nav:
   title: 组件
   path: /components
@@ -8,11 +8,11 @@ group:
   title: 覆盖物
 ---
 
-# Ellipse 组件
+# Ellipse 椭圆
 
 ## 何时使用
 
-- 需要在地图上显示一个圆形时
+- 需要在地图上显示一个椭圆时
 
 ## 代码示例
 

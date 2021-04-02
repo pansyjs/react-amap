@@ -112,11 +112,6 @@ declare namespace AMap {
        * 文本标注
        */
       label?: Label;
-
-      // internal
-      zooms?: [number, number];
-      topWhenMouseOver?: boolean;
-      height?: number;
     }
   }
 

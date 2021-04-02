@@ -1,20 +1,30 @@
-/// <reference path="./types/index.d.ts" />
-
-import { Map } from './components/map';
-import { Ellipse } from './components/ellipse';
-import { InfoWindow } from './components/info-window';
-import { Circle } from './components/circle';
-import { CircleMarker } from './components/circle-marker';
-import { Polyline } from './components/polyline';
-import { Polygon } from './components/polygon';
-import { BezierCurve } from './components/bezier-curve';
-import { Rectangle } from './components/rectangle';
-import { Marker } from './components/marker';
-import { Markers } from './components/markers';
-import { ControlBar } from './components/control-bar';
+import { Map } from './map';
+import { useMap } from './map/context';
+import { Ellipse } from './ellipse';
+import { InfoWindow } from './info-window';
+import { Circle } from './circle';
+import { CircleMarker } from './circle-marker';
+import { ContextMenu } from './context-menu';
+import { Polyline } from './polyline';
+import { Polygon } from './polygon';
+import { BezierCurve } from './bezier-curve';
+import { Rectangle } from './rectangle';
+import { Marker } from './marker';
+import { Markers } from './markers';
+import { ControlBar } from './control-bar';
+import { ToolBar } from './tool-bar';
+import { MouseTool } from './mouse-tool';
+import { CircleEditor } from './circle-editor';
+import { PolyEditor } from './poly-editor';
+import { BezierCurveEditor } from './bezier-curve-editor';
+import { RectangleEditor } from './rectangle-editor';
+import { Scale } from './scale';
+import { OverView } from './over-view';
+import { MapType } from './map-type';
 
 export {
   Map,
+  useMap,
   Marker,
   Markers,
   Ellipse,
@@ -25,11 +35,22 @@ export {
   ControlBar,
   BezierCurve,
   InfoWindow,
-  CircleMarker
+  ContextMenu,
+  CircleMarker,
+  ToolBar,
+  MouseTool,
+  CircleEditor,
+  PolyEditor,
+  BezierCurveEditor,
+  RectangleEditor,
+  Scale,
+  OverView,
+  MapType,
 }
 
 export default {
   Map,
+  useMap,
   Marker,
   Markers,
   Ellipse,
@@ -40,5 +61,15 @@ export default {
   ControlBar,
   BezierCurve,
   InfoWindow,
-  CircleMarker
+  ContextMenu,
+  CircleMarker,
+  ToolBar,
+  MouseTool,
+  CircleEditor,
+  PolyEditor,
+  BezierCurveEditor,
+  RectangleEditor,
+  Scale,
+  OverView,
+  MapType,
 }

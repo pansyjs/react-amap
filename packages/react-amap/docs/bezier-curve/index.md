@@ -1,5 +1,5 @@
 ---
-title: BezierCurve 组件
+title: BezierCurve 贝塞尔曲线
 nav:
   title: 组件
   path: /components
@@ -10,7 +10,7 @@ group:
   order: 400
 ---
 
-# BezierCurve 组件
+# BezierCurve 贝塞尔曲线
 
 ## 何时使用
 
