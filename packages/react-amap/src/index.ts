@@ -18,6 +18,7 @@ import { ToolBar } from './tool-bar';
 import { MouseTool } from './mouse-tool';
 import { CircleEditor } from './circle-editor';
 import { Scale } from './scale';
+import { OverView } from './over-view ';
 
 export {
   Map,
@@ -38,6 +39,7 @@ export {
   MouseTool,
   CircleEditor,
   Scale,
+  OverView,
 }
 
 export default {
@@ -59,4 +61,5 @@ export default {
   MouseTool,
   CircleEditor,
   Scale,
+  OverView,
 }
