@@ -6,7 +6,6 @@ import { allProps } from './config';
 
 export class InternalPolyline extends AbstractComponent<AMap.Polyline, PolylineProps, PolylineState> {
   private map: AMap.Map;
-  private element: HTMLElement;
 
   constructor(props: PolylineProps) {
     super(props);
@@ -16,7 +15,6 @@ export class InternalPolyline extends AbstractComponent<AMap.Polyline, PolylineP
         const self = this;
 
         this.map = props.map;
-        this.element = this.map.getContainer();
         this.state = {
           loaded: false
         }
@@ -96,9 +94,8 @@ export class InternalPolyline extends AbstractComponent<AMap.Polyline, PolylineP
     }
     const child = React.Children.only(children)
     return React.cloneElement(child, {
-      polyline: this.internalObj,
+      poly: this.internalObj,
       map: this.map,
-      ele: this.element
     });
     return null
   }

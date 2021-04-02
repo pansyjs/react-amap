@@ -17,6 +17,7 @@ import { ControlBar } from './control-bar';
 import { ToolBar } from './tool-bar';
 import { MouseTool } from './mouse-tool';
 import { CircleEditor } from './circle-editor';
+import { PolyEditor } from './poly-editor';
 import { Scale } from './scale';
 import { OverView } from './over-view';
 import { MapType } from './map-type';
@@ -39,6 +40,7 @@ export {
   ToolBar,
   MouseTool,
   CircleEditor,
+  PolyEditor,
   Scale,
   OverView,
   MapType,
@@ -62,6 +64,7 @@ export default {
   ToolBar,
   MouseTool,
   CircleEditor,
+  PolyEditor,
   Scale,
   OverView,
   MapType,

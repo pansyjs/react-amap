@@ -20,8 +20,12 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.Polyline.Even
   created?: (instance: AMap.Polyline) => void;
 }
 
+interface PolylineOptions extends Omit<AMap.Polyline.Options, 'path'> {
+  path: ReactAMap.Position[]
+}
+
 export interface PolylineProps extends
-  AMap.Polyline.Options,
+  PolylineOptions,
   ReactAMap.BaseChildrenComponentProps,
   AbstractComponentProps
 {

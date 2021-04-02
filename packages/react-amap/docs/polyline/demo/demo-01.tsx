@@ -4,7 +4,7 @@ import { Map, Polyline } from '@pansy/react-amap';
 const randomPath = () => ({
   longitude: 60 + Math.random() * 50,
   latitude: 10 + Math.random() * 40,
- })
+})
 
 export default () => {
   const [visible, setVisible] = useState<boolean>(true);

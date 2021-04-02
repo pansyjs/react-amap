@@ -6,7 +6,6 @@ import { allProps } from './config';
 
 export class InternalPolygon extends AbstractComponent<AMap.Polygon, PolygonProps, PolygonState> {
   private map: AMap.Map;
-  private element: HTMLElement;
 
   constructor(props: PolygonProps) {
     super(props);
@@ -16,7 +15,6 @@ export class InternalPolygon extends AbstractComponent<AMap.Polygon, PolygonProp
         const self = this;
 
         this.map = props.map;
-        this.element = this.map.getContainer();
         this.state = {
           loaded: false
         };
@@ -97,9 +95,8 @@ export class InternalPolygon extends AbstractComponent<AMap.Polygon, PolygonProp
       return null
     }
     return React.cloneElement(React.Children.only(children), {
-      polygon: this.internalObj,
-      map: this.map,
-      ele: this.element
+      poly: this.internalObj,
+      map: this.map
     })
   }
 
