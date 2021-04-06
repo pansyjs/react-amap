@@ -21,6 +21,7 @@ import { RectangleEditor } from './rectangle-editor';
 import { Scale } from './scale';
 import { OverView } from './over-view';
 import { MapType } from './map-type';
+import { Heatmap } from './heatmap';
 
 export {
   Map,
@@ -46,6 +47,7 @@ export {
   Scale,
   OverView,
   MapType,
+  Heatmap,
 }
 
 export default {
@@ -72,4 +74,5 @@ export default {
   Scale,
   OverView,
   MapType,
+  Heatmap,
 }

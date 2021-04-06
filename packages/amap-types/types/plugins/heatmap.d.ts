@@ -1,7 +1,14 @@
 /// <reference types="../map" />
 
 declare namespace AMap {
+
   namespace Heatmap {
+    interface EventMap<T extends ShapeOverlay = any> {
+      click: MapsEvent<'click', T>;
+      mouseover: MapsEvent<'mouseover', T>;
+      mouseout: MapsEvent<'mouseout', T>;
+    }
+
     interface Options {
       /**
        * 热力图中单个点的半径，单位：pixel

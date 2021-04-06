@@ -2,7 +2,8 @@ export const configurableProps = [
   /** 动态属性 */
 
   /* 扩展属性 */
-  'visible'
+  'visible',
+  'dataSet'
 ]
 
 export const allProps = configurableProps.concat([
