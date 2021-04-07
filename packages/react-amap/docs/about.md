@@ -17,17 +17,27 @@ group:
 |--|--|
 |Map|地图组件|
 |BezierCurve|在地图上显示曲线|
+|BezierCurveEditor|编辑曲线，必须作为BezierCurve的子组件使用|
 |Circle|在地图上显示圆形|
+|CircleEditor|编辑圆形，必须作为Circle的子组件使用|
 |CircleMarker|在地图上显示圆点标记|
 |ContextMenu|地图右键菜单|
 |ControlBar|组合了旋转、倾斜、复位、缩放在内的地图控件|
 |Ellipse|在地图上显示椭圆|
+|Heatmap|热力图组件|
 |InfoWindow|在地图上显示信息窗体|
+|MapType|地图类型切换|
 |Marker|在地图上显示单个坐标点|
 |Markers|在地图上显示大量坐标点|
+|MouseTool|鼠标工具|
+|OverView|地图鹰眼|
 |Polygon|在地图上显示多边形|
 |Polyline|在地图上显示折线|
+|PolyEditor|多边形和折线的编辑组件，必须作为其子组件使用|
 |Rectangle|在地图上显示矩形|
+|RectangleEditor|编辑矩形，必须作为Rectangle的子组件使用|
+|Scale|比例尺|
+|ToolBar|工具条|
 
 ## 术语说明
 

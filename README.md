@@ -7,6 +7,8 @@
   基于 React 封装的高德地图组件，助你轻松的接入到 React 项目中。
 </div>
 
+<br />
+
 本库主要参考 饿了么[react-amap](https://github.com/ElemeFE/react-amap)，API基本一致。
 
 与饿了么[react-amap]区别如下:
