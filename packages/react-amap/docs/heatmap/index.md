@@ -5,9 +5,8 @@ nav:
   path: /components
 order: 1
 group:
-  path: /control
-  title: 控件
-  order: 200
+  path: /plugin
+  title: 插件
 ---
 
 # Heatmap 热力图插件

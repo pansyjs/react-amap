@@ -9,6 +9,12 @@
 
 本库主要参考 饿了么[react-amap](https://github.com/ElemeFE/react-amap)，API基本一致。
 
+与饿了么[react-amap]区别如下:
+
+- 采用`context`共享map实例，其他组件没有必要一定是`Map`组件的子组件
+- Map组件不支持加载插件，由项目封装的子组件代替。
+- 提供完善的高德API的类型定义，丝滑般的开发体验
+
 ## ✨ 特性
 
 - 📦 开箱即用，本组件支持了大部分的常用地图组件
