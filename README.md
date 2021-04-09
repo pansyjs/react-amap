@@ -7,7 +7,17 @@
   基于 React 封装的高德地图组件，助你轻松的接入到 React 项目中。
 </div>
 
-<br />
+<p align="center">
+  <a href="https://github.com/pansyjs/react-amap/network">
+    <img src="https://img.shields.io/github/forks/pansyjs/react-amap.svg" alt="Forks">
+  </a>
+  <a href="https://github.com/pansyjs/react-amap/stargazers">
+    <img src="https://img.shields.io/github/stars/pansyjs/react-amap.svg" alt="Stars">
+  </a>
+  <a href="https://www.npmjs.com/package/@pansy/react-amap">
+    <img src="https://img.shields.io/npm/v/@pansy/react-amap.svg" alt="npm version">
+  </a>
+</p>
 
 本库主要参考 饿了么[react-amap](https://github.com/ElemeFE/react-amap)，API基本一致。
 
