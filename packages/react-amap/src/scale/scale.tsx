@@ -3,7 +3,6 @@ import { AbstractComponent } from '../AbstractComponent';
 import { ScaleProps, ScaleState } from './types';
 import { allProps } from './config'
 
-
 export class InternalScale extends AbstractComponent<AMap.Scale, ScaleProps, ScaleState> {
   private map: AMap.Map;
 
@@ -12,12 +11,24 @@ export class InternalScale extends AbstractComponent<AMap.Scale, ScaleProps, Sca
 
     if (hasWindow) {
       if (props.map) {
+        const self = this;
+
         this.map = props.map;
         this.state = {
           loaded: false
         };
 
-        this.setterMap = {}
+        this.setterMap = {
+          visible(val: boolean) {
+            if (self.internalObj) {
+              if (val) {
+                self.internalObj.show()
+              } else {
+                self.internalObj.hide()
+              }
+            }
+          },
+        }
 
         this.converterMap = {
           offset: toPixel

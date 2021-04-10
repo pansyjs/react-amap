@@ -1,10 +1,12 @@
 export const configurableProps = [
-  /** 动态属性 */
-  'position',
-  'visible',
-  'offset',
+  /* 静态属性 */
+  /* 动态属性 */
 
   /* 扩展属性 */
+  'visible',
 ]
 
-export const allProps = configurableProps.concat([])
+export const allProps = configurableProps.concat([
+  'position',
+  'offset',
+])

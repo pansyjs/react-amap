@@ -14,4 +14,4 @@ export const Scale: React.FC<ScaleProps> = (props) => {
   )
 };
 
-export * from './types';
+export { ScaleOptions, ScaleProps } from './types';

@@ -5,8 +5,15 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.Scale.EventMa
   created?: (instance: AMap.Scale) => void;
 }
 
-export interface ScaleOptions extends  Omit<AMap.Scale.Options, 'offset'> {
+export interface ScaleOptions extends Omit<AMap.Scale.Options, 'offset'> {
+  /**
+   * 偏移量
+   */
   offset?: ReactAMap.Offset;
+  /**
+   * 是否可见
+   */
+  visible?: boolean;
 }
 
 export interface ScaleProps extends
