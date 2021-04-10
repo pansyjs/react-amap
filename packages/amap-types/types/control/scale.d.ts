@@ -16,10 +16,6 @@ declare namespace AMap {
        */
       position?: Position;
       /**
-       * 是否可见
-       */
-      visible?: boolean;
-      /**
        * 相对于地图容器左上角的偏移量
        */
       offset?: Pixel;

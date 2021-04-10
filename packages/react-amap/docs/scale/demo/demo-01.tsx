@@ -1,15 +1,22 @@
-/**
-  * title 基本示例
-  * desc Map 的父组件必须具有宽度和高度；
-  */
+
+import { useState } from 'react';
+import { Button } from 'antd';
 import { Map, Scale } from '@pansy/react-amap';
 
 export default () => {
+  const [visible, setVisible] = useState<boolean>(true);
+
+  const handleChangeVisible = () => {
+    setVisible(prev => !prev);
+  }
+
   return (
     <div style={{ height: 500 }}>
       <Map>
-        <Scale />
+        <Scale visible={visible} offset={[20, 20]} position="RB" />
       </Map>
+
+      <Button onClick={handleChangeVisible}>显示/隐藏</Button>
     </div>
   );
 };
