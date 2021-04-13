@@ -1,15 +1,7 @@
 import { useState } from 'react';
+import { Button, Space } from 'antd';
 import { Map, Circle } from '@pansy/react-amap';
-
-const randomIndex = (len) => (Math.floor(Math.random() * len));
-
-const randomColor = () => {
-  const chars = '0123456789abcdef'.split('');
-  const len = chars.length;
-  return `#${chars[randomIndex(len)]}${chars[randomIndex(len)]}`
-  + `${chars[randomIndex(len)]}${chars[randomIndex(len)]}`
-  + `${chars[randomIndex(len)]}${chars[randomIndex(len)]}`;
-};
+import { randomColor } from '../../utils';
 
 export default () => {
   const [visible, setVisible] = useState<boolean>(true);
@@ -21,7 +13,7 @@ export default () => {
   const [style, setStyle] = useState<object>({
     strokeColor: '#f00'
   });
-  const [draggable, setDraggable] = useState<boolean>(true);
+  const [draggable, setDraggable] = useState<boolean>(false);
 
   const changeCenter = () => {
     setCenter({
@@ -57,11 +49,13 @@ export default () => {
           draggable={draggable}
         />
       </Map>
-      <button onClick={() => { changeCenter() }}>Random Center</button>
-      <button onClick={() => { changeRadius() }}>Change Radius</button>
-      <button onClick={() => { toggleVisible() }}>Toggle Visible</button>
-      <button onClick={() => { toggleDraggable() }}>Toggle Draggable</button>
-      <button onClick={() => { changeStyle() }}>Change Style</button>
+      <Space>
+        <Button onClick={changeCenter}>Random Center</Button>
+        <Button onClick={changeRadius}>Change Radius</Button>
+        <Button onClick={toggleVisible}>Toggle Visible</Button>
+        <Button onClick={toggleDraggable}>Toggle Draggable</Button>
+        <Button onClick={changeStyle}>Change Style</Button>
+      </Space>
     </div>
   );
 };

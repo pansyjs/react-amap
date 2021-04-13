@@ -26,7 +26,7 @@ group:
 
 | 属性 |说明|类型|默认值|
 |-----|----|----|----|
-|center| 圆心位置 | `Position` \| `HTMLElement` | -- |
+|center| 圆心位置 | `Position` | -- |
 |radius| 圆半径，单位:米 | `number` | -- |
 |draggable| 圆形是否可拖拽 | `boolean` | -- |
 |extData| 用户自定义属性 | `any` | -- |
@@ -40,10 +40,12 @@ group:
 
 ### 扩展属性
 
-| 属性 |说明|类型|默认值|
-|-----|----|----|----|
-|style| 绘制圆形的外观，各个字段取值类型参考 | `Style` | -- |
-|visible| 圆形的显示/隐藏状态 | `boolean` | `true` |
+| 属性 |属性类型 |说明|类型|默认值|
+|-----|----|----|----|----|
+|style| 动态属性 |圆形的样式 | `Style` | -- |
+|visible| 动态属性 |是否显示 | `boolean` | `true` |
+
+<br />
 
 ```ts
 type Position = [number, number] | 
@@ -52,12 +54,20 @@ type Position = [number, number] |
   AMap.LngLat;
 
 interface Style { 
+  // 线条的颜色
   strokeColor: string; 
+  // 线条的透明度
   strokeOpacity: number; 
+  // 线条的宽度
   strokeWeight: string;  
-  fillColor, 
+  // 线条的样式
+  strokeStyle: 'dashed' | 'solid';
+  // 虚线分段设置
+  strokeDasharray: [number, number]; 
+  // 填充的颜色
+  fillColor: string;
+  // 填充的透明度
   fillOpacity: number;
-  strokeStyle, 
-  strokeDasharray 
 }
 ```
+
