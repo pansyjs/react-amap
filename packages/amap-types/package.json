@@ -1,6 +1,6 @@
 {
   "name": "@pansy/amap-types",
-  "version": "1.3.6",
+  "version": "1.3.7",
   "main": "index.js",
   "types": "index.d.ts",
   "files": [
