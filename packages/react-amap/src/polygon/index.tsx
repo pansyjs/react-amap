@@ -14,5 +14,4 @@ export const Polygon: React.FC<PolygonProps> = (props) => {
   )
 };
 
-export * from './config';
-export * from './types';
+export { PolygonProps } from './types';

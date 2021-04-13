@@ -12,4 +12,4 @@ export const RectangleEditor: React.FC<RectangleEditorProps> = (props) => {
   )
 };
 
-export * from './types';
+export { RectangleEditorProps } from './types';

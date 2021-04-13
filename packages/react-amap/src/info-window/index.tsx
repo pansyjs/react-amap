@@ -14,5 +14,4 @@ export const InfoWindow: React.FC<InfoWindowProps> = (props) => {
   )
 };
 
-export * from './config';
-export * from './types';
+export { InfoWindowProps } from './types';

@@ -14,4 +14,4 @@ export const MouseTool: React.FC<MouseToolProps> = (props) => {
   )
 };
 
-export * from './types';
+export { MouseToolProps } from './types';

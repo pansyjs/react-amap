@@ -14,5 +14,4 @@ export const MapType: React.FC<MapTypeProps> = (props) => {
   )
 };
 
-export * from './types';
-export * from './config';
+export { MapTypeProps } from './types';

@@ -14,5 +14,4 @@ export const Markers: React.FC<MarkersProps> = (props) => {
   )
 };
 
-export * from './config';
-export * from './types';
+export type { MarkersProps } from './types';

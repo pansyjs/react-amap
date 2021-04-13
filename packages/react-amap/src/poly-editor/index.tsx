@@ -12,4 +12,4 @@ export const PolyEditor: React.FC<PolyEditorProps> = (props) => {
   )
 };
 
-export * from './types';
+export { PolyEditorProps } from './types';

@@ -14,5 +14,4 @@ export const OverView: React.FC<OverViewProps> = (props) => {
   )
 };
 
-export * from './types';
-export * from './config';
+export { OverViewProps } from './types';
