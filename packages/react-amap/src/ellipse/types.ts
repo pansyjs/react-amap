@@ -9,12 +9,17 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.Ellipse.Event
 }
 
 export interface EllipseProps extends
-  Omit<AMap.Ellipse.Options, StyleKeys>,
+  Omit<AMap.Ellipse.Options, StyleKeys | 'center'>,
   ReactAMap.BaseChildrenComponentProps,
   AbstractComponentProps
 {
+  /** 椭圆的中心 */
+  center?: ReactAMap.Position;
+  /** 椭圆的样式 */
   style?: Style;
+  /** 是否显示 */
   visible?: boolean;
+   /** 绑定的事件 */
   events?: EventMap;
 }
 

@@ -53,6 +53,7 @@ export function usePropsReactive<I extends ReactAMap.BaseInstance, P = {}>(
   }
 
   const reactivePropChange = (nextProps = {}) => {
+    console.log(nextProps);
     const instance = instanceRef.current;
     if (!instance) return;
 
@@ -61,8 +62,6 @@ export function usePropsReactive<I extends ReactAMap.BaseInstance, P = {}>(
         if (key === 'events') {
           return createEventsProxy(nextProps)
         }
-
-        if (key === 'radius' || key === 'center') return;
 
         let setterParam = nextProps[key];
 
@@ -76,7 +75,10 @@ export function usePropsReactive<I extends ReactAMap.BaseInstance, P = {}>(
         } else {
           const trySetterName = `set${toCapitalString(key)}`;
 
+          console.log(trySetterName);
+
           if (trySetterName in instance) {
+            console.log(trySetterName);
             instance[trySetterName](setterParam);
           }
         }
