@@ -72,21 +72,16 @@ export function usePropsReactive<I extends ReactAMap.BaseInstance, P = {}>(
         }
 
         if (key in setterMap) {
-          console.log(`setterMap: ${key}`);
           setterMap[key](setterParam, instance)
         } else {
           const trySetterName = `set${toCapitalString(key)}`;
 
           if (trySetterName in instance) {
-            console.log(trySetterName);
-            console.log(setterParam);
             instance[trySetterName](setterParam);
           }
         }
       })
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   }
 
   const createEventsProxy = (props) => {

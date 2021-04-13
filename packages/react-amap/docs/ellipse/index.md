@@ -20,6 +20,10 @@ group:
 
 <code src="./demo/demo-01.tsx" />
 
+### 事件绑定
+
+<code src="./demo/demo-02.tsx" />
+
 ## API
 
 ### 动态属性
@@ -44,6 +48,8 @@ group:
 |-----|----|----|----|
 |style| 绘制圆形的外观，各个字段取值类型参考 | `Style` | -- |
 |visible| 圆形的显示/隐藏状态 | `boolean` | `true` |
+
+<br />
 
 ```ts
 type Position = [number, number] | 

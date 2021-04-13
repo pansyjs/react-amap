@@ -31,7 +31,6 @@ export class InternalHeatmap extends AbstractComponent<AMap.Heatmap, HeatmapProp
             }
           },
           dataSet(data: AMap.Heatmap.DataSet) {
-            console.log(data);
             if (self.internalObj) {
               self.internalObj.setDataSet(data);
             }

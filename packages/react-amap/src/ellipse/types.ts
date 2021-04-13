@@ -8,7 +8,6 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.Ellipse.Event
   created?: (instance: AMap.Ellipse) => void;
 }
 
-
 export interface EllipseProps extends
   Omit<AMap.Ellipse.Options, StyleKeys>,
   ReactAMap.BaseChildrenComponentProps,
@@ -19,6 +18,4 @@ export interface EllipseProps extends
   events?: EventMap;
 }
 
-export interface EllipseState {
-  loaded: boolean
-}
+export type EllipseType = React.ForwardRefRenderFunction<AMap.Ellipse, EllipseProps>;
