@@ -22,6 +22,10 @@ group:
 
 <code src="./demo/demo-01.tsx" />
 
+### 绑定事件
+
+<code src="./demo/demo-02.tsx" />
+
 ## API
 
 ### 动态属性
