@@ -6,10 +6,6 @@ import { allProps } from './config';
 export class InternalControlBar extends AbstractComponent<AMap.ControlBar, ControlBarProps, ControlBarState> {
   private map: AMap.Map;
 
-  static defaultProps: ControlBarProps = {
-    showControlButton: false
-  }
-
   constructor(props: ControlBarProps) {
     super(props);
 

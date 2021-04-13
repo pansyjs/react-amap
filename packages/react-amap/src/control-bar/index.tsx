@@ -14,5 +14,4 @@ export const ControlBar: React.FC<ControlBarProps> = (props) => {
   )
 };
 
-export * from './config';
-export * from './types';
+export { ControlBarProps } from './types';

@@ -12,4 +12,4 @@ export const CircleEditor: React.FC<CircleEditorProps> = (props) => {
   )
 };
 
-export * from './types';
+export { CircleEditorProps } from './types';

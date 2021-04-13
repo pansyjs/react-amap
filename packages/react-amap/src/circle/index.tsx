@@ -14,5 +14,4 @@ export const Circle: React.FC<CircleProps> = (props) => {
   )
 };
 
-export * from './config';
-export * from './types';
+export { CircleProps } from './types';

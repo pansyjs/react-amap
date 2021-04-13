@@ -14,5 +14,4 @@ export const CircleMarker: React.FC<CircleMarkerProps> = (props) => {
   )
 };
 
-export * from './config';
-export * from './types';
+export { CircleMarkerProps } from './types';
