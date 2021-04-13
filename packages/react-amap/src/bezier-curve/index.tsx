@@ -14,5 +14,4 @@ export const BezierCurve: React.FC<BezierCurveProps> = (props) => {
   )
 };
 
-export * from './config';
-export * from './types';
+export { BezierCurveProps } from './types';

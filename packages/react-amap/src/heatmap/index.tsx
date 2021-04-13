@@ -15,5 +15,4 @@ export const Heatmap: React.FC<HeatmapProps> = (props) => {
   )
 };
 
-export * from './config';
-export * from './types';
+export { HeatmapProps } from './types';
