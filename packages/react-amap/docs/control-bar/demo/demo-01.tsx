@@ -7,7 +7,7 @@ import { Map, ControlBar } from '@pansy/react-amap';
 export default () => {
   return (
     <div style={{ height: 500 }}>
-      <Map>
+      <Map viewMode="3D">
         <ControlBar />
       </Map>
     </div>
