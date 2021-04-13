@@ -14,5 +14,4 @@ export const ToolBar: React.FC<ToolBarProps> = (props) => {
   )
 };
 
-export * from './config';
-export * from './types';
+export { ToolBarProps } from './types';
