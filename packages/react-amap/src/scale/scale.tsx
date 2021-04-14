@@ -1,70 +1,56 @@
-import { hasWindow, toPixel } from '../utils';
-import { AbstractComponent } from '../AbstractComponent';
-import { ScaleProps, ScaleState } from './types';
-import { allProps } from './config'
+import React, { useRef, useEffect, useImperativeHandle } from 'react';
+import { useMap } from '../map';
+import { usePropsReactive } from '../hooks';
+import { buildCreateOptions } from '../utils/control';
+import type { ScaleProps, ScaleType } from './types';
+import { allProps, converterMap, setterMap } from './config';
 
-export class InternalScale extends AbstractComponent<AMap.Scale, ScaleProps, ScaleState> {
-  private map: AMap.Map;
+const Scale: ScaleType = (props = {}, ref) => {
+  const { map } = useMap();
+  const instanceObj = useRef<AMap.Scale>(null);
 
-  constructor(props: ScaleProps) {
-    super(props);
-
-    if (hasWindow) {
-      if (props.map) {
-        const self = this;
-
-        this.map = props.map;
-        this.state = {
-          loaded: false
-        };
-
-        this.setterMap = {
-          visible(val: boolean) {
-            if (self.internalObj) {
-              if (val) {
-                self.internalObj.show()
-              } else {
-                self.internalObj.hide()
-              }
-            }
-          },
-        }
-
-        this.converterMap = {
-          offset: toPixel
-        };
-
-        this.createInstance(props)
-          .then(() => {
-            this.setState({
-              loaded: true
-            });
-            this.map.addControl(this.instance);
-            this.props.onInstanceCreated?.()
-          })
-      }
+  const { onInstanceCreated } = usePropsReactive<AMap.Scale, ScaleProps>(
+    props,
+    instanceObj,
+    {
+      setterMap,
+      converterMap
     }
-  }
+  );
 
-  createInstance(props: ScaleProps) {
-    return new Promise<AMap.Scale>((resolve) => {
-      const opts = this.buildCreateOptions(props);
-      this.map.plugin(['AMap.Scale'], () => {
-        this.setInstance(new AMap.Scale(opts));
-        resolve(this.instance);
+  useEffect(
+    () => {
+      if (map) {
+        createInstance().then(() => {
+          map.addControl(instanceObj.current);
+          onInstanceCreated?.(instanceObj.current)
+        });
+      }
+    },
+    [map]
+  );
+
+  useImperativeHandle(
+    ref,
+    () => instanceObj.current,
+    [instanceObj.current]
+  );
+
+  const createInstance = () => {
+    return new Promise<void>((resolve) => {
+      map.plugin(['AMap.Scale'], () => {
+        const options = buildCreateOptions<ScaleProps, AMap.Scale.Options>(
+          props,
+          allProps,
+          converterMap,
+        );
+        instanceObj.current = new AMap.Scale(options);
+        resolve();
       });
     });
   }
 
-  buildCreateOptions(props: ScaleProps) {
-    const options: AMap.Scale.Options = {}
-    allProps.forEach((key) => {
-      if (key in props) {
-        if (key !== 'visible') {
-          options[key] = this.getSetterValue(key, props)
-        }
-      }
-    })
-    return options;
-  }
+  return null;
 }
+
+export default React.forwardRef(Scale);

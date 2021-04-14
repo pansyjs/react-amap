@@ -25,6 +25,4 @@ export interface ScaleProps extends
   events?: EventMap;
 }
 
-export interface ScaleState {
-  loaded: boolean
-}
+export type ScaleType = React.ForwardRefRenderFunction<AMap.Scale, ScaleProps>;
