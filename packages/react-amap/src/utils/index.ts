@@ -80,6 +80,11 @@ export const toCapitalString = (str: string): string => {
   return str[0].toUpperCase() + str.slice(1, str.length);
 };
 
+/**
+ * 是否是方法
+ * @param arg
+ * @returns
+ */
 export const isFun = (arg) => {
   return !!arg && (typeof arg === 'function');
 };

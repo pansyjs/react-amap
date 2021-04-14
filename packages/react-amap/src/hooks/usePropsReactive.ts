@@ -51,7 +51,6 @@ export function usePropsReactive<
   )
 
   const onInstanceCreated = (instance: I) => {
-    instanceRef.current = instance;
     setLoaded(true);
     if ('events' in props) {
       props['events'].created?.(instance);
