@@ -1,17 +1,2 @@
-import React from 'react';
-import { useMap } from '../map/context';
-import { withPropsReactive } from '../utils';
-import { CircleMarkerProps } from './types';
-import { InternalCircleMarker } from './circle-marker';
-
-export const CircleMarkerReactive = withPropsReactive<AMap.CircleMarker, CircleMarkerProps>(InternalCircleMarker);
-
-export const CircleMarker: React.FC<CircleMarkerProps> = (props) => {
-  const { map } = useMap();
-
-  return (
-    <CircleMarkerReactive {...props} map={map}  />
-  )
-};
-
-export { CircleMarkerProps } from './types';
+export { default as CircleMarker } from './circle-marker';
+export type { CircleMarkerProps } from './types';
