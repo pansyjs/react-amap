@@ -1,17 +1,2 @@
-import React from 'react';
-import { useMap } from '../map/context';
-import { withPropsReactive } from '../utils';
-import { PolylineProps } from './types';
-import { InternalPolyline } from './polyline';
-
-export const PolylineReactive = withPropsReactive<AMap.Polyline, PolylineProps>(InternalPolyline);
-
-export const Polyline: React.FC<PolylineProps> = (props) => {
-  const { map } = useMap();
-
-  return (
-    <PolylineReactive {...props} map={map}  />
-  )
-};
-
-export { PolylineProps } from './types';
+export { default as Polyline } from './polyline';
+export type { PolylineProps } from './types';

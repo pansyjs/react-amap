@@ -1,106 +1,58 @@
-import React from 'react';
-import { AbstractComponent } from '../AbstractComponent';
-import { toLnglat, hasWindow } from '../utils';
-import { PolylineProps, PolylineState } from './types';
-import { allProps } from './config';
+import React, { useRef, useEffect, useImperativeHandle } from 'react';
+import { useMap } from '../map';
+import { usePropsReactive } from '../hooks';
+import { buildCreateOptions, renderEditor } from '../utils/overlay';
+import { allProps, setterMap, converterMap } from './config';
+import type { PolylineProps, PolylineType } from './types';
 
-export class InternalPolyline extends AbstractComponent<AMap.Polyline, PolylineProps, PolylineState> {
-  private map: AMap.Map;
+const Polyline: PolylineType = (props = {}, ref) => {
+  const { map } = useMap();
+  const instanceObj = useRef<AMap.Polyline>(null);
 
-  constructor(props: PolylineProps) {
-    super(props);
+  const { loaded, onInstanceCreated } = usePropsReactive<AMap.Polyline, PolylineProps>(
+    props,
+    instanceObj,
+    {
+      setterMap,
+      converterMap
+    }
+  );
 
-    if (hasWindow) {
-      if (props.map) {
-        const self = this;
-
-        this.map = props.map;
-        this.state = {
-          loaded: false
-        }
-
-        this.setterMap = {
-          visible(val: boolean) {
-            if (self.internalObj) {
-              if (val) {
-                self.internalObj.show()
-              } else {
-                self.internalObj.hide()
-              }
-            }
-          },
-          style(val) {
-            self.internalObj.setOptions(val)
-          }
-        }
-
-        this.converterMap = {
-          path(val: ReactAMap.Position[]) {
-            return self.buildPathValue(val);
-          }
-        }
-
-        this.createInstance(props).then(() => {
-          this.setState({
-            loaded: true
-          })
-          this.props.onInstanceCreated?.()
-        })
+  useEffect(
+    () => {
+      if (map) {
+        createInstance().then(() => {
+          onInstanceCreated?.(instanceObj.current)
+        });
       }
-    }
+    },
+    [map]
+  );
+
+  useImperativeHandle(
+    ref,
+    () => instanceObj.current,
+    [loaded]
+  );
+
+  const createInstance = () => {
+    const options = buildCreateOptions<PolylineProps, AMap.Polyline.Options>(
+      props,
+      allProps,
+      converterMap
+    );
+    options.map = map;
+    instanceObj.current = new window.AMap.Polyline(options);
+    return Promise.resolve();
   }
 
-  createInstance(props: PolylineProps) {
-    const options: AMap.Polyline.Options = this.buildCreateOptions(props)
-    options.map = this.map;
-    this.setInstance(new window.AMap.Polyline(options));
-    return Promise.resolve(this.instance);
-  }
-
-  buildCreateOptions(props: PolylineProps) {
-    const options = {}
-    allProps.forEach((key) => {
-      if (key in props) {
-        if ((key === 'style') && props.style) {
-          const styleItem = Object.keys(props.style)
-          styleItem.forEach((item) => {
-            options[item] = props.style[item]
-          })
-          // visible 做特殊处理
-        } else if (key !== 'visible') {
-          options[key] = this.getSetterValue(key, props)
-        }
-      }
-    })
-    return options;
-  }
-
-  buildPathValue(path: ReactAMap.Position[]) {
-    if (path.length) {
-      if ('getLng' in path[0]) {
-        return path;
-      }
-      return path.map((p) => toLnglat(p));
-    }
-    return path;
-  }
-
-  renderEditor(children: any) {
-    if (!children) {
-      return null
-    }
-    if (React.Children.count(children) !== 1) {
-      return null
-    }
-    const child = React.Children.only(children)
-    return React.cloneElement(child, {
-      poly: this.internalObj,
-      map: this.map,
-    });
-    return null
-  }
-
-  render() {
-    return this.state.loaded ? (this.renderEditor(this.props.children)) : null
-  }
+  return loaded
+    ? renderEditor<AMap.Polyline>(props.children, {
+        key: 'poly',
+        instance: instanceObj.current,
+        map: map
+      })
+    : null
 }
+
+export default React.forwardRef(Polyline);

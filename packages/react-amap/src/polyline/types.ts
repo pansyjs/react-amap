@@ -21,7 +21,7 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.Polyline.Even
 }
 
 interface PolylineOptions extends Omit<AMap.Polyline.Options, 'path'> {
-  path: ReactAMap.Position[]
+  path?: ReactAMap.Position[]
 }
 
 export interface PolylineProps extends
@@ -32,6 +32,5 @@ export interface PolylineProps extends
   style?: Style;
   visible?: boolean;
 }
-export interface PolylineState {
-  loaded: boolean
-}
+
+export type PolylineType = React.ForwardRefRenderFunction<AMap.Polyline, PolylineProps>;
