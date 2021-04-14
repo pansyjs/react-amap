@@ -1,17 +1,2 @@
-import React from 'react';
-import { useMap } from '../map/context';
-import { withPropsReactive } from '../utils';
-import { PolygonProps } from './types';
-import { InternalPolygon } from './polygon';
-
-export const PolygonReactive = withPropsReactive<AMap.Polygon, PolygonProps>(InternalPolygon);
-
-export const Polygon: React.FC<PolygonProps> = (props) => {
-  const { map } = useMap();
-
-  return (
-    <PolygonReactive {...props} map={map}  />
-  )
-};
-
-export { PolygonProps } from './types';
+export { default as Polygon } from './polygon';
+export type { PolygonProps } from './types';

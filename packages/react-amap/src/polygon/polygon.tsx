@@ -1,106 +1,58 @@
-import React from 'react';
-import { toLnglat, hasWindow } from '../utils';
-import { AbstractComponent } from '../AbstractComponent';
-import { PolygonProps, PolygonState, Style } from './types';
-import { allProps } from './config';
+import React, { useRef, useEffect, useImperativeHandle } from 'react';
+import { useMap } from '../map';
+import { usePropsReactive } from '../hooks';
+import { buildCreateOptions, renderEditor } from '../utils/overlay';
+import { allProps, setterMap, converterMap } from './config';
+import type { PolygonProps, PolygonType } from './types';
 
-export class InternalPolygon extends AbstractComponent<AMap.Polygon, PolygonProps, PolygonState> {
-  private map: AMap.Map;
+const Polygon: PolygonType = (props = {}, ref) => {
+  const { map } = useMap();
+  const instanceObj = useRef<AMap.Polygon>(null);
 
-  constructor(props: PolygonProps) {
-    super(props);
+  const { loaded, onInstanceCreated } = usePropsReactive<AMap.Polygon, PolygonProps>(
+    props,
+    instanceObj,
+    {
+      setterMap,
+      converterMap
+    }
+  );
 
-    if (hasWindow) {
-      if (props.map) {
-        const self = this;
-
-        this.map = props.map;
-        this.state = {
-          loaded: false
-        };
-
-        this.setterMap = {
-          visible(val: boolean) {
-            if (self.internalObj) {
-              if (val) {
-                self.internalObj.show()
-              } else {
-                self.internalObj.hide()
-              }
-            }
-          },
-          style(val: Style) {
-            self.internalObj.setOptions(val);
-          }
-        }
-
-        this.converterMap = {
-          path(val: ReactAMap.Position[]) {
-            return self.buildPathValue(val);
-          }
-        }
-
-        this.createInstance(props)
-          .then(() => {
-            this.setState({
-              loaded: true
-            })
-            this.props.onInstanceCreated?.()
-          })
+  useEffect(
+    () => {
+      if (map) {
+        createInstance().then(() => {
+          onInstanceCreated?.(instanceObj.current)
+        });
       }
-    }
+    },
+    [map]
+  );
+
+  useImperativeHandle(
+    ref,
+    () => instanceObj.current,
+    [loaded]
+  );
+
+  const createInstance = () => {
+    const options = buildCreateOptions<PolygonProps, AMap.Polygon.Options>(
+      props,
+      allProps,
+      converterMap
+    );
+    options.map = map;
+    instanceObj.current = new window.AMap.Polygon(options);
+    return Promise.resolve();
   }
 
-  createInstance(props: PolygonProps) {
-    const options = this.buildCreateOptions(props)
-    options.map = this.map;
-    this.setInstance(new window.AMap.Polygon(options));
-    return Promise.resolve(this.instance);
-  }
-
-  buildCreateOptions(props: PolygonProps) {
-    const options: AMap.Circle.Options = {}
-    allProps.forEach((key) => {
-      if (key in props) {
-        if (key === 'style' && (props.style !== undefined)) {
-          const styleItem = Object.keys(props.style)
-          styleItem.forEach((item) => {
-            options[item] = props.style[item]
-          })
-        } else if (key !== 'visible') {
-          options[key] = this.getSetterValue(key, props)
-        }
-      }
-    })
-    return options;
-  }
-
-  buildPathValue(path: ReactAMap.Position[] | ReactAMap.Position[][]) {
-    if (path.length) {
-      return path.map((p, index) => {
-        if (Array.isArray(p[index])) {
-          return this.buildPathValue(p);
-        }
-        return toLnglat(p);
-      });
-    }
-    return path;
-  }
-
-  renderEditor(children: any) {
-    if (!children) {
-      return null
-    }
-    if (React.Children.count(children) !== 1) {
-      return null
-    }
-    return React.cloneElement(React.Children.only(children), {
-      poly: this.internalObj,
-      map: this.map
-    })
-  }
-
-  render() {
-    return this.state.loaded ? (this.renderEditor(this.props.children)) : null
-  }
+  return loaded
+    ? renderEditor<AMap.Polygon>(props.children, {
+        key: 'poly',
+        instance: instanceObj.current,
+        map: map
+      })
+    : null
 }
+
+export default React.forwardRef(Polygon);

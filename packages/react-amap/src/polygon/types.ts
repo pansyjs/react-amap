@@ -8,7 +8,7 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.Polygon.Event
 }
 
 interface PolygonOptions extends Omit<AMap.Polygon.Options, StyleKeys | 'path'> {
-  path: ReactAMap.Position[] | ReactAMap.Position[][];
+  path?: ReactAMap.Position[] | ReactAMap.Position[][];
   style?: Style;
 }
 
@@ -20,6 +20,4 @@ export interface PolygonProps extends
   visible?: boolean;
 }
 
-export interface PolygonState {
-  loaded: boolean
-}
+export type PolygonType = React.ForwardRefRenderFunction<AMap.Polygon, PolygonProps>;
