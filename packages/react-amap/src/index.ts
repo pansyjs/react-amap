@@ -1,6 +1,7 @@
 import { Map } from './map';
 import { useMap } from './map/context';
 import { Ellipse } from './ellipse';
+import { EllipseEditor } from './ellipse-editor';
 import { InfoWindow } from './info-window';
 import { Circle } from './circle';
 import { CircleMarker } from './circle-marker';
@@ -29,7 +30,9 @@ export {
   Marker,
   Markers,
   Ellipse,
+  EllipseEditor,
   Circle,
+  CircleEditor,
   Polygon,
   Polyline,
   Rectangle,
@@ -40,7 +43,6 @@ export {
   CircleMarker,
   ToolBar,
   MouseTool,
-  CircleEditor,
   PolyEditor,
   BezierCurveEditor,
   RectangleEditor,
@@ -56,7 +58,9 @@ export default {
   Marker,
   Markers,
   Ellipse,
+  EllipseEditor,
   Circle,
+  CircleEditor,
   Polygon,
   Polyline,
   Rectangle,
@@ -67,7 +71,6 @@ export default {
   CircleMarker,
   ToolBar,
   MouseTool,
-  CircleEditor,
   PolyEditor,
   BezierCurveEditor,
   RectangleEditor,

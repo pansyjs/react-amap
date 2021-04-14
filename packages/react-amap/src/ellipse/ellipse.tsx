@@ -8,10 +8,14 @@ const Ellipse: EllipseType = (props = {}, ref) => {
   const { map } = useMap();
   const instanceObj = useRef<AMap.Ellipse>(null);
 
-  const { loaded, onInstanceCreated } = usePropsReactive<AMap.Ellipse, EllipseProps>(props, {
-    setterMap,
-    converterMap
-  });
+  const { loaded, onInstanceCreated } = usePropsReactive<AMap.Ellipse, EllipseProps>(
+    props,
+    instanceObj,
+    {
+      setterMap,
+      converterMap
+    }
+  );
 
   useEffect(
     () => {
