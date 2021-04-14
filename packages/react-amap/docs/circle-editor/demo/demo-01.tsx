@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Button } from 'antd';
 import { Map, Circle, CircleEditor } from '@pansy/react-amap';
 
 export default () => {
@@ -20,10 +21,9 @@ export default () => {
           radius={15000}
         >
           <CircleEditor active={active} />
-
         </Circle>
       </Map>
-      <button onClick={() => { changeActive() }}>Random Active</button>
+      <Button onClick={() => { changeActive() }}>Random Active</Button>
     </div>
   );
 };

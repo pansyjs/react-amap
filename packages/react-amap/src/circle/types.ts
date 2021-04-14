@@ -14,7 +14,7 @@ export interface CircleProps extends
   AbstractComponentProps
 {
   /** 圆心 */
-  center: ReactAMap.Position;
+  center?: ReactAMap.Position;
   /** 样式 */
   style?: Style;
   /** 是否显示 */
@@ -23,6 +23,4 @@ export interface CircleProps extends
   events?: EventMap;
 }
 
-export interface CircleState {
-  loaded: boolean
-}
+export type CircleType = React.ForwardRefRenderFunction<AMap.Circle, CircleProps>;

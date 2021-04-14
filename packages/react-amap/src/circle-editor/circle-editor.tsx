@@ -1,57 +1,50 @@
-import { hasWindow } from '../utils';
-import { AbstractComponent } from '../AbstractComponent';
-import { CircleEditorProps, CircleEditorState } from './types';
+import React, { useRef, useEffect, useImperativeHandle } from 'react';
+import { usePropsReactive } from '../hooks';
+import { CircleEditorProps, CircleEditorType } from './types';
+import { setterMap, converterMap } from './config';
 
-// @ts-ignore
-export class InternalCircleEditor extends AbstractComponent<AMap.CircleEditor, CircleEditorProps, CircleEditorState> {
-  private map: AMap.Map;
-  private circle: AMap.Circle;
+const CircleEditor: CircleEditorType = (props = {}, ref) => {
+  const { map, circle } = props;
+  const instanceObj = useRef<AMap.CircleEditor>(null);
 
-  constructor(props: CircleEditorProps) {
-    super(props);
+  // @ts-ignore
+  const { onInstanceCreated } = usePropsReactive<AMap.CircleEditor, CircleEditorProps>(
+    props,
+    instanceObj,
+    {
+      setterMap,
+      converterMap
+    }
+  );
 
-    if (hasWindow) {
+  useEffect(
+    () => {
       if (props.map && props.circle) {
-        const self = this;
-
-        this.map = props.map;
-        this.circle = props.circle;
-        this.state = {
-          loaded: false
-        };
-
-        this.setterMap = {
-          active(val: boolean) {
-            if (self.internalObj) {
-              if (val) {
-                self.internalObj.open()
-              } else {
-                self.internalObj.close()
-              }
-            }
-          }
-        }
-
-        this.converterMap = {};
-
-        this.createInstance()
+        createInstance()
           .then(() => {
-            this.setState({
-              loaded: true
-            });
-            this.props.onInstanceCreated?.()
+            onInstanceCreated?.(instanceObj.current)
           })
       }
-    }
-  }
+    },
+    [props.map, props.circle]
+  );
 
-  createInstance() {
-    return new Promise<AMap.CircleEditor>((resolve) => {
-      this.map.plugin(['AMap.CircleEditor'], () => {
+  useImperativeHandle(
+    ref,
+    () => instanceObj.current,
+    [instanceObj.current]
+  );
 
-        this.setInstance(new AMap.CircleEditor(this.map, this.circle));
-        resolve(this.instance);
+  const createInstance = () => {
+    return new Promise<void>((resolve) => {
+      map.plugin(['AMap.CircleEditor'], () => {
+        instanceObj.current = new AMap.CircleEditor(map, circle);
+        resolve();
       });
     });
   }
+
+  return null;
 }
+
+export default React.forwardRef(CircleEditor);

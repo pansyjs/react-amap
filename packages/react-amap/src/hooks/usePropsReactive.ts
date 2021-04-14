@@ -1,5 +1,6 @@
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { toCapitalString } from '../utils';
+import { usePrevious } from './';
 
 export type SetterMap = Record<string, Function>;
 export type ConverterMap = Record<string, Function>;
@@ -9,19 +10,25 @@ interface Config {
   converterMap?: ConverterMap;
 }
 
-export function usePropsReactive<I extends ReactAMap.BaseInstance, P = {}>(
-  props: P,
-  config: Config = {}
-) {
-  const instanceRef = useRef<I>(null);
+export function usePropsReactive<
+  I extends ReactAMap.BaseInstance,
+  P = {}
+>( props: P, instanceRef: React.MutableRefObject<I>, config: Config = {}) {
+  const prevProps = usePrevious(props) ?? {};
   const registeredEvents = useRef<string[]>([]);
   const [loaded, setLoaded] = useState<boolean>(false);
   const { setterMap = {}, converterMap = {} } = config;
 
   useEffect(
     () => {
-      reactivePropChange(props);
+      if (!instanceRef.current) return;
+      reactivePropChange(props, true);
+    },
+    [props]
+  )
 
+  useEffect(
+    () => {
       return () => {
         if (!instanceRef.current) return;
 
@@ -40,7 +47,7 @@ export function usePropsReactive<I extends ReactAMap.BaseInstance, P = {}>(
         }
       }
     },
-    [props]
+    []
   )
 
   const onInstanceCreated = (instance: I) => {
@@ -49,10 +56,10 @@ export function usePropsReactive<I extends ReactAMap.BaseInstance, P = {}>(
     if ('events' in props) {
       props['events'].created?.(instance);
     }
-    reactivePropChange(props);
+    reactivePropChange(props, false)
   }
 
-  const reactivePropChange = (nextProps = {}) => {
+  const reactivePropChange = (nextProps = {}, shouldDetectChange: boolean = true) => {
     const instance = instanceRef.current;
     if (!instance) return;
 
@@ -61,6 +68,12 @@ export function usePropsReactive<I extends ReactAMap.BaseInstance, P = {}>(
         if (key === 'events') {
           return createEventsProxy(nextProps)
         }
+
+        let willReactive = true
+        if (shouldDetectChange) {
+          willReactive = detectPropChange(key, nextProps, prevProps)
+        }
+        if (!willReactive) return;
 
         let setterParam = nextProps[key];
 

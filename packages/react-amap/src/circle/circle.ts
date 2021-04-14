@@ -1,62 +1,48 @@
-import React from 'react';
-import { toLnglat, hasWindow } from '../utils';
-import { AbstractComponent } from '../AbstractComponent';
-import { CircleProps, CircleState, Style } from './types';
-import { allProps } from './config';
+import React, { useRef, useEffect, useImperativeHandle } from 'react';
+import { useMap } from '../map';
+import { usePropsReactive } from '../hooks';
+import type { CircleProps, CircleType } from './types';
+import { allProps, setterMap, converterMap } from './config';
 
-export class InternalCircle extends AbstractComponent<AMap.Circle, CircleProps, CircleState> {
-  private map: AMap.Map;
+const Circle: CircleType = (props = {}, ref) => {
+  const { map } = useMap();
+  const instanceObj = useRef<AMap.Circle>(null);
 
-  constructor(props: CircleProps) {
-    super(props);
+  const { loaded, onInstanceCreated } = usePropsReactive<AMap.Circle, CircleProps>(
+    props,
+    instanceObj,
+    {
+      setterMap,
+      converterMap
+    }
+  );
 
-    if (hasWindow) {
-      if (props.map) {
-        const self = this;
-
-        this.map = props.map;
-        this.state = {
-          loaded: false
-        };
-
-        this.setterMap = {
-          visible(val: boolean) {
-            if (self.internalObj) {
-              if (val) {
-                self.internalObj.show()
-              } else {
-                self.internalObj.hide()
-              }
-            }
-          },
-          style(val: Style) {
-            self.internalObj.setOptions(val);
-          }
-        }
-
-        this.converterMap = {
-          center: toLnglat
-        }
-
-        this.createInstance(props)
+  useEffect(
+    () => {
+      if (map) {
+        createInstance()
           .then(() => {
-            this.setState({
-              loaded: true
-            })
-            this.props.onInstanceCreated?.()
+            onInstanceCreated?.(instanceObj.current)
           })
       }
-    }
+    },
+    [map]
+  );
+
+  useImperativeHandle(
+    ref,
+    () => instanceObj.current,
+    [instanceObj.current]
+  );
+
+  const createInstance = () => {
+    const options = buildCreateOptions()
+    options.map = map;
+    instanceObj.current = new window.AMap.Circle(options);
+    return Promise.resolve();
   }
 
-  createInstance(props: CircleProps) {
-    const options = this.buildCreateOptions(props)
-    options.map = this.map;
-    this.setInstance(new window.AMap.Circle(options));
-    return Promise.resolve(this.instance);
-  }
-
-  buildCreateOptions(props: CircleProps) {
+  const buildCreateOptions = () => {
     const options: AMap.Circle.Options = {}
     allProps.forEach((key) => {
       if (key in props) {
@@ -66,14 +52,27 @@ export class InternalCircle extends AbstractComponent<AMap.Circle, CircleProps, 
             options[item] = props.style[item]
           })
         } else if (key !== 'visible') {
-          options[key] = this.getSetterValue(key, props)
+          options[key] = getSetterValue(key, props)
         }
       }
     })
     return options;
   }
 
-  renderEditor(children: any) {
+  /**
+   * 处理需要转换的参数
+   * @param key
+   * @param props
+   * @returns
+   */
+  const getSetterValue = (key: string, props: CircleProps) => {
+    if (key in converterMap) {
+      return converterMap[key](props[key])
+    }
+    return props[key];
+  }
+
+  const renderEditor = (children: any) => {
     if (!children) {
       return null
     }
@@ -81,12 +80,12 @@ export class InternalCircle extends AbstractComponent<AMap.Circle, CircleProps, 
       return null
     }
     return React.cloneElement(React.Children.only(children), {
-      circle: this.internalObj,
-      map: this.map
+      circle: instanceObj.current,
+      map: map
     })
   }
 
-  render() {
-    return this.state.loaded ? (this.renderEditor(this.props.children)) : null
-  }
+  return loaded ? renderEditor(props.children) : null
 }
+
+export default React.forwardRef(Circle);
