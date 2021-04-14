@@ -1,92 +1,58 @@
-import React from 'react';
-import { AbstractComponent } from '../AbstractComponent';
-import { hasWindow } from '../utils';
-import { BezierCurveProps, BezierCurveState, Style } from './types';
-import { allProps } from './config';
+import React, { useRef, useEffect, useImperativeHandle } from 'react';
+import { useMap } from '../map';
+import { usePropsReactive } from '../hooks';
+import { buildCreateOptions, renderEditor } from '../utils/overlay';
+import { allProps, setterMap, converterMap } from './config';
+import type { BezierCurveProps, BezierCurveType } from './types';
 
-export class InternalBezierCurve extends AbstractComponent<AMap.BezierCurve, BezierCurveProps, BezierCurveState> {
-  private map: AMap.Map;
+const BezierCurve: BezierCurveType = (props = {}, ref) => {
+  const { map } = useMap();
+  const instanceObj = useRef<AMap.BezierCurve>(null);
 
-  constructor(props: BezierCurveProps) {
-    super(props);
+  const { loaded, onInstanceCreated } = usePropsReactive<AMap.BezierCurve, BezierCurveProps>(
+    props,
+    instanceObj,
+    {
+      setterMap,
+      converterMap
+    }
+  );
 
-    if (hasWindow) {
-      if (props.map) {
-        const self = this;
-
-        this.map = props.map;
-        this.state = {
-          loaded: false
-        };
-
-        this.setterMap = {
-          visible(val: boolean) {
-            if (self.internalObj) {
-              if (val) {
-                self.internalObj.show()
-              } else {
-                self.internalObj.hide()
-              }
-            }
-          },
-          style(val: Style) {
-            self.internalObj.setOptions(val)
-          }
-        }
-
-        this.converterMap = {}
-
-        this.createInstance(props).then(() => {
-          this.setState({
-            loaded: true
-          });
-          this.props.onInstanceCreated?.()
-        })
+  useEffect(
+    () => {
+      if (map) {
+        createInstance().then(() => {
+          onInstanceCreated?.(instanceObj.current)
+        });
       }
-    }
+    },
+    [map]
+  );
+
+  useImperativeHandle(
+    ref,
+    () => instanceObj.current,
+    [instanceObj.current, loaded]
+  );
+
+  const createInstance = () => {
+    const options = buildCreateOptions<BezierCurveProps, AMap.BezierCurve.Options>(
+      props,
+      allProps,
+      converterMap
+    );
+    options.map = map;
+    instanceObj.current = new window.AMap.BezierCurve(options);
+    return Promise.resolve();
   }
 
-  createInstance(props: BezierCurveProps) {
-    const options = this.buildCreateOptions(props)
-    options.map = this.map;
-    this.setInstance(new window.AMap.BezierCurve(options));
-    return Promise.resolve(this.instance);
-  }
-
-  buildCreateOptions(props: BezierCurveProps) {
-    const options: AMap.BezierCurve.Options = {}
-    allProps.forEach((key) => {
-      if (key in props) {
-        if ((key === 'style') && props.style) {
-          const styleItem = Object.keys(props.style)
-          styleItem.forEach((item) => {
-            options[item] = props.style[item]
-          })
-          // visible 做特殊处理
-        } else if (key !== 'visible') {
-          options[key] = this.getSetterValue(key, props)
-        }
-      }
-    })
-    return options;
-  }
-
-  renderEditor(children: any) {
-    if (!children) {
-      return null
-    }
-    if (React.Children.count(children) !== 1) {
-      return null
-    }
-    const child = React.Children.only(children)
-    return React.cloneElement(child, {
-      bezierCurve: this.internalObj,
-      map: this.map
-    });
-    return null
-  }
-
-  render() {
-    return this.state.loaded ? (this.renderEditor(this.props.children)) : null
-  }
+  return loaded
+    ? renderEditor<AMap.BezierCurve>(props.children, {
+        key: 'bezierCurve',
+        instance: instanceObj.current,
+        map: map
+      })
+    : null
 }
+
+export default React.forwardRef(BezierCurve);

@@ -20,6 +20,4 @@ export interface BezierCurveProps extends
   events?: EventMap;
 }
 
-export interface BezierCurveState {
-  loaded: boolean
-}
+export type BezierCurveType = React.ForwardRefRenderFunction<AMap.BezierCurve, BezierCurveProps>;
