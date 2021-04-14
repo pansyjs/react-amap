@@ -23,6 +23,4 @@ export interface RectangleProps extends
   bounds?: Bounds;
 }
 
-export interface RectangleState {
-  loaded: boolean
-}
+export type RectangleType = React.ForwardRefRenderFunction<AMap.Rectangle, RectangleProps>;

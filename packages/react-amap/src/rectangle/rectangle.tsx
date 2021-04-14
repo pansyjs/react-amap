@@ -1,116 +1,91 @@
-import React from 'react';
-import { toLnglat, hasWindow } from '../utils';
-import { AbstractComponent } from '../AbstractComponent';
-import { RectangleProps, RectangleState, Style, Bounds } from './types';
-import { allProps } from './config';
+import React, { useRef, useEffect, useImperativeHandle } from 'react';
+import { useMap } from '../map';
+import { usePropsReactive } from '../hooks';
+import type { RectangleProps, RectangleType } from './types';
+import { allProps, setterMap, converterMap } from './config';
 
-export class InternalRectangle extends AbstractComponent<AMap.Rectangle, RectangleProps, RectangleState> {
-  private map: AMap.Map;
-  private element: HTMLElement;
+const Rectangle: RectangleType = (props = {}, ref) => {
+  const { map } = useMap();
+  const instanceObj = useRef<AMap.Rectangle>(null);
 
-  constructor(props: RectangleProps) {
-    super(props);
-
-    if (hasWindow) {
-      if (props.map) {
-        const self = this;
-
-        this.map = props.map;
-        this.element = this.map.getContainer();
-        this.state = {
-          loaded: false
-        };
-
-        this.setterMap = {
-          visible(val: boolean) {
-            if (self.internalObj) {
-              if (val) {
-                self.internalObj.show()
-              } else {
-                self.internalObj.hide()
-              }
-            }
-          },
-          style(val: Style) {
-            self.internalObj.setOptions(val)
-          }
-        }
-
-        this.converterMap = {
-          bounds(val: Bounds) {
-            return self.buildBounds(val);
-          }
-        }
-
-        this.createInstance(props)
-          .then(() => {
-            this.setState({
-              loaded: true
-            })
-            this.props.onInstanceCreated?.()
-          });
-      }
+  const { loaded, onInstanceCreated } = usePropsReactive<AMap.Rectangle, RectangleProps>(
+    props,
+    instanceObj,
+    {
+      setterMap,
+      converterMap
     }
+  );
+
+  useEffect(
+    () => {
+      if (map) {
+        createInstance()
+          .then(() => {
+            onInstanceCreated?.(instanceObj.current)
+          })
+      }
+    },
+    [map]
+  );
+
+  useImperativeHandle(
+    ref,
+    () => instanceObj.current,
+    [instanceObj.current]
+  );
+
+  const createInstance = () => {
+    const options = buildCreateOptions()
+    options.map = map;
+    instanceObj.current = new window.AMap.Rectangle(options);
+    return Promise.resolve();
   }
 
-  createInstance(props: RectangleProps) {
-    const options = this.buildCreateOptions(props);
-    options.map = this.map;
-    this.setInstance(new window.AMap.Rectangle(options));
-    return Promise.resolve(this.instance);
-  }
-
-  buildCreateOptions(props: RectangleProps) {
+  const buildCreateOptions = () => {
     const options: AMap.Rectangle.Options = {}
     allProps.forEach((key) => {
       if (key in props) {
-        if ((key === 'style') && (props.style !== undefined)) {
+        if (key === 'style' && (props.style !== undefined)) {
           const styleItem = Object.keys(props.style)
           styleItem.forEach((item) => {
             options[item] = props.style[item]
           })
         } else if (key !== 'visible') {
-          options[key] = this.getSetterValue(key, props);
+          options[key] = getSetterValue(key, props)
         }
       }
     })
     return options;
   }
 
-  private buildBounds(rawBounds: Bounds) {
-    if (!rawBounds) {
-      return rawBounds;
+  /**
+   * 处理需要转换的参数
+   * @param key
+   * @param props
+   * @returns
+   */
+   const getSetterValue = (key: string, props: RectangleProps) => {
+    if (key in converterMap) {
+      return converterMap[key](props[key])
     }
-
-    if ('getSouthWest' in rawBounds) {
-      return rawBounds;
-    }
-
-    if (Array.isArray(rawBounds) && rawBounds.length === 2) {
-      const bounds = new window.AMap.Bounds(
-        ...rawBounds.map(toLnglat) as [AMap.LngLat, AMap.LngLat]
-      );
-      return bounds;
-    }
+    return props[key];
   }
 
-  renderEditor(children: any) {
+  const renderEditor = (children: any) => {
     if (!children) {
       return null
     }
     if (React.Children.count(children) !== 1) {
       return null
     }
-    const child = React.Children.only(children)
-    return React.cloneElement(child, {
-      rectangle: this.internalObj,
-      map: this.map,
-      ele: this.element
-    });
-    return null
+    return React.cloneElement(React.Children.only(children), {
+      rectangle: instanceObj.current,
+      map: map
+    })
   }
 
-  render() {
-    return this.state.loaded ? (this.renderEditor(this.props.children)) : null
-  }
+  return loaded ? renderEditor(props.children) : null
 }
+
+export default React.forwardRef(Rectangle);

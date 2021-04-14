@@ -1,15 +1,7 @@
 import { useState } from 'react';
+import { Button, Space } from 'antd';
 import { Map, Rectangle } from '@pansy/react-amap';
-
-const randomIndex = (len) => (Math.floor(Math.random() * len));
-
-const randomColor = () => {
-  const chars = '0123456789abcdef'.split('');
-  const len = chars.length;
-  return `#${chars[randomIndex(len)]}${chars[randomIndex(len)]}`
-  + `${chars[randomIndex(len)]}${chars[randomIndex(len)]}`
-  + `${chars[randomIndex(len)]}${chars[randomIndex(len)]}`;
-};
+import { randomColor } from '../../utils';
 
 export default () => {
   const [visible, setVisible] = useState<boolean>(true);
@@ -37,8 +29,10 @@ export default () => {
           style={style}
         />
       </Map>
-      <button onClick={() => { toggleVisible() }}>Toggle Visible</button>
-      <button onClick={() => { changeStyle() }}>Change Style</button>
+      <Space>
+        <Button onClick={toggleVisible}>Toggle Visible</Button>
+        <Button onClick={changeStyle}>Change Style</Button>
+      </Space>
     </div>
   );
 };
