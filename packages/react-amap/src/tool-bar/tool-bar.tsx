@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
 import { usePropsReactive } from '../hooks';
+import { buildCreateOptions } from '../utils/control';
 import type { ToolBarProps, ToolBarType } from './types';
 import { allProps, converterMap, setterMap } from './config';
 
@@ -8,7 +9,7 @@ const ToolBar: ToolBarType = (props = {}, ref) => {
   const { map } = useMap();
   const instanceObj = useRef<AMap.ToolBar>(null);
 
-  const { loaded, onInstanceCreated } = usePropsReactive<AMap.ToolBar, ToolBarProps>(
+  const { onInstanceCreated } = usePropsReactive<AMap.ToolBar, ToolBarProps>(
     props,
     instanceObj,
     {
@@ -32,42 +33,21 @@ const ToolBar: ToolBarType = (props = {}, ref) => {
   useImperativeHandle(
     ref,
     () => instanceObj.current,
-    [loaded]
+    [instanceObj.current]
   );
 
   const createInstance = () => {
     return new Promise<void>((resolve) => {
       map.plugin(['AMap.ToolBar'], () => {
-        const options = buildCreateOptions(props);
+        const options = buildCreateOptions<ToolBarProps, AMap.ToolBar.Options>(
+          props,
+          allProps,
+          converterMap,
+        );
         instanceObj.current = new AMap.ToolBar(options);
         resolve();
       });
     });
-  }
-
-  const buildCreateOptions = (props: ToolBarProps) => {
-    const options: AMap.ToolBar.Options = {}
-    allProps.forEach((key) => {
-      if (key in props) {
-        if (key !== 'visible') {
-          options[key] = getSetterValue(key, props)
-        }
-      }
-    })
-    return options;
-  }
-
-  /**
-   * 处理需要转换的参数
-   * @param key
-   * @param props
-   * @returns
-   */
-  const getSetterValue = (key: string, props: ToolBarProps) => {
-    if (key in converterMap) {
-      return converterMap[key](props[key])
-    }
-    return props[key];
   }
 
   return null;
