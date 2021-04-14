@@ -14,6 +14,4 @@ export interface MouseToolProps extends
   events?: EventMap;
 }
 
-export interface MouseToolState {
-  loaded: boolean
-}
+export type MouseToolType = React.ForwardRefRenderFunction<AMap.MouseTool, MouseToolProps>;
