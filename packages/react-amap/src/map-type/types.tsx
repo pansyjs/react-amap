@@ -14,6 +14,4 @@ export interface MapTypeProps extends
   events?: EventMap;
 }
 
-export interface MapTypeState {
-  loaded: boolean
-}
+export type MapTypeType = React.ForwardRefRenderFunction<AMap.MapType, MapTypeProps>;

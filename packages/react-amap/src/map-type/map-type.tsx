@@ -1,69 +1,56 @@
-import { hasWindow } from '../utils';
-import { AbstractComponent } from '../AbstractComponent';
-import { MapTypeProps, MapTypeState } from './types';
-import { allProps } from './config'
+import React, { useRef, useEffect, useImperativeHandle } from 'react';
+import { useMap } from '../map';
+import { usePropsReactive } from '../hooks';
+import { buildCreateOptions } from '../utils/control';
+import type { MapTypeProps, MapTypeType } from './types';
+import { allProps, converterMap, setterMap } from './config';
 
+const MapType: MapTypeType = (props = {}, ref) => {
+  const { map } = useMap();
+  const instanceObj = useRef<AMap.MapType>(null);
 
-export class InternalMapType extends AbstractComponent<AMap.MapType, MapTypeProps, MapTypeState> {
-  private map: AMap.Map;
-
-  constructor(props: MapTypeProps) {
-    super(props);
-
-    if (hasWindow) {
-      if (props.map) {
-        this.map = props.map;
-        this.state = {
-          loaded: false
-        };
-
-        const self = this;
-
-        this.setterMap = {
-          visible(val: boolean) {
-            if (self.internalObj) {
-              if (val) {
-                self.internalObj.show()
-              } else {
-                self.internalObj.hide()
-              }
-            }
-          },
-        }
-
-        this.converterMap = {};
-
-        this.createInstance(props)
-          .then(() => {
-            this.setState({
-              loaded: true
-            });
-            this.map.addControl(this.instance);
-            this.props.onInstanceCreated?.()
-          })
-      }
+  const { onInstanceCreated } = usePropsReactive<AMap.MapType, MapTypeProps>(
+    props,
+    instanceObj,
+    {
+      setterMap,
+      converterMap
     }
-  }
+  );
 
-  createInstance(props: MapTypeProps) {
-    return new Promise<AMap.MapType>((resolve) => {
-      const opts = this.buildCreateOptions(props);
-      this.map.plugin(['AMap.MapType'], () => {
-        this.setInstance(new AMap.MapType(opts));
-        resolve(this.instance);
+  useEffect(
+    () => {
+      if (map) {
+        createInstance().then(() => {
+          map.addControl(instanceObj.current);
+          onInstanceCreated?.(instanceObj.current)
+        });
+      }
+    },
+    [map]
+  );
+
+  useImperativeHandle(
+    ref,
+    () => instanceObj.current,
+    [instanceObj.current]
+  );
+
+  const createInstance = () => {
+    return new Promise<void>((resolve) => {
+      map.plugin(['AMap.MapType'], () => {
+        const options = buildCreateOptions<MapTypeProps, AMap.MapType.Options>(
+          props,
+          allProps,
+          converterMap,
+        );
+        instanceObj.current = new AMap.MapType(options);
+        resolve();
       });
     });
   }
 
-  buildCreateOptions(props: MapTypeProps) {
-    const options: AMap.MapType.Options = {}
-    allProps.forEach((key) => {
-      if (key in props) {
-        if (key !== 'visible') {
-          options[key] = this.getSetterValue(key, props)
-        }
-      }
-    })
-    return options;
-  }
+  return null;
 }
+
+export default React.forwardRef(MapType);
