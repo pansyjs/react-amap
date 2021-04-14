@@ -1,78 +1,56 @@
-import { hasWindow, toPixel } from '../utils';
-import { AbstractComponent } from '../AbstractComponent';
-import { OverViewProps, OverViewState } from './types';
-import { allProps } from './config'
+import React, { useRef, useEffect, useImperativeHandle } from 'react';
+import { useMap } from '../map';
+import { usePropsReactive } from '../hooks';
+import { buildCreateOptions } from '../utils/control';
+import type { OverViewProps, OverViewType } from './types';
+import { allProps, converterMap, setterMap } from './config';
 
+const OverView: OverViewType = (props = {}, ref) => {
+  const { map } = useMap();
+  const instanceObj = useRef<AMap.OverView>(null);
 
-export class InternalOverView extends AbstractComponent<AMap.OverView, OverViewProps, OverViewState> {
-  private map: AMap.Map;
-
-  constructor(props: OverViewProps) {
-    super(props);
-
-    if (hasWindow) {
-      if (props.map) {
-        this.map = props.map;
-        this.state = {
-          loaded: false
-        };
-
-        const self = this;
-
-        this.setterMap = {
-          visible(val: boolean) {
-            if (self.internalObj) {
-              if (val) {
-                self.internalObj.show()
-              } else {
-                self.internalObj.hide()
-              }
-            }
-          },
-          isOpen(val: boolean) {
-            if (self.internalObj) {
-              if (val) {
-                self.internalObj.open()
-              } else {
-                self.internalObj.close()
-              }
-            }
-          },
-        }
-
-        this.converterMap = {};
-
-        this.createInstance(props)
-          .then(() => {
-            this.setState({
-              loaded: true
-            });
-            this.map.addControl(this.instance);
-            this.props.onInstanceCreated?.()
-          })
-      }
+  const { onInstanceCreated } = usePropsReactive<AMap.OverView, OverViewProps>(
+    props,
+    instanceObj,
+    {
+      setterMap,
+      converterMap
     }
-  }
+  );
 
-  createInstance(props: OverViewProps) {
-    return new Promise<AMap.OverView>((resolve) => {
-      const opts = this.buildCreateOptions(props);
-      this.map.plugin(['AMap.OverView'], () => {
-        this.setInstance(new AMap.OverView(opts));
-        resolve(this.instance);
+  useEffect(
+    () => {
+      if (map) {
+        createInstance().then(() => {
+          map.addControl(instanceObj.current);
+          onInstanceCreated?.(instanceObj.current)
+        });
+      }
+    },
+    [map]
+  );
+
+  useImperativeHandle(
+    ref,
+    () => instanceObj.current,
+    [instanceObj.current]
+  );
+
+  const createInstance = () => {
+    return new Promise<void>((resolve) => {
+      map.plugin(['AMap.OverView'], () => {
+        const options = buildCreateOptions<OverViewProps, AMap.OverView.Options>(
+          props,
+          allProps,
+          converterMap,
+        );
+        instanceObj.current = new AMap.OverView(options);
+        resolve();
       });
     });
   }
 
-  buildCreateOptions(props: OverViewProps) {
-    const options: AMap.OverView.Options = {}
-    allProps.forEach((key) => {
-      if (key in props) {
-        if (key !== 'visible') {
-          options[key] = this.getSetterValue(key, props)
-        }
-      }
-    })
-    return options;
-  }
+  return null;
 }
+
+export default React.forwardRef(OverView);

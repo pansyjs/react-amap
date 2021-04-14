@@ -14,6 +14,4 @@ export interface OverViewProps extends
   events?: EventMap;
 }
 
-export interface OverViewState {
-  loaded: boolean
-}
+export type OverViewType = React.ForwardRefRenderFunction<AMap.OverView, OverViewProps>;
