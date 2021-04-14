@@ -1,97 +1,76 @@
-import { hasWindow, toPixel } from '../utils';
-import { AbstractComponent } from '../AbstractComponent';
-import { ToolBarProps, ToolBarState } from './types';
-import { allProps } from './config';
+import React, { useRef, useEffect, useImperativeHandle } from 'react';
+import { useMap } from '../map';
+import { usePropsReactive } from '../hooks';
+import type { ToolBarProps, ToolBarType } from './types';
+import { allProps, converterMap, setterMap } from './config';
 
-export class InternalToolBar extends AbstractComponent<AMap.ToolBar, ToolBarProps, ToolBarState> {
-  private map: AMap.Map;
+const ToolBar: ToolBarType = (props = {}, ref) => {
+  const { map } = useMap();
+  const instanceObj = useRef<AMap.ToolBar>(null);
 
-  constructor(props: ToolBarProps) {
-    super(props);
-
-    if (hasWindow) {
-      if (props.map) {
-        const self = this;
-
-        this.map = props.map;
-        this.state = {
-          loaded: false
-        };
-
-        this.setterMap = {
-          visible(val: boolean) {
-            if (self.internalObj) {
-              if (val) {
-                self.internalObj.show()
-              } else {
-                self.internalObj.hide()
-              }
-            }
-          },
-          direction(val: boolean) {
-            if (self.internalObj) {
-              if (val) {
-                self.internalObj.showDirection()
-              } else {
-                self.internalObj.hideDirection()
-              }
-            }
-          },
-          ruler(val: boolean) {
-            if (self.internalObj) {
-              if (val) {
-                self.internalObj.showRuler()
-              } else {
-                self.internalObj.hideRuler()
-              }
-            }
-          },
-          locate(val: boolean) {
-            if (self.internalObj) {
-              if (val) {
-                self.internalObj.showLocation()
-              } else {
-                self.internalObj.hideLocation()
-              }
-            }
-          },
-        }
-
-        this.converterMap = {
-          offset: toPixel
-        };
-
-        this.createInstance(props)
-          .then(() => {
-            this.setState({
-              loaded: true
-            });
-            this.map.addControl(this.internalObj);
-            this.props.onInstanceCreated?.()
-          })
-      }
+  const { loaded, onInstanceCreated } = usePropsReactive<AMap.ToolBar, ToolBarProps>(
+    props,
+    instanceObj,
+    {
+      setterMap,
+      converterMap
     }
-  }
+  );
 
-  createInstance(props: ToolBarProps) {
-    return new Promise<AMap.ToolBar>((resolve) => {
-      this.map.plugin(['AMap.ToolBar'], () => {
-        const options = this.buildCreateOptions(props);
-        this.setInstance(new AMap.ToolBar(options));
-        resolve(this.instance);
+  useEffect(
+    () => {
+      if (map) {
+        createInstance().then(() => {
+          map.addControl(instanceObj.current);
+          onInstanceCreated?.(instanceObj.current)
+        });
+      }
+    },
+    [map]
+  );
+
+  useImperativeHandle(
+    ref,
+    () => instanceObj.current,
+    [loaded]
+  );
+
+  const createInstance = () => {
+    return new Promise<void>((resolve) => {
+      map.plugin(['AMap.ToolBar'], () => {
+        const options = buildCreateOptions(props);
+        instanceObj.current = new AMap.ToolBar(options);
+        resolve();
       });
     });
   }
 
-  buildCreateOptions(props: ToolBarProps) {
+  const buildCreateOptions = (props: ToolBarProps) => {
     const options: AMap.ToolBar.Options = {}
     allProps.forEach((key) => {
       if (key in props) {
         if (key !== 'visible') {
-          options[key] = this.getSetterValue(key, props)
+          options[key] = getSetterValue(key, props)
         }
       }
     })
     return options;
   }
+
+  /**
+   * 处理需要转换的参数
+   * @param key
+   * @param props
+   * @returns
+   */
+  const getSetterValue = (key: string, props: ToolBarProps) => {
+    if (key in converterMap) {
+      return converterMap[key](props[key])
+    }
+    return props[key];
+  }
+
+  return null;
 }
+
+export default React.forwardRef(ToolBar);

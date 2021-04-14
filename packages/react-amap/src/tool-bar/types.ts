@@ -18,6 +18,4 @@ export interface ToolBarProps extends
   events?: EventMap;
 }
 
-export interface ToolBarState {
-  loaded: boolean
-}
+export type ToolBarType = React.ForwardRefRenderFunction<AMap.ToolBar, ToolBarProps>;
