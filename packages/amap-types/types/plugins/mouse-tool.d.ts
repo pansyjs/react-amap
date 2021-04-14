@@ -16,7 +16,7 @@ declare namespace AMap {
      * 开启鼠标画点标注模式。鼠标在地图上单击绘制点标注，标注样式参考MarkerOptions设置
      * @param options
      */
-    marker(options?: AMap.Marker.Options): void;
+    marker(options?: AMap.MouseTool.Options): void;
     /**
      * 开启鼠标画折线模式。
      * 鼠标在地图上点击绘制折线，鼠标左键双击或右键单击结束绘制
