@@ -9,14 +9,14 @@ const randomPath = () => ({
 export default () => {
   const [visible, setVisible] = useState<boolean>(true);
   const [draggable, setDraggable] = useState<boolean>(true);
-  const [path, setPath] = useState<{ longitude: number, latitude: number}[]>(Array(5).fill(true).map(randomPath));
+  const [path, setPath] = useState<{ longitude: number, latitude: number}[]>(Array(3).fill(true).map(randomPath));
 
   const toggleVisible = () => {
     setVisible((prev) => !prev);
   }
 
   const changePath = () => {
-    setPath(Array(5).fill(true).map(randomPath))
+    setPath(Array(3).fill(true).map(randomPath))
   }
 
   const toggleDraggable = () => {
@@ -25,7 +25,7 @@ export default () => {
 
   return (
     <div style={{ height: 500 }}>
-      <Map zoom={4}>
+      <Map zoom={3}>
         <Polyline
           path={path}
           draggable={draggable}

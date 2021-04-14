@@ -1,9 +1,10 @@
 import { useState } from 'react';
+import { Button } from 'antd';
 import { Map, BezierCurve } from '@pansy/react-amap';
 
 export default () => {
   const [visible, setVisible] = useState<boolean>(true);
-  const [draggable, setDraggable] = useState<boolean>(true);
+  const [draggable, setDraggable] = useState<boolean>(false);
   const path = [//每个弧线段有两种描述方式
     [116.39, 39.91, 116.37, 39.91],//起点
     //第一段弧线
@@ -38,8 +39,8 @@ export default () => {
           visible={visible}
         />
       </Map>
-      <button onClick={toggleVisible}>Toggle Visible</button>
-      <button onClick={toggleDraggable}>Toggle Draggable</button>
+      <Button onClick={toggleVisible}>Toggle Visible</Button>
+      <Button onClick={toggleDraggable}>Toggle Draggable</Button>
     </div>
   );
 };

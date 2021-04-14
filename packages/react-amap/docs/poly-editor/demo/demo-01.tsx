@@ -8,7 +8,7 @@ const randomPath = () => ({
 
 export default () => {
   const [active, setActive] = useState<boolean>(true);
-  const [path] = useState<{ longitude: number, latitude: number}[]>(Array(5).fill(true).map(randomPath));
+  const [path] = useState<{ longitude: number, latitude: number}[]>(Array(3).fill(true).map(randomPath));
   const [center] = useState<ReactAMap.Position>({
     longitude: 120,
     latitude: 30
@@ -20,7 +20,7 @@ export default () => {
 
   return (
     <div style={{ height: 500 }}>
-      <Map center={center}>
+      <Map center={center} zoom={3}>
         <Polyline
           path={path}
         >
