@@ -20,6 +20,10 @@ group:
 
 <code src="./demo/demo-01.tsx" />
 
+### 通过ref获取实例
+
+<code src="./demo/demo-02.tsx" />
+
 ## API
 
 ### 动态属性
