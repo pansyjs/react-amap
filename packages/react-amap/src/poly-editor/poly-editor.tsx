@@ -1,57 +1,49 @@
-import { hasWindow } from '../utils';
-import { AbstractComponent } from '../AbstractComponent';
-import { PolyEditorProps, PolyEditorState } from './types';
+import React, { useRef, useEffect, useImperativeHandle } from 'react';
+import { usePropsReactive } from '../hooks';
+import { PolyEditorProps, PolyEditorType } from './types';
+import { setterMap, converterMap } from './config';
 
-// @ts-ignore
-export class InternalPolyEditor extends AbstractComponent<AMap.PolyEditor, PolyEditorProps, PolyEditorState> {
-  private map: AMap.Map;
-  private poly: AMap.Polyline | AMap.Polygon;
+const PolyEditor: PolyEditorType = (props = {}, ref) => {
+  const instanceObj = useRef<AMap.PolyEditor>(null);
 
-  constructor(props: PolyEditorProps) {
-    super(props);
+  // @ts-ignore
+  const { onInstanceCreated } = usePropsReactive<AMap.PolyEditor, PolyEditorProps>(
+    props,
+    instanceObj,
+    {
+      setterMap,
+      converterMap
+    }
+  );
 
-    if (hasWindow) {
+  useEffect(
+    () => {
       if (props.map && props.poly) {
-        const self = this;
-
-        this.map = props.map;
-        this.poly = props.poly;
-        this.state = {
-          loaded: false
-        };
-
-        this.setterMap = {
-          active(val: boolean) {
-            if (self.internalObj) {
-              if (val) {
-                self.internalObj.open()
-              } else {
-                self.internalObj.close()
-              }
-            }
-          }
-        }
-
-        this.converterMap = {};
-
-        this.createInstance()
+        createInstance()
           .then(() => {
-            this.setState({
-              loaded: true
-            });
-            this.props.onInstanceCreated?.()
+            onInstanceCreated?.(instanceObj.current)
           })
       }
-    }
-  }
+    },
+    [props.map, props.poly]
+  );
 
-  createInstance() {
-    return new Promise<AMap.PolyEditor>((resolve) => {
-      this.map.plugin(['AMap.PolyEditor'], () => {
+  useImperativeHandle(
+    ref,
+    () => instanceObj.current,
+    [instanceObj.current]
+  );
 
-        this.setInstance(new AMap.PolyEditor(this.map, this.poly));
-        resolve(this.instance);
+  const createInstance = () => {
+    return new Promise<void>((resolve) => {
+      props.map.plugin(['AMap.PolyEditor'], () => {
+        instanceObj.current = new AMap.PolyEditor(props.map, props.poly);
+        resolve();
       });
     });
   }
+
+  return null;
 }
+
+export default React.forwardRef(PolyEditor);

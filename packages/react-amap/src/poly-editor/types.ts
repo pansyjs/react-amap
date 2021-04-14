@@ -17,6 +17,4 @@ export interface PolyEditorProps extends
   poly?: AMap.Polygon | AMap.Polyline;
 }
 
-export interface PolyEditorState {
-  loaded: boolean
-}
+export type PolyEditorType = React.ForwardRefRenderFunction<AMap.PolyEditor, PolyEditorProps>;
