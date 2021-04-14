@@ -1,56 +1,49 @@
-import { hasWindow } from '../utils';
-import { AbstractComponent } from '../AbstractComponent';
-import { BezierCurveEditorProps, BezierCurveEditorState } from './types';
+import React, { useRef, useEffect, useImperativeHandle } from 'react';
+import { usePropsReactive } from '../hooks';
+import { setterMap, converterMap } from './config';
+import type { BezierCurveEditorProps, BezierCurveEditorType } from './types';
 
-// @ts-ignore
-export class InternalBezierCurveEditor extends AbstractComponent<AMap.BezierCurveEditor, BezierCurveEditorProps, BezierCurveEditorState> {
-  private map: AMap.Map;
-  private bezierCurve: AMap.BezierCurve;
+const BezierCurveEditor: BezierCurveEditorType = (props = {}, ref) => {
+  const instanceObj = useRef<AMap.BezierCurveEditor>(null);
 
-  constructor(props: BezierCurveEditorProps) {
-    super(props);
+  // @ts-ignore
+  const { onInstanceCreated } = usePropsReactive<AMap.BezierCurveEditor, BezierCurveEditorProps>(
+    props,
+    instanceObj,
+    {
+      setterMap,
+      converterMap
+    }
+  );
 
-    if (hasWindow) {
+  useEffect(
+    () => {
       if (props.map && props.bezierCurve) {
-        const self = this;
-
-        this.map = props.map;
-        this.bezierCurve = props.bezierCurve;
-        this.state = {
-          loaded: false
-        };
-
-        this.setterMap = {
-          active(val: boolean) {
-            if (self.internalObj) {
-              if (val) {
-                self.internalObj.open()
-              } else {
-                self.internalObj.close()
-              }
-            }
-          }
-        }
-
-        this.converterMap = {};
-
-        this.createInstance()
+        createInstance()
           .then(() => {
-            this.setState({
-              loaded: true
-            });
-            this.props.onInstanceCreated?.()
+            onInstanceCreated?.(instanceObj.current)
           })
       }
-    }
-  }
+    },
+    [props.map, props.bezierCurve]
+  );
 
-  createInstance() {
-    return new Promise<AMap.CircleEditor>((resolve) => {
-      this.map.plugin(['AMap.BezierCurveEditor'], () => {
-        this.setInstance(new AMap.BezierCurveEditor(this.map, this.bezierCurve));
-        resolve(this.instance);
+  useImperativeHandle(
+    ref,
+    () => instanceObj.current,
+    [instanceObj.current]
+  );
+
+  const createInstance = () => {
+    return new Promise<void>((resolve) => {
+      props.map.plugin(['AMap.BezierCurveEditor'], () => {
+        instanceObj.current = new AMap.BezierCurveEditor(props.map, props.bezierCurve);
+        resolve();
       });
     });
   }
+
+  return null;
 }
+
+export default React.forwardRef(BezierCurveEditor);

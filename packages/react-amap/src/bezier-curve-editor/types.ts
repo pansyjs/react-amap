@@ -13,10 +13,8 @@ export interface BezierCurveEditorProps extends
   active?: boolean;
   /** 绑定的事件 */
   events?: EventMap;
-  /** 需要操作的圆，由父组件注入 */
+  /** 需要操作的贝瑟尔曲线，由父组件注入 */
   bezierCurve?: AMap.BezierCurve;
 }
 
-export interface BezierCurveEditorState {
-  loaded: boolean
-}
+export type BezierCurveEditorType = React.ForwardRefRenderFunction<AMap.BezierCurveEditor, BezierCurveEditorProps>;
