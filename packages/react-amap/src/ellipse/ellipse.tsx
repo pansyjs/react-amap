@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
 import { usePropsReactive } from '../hooks';
+import { buildCreateOptions, renderEditor } from '../utils/overlay';
 import type { EllipseProps, EllipseType } from './types';
 import { allProps, setterMap, converterMap } from './config';
 
@@ -20,10 +21,9 @@ const Ellipse: EllipseType = (props = {}, ref) => {
   useEffect(
     () => {
       if (map) {
-        createInstance()
-          .then(() => {
-            onInstanceCreated?.(instanceObj.current)
-          })
+        createInstance().then(() => {
+          onInstanceCreated?.(instanceObj.current)
+        })
       }
     },
     [map]
@@ -36,56 +36,23 @@ const Ellipse: EllipseType = (props = {}, ref) => {
   );
 
   const createInstance = () => {
-    const options = buildCreateOptions()
+    const options = buildCreateOptions<EllipseProps, AMap.Ellipse.Options>(
+      props,
+      allProps,
+      converterMap
+    );
     options.map = map;
     instanceObj.current = new window.AMap.Ellipse(options);
     return Promise.resolve();
   }
 
-  const buildCreateOptions = () => {
-    const options: AMap.Ellipse.Options = {}
-    allProps.forEach((key) => {
-      if (key in props) {
-        if (key === 'style' && (props.style !== undefined)) {
-          const styleItem = Object.keys(props.style)
-          styleItem.forEach((item) => {
-            options[item] = props.style[item]
-          })
-        } else if (key !== 'visible') {
-          options[key] = getSetterValue(key, props)
-        }
-      }
-    })
-    return options;
-  }
-
-  /**
-   * 处理需要转换的参数
-   * @param key
-   * @param props
-   * @returns
-   */
-  const getSetterValue = (key: string, props: EllipseProps) => {
-    if (key in converterMap) {
-      return converterMap[key](props[key])
-    }
-    return props[key];
-  }
-
-  const renderEditor = (children: any) => {
-    if (!children) {
-      return null
-    }
-    if (React.Children.count(children) !== 1) {
-      return null
-    }
-    return React.cloneElement(React.Children.only(children), {
-      ellipse: instanceObj.current,
-      map: map
-    })
-  }
-
-  return loaded ? renderEditor(props.children) : null
+  return loaded
+    ? renderEditor<AMap.Ellipse>(props.children, {
+        key: 'ellipse',
+        instance: instanceObj.current,
+        map: map
+      })
+    : null
 }
 
 export default React.forwardRef(Ellipse);
