@@ -15,6 +15,4 @@ export interface HeatmapProps extends
   events?: EventMap;
 }
 
-export interface HeatmapState {
-  loaded: boolean
-}
+export type HeatmapType = React.ForwardRefRenderFunction<AMap.Heatmap, HeatmapProps>;

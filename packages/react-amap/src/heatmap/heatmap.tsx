@@ -1,79 +1,60 @@
-import { hasWindow } from '../utils';
-import { HeatmapProps } from './types';
-import { AbstractComponent } from '../AbstractComponent';
-import { allProps } from './config';
+import React, { useRef, useEffect, useImperativeHandle } from 'react';
+import { useMap } from '../map';
+import { usePropsReactive } from '../hooks';
+import { buildCreateOptions } from '../utils/control';
+import type { HeatmapProps, HeatmapType } from './types';
+import { allProps, converterMap, setterMap } from './config';
 
-// @ts-ignore
-export class InternalHeatmap extends AbstractComponent<AMap.Heatmap, HeatmapProps> {
-  private map: AMap.Map;
+const Heatmap: HeatmapType = (props = {}, ref) => {
+  const { map } = useMap();
+  const instanceObj = useRef<AMap.Heatmap>(null);
 
-  constructor(props: HeatmapProps) {
-    super(props);
-
-    if (hasWindow) {
-      if (props.map) {
-        const self = this;
-
-
-        this.map = props.map;
-        this.state = {
-          loaded: false
-        };
-
-        this.setterMap = {
-          visible(val: boolean) {
-            if (self.internalObj) {
-              if (val) {
-                self.internalObj.show()
-              } else {
-                self.internalObj.hide()
-              }
-            }
-          },
-          dataSet(data: AMap.Heatmap.DataSet) {
-            if (self.internalObj) {
-              self.internalObj.setDataSet(data);
-            }
-          },
-        };
-
-        this.converterMap = {};
-
-        this.createInstance(props)
-          .then(() => {
-            this.setState({
-              loaded: true
-            });
-            this.props.onInstanceCreated?.()
-          })
-      }
+  // @ts-ignore
+  const { onInstanceCreated } = usePropsReactive<AMap.Heatmap, HeatmapProps>(
+    props,
+    instanceObj,
+    {
+      setterMap,
+      converterMap
     }
-  }
+  );
 
-  createInstance(props: HeatmapProps) {
-    return new Promise<AMap.Heatmap>((resolve) => {
-      this.map.plugin(['AMap.Heatmap'], () => {
-        const options = this.buildCreateOptions(props);
-        const heatmap = new AMap.Heatmap(this.map, options);
+  useEffect(
+    () => {
+      if (map) {
+        createInstance().then(() => {
+          map.addControl(instanceObj.current);
+          onInstanceCreated?.(instanceObj.current)
+        });
+      }
+    },
+    [map]
+  );
+
+  useImperativeHandle(
+    ref,
+    () => instanceObj.current,
+    [instanceObj.current]
+  );
+
+  const createInstance = () => {
+    return new Promise<void>((resolve) => {
+      map.plugin(['AMap.Heatmap'], () => {
+        const options = buildCreateOptions<HeatmapProps, AMap.Heatmap.Options>(
+          props,
+          allProps,
+          converterMap,
+        );
+        instanceObj.current = new AMap.Heatmap(map, options);
         if (props.dataSet) {
-          heatmap.setDataSet(props.dataSet)
+          instanceObj.current.setDataSet(props.dataSet)
         }
-        this.setInstance(heatmap);
-
-        resolve(this.instance);
+        resolve();
       });
     });
   }
 
-  buildCreateOptions(props: HeatmapProps) {
-    const options: AMap.Heatmap.Options = {}
-    allProps.forEach((key) => {
-      if (key in props) {
-        if (key !== 'visible') {
-          options[key] = this.getSetterValue(key, props)
-        }
-      }
-    })
-    return options;
-  }
+  return null;
 }
+
+export default React.forwardRef(Heatmap);
