@@ -14,6 +14,15 @@ export default () => {
     height: 140,
   });
 
+  const infoWindowEvents = {
+    open: () => {
+      setVisible(true);
+    },
+    close: () => {
+      setVisible(false);
+    },
+  };
+
   const changeSize = () => {
     setSize({
       width: 200 + Math.random() * 20,
@@ -56,7 +65,7 @@ export default () => {
           content={html}
           size={size}
           offset={offset}
-          // events={this.windowEvents}
+          events={infoWindowEvents}
         />
       </Map>
       <button onClick={() => { toggleVisible() }}>Toggle Visible</button>

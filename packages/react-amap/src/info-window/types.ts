@@ -5,13 +5,23 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.InfoWindow.Ev
   created?: (instance: AMap.InfoWindow) => void;
 }
 
-
 export interface InfoWindowProps extends
-  AMap.InfoWindow.Options,
+  Omit<AMap.InfoWindow.Options, 'position' | 'size' | 'offset'>,
   ReactAMap.BaseChildrenComponentProps,
   AbstractComponentProps
 {
+  /** 样式类 */
   className?: string;
+  /** 信息窗体的位置 */
+  position?: ReactAMap.Position;
+  /** 信息窗体的大小 */
+  size?: ReactAMap.Size;
+  /** 信息窗体的偏移量 */
+  offset?: ReactAMap.Offset;
+  /** 是否显示 */
   visible?: boolean;
+  /** 绑定的事件 */
   events?: EventMap;
 }
+
+export type InfoWindowType = React.ForwardRefRenderFunction<AMap.InfoWindow, InfoWindowProps>;

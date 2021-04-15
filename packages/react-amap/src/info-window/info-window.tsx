@@ -1,76 +1,72 @@
+import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { render } from 'react-dom';
-import { hasWindow, toSize, toPixel, toLnglat } from '../utils';
-import { AbstractComponent } from '../AbstractComponent';
-import { InfoWindowProps } from './types';
-import { allProps } from './config';
+import { useMap } from '../map';
+import { usePropsReactive } from '../hooks';
+import type { InfoWindowProps, InfoWindowType } from './types';
+import { allProps, converterMap } from './config';
 
-export class InternalInfoWindow extends AbstractComponent<AMap.InfoWindow, InfoWindowProps> {
-  private map: AMap.Map;
-  private infoDOM: HTMLDivElement;
+const InfoWindow: InfoWindowType = (props = {}, ref) => {
+  const { map } = useMap();
+  const infoDOM = useRef<HTMLDivElement>(null);
+  const instanceObj = useRef<AMap.InfoWindow>(null);
 
-  constructor(props: InfoWindowProps) {
-    super(props);
-
-    if (hasWindow) {
-      if (props.map) {
-        this.map = props.map;
-        const self = this;
-
-        this.setterMap = {
-          visible(val) {
-            if (val) {
-              self.showWindow()
-              self.setClassName(self.props)
-              self.setChild(self.props)
-            } else {
-              self.closeWindow()
-            }
-          }
-        }
-
-        this.converterMap = {
-          size: toSize,
-          offset: toPixel,
-          position: toLnglat
-        };
-
-        this.createInstance(props).then(() => {
-          this.props.onInstanceCreated?.()
-        });
+  const setterMap = {
+    visible(val) {
+      if (val) {
+        showWindow();
+        setClassName();
+        setChild();
+      } else {
+        closeWindow();
       }
     }
   }
 
-  shouldComponentUpdate() {
-    return false
-  }
-
-  componentDidUpdate(nextProps: InfoWindowProps) {
-    if (this.map) {
-      this.refreshWindowLayout(nextProps)
+  const { onInstanceCreated } = usePropsReactive<AMap.InfoWindow, InfoWindowProps>(
+    props,
+    instanceObj,
+    {
+      setterMap,
+      converterMap
     }
+  );
+
+  useEffect(
+    () => {
+      if (map) {
+        createInstance().then(() => {
+          onInstanceCreated?.(instanceObj.current)
+        })
+      }
+    },
+    [map]
+  );
+
+  useEffect(
+    () => {
+      refreshWindowLayout();
+    },
+    [props.children, props.className]
+  )
+
+  useImperativeHandle(
+    ref,
+    () => instanceObj.current,
+    [instanceObj.current]
+  );
+
+  const createInstance = () => {
+    const options = buildCreateOptions(props);
+    instanceObj.current = new window.AMap.InfoWindow(options);
+    return Promise.resolve();
   }
 
-  refreshWindowLayout(nextProps: InfoWindowProps) {
-    this.setChild(nextProps)
-    this.setClassName(nextProps)
+  const refreshWindowLayout = () => {
+    setChild()
+    setClassName()
   }
 
-  showWindow() {
-    this.internalObj.open(this.map, this.internalObj.getPosition())
-  }
-
-  closeWindow() {
-    this.internalObj.close()
-  }
-
-  createInstance(props: InfoWindowProps) {
-    const options = this.buildCreateOptions(props);
-    this.setInstance(new window.AMap.InfoWindow(options));
-    return Promise.resolve(this.instance);
-  }
-
-  buildCreateOptions(props: InfoWindowProps) {
+  const buildCreateOptions = (props: InfoWindowProps) => {
     const options: AMap.InfoWindow.Options = {}
 
     // 如果开发者没有设置 isCustom 属性，默认设置为 false
@@ -83,29 +79,48 @@ export class InternalInfoWindow extends AbstractComponent<AMap.InfoWindow, InfoW
     if ('content' in props) {
       options.content = props.content
     } else {
-      this.infoDOM = document.createElement('div')
-      options.content = this.infoDOM
+      infoDOM.current = document.createElement('div')
+      options.content = infoDOM.current
     }
 
     allProps.forEach((key) => {
       if (key in props) {
         if (['visible', 'isCustom', 'content'].indexOf(key) === -1) {
-          options[key] = this.getSetterValue(key, props);
+          options[key] = getSetterValue(key, props);
         }
       }
     })
     return options;
   }
 
-  setChild(props: InfoWindowProps) {
-    const child = props.children
-    if (this.infoDOM && child) {
-      render(<div>{child}</div>, this.infoDOM)
+  const getSetterValue = (key: string, props: InfoWindowProps) => {
+    if (key in converterMap) {
+      return converterMap[key](props[key])
+    }
+    return props[key];
+  }
+
+  const showWindow = () => {
+    if (instanceObj.current) {
+      instanceObj.current.open(map, instanceObj.current.getPosition());
     }
   }
 
-  setClassName(props: InfoWindowProps) {
-    if (this.infoDOM) {
+  const closeWindow = () => {
+    if (instanceObj.current) {
+      instanceObj.current.close()
+    }
+  }
+
+  const setChild = () => {
+    const child = props.children
+    if (infoDOM.current && child) {
+      render(<div>{child}</div>, infoDOM.current)
+    }
+  }
+
+  const setClassName = () => {
+    if (infoDOM.current) {
       let baseClsValue = ''
       // 刷新 className
       if ('className' in props && props.className) {
@@ -113,7 +128,11 @@ export class InternalInfoWindow extends AbstractComponent<AMap.InfoWindow, InfoW
       } else if (props.isCustom === true) {
         baseClsValue += 'amap_markers_pop_window'
       }
-      this.infoDOM.className = baseClsValue
+      infoDOM.current.className = baseClsValue
     }
   }
+
+  return null;
 }
+
+export default React.forwardRef(InfoWindow);
