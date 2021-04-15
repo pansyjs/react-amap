@@ -23,7 +23,6 @@ export const ForwardRefMap: MapType = (
     }
   }
 
-  // TODO: ref 获取不到需要排查下原因
   useImperativeHandle(
     ref,
     () => mapInternal,
@@ -39,6 +38,5 @@ export const ForwardRefMap: MapType = (
 
 export const Map = React.forwardRef(ForwardRefMap);
 
-export * from './config';
-export * from './types';
-export * from './context';
+export type { MapProps } from './types';
+export { useMap } from './context';
