@@ -4,8 +4,10 @@
 </h1>
 
 <div align="center">
-  基于 React 封装的高德地图组件，助你轻松的接入到 React 项目中。
+  基于 React 封装的高德地图组件，助你轻松的接入高德地图到 React 项目中。
 </div>
+
+<br />
 
 <p align="center">
   <a href="https://github.com/pansyjs/react-amap/network">
@@ -16,6 +18,9 @@
   </a>
   <a href="https://www.npmjs.com/package/@pansy/react-amap">
     <img src="https://img.shields.io/npm/v/@pansy/react-amap.svg" alt="npm version">
+  </a>
+  <a href="https://packagephobia.com/result?p=@pansy/react-amap">
+    <img src="https://packagephobia.com/badge?p=@pansy/react-amap" alt="npm version">
   </a>
 </p>
 
