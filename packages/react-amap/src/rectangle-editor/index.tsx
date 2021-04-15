@@ -1,6 +1,6 @@
 import React from 'react';
 import { withPropsReactive } from '../utils';
-import { RectangleEditorProps } from './types';
+import type { RectangleEditorProps } from './types';
 import { InternalRectangleEditor } from './rectangle-editor';
 
 // @ts-ignore

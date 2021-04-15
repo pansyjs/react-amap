@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { usePropsReactive } from '../hooks';
-import { PolyEditorProps, PolyEditorType } from './types';
+import type { PolyEditorProps, PolyEditorType } from './types';
 import { setterMap, converterMap } from './config';
 
 const PolyEditor: PolyEditorType = (props = {}, ref) => {

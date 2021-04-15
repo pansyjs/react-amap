@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { buildCreateOptions } from '../utils/control';
 import { useMap } from '../map';
 import { usePropsReactive } from '../hooks';
-import { MapEventMap } from '../map/types';
+import type { MapEventMap } from '../map/types';
 import type { ContextMenuProps, ContextMenuType } from './types';
 import { allProps, setterMap, converterMap } from './config';
 

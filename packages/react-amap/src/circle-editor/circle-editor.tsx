@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { usePropsReactive } from '../hooks';
-import { CircleEditorProps, CircleEditorType } from './types';
+import type { CircleEditorProps, CircleEditorType } from './types';
 import { setterMap, converterMap } from './config';
 
 const CircleEditor: CircleEditorType = (props = {}, ref) => {

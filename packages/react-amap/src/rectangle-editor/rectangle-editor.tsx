@@ -1,6 +1,6 @@
 import { hasWindow } from '../utils';
 import { AbstractComponent } from '../AbstractComponent';
-import { RectangleEditorProps, RectangleEditorState } from './types';
+import type { RectangleEditorProps, RectangleEditorState } from './types';
 
 // @ts-ignore
 export class InternalRectangleEditor extends AbstractComponent<AMap.RectangleEditor, RectangleEditorProps, RectangleEditorState> {
