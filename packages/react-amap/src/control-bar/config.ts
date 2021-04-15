@@ -9,3 +9,17 @@ export const configurableProps = [
 ]
 
 export const allProps = configurableProps.concat([]);
+
+export const setterMap = {
+  visible(val: boolean, instance: AMap.ControlBar) {
+    if (instance) {
+      if (val) {
+        instance.show()
+      } else {
+        instance.hide()
+      }
+    }
+  }
+}
+
+export const converterMap = {}

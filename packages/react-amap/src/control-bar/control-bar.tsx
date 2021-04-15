@@ -1,68 +1,56 @@
-import { hasWindow } from '../utils';
-import { AbstractComponent } from '../AbstractComponent';
-import { ControlBarProps, ControlBarState } from './types';
-import { allProps } from './config';
+import React, { useRef, useEffect, useImperativeHandle } from 'react';
+import { useMap } from '../map';
+import { usePropsReactive } from '../hooks';
+import { buildCreateOptions } from '../utils/control';
+import type { ControlBarProps, ControlBarType } from './types';
+import { allProps, converterMap, setterMap } from './config';
 
-export class InternalControlBar extends AbstractComponent<AMap.ControlBar, ControlBarProps, ControlBarState> {
-  private map: AMap.Map;
+const ControlBar: ControlBarType = (props = {}, ref) => {
+  const { map } = useMap();
+  const instanceObj = useRef<AMap.ControlBar>(null);
 
-  constructor(props: ControlBarProps) {
-    super(props);
-
-    if (hasWindow) {
-      if (props.map) {
-        const self = this;
-
-        this.map = props.map;
-        this.state = {
-          loaded: false
-        };
-
-        this.setterMap = {
-          visible(val: boolean) {
-            if (self.internalObj) {
-              if (val) {
-                self.internalObj.show()
-              } else {
-                self.internalObj.hide()
-              }
-            }
-          }
-        }
-
-        this.converterMap = {}
-
-        this.createInstance(props)
-          .then(() => {
-            this.setState({
-              loaded: true
-            });
-            this.map.addControl(this.internalObj);
-            this.props.onInstanceCreated?.()
-          })
-      }
+  const { onInstanceCreated } = usePropsReactive<AMap.ControlBar, ControlBarProps>(
+    props,
+    instanceObj,
+    {
+      setterMap,
+      converterMap
     }
-  }
+  );
 
-  createInstance(props: ControlBarProps) {
-    return new Promise<AMap.ControlBar>((resolve) => {
-      this.map.plugin(['AMap.ControlBar'], () => {
-        const options = this.buildCreateOptions(props);
-        this.setInstance(new AMap.ControlBar(options));
-        resolve(this.instance);
+  useEffect(
+    () => {
+      if (map) {
+        createInstance().then(() => {
+          map.addControl(instanceObj.current);
+          onInstanceCreated?.(instanceObj.current)
+        });
+      }
+    },
+    [map]
+  );
+
+  useImperativeHandle(
+    ref,
+    () => instanceObj.current,
+    [instanceObj.current]
+  );
+
+  const createInstance = () => {
+    return new Promise<void>((resolve) => {
+      map.plugin(['AMap.ControlBar'], () => {
+        const options = buildCreateOptions<ControlBarProps, AMap.ControlBar.Options>(
+          props,
+          allProps,
+          converterMap,
+        );
+        instanceObj.current = new AMap.ControlBar(options);
+        resolve();
       });
     });
   }
 
-  buildCreateOptions(props: ControlBarProps) {
-    const options: AMap.ControlBar.Options = {}
-    allProps.forEach((key) => {
-      if (key in props) {
-        if (key !== 'visible') {
-          options[key] = this.getSetterValue(key, props)
-        }
-      }
-    })
-    return options;
-  }
+  return null;
 }
+
+export default React.forwardRef(ControlBar);

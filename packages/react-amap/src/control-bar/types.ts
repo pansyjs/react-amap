@@ -14,6 +14,4 @@ export interface ControlBarProps extends
   events?: EventMap;
 }
 
-export interface ControlBarState {
-  loaded: boolean
-}
+export type ControlBarType = React.ForwardRefRenderFunction<AMap.ControlBar, ControlBarProps>;
