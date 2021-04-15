@@ -1,26 +1,13 @@
 import React from 'react';
-import { useMap } from '../map/context';
-import { withPropsReactive } from '../utils';
-import { ContextMenuProps } from './types';
-import { InternalContextMenu } from './context-menu';
+import InternalContextMenu from './context-menu';
 import { Item } from './item';
+import { ContextMenuProps } from './types';
 
-export const ContextMenuReactive = withPropsReactive<AMap.ContextMenu, ContextMenuProps>(InternalContextMenu);
-
-export const PContextMenu: React.FC<ContextMenuProps> = (props) => {
-  const { map } = useMap();
-
-  return (
-    <ContextMenuReactive {...props} map={map}  />
-  )
-};
-
-type InternalContextMenuType = typeof PContextMenu;
-export interface CircleMarkerInterface extends InternalContextMenuType {
+interface InternalContextMenuType extends React.FC<ContextMenuProps> {
   Item: typeof Item;
 }
 
-const ContextMenu = PContextMenu as CircleMarkerInterface;
+const ContextMenu = InternalContextMenu as unknown as InternalContextMenuType;
 
 ContextMenu.Item = Item;
 

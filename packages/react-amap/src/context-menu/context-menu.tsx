@@ -1,77 +1,68 @@
-import React from 'react';
-import { hasWindow } from '../utils';
+import React, { useRef, useEffect, useImperativeHandle } from 'react';
+import { buildCreateOptions } from '../utils/control';
+import { useMap } from '../map';
+import { usePropsReactive } from '../hooks';
 import { MapEventMap } from '../map/types';
-import { AbstractComponent } from '../AbstractComponent';
-import { ContextMenuProps, ContextMenuState } from './types';
-import { allProps } from './config';
+import type { ContextMenuProps, ContextMenuType } from './types';
+import { allProps, setterMap, converterMap } from './config';
 
-export class InternalContextMenu extends AbstractComponent<
-  AMap.ContextMenu,
-  ContextMenuProps,
-  ContextMenuState
-> {
-  private map: AMap.Map;
 
-  constructor(props: ContextMenuProps) {
-    super(props);
+const ContextMenu: ContextMenuType = (props = {}, ref) => {
+  const { map } = useMap();
+  const instanceObj = useRef<AMap.ContextMenu>(null);
 
-    if (hasWindow) {
-      if (props.map) {
-        this.map = props.map;
-        this.state = {
-          loaded: false
-        };
+  const { loaded, onInstanceCreated } = usePropsReactive<AMap.ContextMenu, ContextMenuProps>(
+    props,
+    instanceObj,
+    {
+      setterMap,
+      converterMap
+    }
+  );
 
-        this.setterMap = {}
-        this.converterMap = {}
-
-        this.createInstance(props)
-          .then(() => {
-            this.setState({
-              loaded: true
-            });
-            this.map.on('rightclick', this.mapRightClick);
-            this.internalObj.close();
-
-            // TODO: 需要找下原因，暂时这么解决
-            setTimeout(() => {
-              this.internalObj.close();
-            }, 200);
-            this.props.onInstanceCreated?.();
-          })
+  useEffect(
+    () => {
+      if (map) {
+        createInstance().then(() => {
+          map.on('rightclick', mapRightClick);
+          onInstanceCreated?.(instanceObj.current);
+        });
       }
+
+      return () => {
+        if (instanceObj.current) {
+          instanceObj.current.off('rightclick', mapRightClick);
+          map.remove(instanceObj.current);
+        }
+      }
+    },
+    [map]
+  );
+
+  useImperativeHandle(
+    ref,
+    () => instanceObj.current,
+    [instanceObj.current]
+  );
+
+  const createInstance = () => {
+    const options = buildCreateOptions<ContextMenuProps, AMap.ContextMenu.Options>(
+      props,
+      allProps,
+      converterMap
+    );
+    instanceObj.current = new window.AMap.ContextMenu(options);
+    return Promise.resolve();
+  }
+
+  const mapRightClick: MapEventMap['rightclick'] = (e) => {
+    if (instanceObj.current) {
+      instanceObj.current.open(map, e.lnglat);
     }
   }
 
-  componentWillUnmount() {
-    if (this.internalObj) {
-      this.map.off('rightclick', this.mapRightClick);
-      this.map.remove(this.internalObj);
-    }
-  }
-
-  createInstance(props: ContextMenuProps) {
-    const options = this.buildCreateOptions(props);
-    this.setInstance(new window.AMap.ContextMenu(options));
-    return Promise.resolve(this.instance);
-  }
-
-  mapRightClick: MapEventMap['rightclick'] = (e) => {
-    this.internalObj.open(this.map, e.lnglat);
-  }
-
-  buildCreateOptions(props: ContextMenuProps) {
-    const options: AMap.ContextMenu.Options = {}
-    allProps.forEach((key) => {
-      if (key in props) {
-        options[key] = this.getSetterValue(key, props);
-      }
-    })
-    return options;
-  }
-
-  renderChildren = () => {
-    const childs = React.Children.toArray(this.props.children);
+  const renderChildren = () => {
+    const childs = React.Children.toArray(props.children);
 
     return (
       <>
@@ -80,8 +71,8 @@ export class InternalContextMenu extends AbstractComponent<
             if (!React.isValidElement(child)) return null;
             return React.cloneElement(child, {
               ...child.props,
-              map: this.map,
-              contextMenu: this.internalObj,
+              map: map,
+              contextMenu: instanceObj.current,
               key
             });
           })
@@ -90,7 +81,7 @@ export class InternalContextMenu extends AbstractComponent<
     );
   }
 
-  render() {
-    return this.state.loaded ? this.renderChildren() : null
-  }
+  return loaded ? renderChildren() : null
 }
+
+export default React.forwardRef(ContextMenu);

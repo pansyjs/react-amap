@@ -14,6 +14,4 @@ export interface ContextMenuProps extends
   events?: EventMap;
 }
 
-export interface ContextMenuState {
-  loaded: boolean
-}
+export type ContextMenuType = React.ForwardRefRenderFunction<AMap.ContextMenu, ContextMenuProps>;

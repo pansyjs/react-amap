@@ -4,7 +4,7 @@ import { noop } from '../utils';
 export interface ContextMenuItemProps extends ReactAMap.BaseChildrenComponentProps {
   contextMenu?: AMap.ContextMenu;
   text?: string;
-  onClick?: (event: HTMLLIElement) => void;
+  onClick?: () => void;
 }
 
 export const Item: React.FC<ContextMenuItemProps> = (props = {}) => {
@@ -12,7 +12,7 @@ export const Item: React.FC<ContextMenuItemProps> = (props = {}) => {
 
   useEffect(() => {
     if (contextMenu) {
-      contextMenu.addItem(text, onClick, 1);
+      contextMenu.addItem(text, onClick);
     }
     return () => {
       if (contextMenu) {
