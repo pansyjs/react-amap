@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { Button, Space } from 'antd';
 import { Map, MouseTool } from '@pansy/react-amap';
 
 export default () => {
@@ -45,11 +46,13 @@ export default () => {
       <Map>
         <MouseTool events={events} />
       </Map>
-      <button onClick={()=>{ drawMarker() }}>Draw Marker</button>
-      <button onClick={()=>{ drawRectangle() }}>Draw Rectangle</button>
-      <button onClick={()=>{ drawCircle() }}>Draw Circle</button>
-      <button onClick={()=>{ drawPolygon() }}>Draw Polygon</button>
-      <button onClick={()=>{ close() }}>Close</button>
+      <Space>
+        <Button onClick={drawMarker}>Draw Marker</Button>
+        <Button onClick={drawRectangle}>Draw Rectangle</Button>
+        <Button onClick={drawCircle}>Draw Circle</Button>
+        <Button onClick={drawPolygon}>Draw Polygon</Button>
+        <Button onClick={close}>Close</Button>
+      </Space>
     </div>
   );
 };
