@@ -3,7 +3,7 @@ import InternalContextMenu from './context-menu';
 import { Item } from './item';
 import type { ContextMenuProps } from './types';
 
-interface InternalContextMenuType extends React.FC<ContextMenuProps> {
+export interface InternalContextMenuType extends React.FC<ContextMenuProps> {
   Item: typeof Item;
 }
 
