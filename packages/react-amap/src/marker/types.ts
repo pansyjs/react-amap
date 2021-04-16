@@ -35,3 +35,5 @@ export interface MarkerState {
 }
 
 export type renderMarker<D = any> = (extData: D) => React.ReactNode | string;
+
+export type MarkerType = React.ForwardRefRenderFunction<AMap.Marker, MarkerProps>;
