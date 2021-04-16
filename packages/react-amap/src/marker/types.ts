@@ -26,6 +26,7 @@ export interface MarkerProps<D = any> extends
   className?: string;
   render?: renderMarker<D>;
   events?: EventMap<D>;
+  children?: React.ReactNode;
 }
 
 export interface MarkerState {

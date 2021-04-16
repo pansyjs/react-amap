@@ -48,7 +48,6 @@ const Marker: MarkerType = (props = {}, ref) => {
   );
 
   const createInstance = () => {
-    // @ts-ignore
     const options = buildCreateOptions<MarkerProps, AMap.Marker.Options>(
       props,
       allProps,
@@ -93,7 +92,7 @@ const Marker: MarkerType = (props = {}, ref) => {
       if ('render' in props) {
         renderMarkerComponent(props.render, instanceObj.current)
       } else if ('children' in props) {
-        const child = props.children
+        const child = props.children;
         const childType = typeof child;
         if (childType !== 'undefined' && contentWrapper.current) {
           render(<div>{child}</div>, contentWrapper.current)

@@ -35,12 +35,10 @@ export default () => {
             events={{
               mouseover:(e) => {
                 const marker = e.target;
-                // @ts-ignore
                 marker.render(renderMarkerHover);
               },
               mouseout:(e) => {
                 const marker = e.target;
-                // @ts-ignore
                 marker.render(renderMarker);
               }
             }}

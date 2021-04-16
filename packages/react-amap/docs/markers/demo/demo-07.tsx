@@ -7,12 +7,6 @@ const randomPosition = () => ({
   latitude: 30 + Math.random() * 20
 });
 
-const randomMarker = (len) => (
-  Array(len).fill(true).map((e, idx) => ({
-    position: randomPosition()
-  }))
-);
-
 const ChildrenComponent = (props: any) => {
   return (
     <div className={styles.clusterer}>
@@ -22,7 +16,22 @@ const ChildrenComponent = (props: any) => {
 }
 
 export default () => {
-  const [markers] = useState(randomMarker(100));
+  const [markers] = useState(Array(10).fill(true).map(function(_, i){
+    return {
+      position: randomPosition(),
+      // 这个属性就可以用来确定点击的是哪个坐标点
+      myIndex: i
+    }
+  }));
+
+  const markersEvents = {
+    click(e, marker){
+      // 通过高德原生提供的 getExtData 方法获取原始数据
+      const extData = marker.getExtData();
+      const index = extData.myIndex;
+      alert(`点击的是第${index}号坐标点`);
+    }
+  }
 
   return (
     <div style={{ height: 500 }}>
@@ -40,6 +49,7 @@ export default () => {
               return <ChildrenComponent />
             }
           }}
+          events={markersEvents}
         />
       </Map>
     </div>
