@@ -1,5 +1,3 @@
-import { AbstractComponentProps } from '../AbstractComponent';
-
 export type MapEventMap = ReactAMap.GetEventFunObject<AMap.Map.EventMap> & {
   created?: (map: AMap.Map) => void;
 }
@@ -12,7 +10,7 @@ export type StatusPropKey = ReactAMap.$Keys<AMap.Map.Status>;
 
 export type PropKey = ReactAMap.$Keys<MapOptions>;
 
-export interface MapProps extends AbstractComponentProps, Omit<MapOptions, 'center'> {
+export interface MapProps extends Omit<MapOptions, 'center'> {
   /** 地图Loading组件 */
   loading?: React.ReactNode;
   /** 高德地图开发者账号的Key */

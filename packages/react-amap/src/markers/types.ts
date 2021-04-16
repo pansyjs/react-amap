@@ -1,6 +1,5 @@
 import React from 'react';
-import { AbstractComponentProps } from '../AbstractComponent';
-import { MarkerProps as MarkerOptions } from '../marker';
+import { MarkerOptions } from '../marker';
 
 /** Marker 标记点的事件对象 */
 export type MarkerEventFunObject = ReactAMap.GetEventFunObject<AMap.Marker.EventMap<AMap.Marker>>;
@@ -32,13 +31,17 @@ export interface ClusterComponentProps {
 
 export interface MarkersProps<D = any> extends
   AMap.Marker.Options,
-  ReactAMap.BaseChildrenComponentProps,
-  AbstractComponentProps
+  ReactAMap.BaseChildrenComponentProps
 {
+  /** 启用聚合插件 */
   useCluster?: boolean | MarkerClustererOptions<D>;
+  /** 标记点数据集合 */
   markers?: MarkerOptions[];
+  /** 需要绑定的事件 */
   events?: MarkerEventMap;
-  render?: (options: MarkerOptions<D>) => React.ReactNode | false;
+  render?: (options: MarkerOptions) => React.ReactNode | false;
 }
 
 export { MarkerProps as MarkerOptions } from '../marker/types';
+
+export type MarkersType = React.ForwardRefRenderFunction<AMap.MarkerClusterer, MarkersProps>;

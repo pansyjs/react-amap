@@ -90,4 +90,3 @@ export const isFun = (arg) => {
 };
 
 export { APILoader } from './APILoader';
-export { withPropsReactive } from './withPropsReactive';

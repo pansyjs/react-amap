@@ -1,5 +1,3 @@
-import { AbstractComponentProps } from '../AbstractComponent';
-
 export interface Style extends ReactAMap.StrokeStyle, ReactAMap.OutlineStyle {
   /**
   * 是否绘制成大地线
@@ -26,8 +24,7 @@ interface PolylineOptions extends Omit<AMap.Polyline.Options, 'path'> {
 
 export interface PolylineProps extends
   PolylineOptions,
-  ReactAMap.BaseChildrenComponentProps,
-  AbstractComponentProps
+  ReactAMap.BaseChildrenComponentProps
 {
   style?: Style;
   visible?: boolean;

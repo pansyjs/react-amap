@@ -1,5 +1,3 @@
-import { AbstractComponentProps } from '../AbstractComponent';
-
 export interface Style extends ReactAMap.StrokeStyle, ReactAMap.OutlineStyle {};
 export type StyleKeys = ReactAMap.$Keys<Style>;
 export interface EventMap extends ReactAMap.GetEventFunObject<AMap.BezierCurve.EventMap<AMap.BezierCurve>> {
@@ -9,8 +7,7 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.BezierCurve.E
 
 export interface BezierCurveProps extends
   Omit<AMap.BezierCurve.Options, StyleKeys>,
-  ReactAMap.BaseChildrenComponentProps,
-  AbstractComponentProps
+  ReactAMap.BaseChildrenComponentProps
 {
   /** 曲线的样式 */
   style?: Style;

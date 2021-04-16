@@ -1,17 +1,2 @@
-import React from 'react';
-import { useMap } from '../map/context';
-import { withPropsReactive } from '../utils';
-import { MarkersProps } from './types';
-import { InternalMarkers } from './markers';
-
-export const MarkersReactive = withPropsReactive<any, MarkersProps>(InternalMarkers);
-
-export const Markers: React.FC<MarkersProps> = (props) => {
-  const { map } = useMap();
-
-  return (
-    map && <MarkersReactive {...props} map={map}  />
-  )
-};
-
+export { default as Markers } from './markers';
 export type { MarkersProps } from './types';

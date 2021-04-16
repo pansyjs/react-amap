@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { AbstractComponentProps } from '../AbstractComponent';
 
 export interface EventMap<D = any> extends ReactAMap.GetEventFunObject<AMap.Marker.EventMap<AMap.Marker<D>>> {
   /** 创建事件 */
@@ -22,8 +21,7 @@ export type PropKey = ReactAMap.$Keys<MarkerOptions>
 
 export interface MarkerProps<D = any> extends
   MarkerOptions,
-  ReactAMap.BaseChildrenComponentProps,
-  AbstractComponentProps
+  ReactAMap.BaseChildrenComponentProps
 {
   className?: string;
   render?: renderMarker<D>;

@@ -1,5 +1,3 @@
-import { AbstractComponentProps } from '../AbstractComponent';
-
 export interface EventMap extends ReactAMap.GetEventFunObject<AMap.InfoWindow.EventMap<AMap.InfoWindow>> {
   /** 创建事件 */
   created?: (instance: AMap.InfoWindow) => void;
@@ -7,8 +5,7 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.InfoWindow.Ev
 
 export interface InfoWindowProps extends
   Omit<AMap.InfoWindow.Options, 'position' | 'size' | 'offset'>,
-  ReactAMap.BaseChildrenComponentProps,
-  AbstractComponentProps
+  ReactAMap.BaseChildrenComponentProps
 {
   /** 样式类 */
   className?: string;

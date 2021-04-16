@@ -1,5 +1,3 @@
-import { AbstractComponentProps } from '../AbstractComponent';
-
 export interface EventMap extends ReactAMap.GetEventFunObject<AMap.ToolBar.EventMap> {
   /** 创建事件 */
   created?: (instance: AMap.ToolBar) => void;
@@ -7,8 +5,7 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.ToolBar.Event
 
 export interface ToolBarProps extends
   ReactAMap.BaseChildrenComponentProps,
-  Omit<AMap.ToolBar.Options, 'offset'>,
-  AbstractComponentProps
+  Omit<AMap.ToolBar.Options, 'offset'>
 {
   /** 相对于地图容器左上角的偏移量，正数代表向右下偏移。 */
   offset?: ReactAMap.Offset,

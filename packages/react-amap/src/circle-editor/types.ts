@@ -1,13 +1,10 @@
-import { AbstractComponentProps } from '../AbstractComponent';
-
 export interface EventMap extends ReactAMap.GetEventFunObject<AMap.CircleEditor.EventMap> {
   /** 创建事件 */
   created?: (instance: AMap.CircleEditor) => void;
 }
 
 export interface CircleEditorProps extends
-  ReactAMap.BaseChildrenComponentProps,
-  AbstractComponentProps
+  ReactAMap.BaseChildrenComponentProps
 {
   /** 是否开启编辑功能 */
   active?: boolean;

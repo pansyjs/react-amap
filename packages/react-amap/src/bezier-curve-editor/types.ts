@@ -1,14 +1,9 @@
-import { AbstractComponentProps } from '../AbstractComponent';
-
 export interface EventMap extends ReactAMap.GetEventFunObject<AMap.BezierCurveEditor.EventMap> {
   /** 创建事件 */
   created?: (instance: AMap.BezierCurveEditor) => void;
 }
 
-export interface BezierCurveEditorProps extends
-  ReactAMap.BaseChildrenComponentProps,
-  AbstractComponentProps
-{
+export interface BezierCurveEditorProps extends ReactAMap.BaseChildrenComponentProps {
   /** 是否开启编辑功能 */
   active?: boolean;
   /** 绑定的事件 */

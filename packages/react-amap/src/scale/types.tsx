@@ -1,5 +1,3 @@
-import { AbstractComponentProps } from '../AbstractComponent';
-
 export interface EventMap extends ReactAMap.GetEventFunObject<AMap.Scale.EventMap> {
   /** 创建事件 */
   created?: (instance: AMap.Scale) => void;
@@ -18,8 +16,7 @@ export interface ScaleOptions extends Omit<AMap.Scale.Options, 'offset'> {
 
 export interface ScaleProps extends
   ReactAMap.BaseChildrenComponentProps,
-  ScaleOptions,
-  AbstractComponentProps
+  ScaleOptions
 {
   /** 可以绑定的事件 */
   events?: EventMap;

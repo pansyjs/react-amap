@@ -1,6 +1,3 @@
-
-import { AbstractComponentProps } from '../AbstractComponent';
-
 export interface Style extends ReactAMap.StrokeStyle, ReactAMap.FillStyle {};
 export type StyleKeys = ReactAMap.$Keys<Style>;
 export interface EventMap extends ReactAMap.GetEventFunObject<AMap.CircleMarker.EventMap<AMap.CircleMarker>> {
@@ -10,8 +7,7 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.CircleMarker.
 
 export interface CircleMarkerProps extends
   Omit<AMap.CircleMarker.Options, StyleKeys | 'center'>,
-  ReactAMap.BaseChildrenComponentProps,
-  AbstractComponentProps
+  ReactAMap.BaseChildrenComponentProps
 {
   style?: Style;
   center?: ReactAMap.Position;

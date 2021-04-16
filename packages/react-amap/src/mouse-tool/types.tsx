@@ -1,5 +1,3 @@
-import { AbstractComponentProps } from '../AbstractComponent';
-
 export interface EventMap extends ReactAMap.GetEventFunObject<AMap.MouseTool.EventMap> {
   /** 创建事件 */
   created?: (instance: AMap.MouseTool) => void;
@@ -7,8 +5,7 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.MouseTool.Eve
 
 export interface MouseToolProps extends
   ReactAMap.BaseChildrenComponentProps,
-  AMap.MouseTool.Options,
-  AbstractComponentProps
+  AMap.MouseTool.Options
 {
   /** 可以绑定的事件 */
   events?: EventMap;

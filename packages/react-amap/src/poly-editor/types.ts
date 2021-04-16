@@ -1,13 +1,10 @@
-import { AbstractComponentProps } from '../AbstractComponent';
-
 export interface EventMap extends ReactAMap.GetEventFunObject<AMap.PolyEditor.EventMap> {
   /** 创建事件 */
   created?: (instance: AMap.PolyEditor) => void;
 }
 
 export interface PolyEditorProps extends
-  ReactAMap.BaseChildrenComponentProps,
-  AbstractComponentProps
+  ReactAMap.BaseChildrenComponentProps
 {
   /** 是否开启编辑功能 */
   active?: boolean;

@@ -14,7 +14,7 @@ export function usePropsReactive<
   I extends ReactAMap.BaseInstance,
   P = {}
 >( props: P, instanceRef: React.MutableRefObject<I>, config: Config = {}) {
-  const prevProps = usePrevious(props) ?? {};
+  const prevProps = usePrevious(props) ?? {} as P;
   const registeredEvents = useRef<string[]>([]);
   const [loaded, setLoaded] = useState<boolean>(false);
   const { setterMap = {}, converterMap = {} } = config;
@@ -50,9 +50,9 @@ export function usePropsReactive<
     []
   )
 
-  const onInstanceCreated = (instance: I) => {
+  const onInstanceCreated = (instance?: I) => {
     setLoaded(true);
-    if ('events' in props) {
+    if ('events' in props && instance) {
       props['events'].created?.(instance);
     }
     reactivePropChange(props, false)

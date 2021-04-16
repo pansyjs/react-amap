@@ -1,6 +1,3 @@
-
-import { AbstractComponentProps } from '../AbstractComponent';
-
 export interface Style extends ReactAMap.StrokeStyle, ReactAMap.FillStyle {}
 export type StyleKeys = ReactAMap.$Keys<Style>
 export interface EventMap extends ReactAMap.GetEventFunObject<AMap.Ellipse.EventMap<AMap.Ellipse>> {
@@ -10,8 +7,7 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.Ellipse.Event
 
 export interface EllipseProps extends
   Omit<AMap.Ellipse.Options, StyleKeys | 'center'>,
-  ReactAMap.BaseChildrenComponentProps,
-  AbstractComponentProps
+  ReactAMap.BaseChildrenComponentProps
 {
   /** 椭圆的中心 */
   center?: ReactAMap.Position;

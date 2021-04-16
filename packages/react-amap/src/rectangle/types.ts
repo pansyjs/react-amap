@@ -1,6 +1,3 @@
-
-import { AbstractComponentProps } from '../AbstractComponent';
-
 export interface Style extends ReactAMap.StrokeStyle, ReactAMap.FillStyle {}
 export type StyleKeys = ReactAMap.$Keys<Style>
 export interface EventMap extends ReactAMap.GetEventFunObject<AMap.Rectangle.EventMap<AMap.Rectangle>> {
@@ -12,8 +9,7 @@ export type Bounds = AMap.Bounds | [ReactAMap.Position, ReactAMap.Position];
 
 export interface RectangleProps extends
   Omit<AMap.Rectangle.Options, StyleKeys | 'bounds'>,
-  ReactAMap.BaseChildrenComponentProps,
-  AbstractComponentProps
+  ReactAMap.BaseChildrenComponentProps
 {
   /** 矩形的样式 */
   style?: Style;

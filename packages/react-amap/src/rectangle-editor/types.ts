@@ -1,13 +1,10 @@
-import { AbstractComponentProps } from '../AbstractComponent';
-
 export interface EventMap extends ReactAMap.GetEventFunObject<AMap.RectangleEditor.EventMap> {
   /** 创建事件 */
   created?: (instance: AMap.RectangleEditor) => void;
 }
 
 export interface RectangleEditorProps extends
-  ReactAMap.BaseChildrenComponentProps,
-  AbstractComponentProps
+  ReactAMap.BaseChildrenComponentProps
 {
   /** 是否开启编辑功能 */
   active?: boolean;

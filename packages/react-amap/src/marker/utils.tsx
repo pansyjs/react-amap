@@ -25,7 +25,6 @@ export const renderMarkerComponent = (
     child = component(extData);
   }
   if (child) {
-    // @ts-ignore
-    render(<div>{child}</div>, marker.getContent());
+    render(<div>{child}</div>, marker.getContent() as Element);
   }
 };

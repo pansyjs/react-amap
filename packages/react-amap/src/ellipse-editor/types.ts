@@ -1,13 +1,10 @@
-import { AbstractComponentProps } from '../AbstractComponent';
-
 export interface EventMap extends ReactAMap.GetEventFunObject<AMap.EllipseEditor.EventMap> {
   /** 创建事件 */
   created?: (instance: AMap.EllipseEditor) => void;
 }
 
 export interface EllipseEditorProps extends
-  ReactAMap.BaseChildrenComponentProps,
-  AbstractComponentProps
+  ReactAMap.BaseChildrenComponentProps
 {
   /** 是否开启编辑功能 */
   active?: boolean;

@@ -1,5 +1,3 @@
-import { AbstractComponentProps } from '../AbstractComponent';
-
 export interface Style extends ReactAMap.StrokeStyle, ReactAMap.FillStyle {}
 export type StyleKeys = ReactAMap.$Keys<Style>
 export interface EventMap extends ReactAMap.GetEventFunObject<AMap.Polygon.EventMap<AMap.Polygon>> {
@@ -14,8 +12,7 @@ interface PolygonOptions extends Omit<AMap.Polygon.Options, StyleKeys | 'path'> 
 
 export interface PolygonProps extends
   Omit<AMap.Polygon.Options, StyleKeys | 'path'>,
-  PolygonOptions,
-  AbstractComponentProps
+  PolygonOptions
 {
   visible?: boolean;
 }
