@@ -1,4 +1,11 @@
 declare namespace ReactAMap {
+  /** 获取Key的集合 */
+  type $Keys<T extends object> = keyof T;
+
+  export type GetEventFunObject<E extends {}> = {
+    [Key in keyof E]?: (e: E[Key]) => void;
+  }
+
   /** 位置坐标 */
   type Position = [number, number] |
     { lng: number; lat: number; } |
@@ -12,9 +19,6 @@ declare namespace ReactAMap {
 
   type Size = AMap.Size |
     { width: number, height: number };
-
-  /** 获取Key的集合 */
-  export type $Keys<T extends object> = keyof T;
 
   /** 线条的样式 */
   interface StrokeStyle {
@@ -38,6 +42,7 @@ declare namespace ReactAMap {
     fillOpacity?: number;
   }
 
+  /** 描边的样式 */
   interface OutlineStyle {
     /** 是否描边 */
     isOutline?: boolean;
@@ -65,9 +70,5 @@ declare namespace ReactAMap {
      * @param map map对象
      */
     setMap?(map?: AMap.Map | null): void;
-  }
-
-  export type GetEventFunObject<E extends {}> = {
-    [Key in keyof E]?: (e: E[Key]) => void;
   }
 }

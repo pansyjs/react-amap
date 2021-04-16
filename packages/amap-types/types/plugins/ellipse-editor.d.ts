@@ -18,7 +18,7 @@ declare namespace AMap {
     }
   }
 
-  class EllipseEditor {
+  class EllipseEditor extends AMap.EventEmitter {
     constructor(map: AMap.Map, circle: AMap.Ellipse);
     /**
      * 打开编辑功能

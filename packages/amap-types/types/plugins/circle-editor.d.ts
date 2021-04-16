@@ -18,7 +18,7 @@ declare namespace AMap {
     }
   }
 
-  class CircleEditor {
+  class CircleEditor extends AMap.EventEmitter {
     constructor(map: AMap.Map, circle: AMap.Circle);
     /**
      * 打开编辑功能

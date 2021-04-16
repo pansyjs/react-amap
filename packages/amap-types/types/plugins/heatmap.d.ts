@@ -76,7 +76,7 @@ declare namespace AMap {
   /**
    * 热力图，基于第三方heatmap.js实现，以特殊高亮的形式显示数据密集程度。
    */
-  class Heatmap {
+  class Heatmap extends AMap.EventEmitter {
     /**
      * 热力图
      * @param map 地图对象

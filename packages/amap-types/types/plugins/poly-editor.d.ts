@@ -11,7 +11,7 @@ declare namespace AMap {
     }
   }
 
-  class PolyEditor {
+  class PolyEditor extends AMap.EventEmitter {
     constructor(map: AMap.Map, poly: AMap.Polyline | AMap.Polygon);
     /**
      * 打开编辑功能

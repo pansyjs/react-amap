@@ -3,9 +3,7 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.ToolBar.Event
   created?: (instance: AMap.ToolBar) => void;
 }
 
-export interface ToolBarProps extends
-  Omit<AMap.ToolBar.Options, 'offset'>
-{
+export interface ToolBarProps extends Omit<AMap.ToolBar.Options, 'offset'> {
   /** 相对于地图容器左上角的偏移量，正数代表向右下偏移。 */
   offset?: ReactAMap.Offset,
   /** 是否显示 */

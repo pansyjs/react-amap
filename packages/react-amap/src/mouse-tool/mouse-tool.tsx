@@ -8,7 +8,6 @@ const MouseTool: MouseToolType = (props = {}, ref) => {
   const { map } = useMap();
   const instanceObj = useRef<AMap.MouseTool>(null);
 
-  // @ts-ignore
   const { onInstanceCreated } = usePropsReactive<AMap.MouseTool, MouseToolProps>(
     props,
     instanceObj,

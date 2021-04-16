@@ -6,7 +6,6 @@ import { setterMap, converterMap } from './config';
 const RectangleEditor: RectangleEditorType = (props = {}, ref) => {
   const instanceObj = useRef<AMap.RectangleEditor>(null);
 
-  // @ts-ignore
   const { onInstanceCreated } = usePropsReactive<AMap.RectangleEditor, RectangleEditorProps>(
     props,
     instanceObj,

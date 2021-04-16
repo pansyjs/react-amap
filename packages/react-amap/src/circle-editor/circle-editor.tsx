@@ -7,7 +7,6 @@ const CircleEditor: CircleEditorType = (props = {}, ref) => {
   const { map, circle } = props;
   const instanceObj = useRef<AMap.CircleEditor>(null);
 
-  // @ts-ignore
   const { onInstanceCreated } = usePropsReactive<AMap.CircleEditor, CircleEditorProps>(
     props,
     instanceObj,

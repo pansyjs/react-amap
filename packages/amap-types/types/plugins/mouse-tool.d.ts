@@ -10,7 +10,7 @@ declare namespace AMap {
     }
   }
 
-  class MouseTool {
+  class MouseTool extends AMap.EventEmitter {
     constructor(map: AMap.Map);
     /**
      * 开启鼠标画点标注模式。鼠标在地图上单击绘制点标注，标注样式参考MarkerOptions设置

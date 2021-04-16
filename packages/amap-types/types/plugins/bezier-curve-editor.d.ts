@@ -10,7 +10,7 @@ declare namespace AMap {
     }
   }
 
-  class BezierCurveEditor {
+  class BezierCurveEditor extends AMap.EventEmitter {
     constructor(map: AMap.Map, circle: AMap.BezierCurve);
     /**
      * 打开编辑功能

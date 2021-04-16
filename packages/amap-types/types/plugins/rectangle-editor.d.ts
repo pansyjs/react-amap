@@ -8,7 +8,7 @@ declare namespace AMap {
     }
   }
 
-  class RectangleEditor {
+  class RectangleEditor extends AMap.EventEmitter {
     constructor(map: AMap.Map, circle: AMap.Rectangle);
     /**
      * 打开编辑功能

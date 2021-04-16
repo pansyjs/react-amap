@@ -5,7 +5,7 @@ export const configurableProps = [
 
   /* 扩展属性 */
   'visible'
-]
+];
 
 export const allProps = configurableProps.concat([
   'radius',

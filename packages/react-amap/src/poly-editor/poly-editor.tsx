@@ -6,7 +6,6 @@ import { setterMap, converterMap } from './config';
 const PolyEditor: PolyEditorType = (props = {}, ref) => {
   const instanceObj = useRef<AMap.PolyEditor>(null);
 
-  // @ts-ignore
   const { onInstanceCreated } = usePropsReactive<AMap.PolyEditor, PolyEditorProps>(
     props,
     instanceObj,

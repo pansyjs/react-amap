@@ -6,7 +6,6 @@ import { setterMap, converterMap } from './config';
 const EllipseEditor: EllipseEditorType = (props = {}, ref) => {
   const instanceObj = useRef<AMap.EllipseEditor>(null);
 
-  // @ts-ignore
   const { onInstanceCreated } = usePropsReactive<AMap.EllipseEditor, EllipseEditorProps>(
     props,
     instanceObj,

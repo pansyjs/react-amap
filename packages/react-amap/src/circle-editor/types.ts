@@ -14,8 +14,4 @@ export interface CircleEditorProps {
   circle?: AMap.Circle;
 }
 
-export interface CircleEditorState {
-  loaded: boolean
-}
-
 export type CircleEditorType = React.ForwardRefRenderFunction<AMap.CircleEditor, CircleEditorProps>;

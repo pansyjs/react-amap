@@ -9,7 +9,6 @@ const Heatmap: HeatmapType = (props = {}, ref) => {
   const { map } = useMap();
   const instanceObj = useRef<AMap.Heatmap>(null);
 
-  // @ts-ignore
   const { onInstanceCreated } = usePropsReactive<AMap.Heatmap, HeatmapProps>(
     props,
     instanceObj,

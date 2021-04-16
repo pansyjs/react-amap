@@ -3,8 +3,7 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.RectangleEdit
   created?: (instance: AMap.RectangleEditor) => void;
 }
 
-export interface RectangleEditorProps
-{
+export interface RectangleEditorProps {
   /** 是否开启编辑功能 */
   active?: boolean;
   /** 绑定的事件 */

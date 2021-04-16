@@ -12,26 +12,22 @@ interface ExpandMarkerOptions {
 }
 
 /** 高德标记点的参数 */
-export interface MarkerOptions extends
-  Omit<AMap.Marker.Options, ReactAMap.$Keys<ExpandMarkerOptions>>,
+export interface MarkerOptions<ExtraData = any> extends
+  Omit<AMap.Marker.Options<ExtraData>, ReactAMap.$Keys<ExpandMarkerOptions>>,
   ExpandMarkerOptions
   {};
 
 export type PropKey = ReactAMap.$Keys<MarkerOptions>
 
-export interface MarkerProps<D = any> extends
-  MarkerOptions
-{
+export interface MarkerProps<ExtraData = any> extends MarkerOptions<ExtraData> {
+  /** 额外的样式 */
   className?: string;
-  render?: renderMarker<D>;
-  events?: EventMap<D>;
-  children?: React.ReactNode;
+  /** 自定义标记点样式 */
+  render?: renderMarker<ExtraData>;
+  /** 绑定的事件  */
+  events?: EventMap<ExtraData>;
 }
 
-export interface MarkerState {
-  loaded: boolean
-}
-
-export type renderMarker<D = any> = (extData: D) => React.ReactNode | string;
+export type renderMarker<ExtraData = any> = (extData: ExtraData) => React.ReactNode | string;
 
 export type MarkerType = React.ForwardRefRenderFunction<AMap.Marker, MarkerProps>;
