@@ -12,7 +12,7 @@ const Marker: MarkerType = (props = {}, ref) => {
   const contentWrapper = useRef<HTMLDivElement>();
   const instanceObj = useRef<AMap.Marker>(null);
 
-  const { loaded, onInstanceCreated } = usePropsReactive<AMap.Marker, MarkerProps>(
+  const { onInstanceCreated } = usePropsReactive<AMap.Marker, MarkerProps>(
     props,
     instanceObj,
     {

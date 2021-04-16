@@ -1,15 +1,2 @@
-import React from 'react';
-import { withPropsReactive } from '../utils';
-import type { RectangleEditorProps } from './types';
-import { InternalRectangleEditor } from './rectangle-editor';
-
-// @ts-ignore
-export const Reactive = withPropsReactive<AMap.RectangleEditor, RectangleEditorProps>(InternalRectangleEditor);
-
-export const RectangleEditor: React.FC<RectangleEditorProps> = (props) => {
-  return (
-    <Reactive {...props} />
-  )
-};
-
-export { RectangleEditorProps } from './types';
+export { default as RectangleEditor} from './rectangle-editor';
+export type { RectangleEditorProps } from './types';

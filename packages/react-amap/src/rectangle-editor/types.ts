@@ -17,6 +17,4 @@ export interface RectangleEditorProps extends
   rectangle?: AMap.Rectangle;
 }
 
-export interface RectangleEditorState {
-  loaded: boolean
-}
+export type RectangleEditorType = React.ForwardRefRenderFunction<AMap.RectangleEditor, RectangleEditorProps>;

@@ -1,57 +1,49 @@
-import { hasWindow } from '../utils';
-import { AbstractComponent } from '../AbstractComponent';
-import type { RectangleEditorProps, RectangleEditorState } from './types';
+import React, { useRef, useEffect, useImperativeHandle } from 'react';
+import { usePropsReactive } from '../hooks';
+import type { RectangleEditorProps, RectangleEditorType } from './types';
+import { setterMap, converterMap } from './config';
 
-// @ts-ignore
-export class InternalRectangleEditor extends AbstractComponent<AMap.RectangleEditor, RectangleEditorProps, RectangleEditorState> {
-  private map: AMap.Map;
-  private rectangle: AMap.Rectangle;
+const RectangleEditor: RectangleEditorType = (props = {}, ref) => {
+  const instanceObj = useRef<AMap.RectangleEditor>(null);
 
-  constructor(props: RectangleEditorProps) {
-    super(props);
+  // @ts-ignore
+  const { onInstanceCreated } = usePropsReactive<AMap.RectangleEditor, RectangleEditorProps>(
+    props,
+    instanceObj,
+    {
+      setterMap,
+      converterMap
+    }
+  );
 
-    if (hasWindow) {
+  useEffect(
+    () => {
       if (props.map && props.rectangle) {
-        const self = this;
-
-        this.map = props.map;
-        this.rectangle = props.rectangle;
-        this.state = {
-          loaded: false
-        };
-
-        this.setterMap = {
-          active(val: boolean) {
-            if (self.internalObj) {
-              if (val) {
-                self.internalObj.open()
-              } else {
-                self.internalObj.close()
-              }
-            }
-          }
-        }
-
-        this.converterMap = {};
-
-        this.createInstance()
+        createInstance()
           .then(() => {
-            this.setState({
-              loaded: true
-            });
-            this.props.onInstanceCreated?.()
+            onInstanceCreated?.(instanceObj.current)
           })
       }
-    }
-  }
+    },
+    [props.map, props.rectangle]
+  );
 
-  createInstance() {
-    return new Promise<AMap.RectangleEditor>((resolve) => {
-      this.map.plugin(['AMap.RectangleEditor'], () => {
+  useImperativeHandle(
+    ref,
+    () => instanceObj.current,
+    [instanceObj.current]
+  );
 
-        this.setInstance(new AMap.RectangleEditor(this.map, this.rectangle));
-        resolve(this.instance);
+  const createInstance = () => {
+    return new Promise<void>((resolve) => {
+      props.map.plugin(['AMap.RectangleEditor'], () => {
+        instanceObj.current = new AMap.RectangleEditor(props.map, props.rectangle);
+        resolve();
       });
     });
   }
+
+  return null;
 }
+
+export default React.forwardRef(RectangleEditor);
