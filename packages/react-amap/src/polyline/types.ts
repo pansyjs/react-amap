@@ -23,8 +23,7 @@ interface PolylineOptions extends Omit<AMap.Polyline.Options, 'path'> {
 }
 
 export interface PolylineProps extends
-  PolylineOptions,
-  ReactAMap.BaseChildrenComponentProps
+  PolylineOptions
 {
   style?: Style;
   visible?: boolean;

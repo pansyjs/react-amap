@@ -4,8 +4,7 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.InfoWindow.Ev
 }
 
 export interface InfoWindowProps extends
-  Omit<AMap.InfoWindow.Options, 'position' | 'size' | 'offset'>,
-  ReactAMap.BaseChildrenComponentProps
+  Omit<AMap.InfoWindow.Options, 'position' | 'size' | 'offset'>
 {
   /** 样式类 */
   className?: string;

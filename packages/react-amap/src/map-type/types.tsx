@@ -4,7 +4,6 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.MapType.Event
 }
 
 export interface MapTypeProps extends
-  ReactAMap.BaseChildrenComponentProps,
   AMap.MapType.Options
 {
   /** 可以绑定的事件 */

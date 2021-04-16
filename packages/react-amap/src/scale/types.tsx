@@ -15,7 +15,6 @@ export interface ScaleOptions extends Omit<AMap.Scale.Options, 'offset'> {
 }
 
 export interface ScaleProps extends
-  ReactAMap.BaseChildrenComponentProps,
   ScaleOptions
 {
   /** 可以绑定的事件 */

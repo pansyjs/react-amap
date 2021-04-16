@@ -8,8 +8,7 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.Rectangle.Eve
 export type Bounds = AMap.Bounds | [ReactAMap.Position, ReactAMap.Position];
 
 export interface RectangleProps extends
-  Omit<AMap.Rectangle.Options, StyleKeys | 'bounds'>,
-  ReactAMap.BaseChildrenComponentProps
+  Omit<AMap.Rectangle.Options, StyleKeys | 'bounds'>
 {
   /** 矩形的样式 */
   style?: Style;

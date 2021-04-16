@@ -20,8 +20,7 @@ export interface MarkerOptions extends
 export type PropKey = ReactAMap.$Keys<MarkerOptions>
 
 export interface MarkerProps<D = any> extends
-  MarkerOptions,
-  ReactAMap.BaseChildrenComponentProps
+  MarkerOptions
 {
   className?: string;
   render?: renderMarker<D>;

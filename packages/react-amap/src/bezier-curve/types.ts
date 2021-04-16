@@ -5,10 +5,7 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.BezierCurve.E
   created?: (instance: AMap.BezierCurve) => void;
 }
 
-export interface BezierCurveProps extends
-  Omit<AMap.BezierCurve.Options, StyleKeys>,
-  ReactAMap.BaseChildrenComponentProps
-{
+export interface BezierCurveProps extends Omit<AMap.BezierCurve.Options, StyleKeys> {
   /** 曲线的样式 */
   style?: Style;
   /** 是否显示 */

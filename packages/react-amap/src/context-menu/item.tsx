@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { noop } from '../utils';
 
-export interface ContextMenuItemProps extends ReactAMap.BaseChildrenComponentProps {
+export interface ContextMenuItemProps {
   contextMenu?: AMap.ContextMenu;
   text?: string;
   onClick?: () => void;

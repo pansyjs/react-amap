@@ -30,8 +30,7 @@ export interface ClusterComponentProps {
 }
 
 export interface MarkersProps<D = any> extends
-  AMap.Marker.Options,
-  ReactAMap.BaseChildrenComponentProps
+  AMap.Marker.Options
 {
   /** 启用聚合插件 */
   useCluster?: boolean | MarkerClustererOptions<D>;

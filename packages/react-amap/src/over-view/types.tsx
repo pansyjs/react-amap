@@ -4,7 +4,6 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.OverView.Even
 }
 
 export interface OverViewProps extends
-  ReactAMap.BaseChildrenComponentProps,
   AMap.OverView.Options
 {
   /** 可以绑定的事件 */

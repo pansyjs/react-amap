@@ -4,7 +4,6 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.Heatmap.Event
 }
 
 export interface HeatmapProps extends
-  ReactAMap.BaseChildrenComponentProps,
   AMap.Heatmap.Options
 {
   dataSet?: AMap.Heatmap.DataSet;

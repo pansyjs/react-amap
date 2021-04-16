@@ -3,13 +3,13 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.EllipseEditor
   created?: (instance: AMap.EllipseEditor) => void;
 }
 
-export interface EllipseEditorProps extends
-  ReactAMap.BaseChildrenComponentProps
-{
+export interface EllipseEditorProps {
   /** 是否开启编辑功能 */
   active?: boolean;
   /** 绑定的事件 */
   events?: EventMap;
+  /** 由父组件注入的地图实例对象 */
+  map?: AMap.Map;
   /** 需要操作的圆，由父组件注入 */
   ellipse?: AMap.Ellipse;
 }

@@ -4,7 +4,6 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.ControlBar.Ev
 }
 
 export interface ControlBarProps extends
-  ReactAMap.BaseChildrenComponentProps,
   AMap.ControlBar.Options
 {
   visible?: boolean;

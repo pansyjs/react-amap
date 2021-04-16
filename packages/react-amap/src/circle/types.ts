@@ -5,10 +5,7 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.Circle.EventM
   created?: (instance: AMap.Circle) => void;
 }
 
-export interface CircleProps extends
-  Omit<AMap.Circle.Options, StyleKeys | 'center'>,
-  ReactAMap.BaseChildrenComponentProps
-{
+export interface CircleProps extends Omit<AMap.Circle.Options, StyleKeys | 'center'> {
   /** 圆心 */
   center?: ReactAMap.Position;
   /** 样式 */

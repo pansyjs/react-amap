@@ -4,7 +4,6 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.MouseTool.Eve
 }
 
 export interface MouseToolProps extends
-  ReactAMap.BaseChildrenComponentProps,
   AMap.MouseTool.Options
 {
   /** 可以绑定的事件 */

@@ -5,10 +5,7 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.CircleMarker.
   created?: (instance: AMap.CircleMarker) => void;
 }
 
-export interface CircleMarkerProps extends
-  Omit<AMap.CircleMarker.Options, StyleKeys | 'center'>,
-  ReactAMap.BaseChildrenComponentProps
-{
+export interface CircleMarkerProps extends Omit<AMap.CircleMarker.Options, StyleKeys | 'center'> {
   style?: Style;
   center?: ReactAMap.Position;
   visible?: boolean;

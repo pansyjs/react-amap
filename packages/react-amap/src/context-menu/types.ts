@@ -3,10 +3,7 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.ContextMenu.E
   created?: (instance: AMap.ContextMenu) => void;
 }
 
-export interface ContextMenuProps extends
-  AMap.ContextMenu.Options,
-  ReactAMap.BaseChildrenComponentProps
-{
+export interface ContextMenuProps extends AMap.ContextMenu.Options {
   events?: EventMap;
 }
 
