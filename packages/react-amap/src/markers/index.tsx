@@ -10,7 +10,7 @@ export const Markers: React.FC<MarkersProps> = (props) => {
   const { map } = useMap();
 
   return (
-    <MarkersReactive {...props} map={map}  />
+    map && <MarkersReactive {...props} map={map}  />
   )
 };
 

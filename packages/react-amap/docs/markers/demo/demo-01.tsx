@@ -7,13 +7,14 @@ const randomPosition = () => ({
 });
 
 const randomMarker = (len) => (
-  Array(len).fill(true).map((e, idx) => ({
+  Array(len).fill(true).map(() => ({
     position: randomPosition()
   }))
 );
 
 export default () => {
-  const [markers, setMarkers] = useState(randomMarker(100));
+  const [markers] = useState(randomMarker(100));
+
   return (
     <div style={{ height: 500 }}>
       <Map zoom={4}>
