@@ -1,49 +1,31 @@
-import React from 'react';
-import { toLnglat, APILoader, hasWindow } from '../utils';
+import React, { useRef, useEffect, useImperativeHandle } from 'react';
+import { APILoader } from '../utils';
+import { usePropsReactive } from '../hooks/usePropsReactive';
 import {
   allProps,
+  setterMap,
+  converterMap,
   wrapperStyle,
   containerStyle,
   StatusDynamicProps
 } from './config';
-import { MapProps, MapState } from './types';
-import { AbstractComponent } from '../AbstractComponent';
+import type { MapProps, MapType } from './types';
 
-export class InternalMap extends AbstractComponent<AMap.Map, MapProps, MapState> {
-  /** 存放地图的容器 */
-  private mapWrapper: HTMLDivElement;
+const Map: MapType = (props = {}, ref) => {
+  const mapWrapper = useRef<HTMLDivElement>();
+  const instanceObj = useRef<AMap.Map>();
 
-  constructor(props: MapProps) {
-    super(props);
-    const self = this
-
-    this.state = {
-      mapLoaded: false
+  const { loaded, prevProps, onInstanceCreated } = usePropsReactive<AMap.Map, MapProps>(
+    props,
+    instanceObj,
+    {
+      setterMap,
+      converterMap
     }
+  );
 
-    this.setterMap = {
-      zoom(zoom: number) {
-        self.internalObj.setZoom(zoom)
-      },
-      cursor(cursor: string) {
-        self.internalObj.setDefaultCursor(cursor)
-      },
-      labelzIndex(index: number) {
-        self.internalObj.setLabelzIndex(index);
-      }
-    }
-
-    this.converterMap = {
-      center: toLnglat,
-      mapStyle: (str: string) => {
-        if (str.indexOf('amap://styles') === 0) {
-          return str
-        }
-        return `amap://styles/${str}`
-      }
-    }
-
-    if (hasWindow) {
+  useEffect(
+    () => {
       new APILoader({
         key: props.mapKey,
         useAMapUI: props.useAMapUI,
@@ -53,44 +35,55 @@ export class InternalMap extends AbstractComponent<AMap.Map, MapProps, MapState>
       })
       .load()
       .then(() => {
-        this.createInstance()
-        if (!this.state.mapLoaded) {
-          this.setState({
-            mapLoaded: true
-          })
-        }
+        createInstance().then(() => {
+          onInstanceCreated?.(instanceObj.current)
+        });
       })
-    }
-  }
+    },
+    []
+  )
 
-  componentDidUpdate(nextProps: MapProps) {
-    if (this.state.mapLoaded) {
-      this.updateMapProps(this.props, nextProps)
-    }
-  }
+  useEffect(
+    () => {
+      if (loaded) {
+        updateMapProps(prevProps, props)
+      }
+    },
+    [props]
+  );
+
+  useImperativeHandle(
+    ref,
+    () => instanceObj.current,
+    [instanceObj.current]
+  );
 
   /** 创建地图实例 */
-  createInstance() {
-    if (!this.internalObj) {
-      const options = this.buildCreateOptions()
-      this.setInstance(new window.AMap.Map(this.mapWrapper, options));
-      this.props.onInstanceCreated?.()
-    }
+  const createInstance = () => {
+    const options = buildCreateOptions()
+    instanceObj.current = new window.AMap.Map(mapWrapper.current, options);
+    return Promise.resolve();
   }
 
   /** 获取创建地图的参数 */
-  buildCreateOptions() {
-    const props = this.props
+  const buildCreateOptions = () => {
     const options: AMap.Map.Options = {}
     allProps.forEach((key) => {
       if (key in props) {
-        options[key] = this.getSetterValue(key, props)
+        options[key] = getSetterValue(key, props)
       }
     })
     return options;
   }
 
-  updateMapProps(prevProps: MapProps, nextProps: MapProps) {
+  const getSetterValue = (key: string, props: MapProps) => {
+    if (key in converterMap) {
+      return converterMap[key](props[key])
+    }
+    return props[key];
+  }
+
+  const updateMapProps = (prevProps: MapProps, nextProps: MapProps) => {
     const nextMapStatus = {};
     let statusChangeFlag = false;
     let statusPropExist = false;
@@ -98,36 +91,30 @@ export class InternalMap extends AbstractComponent<AMap.Map, MapProps, MapState>
     StatusDynamicProps.forEach((key) => {
       if (key in nextProps) {
         statusPropExist = true
-        if (this.detectPropChanged(key, prevProps, nextProps)) {
+        if (detectPropChanged(key, prevProps, nextProps)) {
           statusChangeFlag = true
           nextMapStatus[key] = nextProps[key]
         }
       }
     });
 
-    statusChangeFlag && this.internalObj.setStatus(nextMapStatus);
+    statusChangeFlag && instanceObj.current.setStatus(nextMapStatus);
   }
 
-  detectPropChanged(key: string, prevProps: MapProps, nextProps: MapProps) {
+  const detectPropChanged = (key: string, prevProps: MapProps, nextProps: MapProps) => {
     return prevProps[key] !== nextProps[key]
   }
 
-  private handleSaveWrapper = (wrapper: HTMLDivElement) => {
-    this.mapWrapper = wrapper;
-  }
-
-  public render() {
-    const { loading = null } = this.props;
-
-    return (
-      <div style={wrapperStyle}>
-        <div ref={this.handleSaveWrapper} style={containerStyle}>
-          {this.state.mapLoaded ? null : loading}
-        </div>
-        <div>
-          { this.state.mapLoaded ? this.props.children : null }
-        </div>
+  return (
+    <div style={wrapperStyle}>
+      <div ref={mapWrapper} style={containerStyle}>
+        {loaded ? null : props.loading}
       </div>
-    )
-  }
+      <div>
+        { loaded ? props.children : null }
+      </div>
+    </div>
+  )
 }
+
+export default React.forwardRef(Map);

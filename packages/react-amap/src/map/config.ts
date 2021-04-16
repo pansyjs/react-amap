@@ -1,4 +1,5 @@
 import React from 'react';
+import { toLnglat } from '../utils';
 import { StatusPropKey, PropKey } from './types';
 
 /** 动态属性 */
@@ -60,3 +61,31 @@ export const containerStyle: React.CSSProperties = {
 }
 
 export const allProps = NativeDynamicProps.concat(StatusDynamicProps, StaticProps);
+
+export const setterMap = {
+  zoom(zoom: number, map: AMap.Map) {
+    if (map) {
+      map.setZoom(zoom);
+    }
+  },
+  cursor(cursor: string, map: AMap.Map) {
+    if (map) {
+      map.setDefaultCursor(cursor);
+    }
+  },
+  labelzIndex(index: number, map: AMap.Map) {
+    if (map) {
+      map.setLabelzIndex(index);
+    }
+  }
+}
+
+export const converterMap = {
+  center: toLnglat,
+  mapStyle: (str: string) => {
+    if (str.indexOf('amap://styles') === 0) {
+      return str
+    }
+    return `amap://styles/${str}`
+  }
+}

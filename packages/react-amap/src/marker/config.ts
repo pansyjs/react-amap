@@ -1,4 +1,5 @@
-import { PropKey } from './types';
+import { toLnglat, toPixel } from '../utils';
+import type { PropKey } from './types';
 
 /** 动态属性 */
 export const configurableProps: PropKey[] = [
@@ -29,3 +30,25 @@ export const allProps = configurableProps.concat([
   'bubble',
   'autoRotation',
 ]);
+
+export const setterMap = {
+  visible(val: boolean, instance: AMap.Marker) {
+    if (instance) {
+      if (val) {
+        instance.show()
+      } else {
+        instance.hide()
+      }
+    }
+  },
+  zIndex(val: number, instance: AMap.Marker) {
+    if (instance) {
+      instance.setzIndex(val);
+    }
+  }
+}
+
+export const converterMap = {
+  position: toLnglat,
+  offset: toPixel
+}

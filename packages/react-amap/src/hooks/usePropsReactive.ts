@@ -119,6 +119,7 @@ export function usePropsReactive<
 
   return {
     loaded,
+    prevProps,
     onInstanceCreated
   }
 }

@@ -1,10 +1,8 @@
 import React, { useState, useImperativeHandle } from 'react';
 import { MapContext } from './context';
-import { withPropsReactive, isFun } from '../utils';
-import { MapType, MapProps } from './types';
-import { InternalMap } from './map';
-
-export const MapReactive = withPropsReactive<AMap.Map, MapProps>(InternalMap);
+import { isFun } from '../utils';
+import type { MapType, MapProps } from './types';
+import InternalMap from './map';
 
 /** 支持通过ref获取地图实例 */
 export const ForwardRefMap: MapType = (
@@ -31,7 +29,7 @@ export const ForwardRefMap: MapType = (
 
   return (
     <MapContext.Provider value={{ map: mapInternal }}>
-      <MapReactive events={nextEvents} {...rest} />
+      <InternalMap events={nextEvents} {...rest} />
     </MapContext.Provider>
   )
 }

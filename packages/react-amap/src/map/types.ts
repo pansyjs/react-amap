@@ -1,7 +1,5 @@
 import { AbstractComponentProps } from '../AbstractComponent';
 
-export type MapType = React.ForwardRefRenderFunction<AMap.Map, MapProps>;
-
 export type MapEventMap = ReactAMap.GetEventFunObject<AMap.Map.EventMap> & {
   created?: (map: AMap.Map) => void;
 }
@@ -33,7 +31,4 @@ export interface MapProps extends AbstractComponentProps, Omit<MapOptions, 'cent
   events?: MapEventMap;
 }
 
-export interface MapState {
-  /** 地图是否加载完毕 */
-  mapLoaded: boolean;
-}
+export type MapType = React.ForwardRefRenderFunction<AMap.Map, MapProps>;
