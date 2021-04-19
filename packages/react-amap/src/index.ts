@@ -23,6 +23,7 @@ import { Scale } from './scale';
 import { OverView } from './over-view';
 import { MapType } from './map-type';
 import { Heatmap } from './heatmap';
+import { toLnglat, toSize, toPixel, toBounds } from './utils';
 
 export {
   Map,
@@ -50,6 +51,10 @@ export {
   OverView,
   MapType,
   Heatmap,
+  toLnglat,
+  toSize,
+  toPixel,
+  toBounds,
 }
 
 export default {
@@ -78,4 +83,8 @@ export default {
   OverView,
   MapType,
   Heatmap,
+  toLnglat,
+  toSize,
+  toPixel,
+  toBounds,
 }
