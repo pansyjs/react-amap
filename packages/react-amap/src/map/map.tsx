@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect, useImperativeHandle } from 'react';
 import { APILoader } from '../utils';
-import { usePropsReactive } from '../hooks/usePropsReactive';
+import { usePropsReactive } from '../hooks';
 import {
   allProps,
   setterMap,
@@ -119,6 +119,5 @@ export const Map = React.forwardRef<AMap.Map, React.PropsWithChildren<MapProps>>
         </div>
       </div>
     </MapContext.Provider>
-
   )
 });

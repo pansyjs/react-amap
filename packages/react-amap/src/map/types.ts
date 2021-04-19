@@ -6,7 +6,9 @@ export interface MapOptions extends Omit<AMap.Map.Options, 'defaultCursor'> {
   cursor?: string;
 }
 
-export type StatusPropKey = ReactAMap.$Keys<AMap.Map.Status>;
+export type MapStatus = Partial<AMap.Map.Status>;
+
+export type StatusPropKey = ReactAMap.$Keys<MapStatus>;
 
 export type PropKey = ReactAMap.$Keys<MapOptions>;
 
@@ -17,6 +19,8 @@ export interface MapProps extends Omit<MapOptions, 'center'> {
   mapKey?: string;
   /** 高德地图的版本 */
   version?: string;
+  /** 地图状态 */
+  status?: MapStatus;
   /** 地图中心点坐标值 */
   center?: ReactAMap.Position;
   /** 加载高德地图JS使用的协议 */
@@ -27,5 +31,4 @@ export interface MapProps extends Omit<MapOptions, 'center'> {
   useAMapUI?: false | (() => void);
   /** 事件绑定 */
   events?: MapEventMap;
-  children?: React.ReactNode;
 }
