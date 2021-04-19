@@ -26,9 +26,9 @@
 
 本仓库提供了常用的地图组件，如不满足您的需求：
 
-1、请在[issues](https://github.com/pansyjs/react-amap/issues) 提出需求。
-2、提PR扩展本库的组件。
-3、使用本库提供的自定义组件的能力，自己封装。
+1. 请在[issues](https://github.com/pansyjs/react-amap/issues) 提出需求。
+2. 提PR扩展本库的组件。
+3. 使用本库提供的自定义组件的能力，自己封装。
 
 本库主要参考 饿了么[react-amap](https://github.com/ElemeFE/react-amap)，API基本一致。
 
