@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Button, Space } from 'antd';
 import { Map, InfoWindow } from '@pansy/react-amap';
 
 export default () => {
@@ -68,12 +69,14 @@ export default () => {
           events={infoWindowEvents}
         />
       </Map>
-      <button onClick={() => { toggleVisible() }}>Toggle Visible</button>
-      <button onClick={() => { randomPosition() }}>Random Position</button>
-      <button onClick={() => { changeValue() }}>Change Value</button>
-      <button onClick={() => { changeOffset() }}>Change Offset</button>
-      <button onClick={() => { resetOffset() }}>Restore Offset</button>
-      <button onClick={() => { changeSize() }}>Change Size</button>
+      <Space>
+        <Button onClick={toggleVisible}>Toggle Visible</Button>
+        <Button onClick={randomPosition}>Random Position</Button>
+        <Button onClick={changeValue}>Change Value</Button>
+        <Button onClick={changeOffset}>Change Offset</Button>
+        <Button onClick={resetOffset}>Restore Offset</Button>
+        <Button onClick={changeSize}>Change Size</Button>
+      </Space>
     </div>
   );
 };

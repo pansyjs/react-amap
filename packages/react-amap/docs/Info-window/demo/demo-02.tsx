@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Button } from 'antd';
 import { Map, InfoWindow } from '@pansy/react-amap';
 
 const position = {
@@ -30,7 +31,7 @@ export default () => {
           </div>
         </InfoWindow>
       </Map>
-      <button onClick={() => { setVisible(true) }}>Show Window</button>
+      <Button onClick={() => { setVisible(true) }}>Show Window</Button>
     </div>
   );
 };
