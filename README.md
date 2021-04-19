@@ -80,7 +80,7 @@ ReactDOM.render(
 )
 ```
 
-## 组件列表
+## 🎉 组件列表
 
 |名称|说明|
 |--|--|
@@ -108,3 +108,9 @@ ReactDOM.render(
 |RectangleEditor|编辑矩形，必须作为Rectangle的子组件使用|
 |Scale|比例尺|
 |ToolBar|工具条|
+
+## 👥 社区互助
+
+| Github Issue | 钉钉群 | 微信群 |
+| --- | --- | --- |
+| [issues](https://github.com/pansyjs/react-amap/issues) | <img src="https://cdn.jsdelivr.net/gh/wangxingkang/pictures@latest/imgs/alita-dingding.png" height="60" /> | <img src="https://cdn.jsdelivr.net/gh/wangxingkang/pictures@latest/imgs/alita-wx.png" height="60" /> |
