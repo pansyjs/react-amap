@@ -11,5 +11,3 @@ export interface ToolBarProps extends Omit<AMap.ToolBar.Options, 'offset'> {
   /** 可以绑定的事件 */
   events?: EventMap;
 }
-
-export type ToolBarType = React.ForwardRefRenderFunction<AMap.ToolBar, ToolBarProps>;

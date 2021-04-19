@@ -2,10 +2,10 @@ import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
 import { usePropsReactive } from '../hooks';
 import { buildCreateOptions } from '../utils/control';
-import type { OverViewProps, OverViewType } from './types';
+import type { OverViewProps } from './types';
 import { allProps, converterMap, setterMap } from './config';
 
-const OverView: OverViewType = (props = {}, ref) => {
+export const OverView = React.forwardRef<AMap.OverView, OverViewProps>((props = {}, ref) => {
   const { map } = useMap();
   const instanceObj = useRef<AMap.OverView>(null);
 
@@ -51,6 +51,4 @@ const OverView: OverViewType = (props = {}, ref) => {
   }
 
   return null;
-}
-
-export default React.forwardRef(OverView);
+});

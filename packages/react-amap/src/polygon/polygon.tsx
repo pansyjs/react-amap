@@ -3,9 +3,9 @@ import { useMap } from '../map';
 import { usePropsReactive } from '../hooks';
 import { buildCreateOptions, renderEditor } from '../utils/overlay';
 import { allProps, setterMap, converterMap } from './config';
-import type { PolygonProps, PolygonType } from './types';
+import type { PolygonProps } from './types';
 
-const Polygon: PolygonType = (props = {}, ref) => {
+export const Polygon = React.forwardRef<AMap.Polygon, React.PropsWithChildren<PolygonProps>>((props = {}, ref) => {
   const { map } = useMap();
   const instanceObj = useRef<AMap.Polygon>(null);
 
@@ -53,6 +53,4 @@ const Polygon: PolygonType = (props = {}, ref) => {
         map: map
       })
     : null
-}
-
-export default React.forwardRef(Polygon);
+});

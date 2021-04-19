@@ -27,6 +27,5 @@ export interface MapProps extends Omit<MapOptions, 'center'> {
   useAMapUI?: false | (() => void);
   /** 事件绑定 */
   events?: MapEventMap;
+  children?: React.ReactNode;
 }
-
-export type MapType = React.ForwardRefRenderFunction<AMap.Map, MapProps>;

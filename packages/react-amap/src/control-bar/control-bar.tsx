@@ -2,10 +2,10 @@ import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
 import { usePropsReactive } from '../hooks';
 import { buildCreateOptions } from '../utils/control';
-import type { ControlBarProps, ControlBarType } from './types';
+import type { ControlBarProps } from './types';
 import { allProps, converterMap, setterMap } from './config';
 
-const ControlBar: ControlBarType = (props = {}, ref) => {
+export const ControlBar = React.forwardRef<AMap.ControlBar, ControlBarProps>((props = {}, ref) => {
   const { map } = useMap();
   const instanceObj = useRef<AMap.ControlBar>(null);
 
@@ -51,6 +51,4 @@ const ControlBar: ControlBarType = (props = {}, ref) => {
   }
 
   return null;
-}
-
-export default React.forwardRef(ControlBar);
+});

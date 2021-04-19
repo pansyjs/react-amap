@@ -1,10 +1,10 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
 import { usePropsReactive } from '../hooks';
-import type { MouseToolProps, MouseToolType } from './types';
+import type { MouseToolProps } from './types';
 import { converterMap, setterMap } from './config';
 
-const MouseTool: MouseToolType = (props = {}, ref) => {
+export const MouseTool = React.forwardRef<AMap.MouseTool, MouseToolProps>((props = {}, ref) => {
   const { map } = useMap();
   const instanceObj = useRef<AMap.MouseTool>(null);
 
@@ -45,6 +45,4 @@ const MouseTool: MouseToolType = (props = {}, ref) => {
   }
 
   return null;
-}
-
-export default React.forwardRef(MouseTool);
+});

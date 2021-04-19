@@ -20,5 +20,3 @@ export interface ScaleProps extends
   /** 可以绑定的事件 */
   events?: EventMap;
 }
-
-export type ScaleType = React.ForwardRefRenderFunction<AMap.Scale, ScaleProps>;

@@ -9,5 +9,3 @@ export interface ControlBarProps extends
   visible?: boolean;
   events?: EventMap;
 }
-
-export type ControlBarType = React.ForwardRefRenderFunction<AMap.ControlBar, ControlBarProps>;

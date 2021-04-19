@@ -13,5 +13,3 @@ export interface CircleEditorProps {
   /** 需要操作的圆，由父组件注入 */
   circle?: AMap.Circle;
 }
-
-export type CircleEditorType = React.ForwardRefRenderFunction<AMap.CircleEditor, CircleEditorProps>;

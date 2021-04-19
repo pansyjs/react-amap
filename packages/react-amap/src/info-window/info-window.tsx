@@ -2,10 +2,10 @@ import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { render } from 'react-dom';
 import { useMap } from '../map';
 import { usePropsReactive } from '../hooks';
-import type { InfoWindowProps, InfoWindowType } from './types';
+import type { InfoWindowProps } from './types';
 import { allProps, converterMap } from './config';
 
-const InfoWindow: InfoWindowType = (props = {}, ref) => {
+export const InfoWindow = React.forwardRef<AMap.InfoWindow, React.PropsWithChildren<InfoWindowProps>>((props = {}, ref) => {
   const { map } = useMap();
   const infoDOM = useRef<HTMLDivElement>(null);
   const instanceObj = useRef<AMap.InfoWindow>(null);
@@ -133,6 +133,4 @@ const InfoWindow: InfoWindowType = (props = {}, ref) => {
   }
 
   return null;
-}
-
-export default React.forwardRef(InfoWindow);
+});

@@ -13,5 +13,3 @@ export interface BezierCurveProps extends Omit<AMap.BezierCurve.Options, StyleKe
    /** 绑定事件 */
   events?: EventMap;
 }
-
-export type BezierCurveType = React.ForwardRefRenderFunction<AMap.BezierCurve, BezierCurveProps>;

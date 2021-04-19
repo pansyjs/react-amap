@@ -1,2 +1,2 @@
-export { default as Polygon } from './polygon';
+export { Polygon } from './polygon';
 export type { PolygonProps } from './types';

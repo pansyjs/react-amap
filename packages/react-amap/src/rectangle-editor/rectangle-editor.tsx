@@ -1,9 +1,9 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { usePropsReactive } from '../hooks';
-import type { RectangleEditorProps, RectangleEditorType } from './types';
+import type { RectangleEditorProps } from './types';
 import { setterMap, converterMap } from './config';
 
-const RectangleEditor: RectangleEditorType = (props = {}, ref) => {
+export const RectangleEditor = React.forwardRef<AMap.RectangleEditor, RectangleEditorProps>((props = {}, ref) => {
   const instanceObj = useRef<AMap.RectangleEditor>(null);
 
   const { onInstanceCreated } = usePropsReactive<AMap.RectangleEditor, RectangleEditorProps>(
@@ -43,6 +43,4 @@ const RectangleEditor: RectangleEditorType = (props = {}, ref) => {
   }
 
   return null;
-}
-
-export default React.forwardRef(RectangleEditor);
+});

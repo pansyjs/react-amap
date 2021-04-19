@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useImperativeHandle } from 'react';
+import React, { useRef, useState, useEffect, useImperativeHandle } from 'react';
 import { APILoader } from '../utils';
 import { usePropsReactive } from '../hooks/usePropsReactive';
 import {
@@ -9,11 +9,13 @@ import {
   containerStyle,
   StatusDynamicProps
 } from './config';
-import type { MapProps, MapType } from './types';
+import { MapContext } from './context';
+import type { MapProps } from './types';
 
-const Map: MapType = (props = {}, ref) => {
+export const Map = React.forwardRef<AMap.Map, React.PropsWithChildren<MapProps>>((props = {}, ref) => {
   const mapWrapper = useRef<HTMLDivElement>();
   const instanceObj = useRef<AMap.Map>();
+  const [mapInternal, setMapInternal] = useState<AMap.Map>(null);
 
   const { loaded, prevProps, onInstanceCreated } = usePropsReactive<AMap.Map, MapProps>(
     props,
@@ -36,6 +38,7 @@ const Map: MapType = (props = {}, ref) => {
       .load()
       .then(() => {
         createInstance().then(() => {
+          setMapInternal(instanceObj.current);
           onInstanceCreated?.(instanceObj.current)
         });
       })
@@ -106,15 +109,16 @@ const Map: MapType = (props = {}, ref) => {
   }
 
   return (
-    <div style={wrapperStyle}>
-      <div ref={mapWrapper} style={containerStyle}>
-        {loaded ? null : props.loading}
+    <MapContext.Provider value={{ map: mapInternal }}>
+      <div style={wrapperStyle}>
+        <div ref={mapWrapper} style={containerStyle}>
+          {loaded ? null : props.loading}
+        </div>
+        <div>
+          { loaded ? props.children : null }
+        </div>
       </div>
-      <div>
-        { loaded ? props.children : null }
-      </div>
-    </div>
-  )
-}
+    </MapContext.Provider>
 
-export default React.forwardRef(Map);
+  )
+});

@@ -9,10 +9,10 @@ import { usePropsReactive } from '../hooks';
 import { isFun } from '../utils';
 import { renderMarkerComponent, getPropValue } from '../marker/utils';
 import { allProps, defaultOpts, IdKey } from './config';
-import type { MarkersProps, MarkersType, MarkerOptions } from './types';
+import type { MarkersProps, MarkerOptions } from './types';
 import { loadClusterPlugin } from './utils';
 
-const Markers: MarkersType = (props = {}, ref) => {
+export const Markers = React.forwardRef<AMap.Marker[], MarkersProps>((props = {}, ref) => {
   const { map } = useMap();
   const mapCluster = useRef<AMap.MarkerClusterer>();
   const markersCache = useRef<AMap.Marker[]>(defaultOpts.markersCache);
@@ -47,8 +47,8 @@ const Markers: MarkersType = (props = {}, ref) => {
 
   useImperativeHandle(
     ref,
-    () => mapCluster.current,
-    [mapCluster.current]
+    () => markersCache.current,
+    [markersCache.current]
   );
 
   const createInstance = (props: MarkersProps) => {
@@ -251,6 +251,4 @@ const Markers: MarkersType = (props = {}, ref) => {
   }
 
   return null;
-}
-
-export default React.forwardRef(Markers);
+});

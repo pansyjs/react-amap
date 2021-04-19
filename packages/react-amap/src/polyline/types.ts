@@ -28,5 +28,3 @@ export interface PolylineProps extends
   style?: Style;
   visible?: boolean;
 }
-
-export type PolylineType = React.ForwardRefRenderFunction<AMap.Polyline, PolylineProps>;

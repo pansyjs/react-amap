@@ -1,2 +1,2 @@
-export { default as Ellipse } from './ellipse';
-export { EllipseProps } from './types';
+export { Ellipse } from './ellipse';
+export type { EllipseProps } from './types';

@@ -13,5 +13,3 @@ export interface RectangleEditorProps {
   /** 需要操作的圆，由父组件注入 */
   rectangle?: AMap.Rectangle;
 }
-
-export type RectangleEditorType = React.ForwardRefRenderFunction<AMap.RectangleEditor, RectangleEditorProps>;

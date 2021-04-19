@@ -16,5 +16,3 @@ export interface PolygonProps extends
 {
   visible?: boolean;
 }
-
-export type PolygonType = React.ForwardRefRenderFunction<AMap.Polygon, PolygonProps>;

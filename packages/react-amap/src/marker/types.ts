@@ -29,5 +29,3 @@ export interface MarkerProps<ExtraData = any> extends MarkerOptions<ExtraData> {
 }
 
 export type renderMarker<ExtraData = any> = (extData: ExtraData) => React.ReactNode | string;
-
-export type MarkerType = React.ForwardRefRenderFunction<AMap.Marker, MarkerProps>;

@@ -3,11 +3,10 @@ import { buildCreateOptions } from '../utils/control';
 import { useMap } from '../map';
 import { usePropsReactive } from '../hooks';
 import type { MapEventMap } from '../map/types';
-import type { ContextMenuProps, ContextMenuType } from './types';
+import type { ContextMenuProps } from './types';
 import { allProps, setterMap, converterMap } from './config';
 
-
-const ContextMenu: ContextMenuType = (props = {}, ref) => {
+export const ContextMenu = React.forwardRef<AMap.ContextMenu, ContextMenuProps>((props = {}, ref) => {
   const { map } = useMap();
   const instanceObj = useRef<AMap.ContextMenu>(null);
 
@@ -82,6 +81,4 @@ const ContextMenu: ContextMenuType = (props = {}, ref) => {
   }
 
   return loaded ? renderChildren() : null
-}
-
-export default React.forwardRef(ContextMenu);
+});

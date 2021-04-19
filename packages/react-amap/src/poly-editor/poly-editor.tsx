@@ -1,9 +1,9 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { usePropsReactive } from '../hooks';
-import type { PolyEditorProps, PolyEditorType } from './types';
+import type { PolyEditorProps } from './types';
 import { setterMap, converterMap } from './config';
 
-const PolyEditor: PolyEditorType = (props = {}, ref) => {
+export const PolyEditor = React.forwardRef<AMap.PolyEditor, PolyEditorProps>((props = {}, ref) => {
   const instanceObj = useRef<AMap.PolyEditor>(null);
 
   const { onInstanceCreated } = usePropsReactive<AMap.PolyEditor, PolyEditorProps>(
@@ -43,6 +43,4 @@ const PolyEditor: PolyEditorType = (props = {}, ref) => {
   }
 
   return null;
-}
-
-export default React.forwardRef(PolyEditor);
+});

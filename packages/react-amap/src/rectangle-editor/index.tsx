@@ -1,2 +1,2 @@
-export { default as RectangleEditor} from './rectangle-editor';
+export { RectangleEditor} from './rectangle-editor';
 export type { RectangleEditorProps } from './types';

@@ -32,19 +32,21 @@ export function usePropsReactive<
       return () => {
         if (!instanceRef.current) return;
 
-        if ('destroy' in instanceRef.current) {
-          setTimeout(() => {
-            instanceRef.current.destroy()
-          }, 10);
-        }
+        try {
+          if ('destroy' in instanceRef.current) {
+            setTimeout(() => {
+              instanceRef.current.destroy()
+            }, 10);
+          }
 
-        if ('hide' in instanceRef.current) {
-          instanceRef.current.hide();
-        }
+          if ('hide' in instanceRef.current) {
+            instanceRef.current.hide();
+          }
 
-        if ('map' in props && 'setMap' in instanceRef.current) {
-          instanceRef.current.setMap(null);
-        }
+          if ('map' in props && 'setMap' in instanceRef.current) {
+            instanceRef.current.setMap(null);
+          }
+        } catch (err) {}
       }
     },
     []

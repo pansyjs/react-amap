@@ -13,5 +13,3 @@ export interface BezierCurveEditorProps {
   /** 需要操作的贝瑟尔曲线，由父组件注入 */
   bezierCurve?: AMap.BezierCurve;
 }
-
-export type BezierCurveEditorType = React.ForwardRefRenderFunction<AMap.BezierCurveEditor, BezierCurveEditorProps>;

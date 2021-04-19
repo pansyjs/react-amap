@@ -2,10 +2,10 @@ import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
 import { usePropsReactive } from '../hooks';
 import { buildCreateOptions } from '../utils/control';
-import type { ToolBarProps, ToolBarType } from './types';
+import type { ToolBarProps } from './types';
 import { allProps, converterMap, setterMap } from './config';
 
-const ToolBar: ToolBarType = (props = {}, ref) => {
+export const ToolBar = React.forwardRef<AMap.ToolBar, ToolBarProps>((props = {}, ref) => {
   const { map } = useMap();
   const instanceObj = useRef<AMap.ToolBar>(null);
 
@@ -51,6 +51,4 @@ const ToolBar: ToolBarType = (props = {}, ref) => {
   }
 
   return null;
-}
-
-export default React.forwardRef(ToolBar);
+});

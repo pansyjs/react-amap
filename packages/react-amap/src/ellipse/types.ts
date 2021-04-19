@@ -17,5 +17,3 @@ export interface EllipseProps extends
    /** 绑定的事件 */
   events?: EventMap;
 }
-
-export type EllipseType = React.ForwardRefRenderFunction<AMap.Ellipse, EllipseProps>;

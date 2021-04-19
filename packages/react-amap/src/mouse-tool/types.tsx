@@ -9,5 +9,3 @@ export interface MouseToolProps extends
   /** 可以绑定的事件 */
   events?: EventMap;
 }
-
-export type MouseToolType = React.ForwardRefRenderFunction<AMap.MouseTool, MouseToolProps>;

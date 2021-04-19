@@ -1,9 +1,9 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { usePropsReactive } from '../hooks';
-import type { CircleEditorProps, CircleEditorType } from './types';
+import type { CircleEditorProps } from './types';
 import { setterMap, converterMap } from './config';
 
-const CircleEditor: CircleEditorType = (props = {}, ref) => {
+export const CircleEditor = React.forwardRef<AMap.CircleEditor, CircleEditorProps>((props = {}, ref) => {
   const { map, circle } = props;
   const instanceObj = useRef<AMap.CircleEditor>(null);
 
@@ -44,6 +44,4 @@ const CircleEditor: CircleEditorType = (props = {}, ref) => {
   }
 
   return null;
-}
-
-export default React.forwardRef(CircleEditor);
+});

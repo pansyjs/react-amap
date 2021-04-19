@@ -29,9 +29,7 @@ export interface ClusterComponentProps {
   marker?: AMap.Marker;
 }
 
-export interface MarkersProps<D = any> extends
-  AMap.Marker.Options
-{
+export interface MarkersProps<D = any> extends AMap.Marker.Options {
   /** 启用聚合插件 */
   useCluster?: boolean | MarkerClustererOptions<D>;
   /** 标记点数据集合 */
@@ -42,5 +40,3 @@ export interface MarkersProps<D = any> extends
 }
 
 export { MarkerProps as MarkerOptions } from '../marker/types';
-
-export type MarkersType = React.ForwardRefRenderFunction<AMap.MarkerClusterer, MarkersProps>;

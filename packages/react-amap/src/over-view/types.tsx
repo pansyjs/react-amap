@@ -9,5 +9,3 @@ export interface OverViewProps extends
   /** 可以绑定的事件 */
   events?: EventMap;
 }
-
-export type OverViewType = React.ForwardRefRenderFunction<AMap.OverView, OverViewProps>;

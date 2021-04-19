@@ -2,10 +2,10 @@ import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
 import { usePropsReactive } from '../hooks';
 import { buildCreateOptions } from '../utils/control';
-import type { MapTypeProps, MapTypeType } from './types';
+import type { MapTypeProps } from './types';
 import { allProps, converterMap, setterMap } from './config';
 
-const MapType: MapTypeType = (props = {}, ref) => {
+export const MapType = React.forwardRef<AMap.MapType, MapTypeProps>((props = {}, ref) => {
   const { map } = useMap();
   const instanceObj = useRef<AMap.MapType>(null);
 
@@ -51,6 +51,4 @@ const MapType: MapTypeType = (props = {}, ref) => {
   }
 
   return null;
-}
-
-export default React.forwardRef(MapType);
+});

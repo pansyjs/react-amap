@@ -2,10 +2,10 @@ import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
 import { usePropsReactive } from '../hooks';
 import { buildCreateOptions, renderEditor } from '../utils/overlay';
-import type { RectangleProps, RectangleType } from './types';
+import type { RectangleProps } from './types';
 import { allProps, setterMap, converterMap } from './config';
 
-const Rectangle: RectangleType = (props = {}, ref) => {
+export const Rectangle = React.forwardRef<AMap.Rectangle, React.PropsWithChildren<RectangleProps>>((props = {}, ref) => {
   const { map } = useMap();
   const instanceObj = useRef<AMap.Rectangle>(null);
 
@@ -54,6 +54,4 @@ const Rectangle: RectangleType = (props = {}, ref) => {
         map: map
       })
     : null
-}
-
-export default React.forwardRef(Rectangle);
+});

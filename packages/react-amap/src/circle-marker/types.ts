@@ -11,5 +11,3 @@ export interface CircleMarkerProps extends Omit<AMap.CircleMarker.Options, Style
   visible?: boolean;
   events?: EventMap;
 }
-
-export type CircleMarkerType = React.ForwardRefRenderFunction<AMap.CircleMarker, CircleMarkerProps>;

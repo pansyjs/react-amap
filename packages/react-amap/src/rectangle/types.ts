@@ -19,5 +19,3 @@ export interface RectangleProps<ExtraData = any>
   bounds?: Bounds;
   events?: EventMap<ExtraData>;
 }
-
-export type RectangleType = React.ForwardRefRenderFunction<AMap.Rectangle, RectangleProps>;

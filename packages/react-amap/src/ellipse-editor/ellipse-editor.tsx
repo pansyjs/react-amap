@@ -1,9 +1,9 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { usePropsReactive } from '../hooks';
-import { EllipseEditorProps, EllipseEditorType } from './types';
+import { EllipseEditorProps } from './types';
 import { setterMap, converterMap } from './config';
 
-const EllipseEditor: EllipseEditorType = (props = {}, ref) => {
+export const EllipseEditor = React.forwardRef<AMap.EllipseEditor, EllipseEditorProps>((props = {}, ref) => {
   const instanceObj = useRef<AMap.EllipseEditor>(null);
 
   const { onInstanceCreated } = usePropsReactive<AMap.EllipseEditor, EllipseEditorProps>(
@@ -43,6 +43,4 @@ const EllipseEditor: EllipseEditorType = (props = {}, ref) => {
   }
 
   return null;
-}
-
-export default React.forwardRef(EllipseEditor);
+});

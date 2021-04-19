@@ -3,9 +3,9 @@ import { useMap } from '../map';
 import { usePropsReactive } from '../hooks';
 import { buildCreateOptions, renderEditor } from '../utils/overlay';
 import { allProps, setterMap, converterMap } from './config';
-import type { BezierCurveProps, BezierCurveType } from './types';
+import type { BezierCurveProps } from './types';
 
-const BezierCurve: BezierCurveType = (props = {}, ref) => {
+export const BezierCurve = React.forwardRef<AMap.BezierCurve, React.PropsWithChildren<BezierCurveProps>>((props = {}, ref) => {
   const { map } = useMap();
   const instanceObj = useRef<AMap.BezierCurve>(null);
 
@@ -53,6 +53,4 @@ const BezierCurve: BezierCurveType = (props = {}, ref) => {
         map: map
       })
     : null
-}
-
-export default React.forwardRef(BezierCurve);
+});

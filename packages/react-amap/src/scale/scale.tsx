@@ -2,10 +2,10 @@ import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
 import { usePropsReactive } from '../hooks';
 import { buildCreateOptions } from '../utils/control';
-import type { ScaleProps, ScaleType } from './types';
+import type { ScaleProps } from './types';
 import { allProps, converterMap, setterMap } from './config';
 
-const Scale: ScaleType = (props = {}, ref) => {
+export const Scale = React.forwardRef<AMap.Scale, ScaleProps>((props = {}, ref) => {
   const { map } = useMap();
   const instanceObj = useRef<AMap.Scale>(null);
 
@@ -51,6 +51,4 @@ const Scale: ScaleType = (props = {}, ref) => {
   }
 
   return null;
-}
-
-export default React.forwardRef(Scale);
+});

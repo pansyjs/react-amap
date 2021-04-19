@@ -2,12 +2,12 @@ import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { render } from 'react-dom';
 import { useMap } from '../map';
 import { usePropsReactive } from '../hooks';
-import type { MarkerProps, MarkerType } from './types';
+import type { MarkerProps } from './types';
 import { renderMarkerComponent } from './utils';
 import { buildCreateOptions } from '../utils/control';
 import { allProps, setterMap, converterMap } from './config';
 
-const Marker: MarkerType = (props = {}, ref) => {
+export const Marker = React.forwardRef<AMap.Marker, React.PropsWithChildren<MarkerProps>>((props = {}, ref) => {
   const { map } = useMap();
   const contentWrapper = useRef<HTMLDivElement>();
   const instanceObj = useRef<AMap.Marker>(null);
@@ -70,7 +70,7 @@ const Marker: MarkerType = (props = {}, ref) => {
     return Promise.resolve();
   }
 
-  const setMarkerLayout = (props: MarkerProps) => {
+  const setMarkerLayout = (props: React.PropsWithChildren<MarkerProps<any>>) => {
     if (('render' in props) || ('children' in props && props.children)) {
       createContentWrapper()
       if ('className' in props && props.className) {
@@ -84,7 +84,7 @@ const Marker: MarkerType = (props = {}, ref) => {
     instanceObj.current.setContent(contentWrapper.current);
   }
 
-  const setChildComponent = (props: MarkerProps) => {
+  const setChildComponent = (props: React.PropsWithChildren<MarkerProps<any>>) => {
     if (contentWrapper.current) {
       if ('className' in props && props.className) {
         contentWrapper.current.className = props.className
@@ -106,6 +106,4 @@ const Marker: MarkerType = (props = {}, ref) => {
   }
 
   return null;
-}
-
-export default React.forwardRef(Marker);
+});

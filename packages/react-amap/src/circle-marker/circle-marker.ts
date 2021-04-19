@@ -3,9 +3,9 @@ import { useMap } from '../map';
 import { usePropsReactive } from '../hooks';
 import { buildCreateOptions } from '../utils/overlay';
 import { allProps, setterMap, converterMap } from './config';
-import type { CircleMarkerProps, CircleMarkerType } from './types';
+import type { CircleMarkerProps } from './types';
 
-const CircleMarker: CircleMarkerType = (props = {}, ref) => {
+export const CircleMarker = React.forwardRef<AMap.CircleMarker, CircleMarkerProps>((props = {}, ref) => {
   const { map } = useMap();
   const instanceObj = useRef<AMap.CircleMarker>(null);
 
@@ -47,6 +47,4 @@ const CircleMarker: CircleMarkerType = (props = {}, ref) => {
   }
 
   return null
-}
-
-export default React.forwardRef(CircleMarker);
+});

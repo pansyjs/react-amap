@@ -15,5 +15,3 @@ export interface CircleProps extends Omit<AMap.Circle.Options, StyleKeys | 'cent
   /** 绑定事件 */
   events?: EventMap;
 }
-
-export type CircleType = React.ForwardRefRenderFunction<AMap.Circle, CircleProps>;

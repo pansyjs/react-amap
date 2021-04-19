@@ -1,5 +1,5 @@
 import React from 'react';
-import InternalContextMenu from './context-menu';
+import { ContextMenu as InternalContextMenu } from './context-menu';
 import { Item } from './item';
 import type { ContextMenuProps } from './types';
 

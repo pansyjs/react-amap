@@ -1,2 +1,2 @@
-export { default as Marker } from './marker';
+export { Marker } from './marker';
 export type { MarkerProps, MarkerOptions } from './types';

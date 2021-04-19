@@ -2,10 +2,10 @@ import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
 import { usePropsReactive } from '../hooks';
 import { buildCreateOptions } from '../utils/control';
-import type { HeatmapProps, HeatmapType } from './types';
+import type { HeatmapProps } from './types';
 import { allProps, converterMap, setterMap } from './config';
 
-const Heatmap: HeatmapType = (props = {}, ref) => {
+export const Heatmap = React.forwardRef<AMap.Heatmap, HeatmapProps>((props = {}, ref) => {
   const { map } = useMap();
   const instanceObj = useRef<AMap.Heatmap>(null);
 
@@ -54,6 +54,4 @@ const Heatmap: HeatmapType = (props = {}, ref) => {
   }
 
   return null;
-}
-
-export default React.forwardRef(Heatmap);
+});

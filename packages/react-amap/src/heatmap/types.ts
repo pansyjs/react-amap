@@ -10,5 +10,3 @@ export interface HeatmapProps extends
   /** 可以绑定的事件 */
   events?: EventMap;
 }
-
-export type HeatmapType = React.ForwardRefRenderFunction<AMap.Heatmap, HeatmapProps>;

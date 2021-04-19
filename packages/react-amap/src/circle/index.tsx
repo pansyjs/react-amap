@@ -1,2 +1,2 @@
-export { default as Circle } from './circle';
+export { Circle } from './circle';
 export type { CircleProps } from './types';

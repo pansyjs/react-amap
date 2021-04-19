@@ -35,10 +35,13 @@ export default () => {
             events={{
               mouseover:(e) => {
                 const marker = e.target;
+                // TODO: 待解决
+                // @ts-ignore
                 marker.render(renderMarkerHover);
               },
               mouseout:(e) => {
                 const marker = e.target;
+                // @ts-ignore
                 marker.render(renderMarker);
               }
             }}

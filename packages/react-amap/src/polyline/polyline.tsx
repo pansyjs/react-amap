@@ -3,9 +3,9 @@ import { useMap } from '../map';
 import { usePropsReactive } from '../hooks';
 import { buildCreateOptions, renderEditor } from '../utils/overlay';
 import { allProps, setterMap, converterMap } from './config';
-import type { PolylineProps, PolylineType } from './types';
+import type { PolylineProps } from './types';
 
-const Polyline: PolylineType = (props = {}, ref) => {
+export const Polyline = React.forwardRef<AMap.Polyline, React.PropsWithChildren<PolylineProps>>((props = {}, ref) => {
   const { map } = useMap();
   const instanceObj = useRef<AMap.Polyline>(null);
 
@@ -53,6 +53,4 @@ const Polyline: PolylineType = (props = {}, ref) => {
         map: map
       })
     : null
-}
-
-export default React.forwardRef(Polyline);
+});

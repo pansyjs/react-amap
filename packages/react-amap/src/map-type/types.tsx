@@ -9,5 +9,3 @@ export interface MapTypeProps extends
   /** 可以绑定的事件 */
   events?: EventMap;
 }
-
-export type MapTypeType = React.ForwardRefRenderFunction<AMap.MapType, MapTypeProps>;

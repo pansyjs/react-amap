@@ -14,5 +14,3 @@ export interface PolyEditorProps
   /** 由父组件注入 */
   poly?: AMap.Polygon | AMap.Polyline;
 }
-
-export type PolyEditorType = React.ForwardRefRenderFunction<AMap.PolyEditor, PolyEditorProps>;
