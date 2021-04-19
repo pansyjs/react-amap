@@ -44,6 +44,14 @@ Map 组件是其他组件的基础，Map 组件通过`content`共享`map`实例�
 
 <code src="./demo/demo-07.tsx" />
 
+### 3D地图
+
+<code src="./demo/demo-10.tsx" />
+
+### status 属性
+
+<code src="./demo/demo-11.tsx" />
+
 ### 地图加载过渡样式
 
 <code src="./demo/demo-08.tsx" />

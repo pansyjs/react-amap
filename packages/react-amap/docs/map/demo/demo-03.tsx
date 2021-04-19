@@ -2,6 +2,7 @@
   * desc: 地图的动态属性在地图创建成功后可以动态的改变；
   */
 import { useState } from 'react';
+import { Button } from 'antd';
 import { Map } from '@pansy/react-amap';
 
 export default () => {
@@ -16,7 +17,7 @@ export default () => {
   return (
     <div style={{ height: 500 }}>
       <Map center={center} />
-      <button onClick={changeCenter}>Random Change Center</button>
+      <Button onClick={changeCenter}>Random Change Center</Button>
     </div>
   );
 };
