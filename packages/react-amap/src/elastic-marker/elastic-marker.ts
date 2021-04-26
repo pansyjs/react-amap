@@ -44,7 +44,6 @@ export const ElasticMarker = React.forwardRef<AMap.ElasticMarker, ElasticMarkerP
           converterMap
         );
         options.map = map;
-        console.log(options);
         instanceObj.current = new window.AMap.ElasticMarker(options);
         resolve();
       });
