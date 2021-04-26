@@ -11,3 +11,4 @@
 /// <reference path="./polyline.d.ts" />
 /// <reference path="./rectangle.d.ts" />
 /// <reference path="./shape-overlay.d.ts" />
+/// <reference path="./elastic-marker.d.ts" />

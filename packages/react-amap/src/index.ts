@@ -5,6 +5,7 @@ import { EllipseEditor } from './ellipse-editor';
 import { InfoWindow } from './info-window';
 import { Circle } from './circle';
 import { CircleMarker } from './circle-marker';
+import { ElasticMarker } from './elastic-marker';
 import { ContextMenu } from './context-menu';
 import { Polyline } from './polyline';
 import { Polygon } from './polygon';
@@ -34,6 +35,7 @@ export {
   EllipseEditor,
   Circle,
   CircleEditor,
+  ElasticMarker,
   Polygon,
   Polyline,
   Rectangle,
@@ -64,6 +66,7 @@ export default {
   Markers,
   Ellipse,
   EllipseEditor,
+  ElasticMarker,
   Circle,
   CircleEditor,
   Polygon,
