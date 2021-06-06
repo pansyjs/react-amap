@@ -12,6 +12,7 @@ export const allProps = configurableProps.concat([
   'gradient',
   'opacity',
   'zooms',
+  'liteStyle'
 ]);
 
 export const setterMap = {

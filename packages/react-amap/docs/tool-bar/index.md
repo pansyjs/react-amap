@@ -26,6 +26,10 @@ group:
 
 <code src="./demo/demo-02.tsx" />
 
+### 简易模式
+
+<code src="./demo/demo-03.tsx" />
+
 ## API
 
 ### 动态属性
