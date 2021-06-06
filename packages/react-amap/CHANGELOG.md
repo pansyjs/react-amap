@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@1.0.14...@pansy/react-amap@1.1.0) (2021-06-06)
+
+
+### Features
+
+* **ToolBar:** 支持设置为简易模式 ([699944d](https://github.com/pansyjs/react-amap/commit/699944d0f5a55e802472dacd2423872da6aa770f))
+
+
+
+
+
 ## [1.0.14](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@1.0.13...@pansy/react-amap@1.0.14) (2021-04-26)
 
 **Note:** Version bump only for package @pansy/react-amap
