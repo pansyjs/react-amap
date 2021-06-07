@@ -8,7 +8,6 @@
 </div>
 
 <br />
-
 <p align="center">
   <a href="https://github.com/pansyjs/react-amap/network">
     <img src="https://img.shields.io/github/forks/pansyjs/react-amap.svg" alt="Forks">
