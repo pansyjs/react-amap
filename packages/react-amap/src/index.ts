@@ -24,6 +24,7 @@ import { Scale } from './scale';
 import { OverView } from './over-view';
 import { MapType } from './map-type';
 import { Heatmap } from './heatmap';
+import { Geocoder } from './geocoder';
 import { toLnglat, toSize, toPixel, toBounds } from './utils';
 
 export {
@@ -53,6 +54,7 @@ export {
   OverView,
   MapType,
   Heatmap,
+  Geocoder,
   toLnglat,
   toSize,
   toPixel,
@@ -86,6 +88,7 @@ export default {
   OverView,
   MapType,
   Heatmap,
+  Geocoder,
   toLnglat,
   toSize,
   toPixel,
