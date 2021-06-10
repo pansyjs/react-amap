@@ -31,4 +31,6 @@ export interface MapProps extends Omit<MapOptions, 'center'> {
   useAMapUI?: false | (() => void);
   /** 事件绑定 */
   events?: MapEventMap;
+  /** 是否渲染地图 */
+  isRender?: boolean;
 }

@@ -13,6 +13,7 @@ import { MapContext } from './context';
 import type { MapProps } from './types';
 
 export const Map = React.forwardRef<AMap.Map, React.PropsWithChildren<MapProps>>((props = {}, ref) => {
+  const [apiLoading, serApiLoading] = useState<boolean>(false);
   const mapWrapper = useRef<HTMLDivElement>();
   const instanceObj = useRef<AMap.Map>();
   const [mapInternal, setMapInternal] = useState<AMap.Map>(null);
@@ -37,6 +38,8 @@ export const Map = React.forwardRef<AMap.Map, React.PropsWithChildren<MapProps>>
       })
       .load()
       .then(() => {
+        serApiLoading(true);
+        if (props.isRender === false) return;
         createInstance().then(() => {
           setMapInternal(instanceObj.current);
           onInstanceCreated?.(instanceObj.current)
@@ -106,6 +109,14 @@ export const Map = React.forwardRef<AMap.Map, React.PropsWithChildren<MapProps>>
 
   const detectPropChanged = (key: string, prevProps: MapProps, nextProps: MapProps) => {
     return prevProps[key] !== nextProps[key]
+  }
+
+  if (props.isRender === false) {
+    return (
+      <>
+        { apiLoading ? props.children : null }
+      </>
+    )
   }
 
   return (
