@@ -35,8 +35,9 @@ export default () => {
         </Button>
       </Space>
 
-      <Map isRender={false} city="010">
+      <Map isRender={false}>
         <Geocoder
+          city="010"
           events={{
             created: (instance) => {
               geocoderRef.current = instance;
