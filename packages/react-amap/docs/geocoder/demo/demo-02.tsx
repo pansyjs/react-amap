@@ -31,7 +31,7 @@ export default () => {
           }}
         />
         <Button disabled={!location} onClick={getLocation}>
-          地址 {'>'} 经纬度
+          经纬度 {'>'} 地址
         </Button>
       </Space>
 
