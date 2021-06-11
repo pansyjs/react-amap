@@ -1,8 +1,9 @@
-import React, { useRef, useEffect, useImperativeHandle } from 'react';
+import React, { useRef, useState, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
 import type { GeocoderProps } from './types';
 
 export const Geocoder = React.forwardRef<AMap.Geocoder, GeocoderProps>(({ events, ...rest }, ref) => {
+  const [loaded, setLoaded] = useState<boolean>();
   const { map } = useMap();
   const instanceObj = useRef<AMap.Geocoder>(null);
 
@@ -10,7 +11,8 @@ export const Geocoder = React.forwardRef<AMap.Geocoder, GeocoderProps>(({ events
     () => {
       if (map) {
         createInstance().then(() => {
-          events?.created(instanceObj.current);
+          setLoaded(true);
+          events?.created?.(instanceObj.current);
         });
       }
     },
@@ -20,7 +22,7 @@ export const Geocoder = React.forwardRef<AMap.Geocoder, GeocoderProps>(({ events
   useImperativeHandle(
     ref,
     () => instanceObj.current,
-    [instanceObj.current]
+    [loaded]
   );
 
   const createInstance = () => {

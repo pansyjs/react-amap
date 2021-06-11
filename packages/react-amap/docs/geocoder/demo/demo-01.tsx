@@ -34,13 +34,7 @@ export default () => {
       </Space>
 
       <Map isRender={false}>
-        <Geocoder
-          events={{
-            created: (instance) => {
-              geocoderRef.current = instance;
-            }
-          }}
-        />
+        <Geocoder ref={geocoderRef} />
       </Map>
     </div>
   );
