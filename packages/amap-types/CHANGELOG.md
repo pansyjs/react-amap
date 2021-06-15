@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.11](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@1.3.10...@pansy/amap-types@1.3.11) (2021-06-15)
+
+**Note:** Version bump only for package @pansy/amap-types
+
+
+
+
+
 ## [1.3.10](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@1.3.9...@pansy/amap-types@1.3.10) (2021-04-26)
 
 **Note:** Version bump only for package @pansy/amap-types

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@1.1.0...@pansy/react-amap@1.1.1) (2021-06-15)
+
+
+### Bug Fixes
+
+* **Geocoder:** 修复ref不可用 ([bf3755c](https://github.com/pansyjs/react-amap/commit/bf3755ca126bc5988590fa112237ace1623b9f31))
+
+
+
+
+
 # [1.1.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@1.0.14...@pansy/react-amap@1.1.0) (2021-06-06)
 
 
