@@ -31,7 +31,7 @@
 
 本库主要参考 饿了么[react-amap](https://github.com/ElemeFE/react-amap)，API基本一致。
 
-与饿了么[react-amap]区别如下:
+与饿了么`react-amap`区别如下:
 
 - `Map`组件属性`amapkey`修改为`mapKey`
 - 采用`context`共享map实例，其他组件没有必要一定是`Map`组件的子组件
