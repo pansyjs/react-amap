@@ -37,7 +37,7 @@ export const ElasticMarker = React.forwardRef<AMap.ElasticMarker, ElasticMarkerP
 
   const createInstance = () => {
     return new Promise<void>((resolve) => {
-      map.plugin(['ElasticMarker'], () => {
+      map.plugin(['AMap.ElasticMarker'], () => {
         const options = buildCreateOptions<any, AMap.ElasticMarker.Options>(
           props,
           allProps,
