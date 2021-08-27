@@ -1,13 +1,27 @@
 export const configurableProps = [
   /** 动态属性 */
-  'tileLayer',
   'isOpen',
-  'visible',
 
   /* 扩展属性 */
+  'visible',
 ]
 
-export const allProps = configurableProps.concat([]);
+export const allProps = configurableProps.concat([
+  'autoMove',
+  'showRectangle',
+  'showButton',
+  'isOpen',
+  'mapStyle',
+  'layers',
+  'width',
+  'height',
+  'offset',
+  'borderStyle',
+  'borderColor',
+  'borderRadius',
+  'borderWidth',
+  'buttonSize',
+]);
 
 export const setterMap = {
   visible(val: boolean, instance: AMap.OverView) {

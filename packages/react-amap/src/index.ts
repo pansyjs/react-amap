@@ -21,7 +21,7 @@ import { PolyEditor } from './poly-editor';
 import { BezierCurveEditor } from './bezier-curve-editor';
 import { RectangleEditor } from './rectangle-editor';
 import { Scale } from './scale';
-import { OverView } from './over-view';
+import { HawkEye } from './hawk-eye';
 import { MapType } from './map-type';
 import { Heatmap } from './heatmap';
 import { Geocoder } from './geocoder';
@@ -51,7 +51,7 @@ export {
   BezierCurveEditor,
   RectangleEditor,
   Scale,
-  OverView,
+  HawkEye,
   MapType,
   Heatmap,
   Geocoder,
@@ -85,7 +85,7 @@ export default {
   BezierCurveEditor,
   RectangleEditor,
   Scale,
-  OverView,
+  HawkEye,
   MapType,
   Heatmap,
   Geocoder,

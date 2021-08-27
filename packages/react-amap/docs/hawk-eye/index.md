@@ -1,5 +1,5 @@
 ---
-title: OverView 地图鹰眼
+title: HawkEye 地图鹰眼
 nav:
   title: 组件
   path: /components
@@ -10,7 +10,7 @@ group:
   order: 200
 ---
 
-# OverView 地图鹰眼
+# HawkEye 地图鹰眼
 
 ## 何时使用
 

@@ -2,14 +2,14 @@ import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
 import { usePropsReactive } from '../hooks';
 import { buildCreateOptions } from '../utils/control';
-import type { OverViewProps } from './types';
+import type { HawkEyeProps } from './types';
 import { allProps, converterMap, setterMap } from './config';
 
-export const OverView = React.forwardRef<AMap.OverView, OverViewProps>((props = {}, ref) => {
+export const HawkEye = React.forwardRef<AMap.HawkEye, HawkEyeProps>((props = {}, ref) => {
   const { map } = useMap();
-  const instanceObj = useRef<AMap.OverView>(null);
+  const instanceObj = useRef<AMap.HawkEye>(null);
 
-  const { onInstanceCreated } = usePropsReactive<AMap.OverView, OverViewProps>(
+  const { onInstanceCreated } = usePropsReactive<AMap.HawkEye, HawkEyeProps>(
     props,
     instanceObj,
     {
@@ -38,13 +38,13 @@ export const OverView = React.forwardRef<AMap.OverView, OverViewProps>((props = 
 
   const createInstance = () => {
     return new Promise<void>((resolve) => {
-      map.plugin(['AMap.OverView'], () => {
-        const options = buildCreateOptions<OverViewProps, AMap.OverView.Options>(
+      map.plugin(['AMap.HawkEye'], () => {
+        const options = buildCreateOptions<HawkEyeProps, AMap.HawkEye.Options>(
           props,
           allProps,
           converterMap,
         );
-        instanceObj.current = new AMap.OverView(options);
+        instanceObj.current = new AMap.HawkEye(options);
         resolve();
       });
     });
