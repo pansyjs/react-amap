@@ -8,11 +8,8 @@ export const configurableProps = [
 ];
 
 export const allProps = configurableProps.concat([
-  'radius',
-  'gradient',
-  'opacity',
-  'zooms',
-  'liteStyle'
+  'position',
+  'offset',
 ]);
 
 export const setterMap = {
@@ -22,33 +19,6 @@ export const setterMap = {
         instance.show()
       } else {
         instance.hide()
-      }
-    }
-  },
-  direction(val: boolean, instance: AMap.ToolBar) {
-    if (instance) {
-      if (val) {
-        instance.showDirection()
-      } else {
-        instance.hideDirection()
-      }
-    }
-  },
-  ruler(val: boolean, instance: AMap.ToolBar) {
-    if (instance) {
-      if (val) {
-        instance.showRuler()
-      } else {
-        instance.hideRuler()
-      }
-    }
-  },
-  locate(val: boolean, instance: AMap.ToolBar) {
-    if (instance) {
-      if (val) {
-        instance.showLocation()
-      } else {
-        instance.hideLocation()
       }
     }
   },
