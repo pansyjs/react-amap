@@ -14,7 +14,7 @@ export const allProps = configurableProps.concat([
 ]);
 
 export const setterMap = {
-  visible(val: boolean, instance: AMap.Heatmap) {
+  visible(val: boolean, instance: AMap.HeatMap) {
     if (instance) {
       if (val) {
         instance.show()
@@ -23,7 +23,7 @@ export const setterMap = {
       }
     }
   },
-  dataSet(data: AMap.Heatmap.DataSet, instance: AMap.Heatmap) {
+  dataSet(data: AMap.HeatMap.DataSet, instance: AMap.HeatMap) {
     if (instance) {
       instance.setDataSet(data);
     }
