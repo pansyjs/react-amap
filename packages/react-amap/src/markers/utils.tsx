@@ -78,6 +78,7 @@ const createClusterPlugin = (map, config: MarkerClusterOptions, useCluster) => {
   markerCluster.on('click', (e) => {
     if (useCluster && options.zoomOnClick) {
       /** 支持 v1 zoomOnClick 功能 */
+      map.setCenter(e.lnglat);
       map.zoomIn();
     } else {
       if (isFun(events.click)) {

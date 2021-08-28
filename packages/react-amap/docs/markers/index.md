@@ -18,7 +18,7 @@ group:
 
 ### 基本使用
 
-<!-- <code src="./demo/demo-01.tsx" /> -->
+<code src="./demo/demo-01.tsx" />
 
 ### useCluster
 
@@ -26,7 +26,7 @@ group:
 
 ### 事件绑定
 
-<!-- <code src="./demo/demo-07.tsx" /> -->
+<code src="./demo/demo-07.tsx" />
 
 ## API
 
