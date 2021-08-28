@@ -6,7 +6,7 @@ import React, {
 import { render } from 'react-dom';
 import { useMap } from '../map';
 import { usePropsReactive } from '../hooks';
-import { isFun } from '../utils';
+import { isFun, toLnglat } from '../utils';
 import { renderMarkerComponent, getPropValue } from '../marker/utils';
 import { allProps, defaultOpts, IdKey } from './config';
 import type { MarkersProps, MarkerOptions } from './types';
@@ -14,11 +14,12 @@ import { loadClusterPlugin } from './utils';
 
 export const Markers = React.forwardRef<AMap.Marker[], MarkersProps>((props = {}, ref) => {
   const { map } = useMap();
-  const mapCluster = useRef<AMap.MarkerClusterer>();
+  const mapCluster = useRef<AMap.MarkerCluster>();
+  const dataOptionsCache = useRef<AMap.MarkerCluster.DataOptions[]>();
   const markersCache = useRef<AMap.Marker[]>(defaultOpts.markersCache);
   const markerReactChildDOM = useRef<Record<string, HTMLDivElement>>({});
 
-  const { prevProps, onInstanceCreated } = usePropsReactive<AMap.MarkerClusterer, MarkersProps>(
+  const { prevProps, onInstanceCreated } = usePropsReactive<AMap.MarkerCluster, MarkersProps>(
     props,
     mapCluster,
     {}
@@ -52,11 +53,28 @@ export const Markers = React.forwardRef<AMap.Marker[], MarkersProps>((props = {}
   );
 
   const createInstance = (props: MarkersProps) => {
-    const markers = props.markers || [];
+    let markers = props.markers || [];
     const mapMarkers: AMap.Marker[] = [];
     const markerRCDOM = {};
 
-    markers.length && markers.forEach((raw, idx) => {
+    markers = markers
+      .map(item => {
+        let lnglat;
+        const mapLngLat: any = toLnglat(item.lnglat || item.position);
+
+        if (mapLngLat) {
+          lnglat = [mapLngLat.getLng(), mapLngLat.getLat()];
+        }
+
+        return {
+          ...item,
+          lnglat,
+          position: lnglat
+        }
+      })
+      .filter(item => item.lnglat)
+
+    markers.forEach((raw, idx) => {
       const options: AMap.Marker.Options = buildCreateOptions(props, raw, idx);
       options.map = map;
 
@@ -96,6 +114,11 @@ export const Markers = React.forwardRef<AMap.Marker[], MarkersProps>((props = {}
       bindMarkerEvents(marker);
       mapMarkers.push(marker);
     });
+
+    dataOptionsCache.current = markers.map(item => ({
+      lnglat: item.lnglat,
+      weight: item.weight,
+    }));
 
     markersCache.current = mapMarkers;
     markerReactChildDOM.current = markerRCDOM;
@@ -152,15 +175,26 @@ export const Markers = React.forwardRef<AMap.Marker[], MarkersProps>((props = {}
     if (props.useCluster) {
       loadClusterPlugin(map, mapCluster.current, props.useCluster)
         .then((cluster) => {
-          cluster.setMarkers(markersCache.current);
+          // 清除所有的标记点
+          markersCache.current?.forEach((marker) => {
+            if (marker) {
+              marker.setMap(null);
+              marker = null;
+            }
+          });
+
+          cluster.setData(dataOptionsCache.current);
         });
     } else {
       if (mapCluster.current) {
-        const markers = mapCluster.current.getMarkers();
-        mapCluster.current.clearMarkers();
-        markers.forEach((marker) => {
-          marker.setMap(map);
-        });
+        // 清空聚合数据
+        mapCluster.current.setData([]);
+
+        if (markersCache.current) {
+          markersCache.current.forEach((marker) => {
+            marker.setMap(map);
+          });
+        }
       }
     }
   }

@@ -2,14 +2,14 @@ import { useState } from 'react';
 import { Map, Markers, ControlBar } from '@pansy/react-amap';
 import styles from './index.less';
 
-const randomPosition = () => ({
-  longitude: 100 + Math.random() * 20,
-  latitude: 30 + Math.random() * 20
-});
+const randomLnglat = () => [
+  100 + Math.random() * 20,
+  30 + Math.random() * 20,
+]
 
 const randomMarker = (len) => (
-  Array(len).fill(true).map((e, idx) => ({
-    position: randomPosition()
+  Array(len).fill(true).map(() => ({
+    lnglat: randomLnglat(),
   }))
 );
 
@@ -34,7 +34,7 @@ export default () => {
           }}
         />
         <Markers
-          markers={markers}
+          markers={markers as any}
           useCluster={{
             render: () => {
               return <ChildrenComponent />

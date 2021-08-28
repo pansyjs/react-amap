@@ -9,10 +9,11 @@ export const IdKey = '__react_amap__';
 
 export const ClusterProps = [
   'gridSize',
-  'minClusterSize',
   'maxZoom',
   'averageCenter',
+  'clusterByZoomChange',
   'styles',
-  'zoomOnClick',
   'renderClusterMarker',
+  'renderMarker',
+  'zoomOnClick',
 ];
