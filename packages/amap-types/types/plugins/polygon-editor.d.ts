@@ -58,7 +58,7 @@ declare namespace AMap {
      * 设置编辑对象
      * @param tar
      */
-    setTarget(tar: any, overlay: AMap.Polygon): void;
+    setTarget(overlay: AMap.Polygon): void;
 
     /**
      * 获取编辑对象

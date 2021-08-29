@@ -19,9 +19,13 @@ group:
 
 ## 代码示例
 
-### 多边形编辑
+### 基本示例
 
 <code src="./demo/demo-01.tsx" />
+
+### 吸附功能
+
+<code src="./demo/demo-02.tsx" />
 
 ## API
 
