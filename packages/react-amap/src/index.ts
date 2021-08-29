@@ -8,7 +8,9 @@ import { CircleMarker } from './circle-marker';
 import { ElasticMarker } from './elastic-marker';
 import { ContextMenu } from './context-menu';
 import { Polyline } from './polyline';
+import { PolylineEditor } from './polyline-editor';
 import { Polygon } from './polygon';
+import { PolygonEditor } from './polygon-editor';
 import { BezierCurve } from './bezier-curve';
 import { Rectangle } from './rectangle';
 import { Marker } from './marker';
@@ -38,7 +40,9 @@ export {
   CircleEditor,
   ElasticMarker,
   Polygon,
+  PolygonEditor,
   Polyline,
+  PolylineEditor,
   Rectangle,
   ControlBar,
   BezierCurve,
@@ -72,7 +76,9 @@ export default {
   Circle,
   CircleEditor,
   Polygon,
+  PolygonEditor,
   Polyline,
+  PolylineEditor,
   Rectangle,
   ControlBar,
   BezierCurve,
