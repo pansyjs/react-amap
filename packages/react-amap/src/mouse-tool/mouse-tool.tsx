@@ -21,7 +21,6 @@ export const MouseTool = React.forwardRef<AMap.MouseTool, MouseToolProps>((props
     () => {
       if (map) {
         createInstance().then(() => {
-          map.addControl(instanceObj.current);
           onInstanceCreated?.(instanceObj.current)
         });
       }
