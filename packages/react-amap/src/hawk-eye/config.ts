@@ -24,7 +24,7 @@ export const allProps = configurableProps.concat([
 ]);
 
 export const setterMap = {
-  visible(val: boolean, instance: AMap.OverView) {
+  visible(val: boolean, instance: AMap.HawkEye) {
     if (instance) {
       if (val) {
         instance.show()
@@ -33,7 +33,7 @@ export const setterMap = {
       }
     }
   },
-  isOpen(val: boolean, instance: AMap.OverView) {
+  isOpen(val: boolean, instance: AMap.HawkEye) {
     if (instance) {
       if (val) {
         instance.open()
