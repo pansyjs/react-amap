@@ -6,3 +6,5 @@
 /// <reference path="./bezier-curve-editor.d.ts" />
 /// <reference path="./rectangle-editor.d.ts" />
 /// <reference path="./ellipse-editor.d.ts" />
+/// <reference path="./polyline-editor.d.ts" />
+/// <reference path="./polygon-editor.d.ts" />
