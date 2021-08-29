@@ -22,7 +22,7 @@ export const Scale = React.forwardRef<AMap.Scale, ScaleProps>((props = {}, ref) 
     () => {
       if (map) {
         createInstance().then(() => {
-          map.addControl(instanceObj.current);
+          instanceObj.current.addTo(map);
           onInstanceCreated?.(instanceObj.current)
         });
       }

@@ -22,7 +22,7 @@ export const MapType = React.forwardRef<AMap.MapType, MapTypeProps>((props = {},
     () => {
       if (map) {
         createInstance().then(() => {
-          map.addControl(instanceObj.current);
+          instanceObj.current.addTo(map);
           onInstanceCreated?.(instanceObj.current)
         });
       }

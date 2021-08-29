@@ -22,7 +22,6 @@ export const Heatmap = React.forwardRef<AMap.HeatMap, HeatmapProps>((props = {},
     () => {
       if (map) {
         createInstance().then(() => {
-          map.addControl(instanceObj.current);
           onInstanceCreated?.(instanceObj.current)
         });
       }

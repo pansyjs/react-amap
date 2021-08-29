@@ -22,7 +22,7 @@ export const ControlBar = React.forwardRef<AMap.ControlBar, ControlBarProps>((pr
     () => {
       if (map) {
         createInstance().then(() => {
-          map.addControl(instanceObj.current);
+          instanceObj.current.addTo(map);
           onInstanceCreated?.(instanceObj.current)
         });
       }
