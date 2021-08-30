@@ -22,7 +22,7 @@ export const ToolBar = React.forwardRef<AMap.ToolBar, ToolBarProps>((props = {},
     () => {
       if (map) {
         createInstance().then(() => {
-          map.addControl(instanceObj.current);
+          instanceObj.current.addTo(map);
           onInstanceCreated?.(instanceObj.current)
         });
       }

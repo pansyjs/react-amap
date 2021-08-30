@@ -2,14 +2,13 @@ import React from 'react';
 import { render } from 'react-dom';
 import { ClusterProps } from './config';
 import { isFun } from '../utils';
-import type { MarkersProps, MarkerClustererOptions } from './types';
+import type { MarkersProps, MarkerClusterOptions } from './types';
 
 const defalutOptions = {
-  minClusterSize: 2,
-  zoomOnClick: true,
   maxZoom: 18,
   gridSize: 60,
-  averageCenter: true
+  averageCenter: true,
+  zoomOnClick: true,
 };
 
 /**
@@ -21,22 +20,22 @@ const defalutOptions = {
  */
 export const loadClusterPlugin = (
   map: AMap.Map,
-  mapCluster: AMap.MarkerClusterer,
+  mapCluster: AMap.MarkerCluster,
   useCluster: MarkersProps['useCluster']
-): Promise<AMap.MarkerClusterer> => {
+): Promise<AMap.MarkerCluster> => {
   if (mapCluster) {
     return Promise.resolve(mapCluster);
   }
-  const config: MarkerClustererOptions = (typeof useCluster === 'boolean') ? {} : useCluster;
+  const config: MarkerClusterOptions = (typeof useCluster === 'boolean') ? {} : useCluster;
   return new Promise((resolve) => {
-    map.plugin(['AMap.MarkerClusterer'], () => {
+    map.plugin(['AMap.MarkerCluster'], () => {
       resolve(createClusterPlugin(map, config, useCluster));
     });
   });
 }
 
-const createClusterPlugin = (map, config: MarkerClustererOptions, useCluster) => {
-  const options: MarkerClustererOptions = {};
+const createClusterPlugin = (map, config: MarkerClusterOptions, useCluster) => {
+  const options: MarkerClusterOptions = {};
 
   ClusterProps.forEach((key) => {
     if (key in config) {
@@ -66,19 +65,21 @@ const createClusterPlugin = (map, config: MarkerClustererOptions, useCluster) =>
     }
   }
 
-  const markerClusterer = new window.AMap.MarkerClusterer(map, [], options);
+  const markerCluster = new window.AMap.MarkerCluster(map, [], options);
 
   let events: Record<string, any>= {};
     if ('events' in config) {
       events = config.events;
       if ('created' in events) {
-        events.created?.(markerClusterer);
+        events.created?.(markerCluster);
       }
     }
 
-  markerClusterer.on('click', (e) => {
-    if (useCluster && useCluster['zoomOnClick']) {
-      // 执行高德默认逻辑
+  markerCluster.on('click', (e) => {
+    if (useCluster && options.zoomOnClick) {
+      /** 支持 v1 zoomOnClick 功能 */
+      map.setCenter(e.lnglat);
+      map.zoomIn();
     } else {
       if (isFun(events.click)) {
         events.click(e);
@@ -86,5 +87,5 @@ const createClusterPlugin = (map, config: MarkerClustererOptions, useCluster) =>
     }
   });
 
-  return Promise.resolve(markerClusterer);
+  return Promise.resolve(markerCluster);
 }

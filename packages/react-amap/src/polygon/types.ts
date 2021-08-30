@@ -14,5 +14,7 @@ export interface PolygonProps extends
   Omit<AMap.Polygon.Options, StyleKeys | 'path'>,
   PolygonOptions
 {
+  /** 绑定的事件 */
+  events?: EventMap;
   visible?: boolean;
 }

@@ -1,10 +1,13 @@
-import { Map, ToolBar } from '@pansy/react-amap';
+/**
+  * title 基本示例
+  */
+import { Map, HawkEye } from '@pansy/react-amap';
 
 export default () => {
   return (
     <div style={{ height: 500 }}>
       <Map>
-        <ToolBar liteStyle />
+        <HawkEye />
       </Map>
     </div>
   );

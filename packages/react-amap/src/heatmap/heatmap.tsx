@@ -5,11 +5,11 @@ import { buildCreateOptions } from '../utils/control';
 import type { HeatmapProps } from './types';
 import { allProps, converterMap, setterMap } from './config';
 
-export const Heatmap = React.forwardRef<AMap.Heatmap, HeatmapProps>((props = {}, ref) => {
+export const Heatmap = React.forwardRef<AMap.HeatMap, HeatmapProps>((props = {}, ref) => {
   const { map } = useMap();
-  const instanceObj = useRef<AMap.Heatmap>(null);
+  const instanceObj = useRef<AMap.HeatMap>(null);
 
-  const { onInstanceCreated } = usePropsReactive<AMap.Heatmap, HeatmapProps>(
+  const { onInstanceCreated } = usePropsReactive<AMap.HeatMap, HeatmapProps>(
     props,
     instanceObj,
     {
@@ -22,7 +22,6 @@ export const Heatmap = React.forwardRef<AMap.Heatmap, HeatmapProps>((props = {},
     () => {
       if (map) {
         createInstance().then(() => {
-          map.addControl(instanceObj.current);
           onInstanceCreated?.(instanceObj.current)
         });
       }
@@ -38,13 +37,13 @@ export const Heatmap = React.forwardRef<AMap.Heatmap, HeatmapProps>((props = {},
 
   const createInstance = () => {
     return new Promise<void>((resolve) => {
-      map.plugin(['AMap.Heatmap'], () => {
-        const options = buildCreateOptions<HeatmapProps, AMap.Heatmap.Options>(
+      map.plugin(['AMap.HeatMap'], () => {
+        const options = buildCreateOptions<HeatmapProps, AMap.HeatMap.Options>(
           props,
           allProps,
           converterMap,
         );
-        instanceObj.current = new AMap.Heatmap(map, options);
+        instanceObj.current = new AMap.HeatMap(map, options);
         if (props.dataSet) {
           instanceObj.current.setDataSet(props.dataSet)
         }

@@ -31,6 +31,17 @@ declare namespace AMap {
 
     interface Options {
       /**
+       * 初始中心经纬度
+       */
+      center?: LngLat | [number, number];
+
+      /**
+       * 地图显示的缩放级别，可以设置为浮点数；
+       * 若center与level未赋值，地图初始化默认显示用户所在城市范围。
+       */
+      zoom?: number;
+
+      /**
        * 地图视口，用于控制影响地图静态显示的属性
        */
       view?: View2D;
@@ -38,14 +49,7 @@ declare namespace AMap {
        * 地图图层数组，数组可以是图层 中的一个或多个，默认为普通二维地图
        */
       layers?: Layer[];
-      /**
-       * 地图的缩放级别
-       */
-      zoom?: number;
-      /**
-       * 地图中心点坐标值
-       */
-      center?: LngLat;
+
       /**
        * 地图标注显示顺序，大于110即可将底图上的默认标注显示在覆盖物（圆、折线、面）之上。
        */

@@ -7,8 +7,11 @@ import { Circle } from './circle';
 import { CircleMarker } from './circle-marker';
 import { ElasticMarker } from './elastic-marker';
 import { ContextMenu } from './context-menu';
+import { OverlayGroup } from './overlay-group';
 import { Polyline } from './polyline';
+import { PolylineEditor } from './polyline-editor';
 import { Polygon } from './polygon';
+import { PolygonEditor } from './polygon-editor';
 import { BezierCurve } from './bezier-curve';
 import { Rectangle } from './rectangle';
 import { Marker } from './marker';
@@ -21,7 +24,7 @@ import { PolyEditor } from './poly-editor';
 import { BezierCurveEditor } from './bezier-curve-editor';
 import { RectangleEditor } from './rectangle-editor';
 import { Scale } from './scale';
-import { OverView } from './over-view';
+import { HawkEye } from './hawk-eye';
 import { MapType } from './map-type';
 import { Heatmap } from './heatmap';
 import { Geocoder } from './geocoder';
@@ -37,8 +40,11 @@ export {
   Circle,
   CircleEditor,
   ElasticMarker,
+  OverlayGroup,
   Polygon,
+  PolygonEditor,
   Polyline,
+  PolylineEditor,
   Rectangle,
   ControlBar,
   BezierCurve,
@@ -51,7 +57,7 @@ export {
   BezierCurveEditor,
   RectangleEditor,
   Scale,
-  OverView,
+  HawkEye,
   MapType,
   Heatmap,
   Geocoder,
@@ -69,10 +75,13 @@ export default {
   Ellipse,
   EllipseEditor,
   ElasticMarker,
+  OverlayGroup,
   Circle,
   CircleEditor,
   Polygon,
+  PolygonEditor,
   Polyline,
+  PolylineEditor,
   Rectangle,
   ControlBar,
   BezierCurve,
@@ -85,7 +94,7 @@ export default {
   BezierCurveEditor,
   RectangleEditor,
   Scale,
-  OverView,
+  HawkEye,
   MapType,
   Heatmap,
   Geocoder,
