@@ -4,10 +4,12 @@ declare namespace AMap {
    * OverlayGroup 类用来包装其它覆盖物类的实例，对实例集合做整体操作，避免开发者对多个需要设置同样属性的覆盖物实例做循环处理。
    */
   namespace OverlayGroup {
-    type Iterator<O extends Overlay> = (overlay: O, index: number, collections: O[]) => void
+    type Iterator<O extends Overlay> = (overlay: O, index: number, collections: O[]) => void;
+
+    interface EventMap {}
   }
 
-  class OverlayGroup<O extends Overlay = any> {
+  class OverlayGroup<O extends Overlay = any> extends EventEmitter {
     /**
      *
      * @param overlays 覆盖物类的实例的集合

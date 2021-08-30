@@ -27,6 +27,10 @@ group:
 
 <code src="./demo/demo-02.tsx" />
 
+### 使用OverlayGroup
+
+<code src="./demo/demo-03.tsx" />
+
 ## API
 
 ### 动态属性

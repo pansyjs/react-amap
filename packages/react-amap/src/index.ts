@@ -7,6 +7,7 @@ import { Circle } from './circle';
 import { CircleMarker } from './circle-marker';
 import { ElasticMarker } from './elastic-marker';
 import { ContextMenu } from './context-menu';
+import { OverlayGroup } from './overlay-group';
 import { Polyline } from './polyline';
 import { PolylineEditor } from './polyline-editor';
 import { Polygon } from './polygon';
@@ -39,6 +40,7 @@ export {
   Circle,
   CircleEditor,
   ElasticMarker,
+  OverlayGroup,
   Polygon,
   PolygonEditor,
   Polyline,
@@ -73,6 +75,7 @@ export default {
   Ellipse,
   EllipseEditor,
   ElasticMarker,
+  OverlayGroup,
   Circle,
   CircleEditor,
   Polygon,
