@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@1.1.1...@pansy/react-amap@2.1.0) (2021-08-30)
+
+
+### Bug Fixes
+
+* **react-amap:** 修复 ElasticMarker 报错 ([2908040](https://github.com/pansyjs/react-amap/commit/29080408707bd08444420a83621b15f01f70d64a))
+* **react-amap:** 修复 MouseTool 无法使用的问题 ([9ad94ff](https://github.com/pansyjs/react-amap/commit/9ad94ff1640c60184954bc2b64f3301c6fa78336))
+* **react-amap:** 修复类型报错 ([dbdfc2f](https://github.com/pansyjs/react-amap/commit/dbdfc2f67e9180855fa2c05ca55192604ef4a95f))
+
+
+### Features
+
+* **react-amap:** add OverlayGroup component ([b71839f](https://github.com/pansyjs/react-amap/commit/b71839fdd94ae3574dcd93718a593235c116dcc6))
+* **react-amap:** add PolylineEditor、PolygonEditor ([d052342](https://github.com/pansyjs/react-amap/commit/d052342e44193005c22a54a24b45f99d6d3a1937))
+* **react-amap:** heatmap 支持 amap 2.0 ([a6185c3](https://github.com/pansyjs/react-amap/commit/a6185c3a294ac007084723d8ea402b86f5d77726))
+* **react-amap:** markers 组件兼容v2 ([6d12521](https://github.com/pansyjs/react-amap/commit/6d125212a223ef51d1e3ec8ef6b504a6cf8a69f5))
+* **react-amap:** update amap version to 2.0 ([f12e7f0](https://github.com/pansyjs/react-amap/commit/f12e7f0c74b6d476c5a9db49cf7185948f573c0d))
+* **react-amap:** 代码优化 ([f2d5470](https://github.com/pansyjs/react-amap/commit/f2d54701cb9498abc12ff173b14359cc25231bc9))
+* **react-amap:** 对应v2修改ToolBar组件 ([fdd6f9b](https://github.com/pansyjs/react-amap/commit/fdd6f9bdd0da2e94becb493a7b51953986de0081))
+* **react-amap:** 添加多边形编辑组件吸附功能示例 ([2c28443](https://github.com/pansyjs/react-amap/commit/2c2844387dcfce7cef67147e13af7e9d718596b7))
+* **react-amap:** 点击设置当前聚合点为地图中心点 ([2df735a](https://github.com/pansyjs/react-amap/commit/2df735a9048d9dd96493a1b2d7694ac125d53869))
+* **react-amap:** 重写鹰眼组件 ([6605820](https://github.com/pansyjs/react-amap/commit/6605820c17020e8a948f7d0dc0f9f611fc70e3ef))
+
+
+
+
+
 ## [1.1.1](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@1.1.0...@pansy/react-amap@1.1.1) (2021-06-15)
 
 
