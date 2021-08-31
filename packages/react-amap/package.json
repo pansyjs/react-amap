@@ -9,9 +9,6 @@
   "module": "es/index.js",
   "types": "es/index.d.ts",
   "license": "MIT",
-  "scripts": {
-    "build": "father-build"
-  },
   "dependencies": {
     "@pansy/amap-types": "2.1.0"
   },
