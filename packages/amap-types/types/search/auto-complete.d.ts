@@ -73,12 +73,19 @@ declare namespace AMap {
     type Status = 'complete' | 'error' | 'no_data';
 
     interface Tip {
+      id: string;
       /** 名称 */
       name: string;
       /** 所属区域 */
       district: string;
       /** 区域编码 */
       adcode: string;
+      /** 地址信息 */
+      address: string;
+      /** 位置坐标 */
+      location: AMap.LngLat;
+      /**  */
+      typecode: string;
     }
 
     interface Result {

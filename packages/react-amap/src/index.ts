@@ -1,6 +1,7 @@
 import { Map } from './map';
 import { useMap } from './context';
 import { Ellipse } from './ellipse';
+import { AutoComplete } from './auto-complete';
 import { EllipseEditor } from './ellipse-editor';
 import { InfoWindow } from './info-window';
 import { Circle } from './circle';
@@ -39,6 +40,7 @@ export {
   Markers,
   Ellipse,
   EllipseEditor,
+  AutoComplete,
   Circle,
   CircleEditor,
   ElasticMarker,
@@ -76,6 +78,7 @@ export default {
   Marker,
   Markers,
   Ellipse,
+  AutoComplete,
   EllipseEditor,
   ElasticMarker,
   OverlayGroup,

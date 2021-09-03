@@ -1,4 +1,3 @@
-/// <reference path="./auto-complete.d.ts" />
 /// <reference path="./mouse-tool.d.ts" />
 /// <reference path="./circle-editor.d.ts" />
 /// <reference path="./marker-cluster.d.ts" />

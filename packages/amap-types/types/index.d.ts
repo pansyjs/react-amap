@@ -8,3 +8,4 @@
 /// <reference path="./map/index.d.ts" />
 /// <reference path="./info-window/index.d.ts" />
 /// <reference path="./plugins/index.d.ts" />
+/// <reference path="./search/index.d.ts" />
