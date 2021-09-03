@@ -28,7 +28,7 @@ export const APILoader: React.FC<APILoaderProps> = ({
           setLoaded(false);
         });
     },
-    [rest]
+    [JSON.stringify(rest)]
   );
 
   if (loaded && loading) {

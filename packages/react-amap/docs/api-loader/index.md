@@ -5,9 +5,8 @@ nav:
   path: /components
 order: 1
 group:
-  path: /overlay
-  title: 覆盖物
-  order: 400
+  path: /map
+  title: 地图
 ---
 
 # APILoader 高德地图API加载

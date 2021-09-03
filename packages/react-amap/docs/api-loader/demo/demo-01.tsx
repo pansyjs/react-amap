@@ -3,11 +3,14 @@ import { APILoader } from '@pansy/react-amap';
 export default () => {
   return (
     <APILoader
-      plugins={['MarkerCluster']}
+      plugins={['AMap.MarkerCluster']}
       AMapUI={{}}
       Loca={{}}
+      onCreate={(obj) => {
+        console.log(obj);
+      }}
     >
-      123
+      api 已加载
     </APILoader>
   );
 };
