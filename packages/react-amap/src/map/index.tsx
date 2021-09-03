@@ -35,7 +35,7 @@ export const Map = React.forwardRef<AMap.Map, React.PropsWithChildren<MapProps>>
       }}
     >
       <APILoader
-        key={mapKey}
+        mapKey={mapKey}
         version={version}
         plugins={plugins}
         Loca={Loca}

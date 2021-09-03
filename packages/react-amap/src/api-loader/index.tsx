@@ -1,7 +1,8 @@
 import React, { useEffect, useState, } from 'react';
 import { Options, load } from '@pansy/amap-api-loader';
 
-export interface APILoaderProps extends Options {
+export interface APILoaderProps extends Omit<Options, 'key'> {
+  mapKey?: string;
   /** 加载效果组件 */
   loading?: React.ReactNode;
   onCreate?: (aMap: typeof AMap) => void;
@@ -18,7 +19,10 @@ export const APILoader: React.FC<APILoaderProps> = ({
 
   useEffect(
     () => {
-      load(rest)
+      load({
+        ...rest,
+        key: rest.mapKey,
+      })
         .then((obj) => {
           onCreate?.(obj);
           setSuccess(true)
