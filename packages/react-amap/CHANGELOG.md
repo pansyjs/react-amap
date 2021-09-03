@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.1.0...@pansy/react-amap@2.2.0) (2021-09-03)
+
+
+### Features
+
+* **react-amap:** add APILoader ([61cb1a3](https://github.com/pansyjs/react-amap/commit/61cb1a3acafd32e012c290c984a322af23525c47))
+* **react-amap:** APILoader组件优化 ([3cb0ed0](https://github.com/pansyjs/react-amap/commit/3cb0ed02e58364f441a3bb5d0fe1b08112860f43))
+
+
+
+
+
 # [2.1.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@1.1.1...@pansy/react-amap@2.1.0) (2021-08-30)
 
 
