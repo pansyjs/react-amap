@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.1](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.3.0...@pansy/react-amap@2.3.1) (2021-09-03)
+
+
+### Bug Fixes
+
+* **react-amap:** 修复 amap key 无法设置的问题 ([7147ad8](https://github.com/pansyjs/react-amap/commit/7147ad882793c5de047a59c728cd100ccdeb3c87))
+
+
+
+
+
 # [2.3.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.2.0...@pansy/react-amap@2.3.0) (2021-09-03)
 
 
