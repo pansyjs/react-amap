@@ -10,6 +10,7 @@
   "types": "es/index.d.ts",
   "license": "MIT",
   "dependencies": {
+    "@pansy/amap-api-loader": "0.1.0",
     "@pansy/amap-types": "2.1.0"
   },
   "publishConfig": {

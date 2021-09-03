@@ -6,7 +6,8 @@ export default {
   cjs: 'babel',
   pkgFilter: {
     include: [
-      '@pansy/react-amap'
+      '@pansy/react-amap',
+      '@pansy/amap-api-loader',
     ]
   },
 };

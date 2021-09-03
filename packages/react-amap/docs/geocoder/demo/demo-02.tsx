@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { Map, Geocoder } from '@pansy/react-amap';
+import { APILoader, Geocoder } from '@pansy/react-amap';
 import { Button, Input, Space, message } from 'antd';
 
 export default () => {
@@ -35,7 +35,7 @@ export default () => {
         </Button>
       </Space>
 
-      <Map isRender={false}>
+      <APILoader>
         <Geocoder
           city="010"
           events={{
@@ -44,7 +44,7 @@ export default () => {
             }
           }}
         />
-      </Map>
+      </APILoader>
     </div>
   );
 };
