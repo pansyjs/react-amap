@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.2.0...@pansy/amap-types@2.3.0) (2021-09-03)
+
+
+### Features
+
+* **amap-types:** add AutoComplete ([b7ab6fb](https://github.com/pansyjs/react-amap/commit/b7ab6fb776a3e8f1401cd7c0be7b5ebd4014aa90))
+* **react-amap:** add AutoComplete component ([f19cfed](https://github.com/pansyjs/react-amap/commit/f19cfed500d173f1021d55451874179f38ff1149))
+
+
+
+
+
 # [2.2.0](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.1.0...@pansy/amap-types@2.2.0) (2021-09-03)
 
 
