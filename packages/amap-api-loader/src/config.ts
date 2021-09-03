@@ -22,6 +22,6 @@ export const defaultConfig: Config = {
     plugins: [],
   },
   Loca: {
-    version: '1.3.2',
+    version: '2.0',
   },
 };
