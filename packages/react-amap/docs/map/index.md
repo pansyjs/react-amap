@@ -56,10 +56,6 @@ Map 组件是其他组件的基础，Map 组件通过`content`共享`map`实例�
 
 <code src="./demo/demo-08.tsx" />
 
-### 加载高德API，不渲染地图
-
-<code src="./demo/demo-12.tsx" />
-
 ## API
 
 ### 动态属性

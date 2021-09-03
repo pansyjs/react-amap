@@ -1,6 +1,7 @@
 {
-  "name": "@pansy/react-amap",
-  "version": "2.1.0",
+  "name": "@pansy/amap-api-loader",
+  "version": "0.1.0",
+  "packageManager": "yarn@3.0.1",
   "files": [
     "es",
     "lib"
@@ -10,7 +11,6 @@
   "types": "es/index.d.ts",
   "license": "MIT",
   "dependencies": {
-    "@pansy/amap-api-loader": "0.1.0",
     "@pansy/amap-types": "2.1.0"
   },
   "publishConfig": {

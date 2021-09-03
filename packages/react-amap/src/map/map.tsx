@@ -1,5 +1,4 @@
-import React, { useRef, useState, useEffect, useImperativeHandle } from 'react';
-import { APILoader } from '../utils';
+import React, { useRef, useEffect } from 'react';
 import { usePropsReactive } from '../hooks';
 import {
   allProps,
@@ -9,15 +8,13 @@ import {
   containerStyle,
   StatusDynamicProps
 } from './config';
-import { MapContext } from './context';
-import type { MapProps } from './types';
+import type { BaseMapProps } from './types';
 
-export const Map = React.forwardRef<AMap.Map, React.PropsWithChildren<MapProps>>((props = {}, ref) => {
+export const BaseMap: React.FC<BaseMapProps> = (props = {}) => {
   const mapWrapper = useRef<HTMLDivElement>();
   const instanceObj = useRef<AMap.Map>();
-  const [mapInternal, setMapInternal] = useState<AMap.Map>(null);
 
-  const { loaded, prevProps, onInstanceCreated } = usePropsReactive<AMap.Map, MapProps>(
+  const { loaded, prevProps, onInstanceCreated } = usePropsReactive<AMap.Map, BaseMapProps>(
     props,
     instanceObj,
     {
@@ -28,20 +25,10 @@ export const Map = React.forwardRef<AMap.Map, React.PropsWithChildren<MapProps>>
 
   useEffect(
     () => {
-      new APILoader({
-        key: props.mapKey,
-        useAMapUI: props.useAMapUI,
-        version: props.version,
-        protocol: props.protocol,
-        hostAndPath: props.hostAndPath
-      })
-      .load()
-      .then(() => {
-        createInstance().then(() => {
-          setMapInternal(instanceObj.current);
-          onInstanceCreated?.(instanceObj.current)
-        });
-      })
+      createInstance().then(() => {
+        props.onMapCreate?.(instanceObj.current);
+        onInstanceCreated?.(instanceObj.current)
+      });
     },
     []
   )
@@ -53,12 +40,6 @@ export const Map = React.forwardRef<AMap.Map, React.PropsWithChildren<MapProps>>
       }
     },
     [props]
-  );
-
-  useImperativeHandle(
-    ref,
-    () => instanceObj.current,
-    [instanceObj.current]
   );
 
   /** 创建地图实例 */
@@ -79,14 +60,14 @@ export const Map = React.forwardRef<AMap.Map, React.PropsWithChildren<MapProps>>
     return options;
   }
 
-  const getSetterValue = (key: string, props: MapProps) => {
+  const getSetterValue = (key: string, props: BaseMapProps) => {
     if (key in converterMap) {
       return converterMap[key](props[key])
     }
     return props[key];
   }
 
-  const updateMapProps = (prevProps: MapProps, nextProps: MapProps) => {
+  const updateMapProps = (prevProps: BaseMapProps, nextProps: BaseMapProps) => {
     const nextMapStatus = {};
     let statusChangeFlag = false;
     let statusPropExist = false;
@@ -104,29 +85,18 @@ export const Map = React.forwardRef<AMap.Map, React.PropsWithChildren<MapProps>>
     statusChangeFlag && instanceObj.current.setStatus(nextMapStatus);
   }
 
-  const detectPropChanged = (key: string, prevProps: MapProps, nextProps: MapProps) => {
+  const detectPropChanged = (key: string, prevProps: BaseMapProps, nextProps: BaseMapProps) => {
     return prevProps[key] !== nextProps[key]
   }
 
-  if (props.isRender === false) {
-    return (
-      <MapContext.Provider value={{ map: mapInternal }}>
-        <div ref={mapWrapper} style={{ display: 'none' }} />
-        { loaded ? props.children : null }
-      </MapContext.Provider>
-    )
-  }
-
   return (
-    <MapContext.Provider value={{ map: mapInternal }}>
-      <div style={wrapperStyle}>
-        <div ref={mapWrapper} style={containerStyle}>
-          {loaded ? null : props.loading}
-        </div>
-        <div>
-          { loaded ? props.children : null }
-        </div>
+    <div style={wrapperStyle}>
+      <div ref={mapWrapper} style={containerStyle}>
+        {loaded ? null : props.loading}
       </div>
-    </MapContext.Provider>
+      <div>
+        { loaded ? props.children : null }
+      </div>
+    </div>
   )
-});
+};

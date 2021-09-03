@@ -1,5 +1,5 @@
 import { Map } from './map';
-import { useMap } from './map/context';
+import { useMap } from './context';
 import { Ellipse } from './ellipse';
 import { EllipseEditor } from './ellipse-editor';
 import { InfoWindow } from './info-window';
@@ -28,9 +28,11 @@ import { HawkEye } from './hawk-eye';
 import { MapType } from './map-type';
 import { Heatmap } from './heatmap';
 import { Geocoder } from './geocoder';
+import { APILoader } from './api-loader';
 import { toLnglat, toSize, toPixel, toBounds } from './utils';
 
 export {
+  APILoader,
   Map,
   useMap,
   Marker,
@@ -68,6 +70,7 @@ export {
 }
 
 export default {
+  APILoader,
   Map,
   useMap,
   Marker,

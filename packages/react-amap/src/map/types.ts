@@ -1,3 +1,5 @@
+import { APILoaderProps } from '../api-loader';
+
 export type MapEventMap = ReactAMap.GetEventFunObject<AMap.Map.EventMap> & {
   created?: (map: AMap.Map) => void;
 }
@@ -12,13 +14,9 @@ export type StatusPropKey = ReactAMap.$Keys<MapStatus>;
 
 export type PropKey = ReactAMap.$Keys<MapOptions>;
 
-export interface MapProps extends Omit<MapOptions, 'center'> {
+export interface BaseMapProps extends Omit<MapOptions, 'center'> {
   /** 地图Loading组件 */
   loading?: React.ReactNode;
-  /** 高德地图开发者账号的Key */
-  mapKey?: string;
-  /** 高德地图的版本 */
-  version?: string;
   /** 地图状态 */
   status?: MapStatus;
   /** 地图中心点坐标值 */
@@ -27,10 +25,12 @@ export interface MapProps extends Omit<MapOptions, 'center'> {
   protocol?: string;
   /** 加载高德API的前半部分 */
   hostAndPath?: string;
-  /** 是否使用AMapUI */
-  useAMapUI?: false | (() => void);
   /** 事件绑定 */
   events?: MapEventMap;
-  /** 是否渲染地图 */
-  isRender?: boolean;
+  /** 内部使用 */
+  onMapCreate?: (map: AMap.Map) => void;
+}
+
+export interface MapProps extends Omit<APILoaderProps, 'key'>, BaseMapProps {
+  mapKey?: string;
 }

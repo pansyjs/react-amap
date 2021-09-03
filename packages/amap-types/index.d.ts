@@ -6,3 +6,7 @@ interface Window {
   Loca: any;
   __amap_init_callback?: (error?: Error) => void;
 }
+
+declare namespace AMap {
+  function plugin(name: string | string[], callback: () => void): void;
+}
