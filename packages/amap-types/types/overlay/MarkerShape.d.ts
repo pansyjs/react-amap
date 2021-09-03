@@ -1,5 +1,3 @@
-/// <reference path="../common/index.d.ts" />
-
 declare namespace AMap {
   namespace MarkerShape {
     interface CircleOptions {

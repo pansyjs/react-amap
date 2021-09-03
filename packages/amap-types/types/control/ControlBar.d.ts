@@ -1,6 +1,3 @@
-/// <reference path="../core/index.d.ts" />
-/// <reference path="../common/index.d.ts" />
-
 declare namespace AMap {
   namespace ControlBar {
     interface EventMap extends Control.EventMap {}

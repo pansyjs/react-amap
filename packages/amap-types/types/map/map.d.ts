@@ -1,8 +1,3 @@
-/// <reference path="../common/index.d.ts" />
-/// <reference path="../layer/index.d.ts" />
-/// <reference path="../overlay/index.d.ts" />
-/// <reference path="./view2D.d.ts" />
-
 declare namespace AMap {
   namespace Map {
     type Feature = 'bg' | 'point' | 'road' | 'building';
@@ -42,141 +37,217 @@ declare namespace AMap {
       zoom?: number;
 
       /**
-       * 地图视口，用于控制影响地图静态显示的属性
+       * 地图顺时针旋转角度，取值范围 [0-360]
+       * @default 0
        */
-      view?: View2D;
+      rotation?: number;
+
+      /**
+       * 俯仰角度, 最大值根据地图当前 zoom 级别不断增大，2D地图下无效 。
+       * @default 0
+       */
+      pitch?: number;
+
+      /**
+       * 视图模式
+       * @default '2D'
+       */
+      viewMode?: ViewMode;
+
+      /**
+       * 设置地图上显示的元素种类
+       * @default ['bg','point','road','building']
+       */
+      features?: Feature[];
+
       /**
        * 地图图层数组，数组可以是图层 中的一个或多个，默认为普通二维地图
        */
       layers?: Layer[];
 
       /**
-       * 地图标注显示顺序，大于110即可将底图上的默认标注显示在覆盖物（圆、折线、面）之上。
-       */
-      labelzIndex?: number;
-      /**
-       * 地图显示的缩放级别范围
-       * 在PC上，默认为[3,18]，取值范围[3-18]；
-       * 在移动设备上，默认为[3,19],取值范围[3-19]
+       * 地图显示的缩放级别范围, 取值范围 [2 ~ 30]
+       * @default
+       *  [2, 20]
        */
       zooms?: [number, number];
+
       /**
-       * 地图语言类型
-       * @default 'zh_cn'
+       * 地图是否可通过鼠标拖拽平移
+       * @default true
        */
-      lang?: Lang;
+      dragEnable?: boolean;
+
       /**
-       * 地图默认鼠标样式
+       * 地图是否可缩放
+       * @default true
        */
-      defaultCursor?: string;
+      zoomEnable?: boolean;
+
       /**
-       * 地图显示的参考坐标系
-       * 自V1.3.0移入view对象中
+       * 地图是否使用缓动效果
        */
-      crs?: Crs;
+      jogEnable?: boolean;
+
+      /**
+       * 是否允许设置俯仰角度
+       * 3D 视图下为 true, 2D 视图下无效。
+       */
+      pitchEnable?: boolean;
+
+      /**
+       * 地图是否可旋转
+       * @default true
+       */
+      rotateEnable?: boolean;
+
       /**
        * 地图平移过程中是否使用动画
        * @default true
        */
       animateEnable?: boolean;
-      /**
-       * 是否开启地图热点和标注的hover效果
-       */
-      isHotspot?: boolean;
-      /**
-       * 当前地图中默认显示的图层
-       */
-      defaultLayer?: TileLayer;
-      /**
-       * 地图是否可旋转
-       */
-      rotateEnable?: boolean;
-      /**
-       * 是否监控地图容器尺寸变化
-       */
-      resizeEnable?: boolean;
-      /**
-       * 是否在有矢量底图的时候自动展示室内地图
-       */
-      showIndoorMap?: boolean;
-      /**
-       * 在展示矢量图的时候自动展示室内地图图层
-       */
-      indoorMap?: any;
-      /**
-      * 是否支持可以扩展最大缩放级别
-      */
-      expandZoomRange?: boolean;
-      /**
-      * 地图是否可通过鼠标拖拽平移
-      */
-      dragEnable?: boolean;
-      /**
-      * 地图是否可缩放
-      */
-      zoomEnable?: boolean;
-      /**
-      * 地图是否可通过双击鼠标放大地图
-      */
-      doubleClickZoom?: boolean;
+
       /**
        * 地图是否可通过键盘控制
        */
       keyboardEnable?: boolean;
+
       /**
-       * 地图是否使用缓动效果
+       * 地图是否可通过双击鼠标放大地图
+       * @default true
        */
-      jogEnable?: boolean;
+      doubleClickZoom?: boolean;
+
       /**
        * 地图是否可通过鼠标滚轮缩放浏览
+       * @default true
        */
       scrollWheel?: boolean;
+
       /**
        * 地图在移动终端上是否可通过多点触控缩放浏览地图
        */
       touchZoom?: boolean;
+
       /**
        * 当touchZoomCenter=1的时候，手机端双指缩放的以地图中心为中心，否则默认以双指中间点为中心
        */
       touchZoomCenter?: number;
+
+      /**
+       * 是否展示地图文字和 POI 信息。
+       */
+      showLabel?: boolean;
+
+      /**
+       * 是否开启地图热点和标注的hover效果
+       */
+      isHotspot?: boolean;
+
+      /**
+       * 地图默认鼠标样式
+       */
+      defaultCursor?: string;
+
       /**
        * 设置地图的显示样式
        */
       mapStyle?: string;
+
       /**
-       * 设置地图上显示的元素种类
+       * 地图楼块的侧面颜色
        */
-      features?: Feature[] | 'all' | Feature;
+      wallColor?: string | number[];
+
       /**
-      * 设置地图显示3D楼块效果
-      */
+       * 地图楼块的顶面颜色
+       */
+      roofColor?: string | number[];
+
+      /**
+       * 设置地图显示3D楼块效果
+       * @default true
+       */
       showBuildingBlock?: boolean;
+
       /**
-      * 视图模式
-      */
-      viewMode?: ViewMode;
+       * 是否在有矢量底图的时候自动展示室内地图
+       * @default false
+       */
+      showIndoorMap?: boolean;
+
       /**
-      * 俯仰角度
-      */
-      pitch?: number;
+       * 调整天空颜色，配合自定义地图，3D视图有效
+       */
+      skyColor?: string;
+
       /**
-      * 是否允许设置俯仰角度
-      */
-      pitchEnable?: boolean;
+       * 文字是否拒绝掩模图层进行掩模
+       * @default false
+       */
+      labelRejectMask?: boolean;
+
+      /**
+       * 为 Map 实例指定掩模的路径，各图层将只显示路径范围内图像，3D视图下有效。
+       */
+      mask?: Array<
+        [number, number]> |
+        Array<Array<[number, number]>> |
+        Array<Array<Array<[number, number]>>
+      >;
+
+      /**
+       * 地图视口，用于控制影响地图静态显示的属性
+       */
+      view?: View2D;
+
+      /**
+       * 地图标注显示顺序，大于110即可将底图上的默认标注显示在覆盖物（圆、折线、面）之上。
+       */
+      labelzIndex?: number;
+
+      /**
+       * 地图语言类型
+       * @default 'zh_cn'
+       */
+      lang?: Lang;
+
+      /**
+       * 地图显示的参考坐标系
+       * 自V1.3.0移入view对象中
+       */
+      crs?: Crs;
+
+      /**
+       * 当前地图中默认显示的图层
+       */
+      defaultLayer?: TileLayer;
+
+      /**
+       * 是否监控地图容器尺寸变化
+       */
+      resizeEnable?: boolean;
+
+      /**
+       * 在展示矢量图的时候自动展示室内地图图层
+       */
+      indoorMap?: AMap.IndoorMap;
+
+      /**
+       * 是否支持可以扩展最大缩放级别
+       */
+      expandZoomRange?: boolean;
+
       /**
        * 楼块出现和消失的时候是否显示动画过程，3D视图有效，
        */
       buildingAnimation?: boolean;
+
       /**
-       * 调整天空颜色，配合自定义地图，3D视图有效
-       * @version 1.4.0
+       * logo链接地址
        */
-      skyColor?: string;
-      /**
-       * 为 Map 实例指定掩模的路径，各图层将只显示路径范围内图像，3D视图下有效。
-       */
-      mask?: Array<[number, number]> | Array<Array<[number, number]>> | Array<Array<Array<[number, number]>>>;
       logoUrl?: string;
+
       logoUrlRetina?: string;
     }
 

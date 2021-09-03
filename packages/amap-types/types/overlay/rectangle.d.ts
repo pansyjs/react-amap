@@ -1,6 +1,3 @@
-/// <reference path="../common/index.d.ts" />
-/// <reference path="./polygon.d.ts" />
-
 declare namespace AMap {
   namespace Rectangle {
     interface EventMap<I = Rectangle> extends Polygon.EventMap<I> {

@@ -1,7 +1,3 @@
-/// <reference path="../overlay/index.d.ts" />
-/// <reference path="./shape-overlay.d.ts" />
-/// <reference path="./rectangle.d.ts" />
-
 declare namespace AMap {
   namespace PathOverlay {
     interface EventMap<I = PathOverlay> extends ShapeOverlay.EventMap<I> { }

@@ -26,7 +26,7 @@ declare namespace AMap {
      * 设置纬度值
      * @param lng
      */
-    setLat(lng: number): void;
+    setLat(lat: number): void;
 
     /**
      * 获取纬度值
@@ -44,14 +44,14 @@ declare namespace AMap {
      * @param lnglat 另外一个经纬度坐标
      * @param noWrap 是否将相加的结果经度值修正到 [-180,180] 区间内
      */
-    add(lnglat: LngLat, noWrap: boolean): boolean;
+    add(lnglat: LngLat, noWrap: boolean): LngLat;
 
     /**
      * 与另外一个经纬度相减
      * @param lnglat 另外一个经纬度坐标
      * @param noWrap 是否将相加的结果经度值修正到 [-180,180] 区间内
      */
-    subtract(lnglat: LngLat, noWrap: boolean): boolean;
+    subtract(lnglat: LngLat, noWrap: boolean): LngLat;
 
     /**
      * 移动当前经纬度坐标得到新的坐标，单位为米

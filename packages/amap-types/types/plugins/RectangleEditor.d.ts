@@ -1,5 +1,3 @@
-/// <reference path="../common/index.d.ts" />
-
 declare namespace AMap {
   namespace RectangleEditor {
     interface EventMap<I = BezierCurve> {

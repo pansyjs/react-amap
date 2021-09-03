@@ -1,7 +1,3 @@
-/// <reference path="../common/index.d.ts" />
-/// <reference path="./path-overlay.d.ts" />
-/// <reference path="./bezier-curve.d.ts" />
-
 declare namespace AMap {
   namespace Polyline {
     interface EventMap<I = Polyline> extends PathOverlay.EventMap<I> { }

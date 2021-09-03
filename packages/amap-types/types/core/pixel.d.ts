@@ -1,5 +1,4 @@
 declare namespace AMap {
-
   /**
    * 像素坐标，确定地图上的一个像素点。
    */

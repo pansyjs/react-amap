@@ -1,9 +1,3 @@
-/// <reference path="../common/event.d.ts" />
-/// <reference path="../common/index.d.ts" />
-/// <reference path="./shape-overlay.d.ts" />
-/// <reference path="./polygon.d.ts" />
-/// <reference path="./circle.d.ts" />
-
 declare namespace AMap {
   namespace Ellipse {
     interface EventMap<I = Ellipse> extends ShapeOverlay.EventMap<I> {

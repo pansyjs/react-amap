@@ -1,1 +1,1 @@
-/// <reference path="./auto-complete.d.ts" />
+/// <reference path="./AutoComplete.d.ts" />

@@ -1,7 +1,3 @@
-
-/// <reference path="../common/index.d.ts" />
-/// <reference path="../core/index.d.ts" />
-
 declare namespace AMap {
   namespace View2D {
     interface Options {

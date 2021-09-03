@@ -1,2 +1,2 @@
-/// <reference path="./util.d.ts" />
-/// <reference path="./domUtil.d.ts" />
+/// <reference path="./Util.d.ts" />
+/// <reference path="./DomUtil.d.ts" />

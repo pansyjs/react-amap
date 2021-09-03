@@ -1,5 +1,3 @@
-/// <reference path="../map/index.d.ts" />
-
 declare namespace AMap {
 
   namespace HeatMap {

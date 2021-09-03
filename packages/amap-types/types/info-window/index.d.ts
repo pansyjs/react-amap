@@ -1,6 +1,3 @@
-/// <reference path="../common/index.d.ts" />
-/// <reference path="../overlay/index.d.ts" />
-
 declare namespace AMap {
   namespace InfoWindow {
     interface EventMap<I> {

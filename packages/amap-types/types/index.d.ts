@@ -1,4 +1,3 @@
-/// <reference path="./common/index.d.ts" />
 /// <reference path="./control/index.d.ts" />
 /// <reference path="./core/index.d.ts" />
 /// <reference path="./group/index.d.ts" />

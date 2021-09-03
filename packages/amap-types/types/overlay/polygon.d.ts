@@ -1,6 +1,3 @@
-/// <reference path="./path-overlay.d.ts" />
-/// <reference path="./ellipse.d.ts" />
-
 declare namespace AMap {
   namespace Polygon {
     interface EventMap<I = Polygon> extends PathOverlay.EventMap<I> {

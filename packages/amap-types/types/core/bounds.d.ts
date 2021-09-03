@@ -1,6 +1,3 @@
-
-/// <reference path="./lngLat.d.ts" />
-
 declare namespace AMap {
   class Bounds {
     /**

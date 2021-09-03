@@ -1,3 +1,4 @@
-/// <reference path="./view2D.d.ts" />
-/// <reference path="./map.d.ts" />
-/// <reference path="./geocoder.d.ts" />
+/// <reference path="./View2D.d.ts" />
+/// <reference path="./Map.d.ts" />
+/// <reference path="./MapsEvent.d.ts" />
+/// <reference path="./Geocoder.d.ts" />

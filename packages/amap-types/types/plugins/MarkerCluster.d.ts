@@ -1,4 +1,3 @@
-/// <reference path="../common/index.d.ts" />
 declare namespace AMap {
   namespace MarkerCluster {
     interface EventMap<I = any> {

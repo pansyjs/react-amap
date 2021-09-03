@@ -1,33 +1,39 @@
 declare namespace AMap {
   namespace Util {
     /**
+     * 判断参数是否为DOM元素
+     * @param data
+     */
+    function isDOM(data: any): data is HTMLElement;
+
+    /**
      * 将颜色名转换为16进制RGB颜色值
-     * @param colorName 
+     * @param colorName
      */
     function colorNameToHex(colorName: string): string;
 
     /**
      * 将16进制RGB转为rgba(R,G,B,A)
-     * @param hex 
+     * @param hex
      */
     function rgbHex2Rgba(hex: string): string;
 
     /**
      * 将16进制RGBA转为rgba(R,G,B,A)
-     * @param hex 
+     * @param hex
      */
     function argbHex2Rgba(hex: string): string;
 
     /**
      * 判断一个对象是都为空
-     * @param value 
+     * @param value
      */
     function isEmpty(value: object): boolean;
 
     /**
      * 从数组删除元素
      * @param array
-     * @param item 
+     * @param item
      */
     function deleteItemFromArray<T = any>(array: T[], item: T): T[];
 
@@ -40,8 +46,8 @@ declare namespace AMap {
 
     /**
      * 返回元素索引
-     * @param array 
-     * @param item 
+     * @param array
+     * @param item
      */
     function indexOf<T = any>(array: T[], item: T): number;
 
@@ -57,12 +63,6 @@ declare namespace AMap {
      * @param data
      */
     function isArray(data: any): data is any[];
-
-    /**
-     * 判断参数是否为DOM元素
-     * @param data
-     */
-    function isDOM(data: any): data is HTMLElement;
 
     /**
      * 判断数组是否包含某个元素

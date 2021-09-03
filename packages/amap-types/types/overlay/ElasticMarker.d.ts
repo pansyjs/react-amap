@@ -1,8 +1,3 @@
-/// <reference path="../common/index.d.ts" />
-/// <reference path="./icon.d.ts" />
-/// <reference path="./overlay.d.ts" />
-/// <reference path="./marker-shape.d.ts" />
-
 declare namespace AMap {
   namespace ElasticMarker {
     interface EventMap<I = Marker> {

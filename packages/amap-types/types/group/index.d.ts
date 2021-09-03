@@ -1,2 +1,2 @@
-/// <reference path="./layer-group.d.ts" />
-/// <reference path="./overlay-group.d.ts" />
+/// <reference path="./LayerGroup.d.ts" />
+/// <reference path="./OverlayGroup.d.ts" />
