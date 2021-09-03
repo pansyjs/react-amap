@@ -16,8 +16,8 @@ declare namespace AMap {
     }
 
     interface EventMap {
-      select: (event: Event) => void;
-      choose: (event: Event) => void;
+      select?: (event: Event) => void;
+      choose?: (event: Event) => void;
     }
 
     interface Options {

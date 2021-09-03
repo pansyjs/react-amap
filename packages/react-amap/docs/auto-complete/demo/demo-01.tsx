@@ -35,7 +35,6 @@ export default () => {
       <AutoComplete
         events={{
           created: (obj) => {
-            console.log(obj);
             setAutoComplete(obj);
           }
         }}
