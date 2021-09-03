@@ -9,7 +9,7 @@
     "site": "dumi build",
     "commit": "commit",
     "build": "father-build",
-    "release": "release"
+    "release": "release --commit-message 'release publish'"
   },
   "devDependencies": {
     "@types/react": "17.0.19",
