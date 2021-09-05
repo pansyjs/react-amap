@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.4.0...@pansy/amap-types@2.5.0) (2021-09-05)
+
+
+### Features
+
+* **amap-types:** add RangingTool type ([7db1b1d](https://github.com/pansyjs/react-amap/commit/7db1b1d5f50c5d69b1b44a13ee011fc6efa0918e))
+* **amap-types:** 目录优化 ([057b213](https://github.com/pansyjs/react-amap/commit/057b2133be743956b71ceca3c2aeab2eba583349))
+* **react-amap:** add RangingTool component ([af33786](https://github.com/pansyjs/react-amap/commit/af33786a3f90ea7027d0140b853883d2f9da045f))
+
+
+
+
+
 # [2.4.0](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.3.0...@pansy/amap-types@2.4.0) (2021-09-05)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.4.0...@pansy/react-amap@2.5.0) (2021-09-05)
+
+
+### Features
+
+* **react-amap:** add RangingTool component ([af33786](https://github.com/pansyjs/react-amap/commit/af33786a3f90ea7027d0140b853883d2f9da045f))
+
+
+
+
+
 # [2.4.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.3.1...@pansy/react-amap@2.4.0) (2021-09-05)
 
 
