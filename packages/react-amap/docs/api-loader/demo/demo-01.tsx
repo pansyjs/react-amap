@@ -3,7 +3,7 @@ import { APILoader } from '@pansy/react-amap';
 export default () => {
   return (
     <APILoader
-      onCreate={(obj) => {
+      onComplete={(obj) => {
         console.log('已加载 AMap Api');
         console.log(obj);
       }}

@@ -4,7 +4,7 @@ export default () => {
   return (
     <APILoader
       Loca={{}}
-      onCreate={() => {
+      onComplete={() => {
         console.log('已加载 Loca Api');
         console.log(window.Loca);
       }}

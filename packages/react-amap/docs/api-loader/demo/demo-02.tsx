@@ -4,7 +4,7 @@ export default () => {
   return (
     <APILoader
       AMapUI={{}}
-      onCreate={() => {
+      onComplete={() => {
         console.log('已加载 AMapUI Api');
         console.log(window.AMapUI);
       }}

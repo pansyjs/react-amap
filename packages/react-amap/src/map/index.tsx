@@ -41,7 +41,7 @@ export const Map = React.forwardRef<AMap.Map, React.PropsWithChildren<MapProps>>
         Loca={Loca}
         AMapUI={AMapUI}
         loading={loading}
-        onCreate={(obj) => {
+        onComplete={(obj) => {
           setAMap(obj);
         }}
       >

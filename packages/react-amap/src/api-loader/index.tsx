@@ -2,16 +2,24 @@ import React, { useEffect, useState, } from 'react';
 import { Options, load } from '@pansy/amap-api-loader';
 
 export interface APILoaderProps extends Omit<Options, 'key'> {
+  /**
+   * 开发者秘钥
+   */
   mapKey?: string;
-  /** 加载效果组件 */
+  /**
+   * 加载效果组件
+   * */
   loading?: React.ReactNode;
-  onCreate?: (aMap: typeof AMap) => void;
+  /**
+   * 资源加载完成
+   */
+  onComplete?: (aMap: typeof AMap) => void;
 }
 
 export const APILoader: React.FC<APILoaderProps> = ({
   loading,
   children,
-  onCreate,
+  onComplete,
   ...rest
 }) => {
   const [success, setSuccess] = useState<boolean>(false);
@@ -24,7 +32,7 @@ export const APILoader: React.FC<APILoaderProps> = ({
         key: rest.mapKey,
       })
         .then((obj) => {
-          onCreate?.(obj);
+          onComplete?.(obj);
           setSuccess(true)
           setLoaded(false);
         })
