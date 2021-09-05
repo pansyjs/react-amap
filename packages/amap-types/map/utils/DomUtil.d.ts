@@ -1,10 +1,8 @@
-/// <reference path="../core/index.d.ts" />
-
 declare namespace AMap {
   namespace DomUtil {
     /**
      * 获取DOM元素的大小
-     * @param dom 
+     * @param dom
      */
     function getViewport(dom: HTMLElement): Size
 

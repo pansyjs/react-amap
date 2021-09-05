@@ -1,5 +1,6 @@
 /// <reference path="./Buildings.d.ts" />
 /// <reference path="./DistrictLayer.d.ts" />
+/// <reference path="./HeatMap.d.ts" />
 /// <reference path="./IndoorMap.d.ts" />
 /// <reference path="./Layer.d.ts" />
 /// <reference path="./RoadNet.d.ts" />

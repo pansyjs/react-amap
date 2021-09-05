@@ -6,9 +6,11 @@
 /// <reference path="./utils/index.d.ts" />
 /// <reference path="./map/index.d.ts" />
 /// <reference path="./info-window/index.d.ts" />
-/// <reference path="./plugins/index.d.ts" />
+/// <reference path="./point-mark/index.d.ts" />
 /// <reference path="./search/index.d.ts" />
 /// <reference path="./tool/index.d.ts" />
+/// <reference path="./service/index.d.ts" />
+/// <reference path="./vector-graphics/index.d.ts" />
 
 declare namespace AMap {
   interface AMapConfig {
