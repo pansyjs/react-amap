@@ -8,6 +8,7 @@
 /// <reference path="./info-window/index.d.ts" />
 /// <reference path="./plugins/index.d.ts" />
 /// <reference path="./search/index.d.ts" />
+/// <reference path="./tool/index.d.ts" />
 
 declare namespace AMap {
   interface AMapConfig {

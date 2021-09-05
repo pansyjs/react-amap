@@ -24,6 +24,7 @@ import { CircleEditor } from './circle-editor';
 import { PolyEditor } from './poly-editor';
 import { BezierCurveEditor } from './bezier-curve-editor';
 import { RectangleEditor } from './rectangle-editor';
+import { RangingTool } from './ranging-tool';
 import { Scale } from './scale';
 import { HawkEye } from './hawk-eye';
 import { MapType } from './map-type';
@@ -49,6 +50,7 @@ export {
   PolygonEditor,
   Polyline,
   PolylineEditor,
+  RangingTool,
   Rectangle,
   ControlBar,
   BezierCurve,
@@ -88,6 +90,7 @@ export default {
   PolygonEditor,
   Polyline,
   PolylineEditor,
+  RangingTool,
   Rectangle,
   ControlBar,
   BezierCurve,

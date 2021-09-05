@@ -83,7 +83,7 @@ declare namespace AMap {
   }
 
   class RangingTool extends AMap.EventEmitter {
-    constructor(map: AMap.Map, opts: RangingTool.Options);
+    constructor(map: AMap.Map, opts?: RangingTool.Options);
 
     /**
      * 启动测距工具
@@ -94,6 +94,6 @@ declare namespace AMap {
      * 关闭测距工具
      * @param removeOverlays 否删除测距过程产生的覆盖物
      */
-    turnOff(removeOverlays: boolean): void;
+    turnOff(removeOverlays?: boolean): void;
   }
 }
