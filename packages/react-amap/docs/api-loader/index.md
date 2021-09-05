@@ -21,6 +21,20 @@ group:
 
 <code src="./demo/demo-01.tsx" />
 
+### 加载插件
+
+<code src="./demo/demo-04.tsx" />
+
+### 加载AMapUI
+
+<code src="./demo/demo-02.tsx" />
+
+### 加载Loca
+
+<code src="./demo/demo-03.tsx" />
+
+
+
 ## API
 
 | 属性 |说明|类型|默认值|
