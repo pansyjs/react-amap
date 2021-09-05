@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.2](https://github.com/pansyjs/react-amap/compare/@pansy/amap-api-loader@0.2.1...@pansy/amap-api-loader@0.2.2) (2021-09-05)
+
+
+### Bug Fixes
+
+* **amap-api-loader:** 修复Loca版本不合法，导致的加载失败 ([a6a58e5](https://github.com/pansyjs/react-amap/commit/a6a58e5e1e08dd6189096ba9ed3a39d740483bda))
+
+
+
+
+
 ## [0.2.1](https://github.com/pansyjs/react-amap/compare/@pansy/amap-api-loader@0.2.0...@pansy/amap-api-loader@0.2.1) (2021-09-03)
 
 **Note:** Version bump only for package @pansy/amap-api-loader

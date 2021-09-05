@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.3.0...@pansy/amap-types@2.4.0) (2021-09-05)
+
+
+### Features
+
+* **amap-types:** add MarkerClusterer types ([dc923c6](https://github.com/pansyjs/react-amap/commit/dc923c615bb06b146ba6866deac0f789ff3ca981))
+* **amap-types:** 类型完善 ([8c630e4](https://github.com/pansyjs/react-amap/commit/8c630e418bfbeaef1d1dc06c90019ee94c187749))
+* **amap-types:** 补充类型 ([015f13a](https://github.com/pansyjs/react-amap/commit/015f13a522f991a04d784e8464497c3a594e64fb))
+* **react-amap:** add Loca types ([bcf06c4](https://github.com/pansyjs/react-amap/commit/bcf06c46528b7a31c4bd63374c37bb27e7b92c35))
+* **react-amap:** APILoader onCreate rename onComplete ([158c22f](https://github.com/pansyjs/react-amap/commit/158c22f1c7c4a00ba229e93eeda399fda78f5c9f))
+* **react-amap:** AutoComplete 类型优化 ([3a22018](https://github.com/pansyjs/react-amap/commit/3a22018eedafda57054e4eeb7ef4cfd7a5999331))
+
+
+
+
+
 # [2.3.0](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.2.0...@pansy/amap-types@2.3.0) (2021-09-03)
 
 

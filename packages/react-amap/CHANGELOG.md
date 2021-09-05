@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.3.1...@pansy/react-amap@2.4.0) (2021-09-05)
+
+
+### Features
+
+* **react-amap:** APILoader onCreate rename onComplete ([158c22f](https://github.com/pansyjs/react-amap/commit/158c22f1c7c4a00ba229e93eeda399fda78f5c9f))
+* **react-amap:** AutoComplete 类型优化 ([3a22018](https://github.com/pansyjs/react-amap/commit/3a22018eedafda57054e4eeb7ef4cfd7a5999331))
+* **react-amap:** 完善APILoader示例 ([4ba03d7](https://github.com/pansyjs/react-amap/commit/4ba03d74d5cc43db55e92c91b0e3e3b773f97ec5))
+
+
+
+
+
 ## [2.3.1](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.3.0...@pansy/react-amap@2.3.1) (2021-09-03)
 
 
