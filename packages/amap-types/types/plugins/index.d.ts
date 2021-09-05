@@ -3,6 +3,7 @@
 /// <reference path="./EllipseEditor.d.ts" />
 /// <reference path="./HeatMap.d.ts" />
 /// <reference path="./MarkerCluster.d.ts" />
+/// <reference path="./MarkerClusterer.d.ts" />
 /// <reference path="./MouseTool.d.ts" />
 /// <reference path="./PolyEditor.d.ts" />
 /// <reference path="./PolygonEditor.d.ts" />
