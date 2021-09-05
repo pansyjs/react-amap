@@ -36,6 +36,9 @@ declare namespace AMap {
     }
   }
 
+  /**
+   * 地图控件基类，可扩展做自定义地图控件。
+   */
   abstract class Control extends EventEmitter {
     constructor(options?: Control.Options);
 
