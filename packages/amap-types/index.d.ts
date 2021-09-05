@@ -1,4 +1,4 @@
-/// <reference path="./types/index.d.ts" />
+/// <reference path="./map/index.d.ts" />
 
 interface Window {
   AMap: typeof AMap;

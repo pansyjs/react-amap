@@ -26,6 +26,4 @@ declare namespace AMap {
     { [K in Exclude<keyof O, keyof T | OptionalKey<O>>]-?: O[K]; } &
     { [K in Extract<Exclude<keyof O, keyof T>, OptionalKey<O>>]?: O[K]; } &
     T;
-
-  function plugin(name: string | string[], callback: () => void): void;
 }
