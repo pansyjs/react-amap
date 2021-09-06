@@ -44,6 +44,8 @@ declare namespace AMap {
        * 点标记的权重信息，以权重高的点为中心进行聚合
        */
       weight?: number;
+      /** 其他需要传递的数据 */
+      [key: string]: any;
     }
 
     interface Options<ExtraData = any> extends Overlay.Options<ExtraData> {
@@ -96,7 +98,7 @@ declare namespace AMap {
      * @param markers 需要聚合的标记点
      * @param opts
      */
-    constructor(map: AMap.Map, dataOptions: MarkerCluster.DataOptions[], opts: MarkerCluster.Options);
+    constructor(map: AMap.Map, dataOptions: MarkerCluster.DataOptions[], opts?: MarkerCluster.Options);
 
     /**
      * 在原数据基础上添加数据

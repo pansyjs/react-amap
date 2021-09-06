@@ -16,6 +16,7 @@ import { PolygonEditor } from './polygon-editor';
 import { BezierCurve } from './bezier-curve';
 import { Rectangle } from './rectangle';
 import { Marker } from './marker';
+import { MarkerCluster } from './marker-cluster';
 import { Markers } from './markers';
 import { ControlBar } from './control-bar';
 import { ToolBar } from './tool-bar';
@@ -38,6 +39,7 @@ export {
   Map,
   useMap,
   Marker,
+  MarkerCluster,
   Markers,
   Ellipse,
   EllipseEditor,
@@ -78,6 +80,7 @@ export default {
   Map,
   useMap,
   Marker,
+  MarkerCluster,
   Markers,
   Ellipse,
   AutoComplete,
