@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.5.0...@pansy/react-amap@2.6.0) (2021-09-06)
+
+
+### Features
+
+* add marker-cluster component ([4784e46](https://github.com/pansyjs/react-amap/commit/4784e46dcac8dd409b49e8b12a96e6b459cc233f))
+* **marker-cluster:** 支持 zoomOnClick 配置 ([0fbf8c4](https://github.com/pansyjs/react-amap/commit/0fbf8c4f1f8eb9d12610a67f45dae8ba20b5ec3b))
+* **react-amap:** add renderCluster 扩展 ([5b00df9](https://github.com/pansyjs/react-amap/commit/5b00df9178c258213dd46f610746805bfc3eae8e))
+
+
+
+
+
 # [2.5.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.4.0...@pansy/react-amap@2.5.0) (2021-09-05)
 
 
