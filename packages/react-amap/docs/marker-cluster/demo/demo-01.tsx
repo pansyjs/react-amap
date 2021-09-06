@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Avatar } from 'antd';
 import { AntDesignOutlined } from '@ant-design/icons';
 import { Map, MarkerCluster } from '@pansy/react-amap';
@@ -16,7 +16,16 @@ const randomMarker = (len = 10) => (
 );
 
 export default () => {
-  const [list] = useState(randomMarker());
+  const [list, setList] = useState([]);
+
+  useEffect(
+    () => {
+      setTimeout(() => {
+        setList(randomMarker());
+      }, 1000)
+    },
+    []
+  );
 
   return (
     <div style={{ height: 500 }}>
