@@ -30,7 +30,19 @@ export const MarkerCluster = React.forwardRef<
     () => {
       if (map) {
         createInstance().then(() => {
-          onInstanceCreated?.(cluster.current)
+          onInstanceCreated?.(cluster.current);
+
+          /** 扩展 zoomOnClick 属性 */
+          cluster.current.on('click', (event) => {
+            if (!props.zoomOnClick) return;
+            if (
+              Array.isArray(event.clusterData) &&
+              event.clusterData.length > 1
+            ) {
+              map.setCenter(event.lnglat);
+              map.zoomIn();
+            }
+          })
         });
       }
     },
@@ -47,4 +59,8 @@ export const MarkerCluster = React.forwardRef<
   }
 
   return null;
-})
+});
+
+MarkerCluster.defaultProps = {
+  zoomOnClick: true
+}

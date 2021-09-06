@@ -10,6 +10,11 @@ export interface MarkerClusterProps extends
    * 聚合点数据
    */
   data?: AMap.MarkerCluster.DataOptions[];
+  /**
+   * 点击聚合点时，是否散开。
+   * @default true
+   */
+  zoomOnClick?: boolean;
   /** 可以绑定的事件 */
   events?: EventMap;
 }
