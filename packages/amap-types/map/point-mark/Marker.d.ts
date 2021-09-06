@@ -225,6 +225,10 @@ declare namespace AMap {
      */
     getContent(): string | HTMLElement;
     /**
+     * 获取点标记Dom
+     */
+    getContentDom(): HTMLElement;
+    /**
      * 以指定的速度，点标记沿指定的路径移动
      * @param path 移动轨迹
      * @param speed 速度

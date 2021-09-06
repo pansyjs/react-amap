@@ -1,7 +1,8 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
 import { usePropsReactive } from '../hooks';
-import { converterMap, setterMap } from './config';
+import { converterMap, setterMap, allProps } from './config';
+import { renderMarkerComponent, renderClusterMarkerComponent } from './utils';
 import type { MarkerClusterProps } from './types';
 
 export const MarkerCluster = React.forwardRef<
@@ -52,10 +53,42 @@ export const MarkerCluster = React.forwardRef<
   const createInstance = () => {
     return new Promise<void>((resolve) => {
       AMap.plugin(['AMap.MarkerCluster'], () => {
-        cluster.current = new AMap.MarkerCluster(map, []);
+        const opts = buildCreateOptions();
+        cluster.current = new AMap.MarkerCluster(map, [], opts);
         resolve();
       });
     });
+  }
+
+  const buildCreateOptions = () => {
+    const options: AMap.MarkerCluster.Options = {};
+
+    const getSetterValue = (key: string, props: MarkerClusterProps) => {
+      if (key in converterMap) {
+        return converterMap[key](props[key])
+      }
+      return props[key];
+    }
+
+    allProps.forEach((key) => {
+      if (key in props) {
+        options[key] = getSetterValue(key, props)
+      }
+    });
+
+    if (props.render) {
+      options.renderMarker = (data) => {
+        renderMarkerComponent(props.render, data);
+      }
+    }
+
+    if (props.renderCluster) {
+      options.renderClusterMarker = (data) => {
+        renderClusterMarkerComponent(props.renderCluster, data);
+      }
+    }
+
+    return options;
   }
 
   return null;

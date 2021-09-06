@@ -48,6 +48,18 @@ declare namespace AMap {
       [key: string]: any;
     }
 
+    interface RenderMarkerData {
+      count: number;
+      marker: AMap.Marker;
+      data: DataOptions[];
+    }
+
+    interface RenderClusterMarkerData {
+      count: number;
+      marker: AMap.Marker;
+      clusterData: DataOptions[];
+    }
+
     interface Options<ExtraData = any> extends Overlay.Options<ExtraData> {
       /**
        * 聚合计算时网格的像素大小
@@ -83,11 +95,11 @@ declare namespace AMap {
        * 3. marker：当前聚合点的显示Marker
        * 在renderClusterMarker里面可以根据count和markers的一些附加属性来修改marker的icon、content等属性实现聚合点的完全自定义
        */
-      renderClusterMarker?: (obj: { count: number; marker: AMap.Marker; }) => void;
+      renderClusterMarker?: (data: RenderClusterMarkerData) => void;
       /**
        * 该方法用来实现非聚合点的自定义绘制，由开发者自己实现，API 将在绘制每个非聚合点的时候调用这个方法
        */
-      renderMarker?: (obj: { marker: AMap.Marker }) => void;
+      renderMarker?: (data: RenderMarkerData) => void;
     }
   }
 

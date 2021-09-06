@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Avatar } from 'antd';
+import { AntDesignOutlined } from '@ant-design/icons';
 import { Map, MarkerCluster } from '@pansy/react-amap';
 
 const randomLnglat = () => [
@@ -21,6 +23,21 @@ export default () => {
       <Map zoom={4}>
         <MarkerCluster
           data={list}
+          render={
+            <Avatar
+              style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}
+              icon={<AntDesignOutlined />}
+            />
+          }
+          renderCluster={({ count, list = [] }) => {
+            return (
+              <Avatar
+                style={{ backgroundColor: '#87d068' }}
+              >
+                {count}
+              </Avatar>
+            )
+          }}
         />
       </Map>
     </div>
