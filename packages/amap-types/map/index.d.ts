@@ -7,6 +7,7 @@
 /// <reference path="./map/index.d.ts" />
 /// <reference path="./info-window/index.d.ts" />
 /// <reference path="./point-mark/index.d.ts" />
+/// <reference path="./position/index.d.ts" />
 /// <reference path="./search/index.d.ts" />
 /// <reference path="./tool/index.d.ts" />
 /// <reference path="./service/index.d.ts" />
