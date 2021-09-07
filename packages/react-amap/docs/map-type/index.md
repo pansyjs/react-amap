@@ -6,7 +6,7 @@ nav:
 order: 1
 group:
   path: /control
-  title: 控件
+  title: 地图控件
   order: 200
 ---
 

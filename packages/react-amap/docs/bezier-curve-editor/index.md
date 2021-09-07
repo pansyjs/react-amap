@@ -4,9 +4,9 @@ nav:
   title: 组件
   path: /components
 group:
-  path: /plugin
-  title: 插件
-  order: 400
+  path: /tool
+  title: 工具
+  order: 180
 ---
 
 # BezierCurveEditor 贝瑟尔曲线编辑

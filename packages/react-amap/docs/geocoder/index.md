@@ -5,8 +5,9 @@ nav:
   path: /components
 order: 1
 group:
-  path: /service
-  title: 服务
+  path: /geocoder
+  title: 地理编码
+  order: 600
 ---
 
 # Geocoder 地理编码与逆地理编码服务

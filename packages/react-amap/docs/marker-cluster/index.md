@@ -4,8 +4,8 @@ nav:
   title: 组件
   path: /components
 group:
-  path: /overlay
-  title: 覆盖物
+  path: /point-mark
+  title: 点标记
 ---
 
 # MarkerCluster 点聚合

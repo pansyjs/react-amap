@@ -4,8 +4,9 @@ nav:
   title: 组件
   path: /components
 group:
-  path: /overlay
-  title: 覆盖物
+  path: /context-menu
+  title: 右键菜单
+  order: 110
 ---
 
 # ContextMenu 右键菜单

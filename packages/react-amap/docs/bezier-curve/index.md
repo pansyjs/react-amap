@@ -5,9 +5,9 @@ nav:
   path: /components
 order: 1
 group:
-  path: /overlay
-  title: 覆盖物
-  order: 400
+  path: /vector-graphics
+  title: 矢量图形
+  order: 150
 ---
 
 # BezierCurve 贝塞尔曲线

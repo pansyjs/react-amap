@@ -4,8 +4,8 @@ nav:
   title: 组件
   path: /components
 group:
-  path: /overlay
-  title: 覆盖物
+  path: /vector-graphics
+  title: 矢量图形
 ---
 
 # Rectangle 矩形

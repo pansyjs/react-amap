@@ -5,8 +5,8 @@ nav:
   path: /components
 order: 1
 group:
-  path: /plugin
-  title: 插件
+  path: /tool
+  title: 工具
 ---
 
 # RangingTool 距离量测

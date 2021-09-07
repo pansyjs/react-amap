@@ -7,12 +7,16 @@ import { render } from 'react-dom';
 import { useMap } from '../map';
 import { usePropsReactive } from '../hooks';
 import { isFun, toLnglat } from '../utils';
+import { MarkerCluster } from '../marker-cluster';
 import { renderMarkerComponent, getPropValue } from '../marker/utils';
 import { allProps, defaultOpts, IdKey } from './config';
 import type { MarkersProps, MarkerOptions } from './types';
 import { loadClusterPlugin } from './utils';
 
-export const Markers = React.forwardRef<AMap.Marker[], MarkersProps>((props = {}, ref) => {
+export const Markers = React.forwardRef<
+  AMap.Marker[],
+  MarkersProps
+>((props = {}, ref) => {
   const { map } = useMap();
   const mapCluster = useRef<AMap.MarkerCluster>();
   const dataOptionsCache = useRef<AMap.MarkerCluster.DataOptions[]>();
@@ -282,6 +286,18 @@ export const Markers = React.forwardRef<AMap.Marker[], MarkersProps>((props = {}
     if (isFun(events.mouseout)) {
       events.mouseout(e);
     }
+  }
+
+  if (props.useCluster) {
+    return (
+      <MarkerCluster
+        events={{
+          created: (instance) => {
+            mapCluster.current = instance;
+          }
+        }}
+      />
+    )
   }
 
   return null;

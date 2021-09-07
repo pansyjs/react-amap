@@ -1,15 +1,16 @@
 ---
-title: Heatmap 热力图插件
+title: Heatmap 热力图
 nav:
   title: 组件
   path: /components
 order: 1
 group:
-  path: /plugin
-  title: 插件
+  path: /layer
+  title: 图层
+  order: 10
 ---
 
-# Heatmap 热力图插件
+# Heatmap 热力图
 
 ## 何时使用
 
