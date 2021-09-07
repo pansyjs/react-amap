@@ -5,3 +5,4 @@
 /// <reference path="./Polygon.d.ts" />
 /// <reference path="./Polyline.d.ts" />
 /// <reference path="./Rectangle.d.ts" />
+/// <reference path="./GeoJSON.d.ts" />
