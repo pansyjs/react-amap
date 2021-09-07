@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.6.0...@pansy/react-amap@2.7.0) (2021-09-07)
+
+
+### Features
+
+* **react-amap:** Geocoder 组件优化 ([5df3030](https://github.com/pansyjs/react-amap/commit/5df303084301073ea720a34ddd44bdc04f0e5d8d))
+* **react-amap:** 代码优化 ([2cf34ac](https://github.com/pansyjs/react-amap/commit/2cf34ac57d4f351a5faae952fdeeebb86bccb1fa))
+* **react-amap:** 优化 Geocoder 组件 ([f2f0ae6](https://github.com/pansyjs/react-amap/commit/f2f0ae6ceb8d35de1c2aaa2d24ef646d90a64f17))
+
+
+
+
+
 # [2.6.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.5.0...@pansy/react-amap@2.6.0) (2021-09-06)
 
 

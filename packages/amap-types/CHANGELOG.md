@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.6.0...@pansy/amap-types@2.7.0) (2021-09-07)
+
+
+### Features
+
+* **amap-type:** add Geolocation type ([b5aef5f](https://github.com/pansyjs/react-amap/commit/b5aef5f7b24d8f6eeae4b369e0e9ce8cde4c088f))
+* **amap-types:** add convertFrom type ([559267a](https://github.com/pansyjs/react-amap/commit/559267ac9312bb045b1c0eb286b8fc4f5ab0717a))
+* **amap-types:** 类型补充 ([cac3113](https://github.com/pansyjs/react-amap/commit/cac3113279b0320393cb6f52f54d17c6e0e9712c))
+* **react-amap:** Geocoder 组件优化 ([5df3030](https://github.com/pansyjs/react-amap/commit/5df303084301073ea720a34ddd44bdc04f0e5d8d))
+
+
+
+
+
 # [2.6.0](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.5.0...@pansy/amap-types@2.6.0) (2021-09-06)
 
 
