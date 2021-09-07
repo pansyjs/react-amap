@@ -1,5 +1,17 @@
 declare namespace AMap {
   namespace Geocoder {
+    interface EventMap {
+      /**
+       * 当编码执行成功时触发此事件
+       */
+      complete?: (data: GeocodeResult) => void;
+
+      /**
+       * 当编码执行失败时触发此事件
+       */
+      error?: (status: string) => void;
+    }
+
     interface Options {
       /**
        * 城市，地理编码时，设置地址描述所在城市

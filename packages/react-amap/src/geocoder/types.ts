@@ -1,4 +1,4 @@
-export interface EventMap {
+export interface EventMap extends AMap.Geocoder.EventMap {
   /** 创建事件 */
   created?: (instance: AMap.Geocoder) => void;
 }

@@ -27,13 +27,16 @@ export const Geocoder = React.forwardRef<
     []
   );
 
-
   useImperativeHandle(
     ref,
     () => geocoder.current,
     [loaded]
   );
 
+  /**
+   * 创建Geocoder实例
+   * @returns
+   */
   const createInstance = () => {
     return new Promise<void>((resolve) => {
       AMap.plugin(['AMap.Geocoder'], () => {
@@ -45,19 +48,16 @@ export const Geocoder = React.forwardRef<
     });
   }
 
+  /**
+   * 获取创建Geocoder的参数
+   * @returns
+   */
   const buildCreateOptions = () => {
     const options: AMap.Geocoder.Options = {};
 
-    const getSetterValue = (key: string, props: GeocoderProps) => {
-      if (key in converterMap) {
-        return converterMap[key](props[key])
-      }
-      return props[key];
-    }
-
     allProps.forEach((key) => {
       if (key in props) {
-        options[key] = getSetterValue(key, props)
+        options[key] = props[key];
       }
     });
 
