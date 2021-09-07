@@ -1,5 +1,9 @@
+/**
+ * title: 地理编码
+ * desc: 地址 >> 经纬度
+ */
 import { useRef, useState } from 'react';
-import { Map, Geocoder, APILoader } from '@pansy/react-amap';
+import { Geocoder, APILoader } from '@pansy/react-amap';
 import { Button, Input, Space, message } from 'antd';
 
 export default () => {
