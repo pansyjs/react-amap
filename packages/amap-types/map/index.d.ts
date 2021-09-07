@@ -54,6 +54,22 @@ declare namespace AMap {
    */
   function getConfig(): AMapConfig;
 
+
+  // -------
+
+  type convertFromCallback = (status: string, result: {
+    info: string;
+    locations: AMap.LngLat[];
+  }) => void;
+
+  /**
+   * 坐标转换，将其他坐标系 转换为 高德的坐标系
+   * @param lnglat 需要转换的坐标或者坐标组
+   * @param type 坐标类型
+   * @param callback 转换成功后的回调函数
+   */
+  function convertFrom(lnglat: AMap.LngLat[], type: string, callback: convertFromCallback): void
+
   /**
    * 高德JS API 版本
    */
