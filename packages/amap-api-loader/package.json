@@ -1,7 +1,6 @@
 {
   "name": "@pansy/amap-api-loader",
   "version": "0.2.5",
-  "packageManager": "yarn@3.0.1",
   "files": [
     "es",
     "lib"
@@ -16,5 +15,6 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
     "access": "public"
-  }
+  },
+  "packageManager": "yarn@3.0.1"
 }

@@ -1,5 +1,5 @@
 import { render } from 'react-dom';
-import { isFun } from '../utils';
+import { isFun, toLnglat } from '../utils';
 import { MarkerClusterProps } from './types';
 
 export const renderMarkerComponent = (
@@ -40,4 +40,24 @@ export const renderClusterMarkerComponent = (
   if (child) {
     render(<div>{child}</div>, marker.getContentDom());
   }
+}
+
+export const formatClusterMarkerData = (
+  list: AMap.MarkerCluster.DataOptions[] = []
+) => {
+  return list
+    .map(item => {
+      const lnglatObj = toLnglat(item.lnglat || item.position);
+
+      if (!lnglatObj) return undefined;
+
+      return {
+        ...item,
+        lnglat: [
+          lnglatObj.getLng(),
+          lnglatObj.getLat(),
+        ] as [number, number],
+      }
+    })
+    .filter(item => item)
 }

@@ -1,4 +1,10 @@
-export const setterMap = {};
+import { formatClusterMarkerData } from './utils';
+
+export const setterMap = {
+  data: (list: AMap.MarkerCluster.DataOptions[], cluster: AMap.MarkerCluster) => {
+    cluster.setData(formatClusterMarkerData(list))
+  }
+};
 
 export const converterMap = {};
 
