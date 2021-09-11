@@ -9,6 +9,7 @@
     "site": "dumi build",
     "commit": "commit",
     "build": "father-build",
+    "type-check": "lerna exec \"tsc --noEmit\"",
     "release": "release --commit-message 'release publish'"
   },
   "devDependencies": {
