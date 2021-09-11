@@ -4,7 +4,7 @@ import { useMap } from '../map';
 import type { OverlayGroupProps } from './types';
 import { setterMap, converterMap } from './config';
 
-export const OverlayGroup = React.forwardRef<AMap.OverlayGroup, OverlayGroupProps>((props = {}, ref) => {
+export const OverlayGroup = React.forwardRef<AMap.OverlayGroup, React.PropsWithChildren<OverlayGroupProps>>((props = {}, ref) => {
   const instanceObj = useRef<AMap.OverlayGroup>(null);
   const { map } = useMap();
 

@@ -7,6 +7,10 @@ declare namespace AMap {
     type Iterator<O extends Overlay> = (overlay: O, index: number, collections: O[]) => void;
 
     interface EventMap {}
+
+    interface Options {
+
+    }
   }
 
   class OverlayGroup<O extends Overlay = any> extends EventEmitter {

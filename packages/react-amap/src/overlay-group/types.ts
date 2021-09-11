@@ -3,7 +3,7 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.OverlayGroup.
   created?: (instance: AMap.OverlayGroup) => void;
 }
 
-export interface OverlayGroupProps
+export interface OverlayGroupProps extends AMap.OverlayGroup.Options
 {
   /** 绑定的事件 */
   events?: EventMap;
