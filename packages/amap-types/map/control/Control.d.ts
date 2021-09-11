@@ -5,10 +5,10 @@ declare namespace AMap {
   namespace Control {
 
     type PositionObj = {
-      top: string;
-      left: string;
-      right: string;
-      bottom: string;
+      top?: string;
+      left?: string;
+      right?: string;
+      bottom?: string;
     }
 
     type PositionStr = 'LT' | 'RT' | 'LB' | 'RB';

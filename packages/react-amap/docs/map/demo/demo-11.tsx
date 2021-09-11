@@ -4,10 +4,9 @@
 import { useState } from 'react';
 import { Button, message } from 'antd';
 import { Map } from '@pansy/react-amap';
-import type { MapStatus } from '@pansy/react-amap/es/map';
 
  export default () => {
-   const [status, setStatus] = useState<MapStatus>({
+   const [status, setStatus] = useState<Partial<AMap.Map.Status>>({
     zoomEnable: true,
    });
    const [zoomEnable] = useState<boolean>(false);

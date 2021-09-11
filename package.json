@@ -9,7 +9,7 @@
     "site": "dumi build",
     "commit": "commit",
     "build": "father-build",
-    "type-check": "lerna exec \"tsc --noEmit\"",
+    "type-check": "lerna exec \"tsc --noEmit --skipLibCheck\"",
     "release": "release --commit-message 'release publish'"
   },
   "devDependencies": {
