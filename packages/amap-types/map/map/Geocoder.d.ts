@@ -184,9 +184,9 @@ declare namespace AMap {
 
     type Status = 'complete' | 'error' | 'no_data';
 
-    type GetLocationCallback = (status: Status, GeocodeResult) =>  void;
+    type GetLocationCallback = (status: Status, result: GeocodeResult) =>  void;
 
-    type GetAddressCallback = (status: Status, ReGeocodeResult) =>  void;
+    type GetAddressCallback = (status: Status, result: ReGeocodeResult) =>  void;
   }
 
   class Geocoder {
@@ -206,7 +206,7 @@ declare namespace AMap {
      * 地理编码时，设置地址描述所在城市
      * @param city
      */
-    setCity(city: string)
+    setCity(city: string): void;
 
     /**
      * 根据给定坐标进行解析
