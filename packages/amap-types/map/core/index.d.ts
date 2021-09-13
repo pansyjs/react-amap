@@ -2,7 +2,7 @@
 /// <reference path="./Event.d.ts" />
 /// <reference path="./LngLat.d.ts" />
 /// <reference path="./Pixel.d.ts" />
-/// <reference path="./size.d.ts" />
+/// <reference path="./Size.d.ts" />
 
 declare namespace AMap {
   type SizeValue = Size | [number, number];
