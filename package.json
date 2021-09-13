@@ -9,7 +9,7 @@
     "site": "dumi build",
     "commit": "commit",
     "build": "father-build",
-    "release": "walrus release"
+    "release": "walrus release --commit-message 'release publish'"
   },
   "devDependencies": {
     "@types/react": "17.0.20",
