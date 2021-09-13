@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/pansyjs/react-amap/compare/@pansy/amap-api-loader@0.2.5...@pansy/amap-api-loader@0.3.0) (2021-09-13)
+
+
+### Features
+
+* **react-amap:** remove Markers component ([faaf581](https://github.com/pansyjs/react-amap/commit/faaf5811413c1780d1a305b3861d8533a52f4b31))
+
+
+
+
+
 ## [0.2.5](https://github.com/pansyjs/react-amap/compare/@pansy/amap-api-loader@0.2.4...@pansy/amap-api-loader@0.2.5) (2021-09-07)
 
 **Note:** Version bump only for package @pansy/amap-api-loader

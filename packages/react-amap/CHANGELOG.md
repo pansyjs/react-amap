@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.7.0...@pansy/react-amap@2.8.0) (2021-09-13)
+
+
+### Bug Fixes
+
+* 修复类型报错 ([b45eecf](https://github.com/pansyjs/react-amap/commit/b45eecfda2c3167c8273d535ed6f9bf4a0a33335))
+* 修复类型报错 ([b2df951](https://github.com/pansyjs/react-amap/commit/b2df951e64c2ddae4823ff5a6e4618fa49d2dc73))
+
+
+### Features
+
+* **react-amap:** remove Markers component ([faaf581](https://github.com/pansyjs/react-amap/commit/faaf5811413c1780d1a305b3861d8533a52f4b31))
+
+
+
+
+
 # [2.7.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.6.0...@pansy/react-amap@2.7.0) (2021-09-07)
 
 
