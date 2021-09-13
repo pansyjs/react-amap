@@ -12,6 +12,15 @@ declare namespace AMap {
      */
     constructor(lng: number, lat: number, noAutofix?: boolean);
 
+    /** 纬度 */
+    lat: number;
+
+    /** 经度 */
+    lng: number;
+
+
+    pos: [number, number];
+
     /**
      * 设置经度值
      */

@@ -18,9 +18,9 @@ declare namespace AMap {
      */
     static get(
       path: string,
-      params: object,
-      callback: WebService.Callback,
-      opts: any
+      params?: object,
+      callback?: WebService.Callback,
+      opts?: any
     ): void;
 
     /**
@@ -31,8 +31,8 @@ declare namespace AMap {
      */
     static post(
       path: string,
-      params: object,
-      callback: WebService.Callback,
+      params?: object,
+      callback?: WebService.Callback,
     ): void;
   }
 }
