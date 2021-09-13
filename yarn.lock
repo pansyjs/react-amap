@@ -3220,15 +3220,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pansy/amap-api-loader@0.2.5, @pansy/amap-api-loader@workspace:packages/amap-api-loader":
+"@pansy/amap-api-loader@0.3.0, @pansy/amap-api-loader@workspace:packages/amap-api-loader":
   version: 0.0.0-use.local
   resolution: "@pansy/amap-api-loader@workspace:packages/amap-api-loader"
   dependencies:
-    "@pansy/amap-types": 2.7.0
+    "@pansy/amap-types": 2.8.0
   languageName: unknown
   linkType: soft
 
-"@pansy/amap-types@2.7.0, @pansy/amap-types@workspace:packages/amap-types":
+"@pansy/amap-types@2.8.0, @pansy/amap-types@workspace:packages/amap-types":
   version: 0.0.0-use.local
   resolution: "@pansy/amap-types@workspace:packages/amap-types"
   languageName: unknown
@@ -3238,8 +3238,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@pansy/react-amap@workspace:packages/react-amap"
   dependencies:
-    "@pansy/amap-api-loader": 0.2.5
-    "@pansy/amap-types": 2.7.0
+    "@pansy/amap-api-loader": 0.3.0
+    "@pansy/amap-types": 2.8.0
   languageName: unknown
   linkType: soft
 
@@ -3247,6 +3247,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@pansy/root@workspace:."
   dependencies:
+    "@pansy/amap-api-loader": "workspace:packages/amap-api-loader"
+    "@pansy/amap-types": "workspace:packages/amap-types"
+    "@pansy/react-amap": "workspace:packages/react-amap"
     "@types/react": 17.0.20
     "@types/react-dom": 17.0.9
     "@umijs/plugin-antd": 0.11.0
