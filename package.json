@@ -1,5 +1,5 @@
 {
-  "name": "@pansy/root",
+  "name": "@pansy/workspace",
   "private": true,
   "repository": "git@github.com:pansyjs/react-amap.git",
   "author": "wangxingkang <wang_xingkang@qq.com>",
