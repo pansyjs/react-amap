@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.9.0](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.8.0...@pansy/amap-types@2.9.0) (2021-09-14)
+
+
+### Bug Fixes
+
+* **amap-types:** 类型报错修复 ([9dffed4](https://github.com/pansyjs/react-amap/commit/9dffed4f16524575c3cefd700369a4275695472b))
+
+
+### Features
+
+* **amap-types:** 类型优化 ([77982f8](https://github.com/pansyjs/react-amap/commit/77982f81b78881bc4e882207de9a7f6f9daf50e6))
+
+
+
+
+
 # [2.8.0](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.7.0...@pansy/amap-types@2.8.0) (2021-09-13)
 
 
