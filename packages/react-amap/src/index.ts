@@ -28,10 +28,11 @@ import { RangingTool } from './ranging-tool';
 import { Scale } from './scale';
 import { HawkEye } from './hawk-eye';
 import { MapType } from './map-type';
-import { Heatmap } from './heatmap';
 import { Geocoder } from './geocoder';
 import { APILoader } from './api-loader';
 import { Satellite } from './satellite';
+import { Traffic } from './traffic';
+import { Heatmap } from './heatmap';
 import { toLnglat, toSize, toPixel, toBounds } from './utils';
 
 export {
@@ -66,8 +67,9 @@ export {
   Scale,
   HawkEye,
   MapType,
-  Heatmap,
   Geocoder,
+  Traffic,
+  Heatmap,
   Satellite,
   toLnglat,
   toSize,
@@ -107,8 +109,9 @@ export default {
   Scale,
   HawkEye,
   MapType,
-  Heatmap,
   Geocoder,
+  Traffic,
+  Heatmap,
   Satellite,
   toLnglat,
   toSize,

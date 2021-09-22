@@ -102,5 +102,10 @@ declare namespace AMap {
      * 卫星图层
      */
     static Satellite: typeof AMap.Satellite;
+
+    /**
+     * 实时交通图层
+     */
+    static Traffic: typeof AMap.Traffic;
   }
 }
