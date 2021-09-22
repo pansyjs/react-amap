@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.11.0](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.10.0...@pansy/amap-types@2.11.0) (2021-09-22)
+
+
+### Features
+
+* **react-amap:** add Traffic component ([3f2dcdf](https://github.com/pansyjs/react-amap/commit/3f2dcdf61c2441df11fee32dbd7ffa0804d44d49))
+
+
+
+
+
 # [2.10.0](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.9.0...@pansy/amap-types@2.10.0) (2021-09-22)
 
 
