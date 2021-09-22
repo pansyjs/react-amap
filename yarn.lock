@@ -3257,14 +3257,14 @@ __metadata:
     "@pansy/amap-api-loader": "workspace:packages/amap-api-loader"
     "@pansy/amap-types": "workspace:packages/amap-types"
     "@pansy/react-amap": "workspace:packages/react-amap"
-    "@types/react": 17.0.21
+    "@types/react": 17.0.24
     "@types/react-dom": 17.0.9
     "@umijs/plugin-antd": 0.11.0
     "@walrus/cli": 1.3.4
     "@walrus/commit": 1.2.1
     "@walrus/release-cli": 1.0.5
     antd: 4.16.13
-    dumi: 1.1.28
+    dumi: 1.1.29
     father-build: 1.20.0
     lerna: 4.0.0
     react: 17.0.2
@@ -3977,14 +3977,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:17.0.21":
-  version: 17.0.21
-  resolution: "@types/react@npm:17.0.21"
+"@types/react@npm:17.0.24":
+  version: 17.0.24
+  resolution: "@types/react@npm:17.0.24"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: a590bd2e50e4ec0b1957388e198cf248bac3051e525e036901dea10f7d12203bf1c58350aa899e66494cbf8a60ee56402522273866c29748217f72552bb27d04
+  checksum: 99383e2cbaa85831984cc17ec4a5fe7fd091aa21ef023855570440d8d0b5038efb8159701e8e2a0f6ddff3efae655922ded690190e7d172653608cbde016cb66
   languageName: node
   linkType: hard
 
@@ -4296,9 +4296,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@umijs/preset-dumi@npm:1.1.28":
-  version: 1.1.28
-  resolution: "@umijs/preset-dumi@npm:1.1.28"
+"@umijs/preset-dumi@npm:1.1.29":
+  version: 1.1.29
+  resolution: "@umijs/preset-dumi@npm:1.1.29"
   dependencies:
     "@babel/core": ^7.7.2
     "@babel/generator": ^7.7.2
@@ -4314,7 +4314,7 @@ __metadata:
     copy-text-to-clipboard: ^2.2.0
     deepmerge: ^4.2.2
     dumi-assets-types: 1.0.0
-    dumi-theme-default: 1.1.11
+    dumi-theme-default: 1.1.12
     enhanced-resolve: ^4.1.1
     github-slugger: ^1.3.0
     hast-util-has-property: ^1.0.4
@@ -4346,7 +4346,7 @@ __metadata:
     unist-util-visit-parents: ^3.0.1
   peerDependencies:
     umi: 3.x
-  checksum: 22516a6fa7b4a6b1acbabee38703920d6e8a0c261e76ceee9f1507d5b62411fa0b3da2e860481af3b721ba77141446c75e8490ca3e513754b25e9ede7deeefdb
+  checksum: 8c0953852a1eae0109d56389141c77d90bb8fdac4e69057b2a8f29a58e9384272b7a899663dc3385e34ccfdf2f22e61f6869cc8d5d9368649dc6f464e8dd27ea
   languageName: node
   linkType: hard
 
@@ -7477,9 +7477,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dumi-theme-default@npm:1.1.11":
-  version: 1.1.11
-  resolution: "dumi-theme-default@npm:1.1.11"
+"dumi-theme-default@npm:1.1.12":
+  version: 1.1.12
+  resolution: "dumi-theme-default@npm:1.1.12"
   dependencies:
     prism-react-renderer: ^1.1.1
     prismjs: ^1.21.0
@@ -7487,19 +7487,19 @@ __metadata:
   peerDependencies:
     "@umijs/preset-dumi": 1.x
     react: ^16.13.1 || ^17.0.0
-  checksum: 0af55a2f4397c4dcf28b3ae3520c0d855a3e705d2a5ff1e7c950c65fbbb499ca6a35ba91ed351555558ad518f5c98c48001349fa1ee77305efdae15039c6b5f3
+  checksum: ce0729334fb59c421725220fddcb227d69ee61eec746372bfc7cef1034053ccb6e296da2248d5339133e83441bf044e9043f9648fc497a11d963698044efcc18
   languageName: node
   linkType: hard
 
-"dumi@npm:1.1.28":
-  version: 1.1.28
-  resolution: "dumi@npm:1.1.28"
+"dumi@npm:1.1.29":
+  version: 1.1.29
+  resolution: "dumi@npm:1.1.29"
   dependencies:
-    "@umijs/preset-dumi": 1.1.28
+    "@umijs/preset-dumi": 1.1.29
     umi: ^3.0.0
   bin:
     dumi: bin/dumi.js
-  checksum: 27aefb45ebe7b83db6189b212ab1de11525cfbf0064e8844295a170b56bf66be811325251c81b5e2ac2d3be817feb277e26dc8dc238e82478206a74cc5328c25
+  checksum: aeebea8219e73883213139623955954ed957254f8b24ec052c5dffae0d2e017a00a8c5e56791679f8f27af10ef905244a9d44ba84c6114cb94215874d7ae22f8
   languageName: node
   linkType: hard
 
