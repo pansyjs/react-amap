@@ -8,4 +8,9 @@ declare namespace AMapUI {
    * @param callback
    */
   function load(module: string[], callback: (instance: any) => void): void;
+
+  /**
+   * 高德JS API 版本
+   */
+  const version: string;
 }
