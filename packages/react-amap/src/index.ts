@@ -31,6 +31,7 @@ import { MapType } from './map-type';
 import { Heatmap } from './heatmap';
 import { Geocoder } from './geocoder';
 import { APILoader } from './api-loader';
+import { Satellite } from './satellite';
 import { toLnglat, toSize, toPixel, toBounds } from './utils';
 
 export {
@@ -67,6 +68,7 @@ export {
   MapType,
   Heatmap,
   Geocoder,
+  Satellite,
   toLnglat,
   toSize,
   toPixel,
@@ -107,6 +109,7 @@ export default {
   MapType,
   Heatmap,
   Geocoder,
+  Satellite,
   toLnglat,
   toSize,
   toPixel,
