@@ -97,5 +97,10 @@ declare namespace AMap {
      * 获取图层参数信息
      */
     getOptions(): object;
+
+    /**
+     * 卫星图层
+     */
+    static Satellite: typeof AMap.Satellite;
   }
 }

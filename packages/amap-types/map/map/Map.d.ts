@@ -491,6 +491,18 @@ declare namespace AMap {
     setBounds(bound: Bounds): Bounds;
 
     /**
+     * 添加图层到地图上
+     * @param layer
+     */
+    addLayer(layer: any): void;
+
+    /**
+     * 从地图上移除图层
+     * @param layer
+     */
+    removeLayer(layer: any): void;
+
+    /**
     * 设置Map的限制区域
     * @param bound 限制区域
     */
