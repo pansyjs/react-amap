@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
-import { usePropsReactive } from '../hooks';
+import { usePropsReactive } from '../utils';
 import type { MouseToolProps } from './types';
 import { converterMap, setterMap } from './config';
 
@@ -8,7 +8,7 @@ export const MouseTool = React.forwardRef<AMap.MouseTool, MouseToolProps>((props
   const { map } = useMap();
   const instanceObj = useRef<AMap.MouseTool>(null);
 
-  const { onInstanceCreated } = usePropsReactive<AMap.MouseTool, MouseToolProps>(
+  const { onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {
@@ -36,7 +36,7 @@ export const MouseTool = React.forwardRef<AMap.MouseTool, MouseToolProps>((props
 
   const createInstance = () => {
     return new Promise<void>((resolve) => {
-      map.plugin(['AMap.MouseTool'], () => {
+      AMap.plugin(['AMap.MouseTool'], () => {
         instanceObj.current = new AMap.MouseTool(map);
         resolve();
       });

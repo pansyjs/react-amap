@@ -19,7 +19,7 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.Polyline.Even
 }
 
 interface PolylineOptions extends Omit<AMap.Polyline.Options, 'path'> {
-  path?: ReactAMap.Position[]
+  path?: AMap.ExpandPosition[]
 }
 
 export interface PolylineProps extends

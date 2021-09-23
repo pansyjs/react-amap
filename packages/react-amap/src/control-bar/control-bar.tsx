@@ -1,15 +1,15 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
-import { usePropsReactive } from '../hooks';
+import { usePropsReactive } from '../utils';
 import { buildCreateOptions } from '../utils/control';
 import type { ControlBarProps } from './types';
 import { allProps, converterMap, setterMap } from './config';
 
 export const ControlBar = React.forwardRef<AMap.ControlBar, ControlBarProps>((props = {}, ref) => {
-  const { map } = useMap();
+  const { map, AMap } = useMap();
   const instanceObj = useRef<AMap.ControlBar>(null);
 
-  const { onInstanceCreated } = usePropsReactive<AMap.ControlBar, ControlBarProps>(
+  const { onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {

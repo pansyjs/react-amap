@@ -7,7 +7,7 @@ export interface EventMap extends ReactAMap.GetEventFunObject<
 
 export interface ElasticMarkerProps extends Omit<AMap.ElasticMarker.Options, 'position'> {
   /** 标记点的位置 */
-  position?: ReactAMap.Position;
+  position?: AMap.ExpandPosition;
   /** 标记点的事件 */
   events?: EventMap;
 }

@@ -1,12 +1,14 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
-import { usePropsReactive } from '../hooks';
+import { usePropsReactive } from '../utils';
+import { useMap } from '../map';
 import { EllipseEditorProps } from './types';
 import { setterMap, converterMap } from './config';
 
 export const EllipseEditor = React.forwardRef<AMap.EllipseEditor, EllipseEditorProps>((props = {}, ref) => {
+  const { map, AMap } = useMap();
   const instanceObj = useRef<AMap.EllipseEditor>(null);
 
-  const { onInstanceCreated } = usePropsReactive<AMap.EllipseEditor, EllipseEditorProps>(
+  const { onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {
@@ -35,7 +37,7 @@ export const EllipseEditor = React.forwardRef<AMap.EllipseEditor, EllipseEditorP
 
   const createInstance = () => {
     return new Promise<void>((resolve) => {
-      props.map.plugin(['AMap.EllipseEditor'], () => {
+      map.plugin(['AMap.EllipseEditor'], () => {
         instanceObj.current = new AMap.EllipseEditor(props.map, props.ellipse);
         resolve();
       });

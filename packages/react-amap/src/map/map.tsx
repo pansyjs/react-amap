@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { usePropsReactive } from '../hooks';
+import { usePropsReactive } from '../utils';
 import {
   allProps,
   setterMap,
@@ -8,13 +8,14 @@ import {
   containerStyle,
   StatusDynamicProps
 } from './config';
+import { getAMap } from '../utils';
 import type { BaseMapProps } from './types';
 
 export const BaseMap: React.FC<BaseMapProps> = (props = {}) => {
   const mapWrapper = useRef<HTMLDivElement>();
   const instanceObj = useRef<AMap.Map>();
 
-  const { loaded, prevProps, onInstanceCreated } = usePropsReactive<AMap.Map, BaseMapProps>(
+  const { loaded, prevProps, onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {
@@ -45,7 +46,8 @@ export const BaseMap: React.FC<BaseMapProps> = (props = {}) => {
   /** 创建地图实例 */
   const createInstance = () => {
     const options = buildCreateOptions()
-    instanceObj.current = new window.AMap.Map(mapWrapper.current, options);
+    const AMap = getAMap();
+    instanceObj.current = new AMap.Map(mapWrapper.current, options);
     return Promise.resolve();
   }
 

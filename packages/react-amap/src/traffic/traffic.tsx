@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
-import { usePropsReactive } from '../hooks';
+import { usePropsReactive } from '../utils';
 import { converterMap, setterMap, allProps } from './config';
 import type { TrafficProps } from './types';
 
@@ -8,10 +8,10 @@ export const Traffic = React.forwardRef<
   AMap.Traffic,
   React.PropsWithChildren<TrafficProps>
 >((props = {}, ref) => {
-  const { map } = useMap();
+  const { map, AMap } = useMap();
   const instanceObj = useRef<AMap.Traffic>(null);
 
-  const { loaded, onInstanceCreated } = usePropsReactive<AMap.Traffic, TrafficProps>(
+  const { loaded, onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {

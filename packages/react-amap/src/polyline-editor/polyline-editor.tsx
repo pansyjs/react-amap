@@ -1,12 +1,14 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
-import { usePropsReactive } from '../hooks';
+import { usePropsReactive } from '../utils';
+import { useMap } from '../map';
 import type { PolylineEditorProps } from './types';
 import { setterMap, converterMap } from './config';
 
 export const PolylineEditor = React.forwardRef<AMap.PolylineEditor, PolylineEditorProps>((props = {}, ref) => {
   const instanceObj = useRef<AMap.PolylineEditor>(null);
+  const { map, AMap } = useMap();
 
-  const { onInstanceCreated } = usePropsReactive<AMap.PolylineEditor, PolylineEditorProps>(
+  const { onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {
@@ -35,7 +37,7 @@ export const PolylineEditor = React.forwardRef<AMap.PolylineEditor, PolylineEdit
 
   const createInstance = () => {
     return new Promise<void>((resolve) => {
-      props.map.plugin(['AMap.PolylineEditor'], () => {
+      AMap.plugin(['AMap.PolylineEditor'], () => {
         instanceObj.current = new AMap.PolylineEditor(props.map, props.poly);
         resolve();
       });

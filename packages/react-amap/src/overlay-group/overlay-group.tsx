@@ -1,14 +1,14 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
-import { usePropsReactive } from '../hooks';
+import { usePropsReactive } from '../utils';
 import { useMap } from '../map';
 import type { OverlayGroupProps } from './types';
 import { setterMap, converterMap } from './config';
 
 export const OverlayGroup = React.forwardRef<AMap.OverlayGroup, React.PropsWithChildren<OverlayGroupProps>>((props = {}, ref) => {
   const instanceObj = useRef<AMap.OverlayGroup>(null);
-  const { map } = useMap();
+  const { map, AMap } = useMap();
 
-  const { loaded, onInstanceCreated } = usePropsReactive<any, OverlayGroupProps>(
+  const { loaded, onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {

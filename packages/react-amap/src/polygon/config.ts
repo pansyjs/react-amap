@@ -36,7 +36,7 @@ export const setterMap = {
 }
 
 export const converterMap = {
-  path(val: ReactAMap.Position[]) {
+  path(val: AMap.ExpandPosition[]) {
     return buildPathValue(val);
   }
 }

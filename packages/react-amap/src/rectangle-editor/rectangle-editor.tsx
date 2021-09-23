@@ -1,12 +1,14 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
-import { usePropsReactive } from '../hooks';
+import { usePropsReactive } from '../utils';
+import { useMap } from '../map';
 import type { RectangleEditorProps } from './types';
 import { setterMap, converterMap } from './config';
 
 export const RectangleEditor = React.forwardRef<AMap.RectangleEditor, RectangleEditorProps>((props = {}, ref) => {
+  const { map, AMap } = useMap();
   const instanceObj = useRef<AMap.RectangleEditor>(null);
 
-  const { onInstanceCreated } = usePropsReactive<AMap.RectangleEditor, RectangleEditorProps>(
+  const { onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {
@@ -35,7 +37,7 @@ export const RectangleEditor = React.forwardRef<AMap.RectangleEditor, RectangleE
 
   const createInstance = () => {
     return new Promise<void>((resolve) => {
-      props.map.plugin(['AMap.RectangleEditor'], () => {
+      AMap.plugin(['AMap.RectangleEditor'], () => {
         instanceObj.current = new AMap.RectangleEditor(props.map, props.rectangle);
         resolve();
       });

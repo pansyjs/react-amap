@@ -1,15 +1,15 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
-import { usePropsReactive } from '../hooks';
+import { usePropsReactive } from '../utils';
 import { buildCreateOptions, renderEditor } from '../utils/overlay';
 import type { RectangleProps } from './types';
 import { allProps, setterMap, converterMap } from './config';
 
 export const Rectangle = React.forwardRef<AMap.Rectangle, React.PropsWithChildren<RectangleProps>>((props = {}, ref) => {
-  const { map } = useMap();
+  const { map, AMap } = useMap();
   const instanceObj = useRef<AMap.Rectangle>(null);
 
-  const { loaded, onInstanceCreated } = usePropsReactive<AMap.Rectangle, RectangleProps>(
+  const { loaded, onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {
@@ -43,7 +43,7 @@ export const Rectangle = React.forwardRef<AMap.Rectangle, React.PropsWithChildre
       converterMap
     );
     options.map = map;
-    instanceObj.current = new window.AMap.Rectangle(options);
+    instanceObj.current = new AMap.Rectangle(options);
     return Promise.resolve();
   }
 

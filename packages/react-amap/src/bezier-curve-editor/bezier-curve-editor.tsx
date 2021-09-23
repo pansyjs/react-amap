@@ -1,12 +1,14 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
-import { usePropsReactive } from '../hooks';
+import { usePropsReactive } from '../utils';
+import { useMap } from '../map';
 import { setterMap, converterMap } from './config';
 import type { BezierCurveEditorProps } from './types';
 
 export const BezierCurveEditor = React.forwardRef<AMap.BezierCurveEditor, BezierCurveEditorProps>((props = {}, ref) => {
+  const { map, AMap } = useMap();
   const instanceObj = useRef<AMap.BezierCurveEditor>(null);
 
-  const { onInstanceCreated } = usePropsReactive<AMap.BezierCurveEditor, BezierCurveEditorProps>(
+  const { onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {
@@ -35,7 +37,7 @@ export const BezierCurveEditor = React.forwardRef<AMap.BezierCurveEditor, Bezier
 
   const createInstance = () => {
     return new Promise<void>((resolve) => {
-      props.map.plugin(['AMap.BezierCurveEditor'], () => {
+      map.plugin(['AMap.BezierCurveEditor'], () => {
         instanceObj.current = new AMap.BezierCurveEditor(props.map, props.bezierCurve);
         resolve();
       });

@@ -1,5 +1,6 @@
 import React, { useEffect, useState, } from 'react';
 import { Options, load } from '@pansy/amap-api-loader';
+import { getAMap } from '@pansy/react-amap-core';
 
 export interface APILoaderProps extends Omit<Options, 'key'> {
   /**
@@ -31,8 +32,9 @@ export const APILoader: React.FC<APILoaderProps> = ({
         ...rest,
         key: rest.mapKey,
       })
-        .then((obj) => {
-          onComplete?.(obj);
+        .then(() => {
+          const AMap = getAMap();
+          onComplete?.(AMap);
           setSuccess(true)
           setLoaded(false);
         })

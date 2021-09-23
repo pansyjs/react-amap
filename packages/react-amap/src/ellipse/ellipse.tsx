@@ -1,15 +1,15 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
-import { usePropsReactive } from '../hooks';
+import { usePropsReactive } from '../utils';
 import { buildCreateOptions, renderEditor } from '../utils/overlay';
 import type { EllipseProps } from './types';
 import { allProps, setterMap, converterMap } from './config';
 
 export const Ellipse = React.forwardRef<AMap.Ellipse, React.PropsWithChildren<EllipseProps>>((props = {}, ref) => {
-  const { map } = useMap();
+  const { map, AMap } = useMap();
   const instanceObj = useRef<AMap.Ellipse>(null);
 
-  const { loaded, onInstanceCreated } = usePropsReactive<AMap.Ellipse, EllipseProps>(
+  const { loaded, onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {
@@ -42,7 +42,7 @@ export const Ellipse = React.forwardRef<AMap.Ellipse, React.PropsWithChildren<El
       converterMap
     );
     options.map = map;
-    instanceObj.current = new window.AMap.Ellipse(options);
+    instanceObj.current = new AMap.Ellipse(options);
     return Promise.resolve();
   }
 

@@ -1,6 +1,6 @@
 import { toLnglat } from '../utils';
 
-export function buildPathValue(path: ReactAMap.Position[] | ReactAMap.Position[][]) {
+export function buildPathValue(path: AMap.ExpandPosition[] | AMap.ExpandPosition[][]) {
   if (path.length) {
     return path.map((p, index) => {
       if (Array.isArray(p[index])) {

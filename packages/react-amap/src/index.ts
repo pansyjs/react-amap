@@ -1,5 +1,4 @@
-import { Map } from './map';
-import { useMap } from './context';
+import { Map, useMap } from './map';
 import { Ellipse } from './ellipse';
 import { AutoComplete } from './auto-complete';
 import { EllipseEditor } from './ellipse-editor';

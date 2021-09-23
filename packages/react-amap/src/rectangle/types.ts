@@ -6,7 +6,7 @@ export interface EventMap<ExtraData = any> extends ReactAMap.GetEventFunObject<A
   created?: (instance: AMap.Rectangle<ExtraData>) => void;
 }
 
-export type Bounds = AMap.Bounds | [ReactAMap.Position, ReactAMap.Position];
+export type Bounds = AMap.Bounds | [AMap.ExpandPosition, AMap.ExpandPosition];
 
 export interface RectangleProps<ExtraData = any>
   extends Omit<AMap.Rectangle.Options<ExtraData>, StyleKeys | 'bounds'>

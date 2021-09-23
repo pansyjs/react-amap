@@ -1,18 +1,18 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { render } from 'react-dom';
 import { useMap } from '../map';
-import { usePropsReactive } from '../hooks';
+import { usePropsReactive } from '../utils';
 import type { MarkerProps } from './types';
 import { renderMarkerComponent } from './utils';
 import { buildCreateOptions } from '../utils/control';
 import { allProps, setterMap, converterMap } from './config';
 
 export const Marker = React.forwardRef<AMap.Marker, React.PropsWithChildren<MarkerProps>>((props = {}, ref) => {
-  const { map } = useMap();
+  const { map, AMap } = useMap();
   const contentWrapper = useRef<HTMLDivElement>();
   const instanceObj = useRef<AMap.Marker>(null);
 
-  const { onInstanceCreated } = usePropsReactive<AMap.Marker, MarkerProps>(
+  const { onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {
@@ -54,7 +54,7 @@ export const Marker = React.forwardRef<AMap.Marker, React.PropsWithChildren<Mark
       converterMap
     );
     options.map = map;
-    const marker = new window.AMap.Marker(options);
+    const marker = new AMap.Marker(options);
 
     instanceObj.current = marker;
 

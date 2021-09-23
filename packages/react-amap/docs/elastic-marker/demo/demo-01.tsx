@@ -64,7 +64,7 @@ export default () => {
               <ElasticMarker
                 key={index}
                 styles={styles}
-                position={item.position as ReactAMap.Position}
+                position={item.position as AMap.ExpandPosition}
                 zoomStyleMapping={zoomStyleMapping}
               />
             )

@@ -1,7 +1,7 @@
 import React, { useState, useImperativeHandle } from 'react';
 import { APILoader, APILoaderProps } from '../api-loader';
 import { BaseMap } from './map';
-import { MapContext } from '../context';
+import { MapContext } from './context';
 import { MapProps as BaseMapProps } from './types';
 
 export interface MapProps extends Omit<APILoaderProps, 'key'>, BaseMapProps {
@@ -57,4 +57,4 @@ export const Map = React.forwardRef<AMap.Map, React.PropsWithChildren<MapProps>>
   )
 })
 
-export { useMap } from '../context';
+export { useMap } from './context';

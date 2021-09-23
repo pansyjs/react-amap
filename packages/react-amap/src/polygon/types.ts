@@ -6,7 +6,7 @@ export interface EventMap extends ReactAMap.GetEventFunObject<AMap.Polygon.Event
 }
 
 interface PolygonOptions extends Omit<AMap.Polygon.Options, StyleKeys | 'path'> {
-  path?: ReactAMap.Position[] | ReactAMap.Position[][];
+  path?: AMap.ExpandPosition[] | AMap.ExpandPosition[][];
   style?: Style;
 }
 

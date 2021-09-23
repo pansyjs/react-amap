@@ -9,11 +9,11 @@ export interface InfoWindowProps extends
   /** 样式类 */
   className?: string;
   /** 信息窗体的位置 */
-  position?: ReactAMap.Position;
+  position?: AMap.ExpandPosition;
   /** 信息窗体的大小 */
-  size?: ReactAMap.Size;
+  size?: AMap.ExpandSize;
   /** 信息窗体的偏移量 */
-  offset?: ReactAMap.Offset;
+  offset?: AMap.ExpandOffset;
   /** 是否显示 */
   visible?: boolean;
   /** 绑定的事件 */

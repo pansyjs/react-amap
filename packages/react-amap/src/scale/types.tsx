@@ -7,7 +7,7 @@ export interface ScaleOptions extends Omit<AMap.Scale.Options, 'offset'> {
   /**
    * 偏移量
    */
-  offset?: ReactAMap.Offset;
+  offset?: AMap.ExpandOffset;
   /**
    * 是否可见
    */

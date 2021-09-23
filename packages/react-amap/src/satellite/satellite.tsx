@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
-import { usePropsReactive } from '../hooks';
+import { usePropsReactive } from '../utils';
 import { converterMap, setterMap, allProps } from './config';
 import type { SatelliteProps } from './types';
 
@@ -8,10 +8,10 @@ export const Satellite = React.forwardRef<
   AMap.Satellite,
   React.PropsWithChildren<SatelliteProps>
 >((props = {}, ref) => {
-  const { map } = useMap();
+  const { map, AMap } = useMap();
   const instanceObj = useRef<AMap.Satellite>(null);
 
-  const { loaded, onInstanceCreated } = usePropsReactive<AMap.Satellite, SatelliteProps>(
+  const { loaded, onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {

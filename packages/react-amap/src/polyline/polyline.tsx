@@ -1,15 +1,15 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
-import { usePropsReactive } from '../hooks';
+import { usePropsReactive } from '../utils';
 import { buildCreateOptions, renderEditor } from '../utils/overlay';
 import { allProps, setterMap, converterMap } from './config';
 import type { PolylineProps } from './types';
 
 export const Polyline = React.forwardRef<AMap.Polyline, React.PropsWithChildren<PolylineProps>>((props = {}, ref) => {
-  const { map } = useMap();
+  const { map, AMap } = useMap();
   const instanceObj = useRef<AMap.Polyline>(null);
 
-  const { loaded, onInstanceCreated } = usePropsReactive<AMap.Polyline, PolylineProps>(
+  const { loaded, onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {
@@ -42,7 +42,7 @@ export const Polyline = React.forwardRef<AMap.Polyline, React.PropsWithChildren<
       converterMap
     );
     options.map = map;
-    instanceObj.current = new window.AMap.Polyline(options);
+    instanceObj.current = new AMap.Polyline(options);
     return Promise.resolve();
   }
 

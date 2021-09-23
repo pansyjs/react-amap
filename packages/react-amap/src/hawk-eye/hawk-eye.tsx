@@ -1,15 +1,15 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
-import { usePropsReactive } from '../hooks';
+import { usePropsReactive } from '../utils';
 import { buildCreateOptions } from '../utils/control';
 import type { HawkEyeProps } from './types';
 import { allProps, converterMap, setterMap } from './config';
 
 export const HawkEye = React.forwardRef<AMap.HawkEye, HawkEyeProps>((props = {}, ref) => {
-  const { map } = useMap();
+  const { map, AMap } = useMap();
   const instanceObj = useRef<AMap.HawkEye>(null);
 
-  const { onInstanceCreated } = usePropsReactive<AMap.HawkEye, HawkEyeProps>(
+  const { loaded, onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {
@@ -33,12 +33,12 @@ export const HawkEye = React.forwardRef<AMap.HawkEye, HawkEyeProps>((props = {},
   useImperativeHandle(
     ref,
     () => instanceObj.current,
-    [instanceObj.current]
+    [loaded]
   );
 
   const createInstance = () => {
     return new Promise<void>((resolve) => {
-      map.plugin(['AMap.HawkEye'], () => {
+      AMap.plugin(['AMap.HawkEye'], () => {
         const options = buildCreateOptions<HawkEyeProps, AMap.HawkEye.Options>(
           props,
           allProps,

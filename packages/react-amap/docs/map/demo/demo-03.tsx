@@ -6,7 +6,7 @@ import { Button } from 'antd';
 import { Map } from '@pansy/react-amap';
 
 export default () => {
-  const [center, setCenter] = useState<ReactAMap.Position>({ longitude: 115, latitude: 30 });
+  const [center, setCenter] = useState<AMap.ExpandPosition>({ longitude: 115, latitude: 30 });
 
   const changeCenter = () => {
     setCenter({

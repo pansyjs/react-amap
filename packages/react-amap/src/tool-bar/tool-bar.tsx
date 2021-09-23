@@ -1,15 +1,15 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
-import { usePropsReactive } from '../hooks';
+import { usePropsReactive } from '../utils';
 import { buildCreateOptions } from '../utils/control';
 import type { ToolBarProps } from './types';
 import { allProps, converterMap, setterMap } from './config';
 
 export const ToolBar = React.forwardRef<AMap.ToolBar, ToolBarProps>((props = {}, ref) => {
-  const { map } = useMap();
+  const { map, AMap } = useMap();
   const instanceObj = useRef<AMap.ToolBar>(null);
 
-  const { onInstanceCreated } = usePropsReactive<AMap.ToolBar, ToolBarProps>(
+  const { onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {
@@ -38,7 +38,7 @@ export const ToolBar = React.forwardRef<AMap.ToolBar, ToolBarProps>((props = {},
 
   const createInstance = () => {
     return new Promise<void>((resolve) => {
-      map.plugin(['AMap.ToolBar'], () => {
+      AMap.plugin(['AMap.ToolBar'], () => {
         const options = buildCreateOptions<ToolBarProps, AMap.ToolBar.Options>(
           props,
           allProps,

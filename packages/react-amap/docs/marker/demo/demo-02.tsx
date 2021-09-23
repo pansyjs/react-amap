@@ -5,7 +5,7 @@ export default () => {
   const [visible, setVisible] = useState<boolean>(true);
   const [clickable, setClickable] = useState<boolean>(true);
   const [draggable, setDraggable] = useState<boolean>(true);
-  const [position, setPosition] = useState<ReactAMap.Position>({
+  const [position, setPosition] = useState<AMap.ExpandPosition>({
     longitude: 120,
     latitude: 35
   });

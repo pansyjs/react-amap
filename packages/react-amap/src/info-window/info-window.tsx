@@ -1,12 +1,12 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { render } from 'react-dom';
 import { useMap } from '../map';
-import { usePropsReactive } from '../hooks';
+import { usePropsReactive } from '../utils';
 import type { InfoWindowProps } from './types';
 import { allProps, converterMap } from './config';
 
 export const InfoWindow = React.forwardRef<AMap.InfoWindow, React.PropsWithChildren<InfoWindowProps>>((props = {}, ref) => {
-  const { map } = useMap();
+  const { map, AMap } = useMap();
   const infoDOM = useRef<HTMLDivElement>(null);
   const instanceObj = useRef<AMap.InfoWindow>(null);
 
@@ -22,7 +22,7 @@ export const InfoWindow = React.forwardRef<AMap.InfoWindow, React.PropsWithChild
     }
   }
 
-  const { onInstanceCreated } = usePropsReactive<AMap.InfoWindow, InfoWindowProps>(
+  const { onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {
@@ -57,7 +57,7 @@ export const InfoWindow = React.forwardRef<AMap.InfoWindow, React.PropsWithChild
 
   const createInstance = () => {
     const options = buildCreateOptions(props);
-    instanceObj.current = new window.AMap.InfoWindow(options);
+    instanceObj.current = new AMap.InfoWindow(options);
     return Promise.resolve();
   }
 

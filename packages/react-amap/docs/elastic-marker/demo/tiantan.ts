@@ -97,7 +97,7 @@ export const sheshi = [
 ];
 
 
-export const paths: ReactAMap.Position[] = [
+export const paths: AMap.ExpandPosition[] = [
   [116.419763,39.882967],
   [116.419791,39.882397],
   [116.419674,39.882398],

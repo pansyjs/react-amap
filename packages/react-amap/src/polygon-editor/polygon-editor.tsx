@@ -1,14 +1,14 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
-import { usePropsReactive } from '../hooks';
+import { usePropsReactive } from '../utils';
 import type { PolygonEditorProps } from './types';
 import { setterMap, converterMap } from './config';
 
 export const PolygonEditor = React.forwardRef<AMap.PolygonEditor, PolygonEditorProps>((props = {}, ref) => {
-  const { map } = useMap();
+  const { map, AMap } = useMap();
   const instanceObj = useRef<AMap.PolygonEditor>(null);
 
-  const { onInstanceCreated } = usePropsReactive<AMap.PolygonEditor, PolygonEditorProps>(
+  const { onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {
@@ -37,7 +37,7 @@ export const PolygonEditor = React.forwardRef<AMap.PolygonEditor, PolygonEditorP
 
   const createInstance = () => {
     return new Promise<void>((resolve) => {
-      map.plugin(['AMap.PolygonEditor'], () => {
+      AMap.plugin(['AMap.PolygonEditor'], () => {
         instanceObj.current = new AMap.PolygonEditor(map, props.poly);
         resolve();
       });

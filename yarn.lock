@@ -3234,12 +3234,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@pansy/react-amap-core@1.0.0, @pansy/react-amap-core@workspace:packages/core":
+  version: 0.0.0-use.local
+  resolution: "@pansy/react-amap-core@workspace:packages/core"
+  dependencies:
+    "@pansy/amap-types": 2.11.0
+  languageName: unknown
+  linkType: soft
+
 "@pansy/react-amap@workspace:packages/react-amap":
   version: 0.0.0-use.local
   resolution: "@pansy/react-amap@workspace:packages/react-amap"
   dependencies:
     "@pansy/amap-api-loader": 0.3.3
     "@pansy/amap-types": 2.11.0
+    "@pansy/react-amap-core": 1.0.0
   languageName: unknown
   linkType: soft
 

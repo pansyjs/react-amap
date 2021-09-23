@@ -1,15 +1,15 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
-import { usePropsReactive } from '../hooks';
+import { usePropsReactive } from '../utils';
 import { buildCreateOptions, renderEditor } from '../utils/overlay';
 import { allProps, setterMap, converterMap } from './config';
 import type { PolygonProps } from './types';
 
 export const Polygon = React.forwardRef<AMap.Polygon, React.PropsWithChildren<PolygonProps>>((props = {}, ref) => {
-  const { map } = useMap();
+  const { map, AMap } = useMap();
   const instanceObj = useRef<AMap.Polygon>(null);
 
-  const { loaded, onInstanceCreated } = usePropsReactive<AMap.Polygon, PolygonProps>(
+  const { loaded, onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {
@@ -42,7 +42,7 @@ export const Polygon = React.forwardRef<AMap.Polygon, React.PropsWithChildren<Po
       converterMap
     );
     options.map = map;
-    instanceObj.current = new window.AMap.Polygon(options);
+    instanceObj.current = new AMap.Polygon(options);
     return Promise.resolve();
   }
 

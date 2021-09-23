@@ -6,7 +6,7 @@ import { randomColor } from '../../utils';
 export default () => {
   const [visible, setVisible] = useState<boolean>(true);
   const [radius, setRadius] = useState<number>(15000);
-  const [center, setCenter] = useState<ReactAMap.Position>({
+  const [center, setCenter] = useState<AMap.ExpandPosition>({
     longitude: 120,
     latitude: 30
   });

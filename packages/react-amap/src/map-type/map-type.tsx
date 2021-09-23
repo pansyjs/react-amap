@@ -1,15 +1,15 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
-import { usePropsReactive } from '../hooks';
+import { usePropsReactive } from '../utils';
 import { buildCreateOptions } from '../utils/control';
 import type { MapTypeProps } from './types';
 import { allProps, converterMap, setterMap } from './config';
 
 export const MapType = React.forwardRef<AMap.MapType, MapTypeProps>((props = {}, ref) => {
-  const { map } = useMap();
+  const { map, AMap } = useMap();
   const instanceObj = useRef<AMap.MapType>(null);
 
-  const { onInstanceCreated } = usePropsReactive<AMap.MapType, MapTypeProps>(
+  const { onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {
@@ -38,7 +38,7 @@ export const MapType = React.forwardRef<AMap.MapType, MapTypeProps>((props = {},
 
   const createInstance = () => {
     return new Promise<void>((resolve) => {
-      map.plugin(['AMap.MapType'], () => {
+      AMap.plugin(['AMap.MapType'], () => {
         const options = buildCreateOptions<MapTypeProps, AMap.MapType.Options>(
           props,
           allProps,

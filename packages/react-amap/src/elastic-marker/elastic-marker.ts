@@ -1,15 +1,15 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
-import { usePropsReactive } from '../hooks';
+import { usePropsReactive } from '../utils';
 import { buildCreateOptions } from '../utils/overlay';
 import { allProps, setterMap, converterMap } from './config';
 import type { ElasticMarkerProps } from './types';
 
 export const ElasticMarker = React.forwardRef<AMap.ElasticMarker, ElasticMarkerProps>((props = {}, ref) => {
-  const { map } = useMap();
+  const { map, AMap } = useMap();
   const instanceObj = useRef<AMap.ElasticMarker>(null);
 
-  const { loaded, onInstanceCreated } = usePropsReactive<AMap.ElasticMarker, ElasticMarkerProps>(
+  const { loaded, onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {
@@ -37,14 +37,14 @@ export const ElasticMarker = React.forwardRef<AMap.ElasticMarker, ElasticMarkerP
 
   const createInstance = () => {
     return new Promise<void>((resolve) => {
-      map.plugin(['AMap.ElasticMarker'], () => {
+      AMap.plugin(['AMap.ElasticMarker'], () => {
         const options = buildCreateOptions<any, AMap.ElasticMarker.Options>(
           props,
           allProps,
           converterMap
         );
         options.map = map;
-        instanceObj.current = new window.AMap.ElasticMarker(options);
+        instanceObj.current = new AMap.ElasticMarker(options);
         resolve();
       });
     });

@@ -63,4 +63,4 @@ group:
 - `{ lng: number; lat: number; }`
 - `{ longitude: number; latitude: number; }`
 
-类型定义可通过 `ReactAMap.Position` 获取
+类型定义可通过 `AMap.ExpandPosition` 获取

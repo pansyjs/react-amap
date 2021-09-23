@@ -7,8 +7,8 @@ export interface EventMap<D = any> extends ReactAMap.GetEventFunObject<AMap.Mark
 }
 
 interface ExpandMarkerOptions {
-  position?: ReactAMap.Position;
-  offset?: ReactAMap.Offset;
+  position?: AMap.ExpandPosition;
+  offset?: AMap.ExpandOffset;
 }
 
 /** 高德标记点的参数 */

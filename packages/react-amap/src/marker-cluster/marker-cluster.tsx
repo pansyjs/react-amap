@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
-import { usePropsReactive } from '../hooks';
+import { usePropsReactive } from '../utils';
 import { converterMap, setterMap, allProps } from './config';
 import { renderMarkerComponent, renderClusterMarkerComponent } from './utils';
 import type { MarkerClusterProps } from './types';
@@ -9,10 +9,10 @@ export const MarkerCluster = React.forwardRef<
   AMap.MarkerCluster,
   MarkerClusterProps
 >((props = {}, ref) => {
-  const { map } = useMap();
+  const { map, AMap} = useMap();
   const cluster = useRef<AMap.MarkerCluster>(null);
 
-  const { loaded, onInstanceCreated } = usePropsReactive<AMap.MarkerCluster, MarkerClusterProps>(
+  const { loaded, onInstanceCreated } = usePropsReactive(
     props,
     cluster,
     {

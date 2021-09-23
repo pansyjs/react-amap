@@ -1,15 +1,15 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
-import { usePropsReactive } from '../hooks';
+import { usePropsReactive } from '../utils';
 import { buildCreateOptions, renderEditor } from '../utils/overlay';
 import { allProps, setterMap, converterMap } from './config';
 import type { BezierCurveProps } from './types';
 
 export const BezierCurve = React.forwardRef<AMap.BezierCurve, React.PropsWithChildren<BezierCurveProps>>((props = {}, ref) => {
-  const { map } = useMap();
+  const { map, AMap } = useMap();
   const instanceObj = useRef<AMap.BezierCurve>(null);
 
-  const { loaded, onInstanceCreated } = usePropsReactive<AMap.BezierCurve, BezierCurveProps>(
+  const { loaded, onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {
@@ -42,7 +42,7 @@ export const BezierCurve = React.forwardRef<AMap.BezierCurve, React.PropsWithChi
       converterMap
     );
     options.map = map;
-    instanceObj.current = new window.AMap.BezierCurve(options);
+    instanceObj.current = new AMap.BezierCurve(options);
     return Promise.resolve();
   }
 

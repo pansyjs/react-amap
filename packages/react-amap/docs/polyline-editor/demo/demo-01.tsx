@@ -10,7 +10,7 @@ const randomPath = () => ({
 export default () => {
   const [active, setActive] = useState<boolean>(true);
   const [path] = useState<{ longitude: number, latitude: number}[]>(Array(3).fill(true).map(randomPath));
-  const [center] = useState<ReactAMap.Position>({
+  const [center] = useState<AMap.ExpandPosition>({
     longitude: 120,
     latitude: 30
   });

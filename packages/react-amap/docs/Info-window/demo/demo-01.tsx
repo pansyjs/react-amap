@@ -5,12 +5,12 @@ import { Map, InfoWindow } from '@pansy/react-amap';
 export default () => {
   const [visible, setVisible] = useState<boolean>(true);
   const [value, setValue] = useState<number>(1);
-  const [position, setPosition] = useState<ReactAMap.Position>({
+  const [position, setPosition] = useState<AMap.ExpandPosition>({
     longitude: 120,
     latitude: 30
   });
-  const [offset, setOffset] = useState<ReactAMap.Offset>([0, 0]);
-  const [size, setSize] = useState<ReactAMap.Size>({
+  const [offset, setOffset] = useState<AMap.ExpandOffset>([0, 0]);
+  const [size, setSize] = useState<AMap.ExpandSize>({
     width: 200,
     height: 140,
   });

@@ -1,15 +1,15 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
-import { usePropsReactive } from '../hooks';
+import { usePropsReactive } from '../utils';
 import { buildCreateOptions } from '../utils/control';
 import type { HeatmapProps } from './types';
 import { allProps, converterMap, setterMap } from './config';
 
 export const Heatmap = React.forwardRef<AMap.HeatMap, HeatmapProps>((props = {}, ref) => {
-  const { map } = useMap();
+  const { map, AMap } = useMap();
   const instanceObj = useRef<AMap.HeatMap>(null);
 
-  const { onInstanceCreated } = usePropsReactive<AMap.HeatMap, HeatmapProps>(
+  const { onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {
@@ -37,7 +37,7 @@ export const Heatmap = React.forwardRef<AMap.HeatMap, HeatmapProps>((props = {},
 
   const createInstance = () => {
     return new Promise<void>((resolve) => {
-      map.plugin(['AMap.HeatMap'], () => {
+      AMap.plugin(['AMap.HeatMap'], () => {
         const options = buildCreateOptions<HeatmapProps, AMap.HeatMap.Options>(
           props,
           allProps,

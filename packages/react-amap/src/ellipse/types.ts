@@ -9,7 +9,7 @@ export interface EllipseProps extends
   Omit<AMap.Ellipse.Options, StyleKeys | 'center'>
 {
   /** 椭圆的中心 */
-  center?: ReactAMap.Position;
+  center?: AMap.ExpandPosition;
   /** 椭圆的样式 */
   style?: Style;
   /** 是否显示 */

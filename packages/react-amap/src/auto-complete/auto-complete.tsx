@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
-import { usePropsReactive } from '../hooks';
 import { AutoCompleteProps } from './types';
+import { usePropsReactive, getAMap } from '../utils';
 import { buildCreateOptions } from '../utils/control';
 import { allProps, setterMap, converterMap } from './config';
 
@@ -10,7 +10,7 @@ export const AutoComplete = React.forwardRef<
 >((props = {}, ref) => {
   const instanceObj = useRef<AMap.AutoComplete>(null);
 
-  const { loaded, onInstanceCreated } = usePropsReactive<AMap.AutoComplete, AutoCompleteProps>(
+  const { loaded, onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {
@@ -37,7 +37,7 @@ export const AutoComplete = React.forwardRef<
 
   const createInstance = () => {
     return new Promise<AMap.AutoComplete>((resolve) => {
-      AMap.plugin(['AMap.AutoComplete'], () => {
+      getAMap().plugin(['AMap.AutoComplete'], () => {
         const options = buildCreateOptions<AutoCompleteProps, AMap.AutoComplete.Options>(
           props,
           allProps,

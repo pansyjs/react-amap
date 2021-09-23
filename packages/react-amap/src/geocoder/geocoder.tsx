@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
-import { usePropsReactive } from '../hooks';
+import { usePropsReactive, getAMap } from '../utils';
 import { converterMap, setterMap, allProps } from './config';
 import type { GeocoderProps } from './types';
 
@@ -9,7 +9,7 @@ export const Geocoder = React.forwardRef<
 >((props, ref) => {
   const geocoder = useRef<AMap.Geocoder>(null);
 
-  const { loaded, onInstanceCreated } = usePropsReactive<any, GeocoderProps>(
+  const { loaded, onInstanceCreated } = usePropsReactive(
     props,
     geocoder,
     {
@@ -39,6 +39,7 @@ export const Geocoder = React.forwardRef<
    */
   const createInstance = () => {
     return new Promise<void>((resolve) => {
+      const AMap = getAMap();
       AMap.plugin(['AMap.Geocoder'], () => {
         const opts = buildCreateOptions();
 

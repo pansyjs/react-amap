@@ -1,16 +1,16 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { buildCreateOptions } from '../utils/control';
+import { usePropsReactive } from '../utils';
 import { useMap } from '../map';
-import { usePropsReactive } from '../hooks';
 import type { MapEventMap } from '../map/types';
 import type { ContextMenuProps } from './types';
 import { allProps, setterMap, converterMap } from './config';
 
 export const ContextMenu = React.forwardRef<AMap.ContextMenu, ContextMenuProps>((props = {}, ref) => {
-  const { map } = useMap();
+  const { map, AMap } = useMap();
   const instanceObj = useRef<AMap.ContextMenu>(null);
 
-  const { loaded, onInstanceCreated } = usePropsReactive<AMap.ContextMenu, ContextMenuProps>(
+  const { loaded, onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {
@@ -50,7 +50,7 @@ export const ContextMenu = React.forwardRef<AMap.ContextMenu, ContextMenuProps>(
       allProps,
       converterMap
     );
-    instanceObj.current = new window.AMap.ContextMenu(options);
+    instanceObj.current = new AMap.ContextMenu(options);
     return Promise.resolve();
   }
 

@@ -1,15 +1,15 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
-import { usePropsReactive } from '../hooks';
+import { usePropsReactive } from '../utils';
 import { buildCreateOptions, renderEditor } from '../utils/overlay';
 import { allProps, setterMap, converterMap } from './config';
 import type { CircleProps } from './types';
 
 export const Circle = React.forwardRef<AMap.Circle, React.PropsWithChildren<CircleProps>>((props = {}, ref) => {
-  const { map } = useMap();
+  const { map, AMap } = useMap();
   const instanceObj = useRef<AMap.Circle>(null);
 
-  const { loaded, onInstanceCreated } = usePropsReactive<AMap.Circle, CircleProps>(
+  const { loaded, onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {
@@ -42,7 +42,7 @@ export const Circle = React.forwardRef<AMap.Circle, React.PropsWithChildren<Circ
       converterMap
     );
     options.map = map;
-    instanceObj.current = new window.AMap.Circle(options);
+    instanceObj.current = new AMap.Circle(options);
     return Promise.resolve();
   }
 

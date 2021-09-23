@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
-import { usePropsReactive } from '../hooks';
+import { usePropsReactive } from '../utils';
 import type { RangingToolProps, RangingToolOptions } from './types';
 import { converterMap, setterMap, allProps } from './config';
 
@@ -8,10 +8,10 @@ export const RangingTool = React.forwardRef<AMap.RangingTool, RangingToolProps>(
   props = {},
   ref
 ) => {
-  const { map } = useMap();
+  const { map, AMap } = useMap();
   const instanceObj = useRef<AMap.RangingTool>(null);
 
-  const { loaded, onInstanceCreated } = usePropsReactive<AMap.RangingTool, RangingToolProps>(
+  const { loaded, onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {
@@ -39,7 +39,7 @@ export const RangingTool = React.forwardRef<AMap.RangingTool, RangingToolProps>(
 
   const createInstance = () => {
     return new Promise<void>((resolve) => {
-      map.plugin(['AMap.RangingTool'], () => {
+      AMap.plugin(['AMap.RangingTool'], () => {
         const options = buildCreateOptions();
 
         instanceObj.current = new AMap.RangingTool(map, options);

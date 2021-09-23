@@ -1,15 +1,15 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
-import { usePropsReactive } from '../hooks';
+import { usePropsReactive } from '../utils';
 import { buildCreateOptions } from '../utils/overlay';
 import { allProps, setterMap, converterMap } from './config';
 import type { CircleMarkerProps } from './types';
 
 export const CircleMarker = React.forwardRef<AMap.CircleMarker, CircleMarkerProps>((props = {}, ref) => {
-  const { map } = useMap();
+  const { map, AMap } = useMap();
   const instanceObj = useRef<AMap.CircleMarker>(null);
 
-  const { loaded, onInstanceCreated } = usePropsReactive<AMap.CircleMarker, CircleMarkerProps>(
+  const { loaded, onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {
@@ -42,7 +42,7 @@ export const CircleMarker = React.forwardRef<AMap.CircleMarker, CircleMarkerProp
       converterMap
     );
     options.map = map;
-    instanceObj.current = new window.AMap.CircleMarker(options);
+    instanceObj.current = new AMap.CircleMarker(options);
     return Promise.resolve();
   }
 

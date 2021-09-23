@@ -3,7 +3,7 @@ import { Map, Polygon, PolyEditor } from '@pansy/react-amap';
 
 export default () => {
   const [active, setActive] = useState<boolean>(true);
-  const [path] = useState<ReactAMap.Position[]>([
+  const [path] = useState<AMap.ExpandPosition[]>([
     [116.403322, 39.920255],
     [116.410703, 39.897555],
     [116.402292, 39.892353],

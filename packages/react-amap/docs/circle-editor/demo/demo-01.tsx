@@ -4,7 +4,7 @@ import { Map, Circle, CircleEditor } from '@pansy/react-amap';
 
 export default () => {
   const [active, setActive] = useState<boolean>(true);
-  const [center] = useState<ReactAMap.Position>({
+  const [center] = useState<AMap.ExpandPosition>({
     longitude: 120,
     latitude: 30
   });

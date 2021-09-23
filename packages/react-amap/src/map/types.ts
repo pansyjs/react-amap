@@ -20,7 +20,7 @@ export interface BaseMapProps extends Omit<MapOptions, 'center'> {
   /** 地图状态 */
   status?: MapStatus;
   /** 地图中心点坐标值 */
-  center?: ReactAMap.Position;
+  center?: AMap.ExpandPosition;
   /** 加载高德地图JS使用的协议 */
   protocol?: string;
   /** 加载高德API的前半部分 */
