@@ -3220,17 +3220,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pansy/amap-api-loader@0.3.3, @pansy/amap-api-loader@workspace:packages/amap-api-loader":
+"@pansy/amap-api-loader@0.3.3, @pansy/amap-api-loader@workspace:packages/api-loader":
   version: 0.0.0-use.local
-  resolution: "@pansy/amap-api-loader@workspace:packages/amap-api-loader"
+  resolution: "@pansy/amap-api-loader@workspace:packages/api-loader"
   dependencies:
     "@pansy/amap-types": 2.11.0
   languageName: unknown
   linkType: soft
 
-"@pansy/amap-types@2.11.0, @pansy/amap-types@workspace:packages/amap-types":
+"@pansy/amap-types@2.11.0, @pansy/amap-types@workspace:packages/types":
   version: 0.0.0-use.local
-  resolution: "@pansy/amap-types@workspace:packages/amap-types"
+  resolution: "@pansy/amap-types@workspace:packages/types"
   languageName: unknown
   linkType: soft
 
@@ -3263,8 +3263,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@pansy/workspace@workspace:."
   dependencies:
-    "@pansy/amap-api-loader": "workspace:packages/amap-api-loader"
-    "@pansy/amap-types": "workspace:packages/amap-types"
+    "@pansy/amap-api-loader": "workspace:packages/api-loader"
+    "@pansy/amap-types": "workspace:packages/types"
     "@pansy/react-amap": "workspace:packages/amap"
     "@types/react": 17.0.24
     "@types/react-dom": 17.0.9
@@ -11774,9 +11774,9 @@ fsevents@~2.1.2:
   linkType: hard
 
 "nanocolors@npm:^0.1.0, nanocolors@npm:^0.1.5":
-  version: 0.1.11
-  resolution: "nanocolors@npm:0.1.11"
-  checksum: 1d9ce971f1803b746f8e26177abff8ede81e754bb44d453ba704a4fef4d8caf585fd300aae97ea2f87b4ac6a6b4555448fd522506ca30c45aef4b5fa368086b5
+  version: 0.1.12
+  resolution: "nanocolors@npm:0.1.12"
+  checksum: 2ce58f57006ddd1d2680d05fe21f54d858db8ba81bd13381598ddc546f7637e33c4407da2ea7da40ea1c96794250e7c14a4d00358b48eeae4d917d6a92bafe4c
   languageName: node
   linkType: hard
 
