@@ -20,7 +20,7 @@ export default {
   resolve: {
     includes: [
       'docs',
-      'packages/react-amap/docs'
+      'packages/amap/docs'
     ]
   },
   hash: true,
