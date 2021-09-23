@@ -3242,9 +3242,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pansy/react-amap@workspace:packages/react-amap":
+"@pansy/react-amap@workspace:packages/amap":
   version: 0.0.0-use.local
-  resolution: "@pansy/react-amap@workspace:packages/react-amap"
+  resolution: "@pansy/react-amap@workspace:packages/amap"
   dependencies:
     "@pansy/amap-api-loader": 0.3.3
     "@pansy/amap-types": 2.11.0
@@ -3265,7 +3265,7 @@ __metadata:
   dependencies:
     "@pansy/amap-api-loader": "workspace:packages/amap-api-loader"
     "@pansy/amap-types": "workspace:packages/amap-types"
-    "@pansy/react-amap": "workspace:packages/react-amap"
+    "@pansy/react-amap": "workspace:packages/amap"
     "@types/react": 17.0.24
     "@types/react-dom": 17.0.9
     "@umijs/plugin-antd": 0.11.0
@@ -5858,9 +5858,11 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30000971, caniuse-lite@npm:^1.0.30000981, caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001259":
-  version: 1.0.30001259
-  resolution: "caniuse-lite@npm:1.0.30001259"
-  checksum: 4b0423693616a62d3a9beaa35ab5a414a9e4398df7361915ca2b6f24142f1f55909e014d5f0c14c034c0fd5084524116ab46bcdfae5c3b8620f11f2822a1c4ba
+  version: 1.0.30001260
+  resolution: "caniuse-lite@npm:1.0.30001260"
+  dependencies:
+    nanocolors: ^0.1.0
+  checksum: a3a61073204636e02bc3972bfdcd8b3c3a2fb56f29b5ffa95fad7e5a01e2eece2ed92f1246728185992618a04f9221cbd83ddd96d2ef68083353d55ffe660e29
   languageName: node
   linkType: hard
 
@@ -11771,10 +11773,10 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"nanocolors@npm:^0.1.5":
-  version: 0.1.6
-  resolution: "nanocolors@npm:0.1.6"
-  checksum: 3e748505531f5b21b98275cc8012efa92394ae1b6132d80e96646c20f0ca46442e82ab4b11ad57edccb8bf40433ade6e16d1ce535bc536bde6c009396467c887
+"nanocolors@npm:^0.1.0, nanocolors@npm:^0.1.5":
+  version: 0.1.11
+  resolution: "nanocolors@npm:0.1.11"
+  checksum: 1d9ce971f1803b746f8e26177abff8ede81e754bb44d453ba704a4fef4d8caf585fd300aae97ea2f87b4ac6a6b4555448fd522506ca30c45aef4b5fa368086b5
   languageName: node
   linkType: hard
 
