@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.10.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.9.0...@pansy/react-amap@2.10.0) (2021-09-22)
+
+
+### Features
+
+* **react-amap:** add Traffic component ([3f2dcdf](https://github.com/pansyjs/react-amap/commit/3f2dcdf61c2441df11fee32dbd7ffa0804d44d49))
+
+
+
+
+
+# [2.9.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.8.1...@pansy/react-amap@2.9.0) (2021-09-22)
+
+
+### Features
+
+* **react-amap:** add Satellite component ([01e4b65](https://github.com/pansyjs/react-amap/commit/01e4b655de4f9715aae3b93a27e25d8c57db3068))
+
+
+
+
+
 ## [2.8.1](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.8.0...@pansy/react-amap@2.8.1) (2021-09-14)
 
 **Note:** Version bump only for package @pansy/react-amap

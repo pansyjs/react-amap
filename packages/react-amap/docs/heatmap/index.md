@@ -5,7 +5,7 @@ nav:
   path: /components
 order: 1
 group:
-  path: /layer
+  path: /layers
   title: 图层
   order: 10
 ---
