@@ -37,7 +37,7 @@ jobs:
           node-version: 12
 
       - name: "Install dependencies"
-        run: yarn install
+        run: yarn install --immutable
         shell: bash
 
       - name: "Build"
