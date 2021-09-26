@@ -5,7 +5,7 @@ declare namespace AMap {
         /**
          * 地图对象实例
          */
-        map: AMap.Map;
+        map?: AMap.Map;
 
         /**
          * 绘制用图层的叠加顺序值

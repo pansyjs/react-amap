@@ -9,6 +9,8 @@ declare namespace AMapUI {
    */
   function load(module: string[], callback: (instance: any) => void): void;
 
+  function loadUI(module: string[], callback: (instance: any) => void)
+
   /**
    * 高德JS API 版本
    */

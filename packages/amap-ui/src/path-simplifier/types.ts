@@ -1,3 +1,3 @@
-export interface PathNavigatorProps extends AMap.AMapUI.PathNavigator.Options {
+export interface PathSimplifierProps extends AMap.AMapUI.PathSimplifier.Options {
 
 }

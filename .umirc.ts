@@ -9,6 +9,7 @@ export default {
   mode: 'site',
   alias: {
     '@pansy/react-amap': join(__dirname, 'packages/amap/src'),
+    '@pansy/react-amap-ui': join(__dirname, 'packages/amap-ui/src'),
   },
   navs: [
     null,
@@ -20,7 +21,8 @@ export default {
   resolve: {
     includes: [
       'docs',
-      'packages/amap/docs'
+      'packages/amap/docs',
+      'packages/amap-ui/docs'
     ]
   },
   hash: true,

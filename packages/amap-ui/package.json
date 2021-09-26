@@ -12,6 +12,9 @@
   "peerDependencies": {
     "@pansy/react-amap": ">2"
   },
+  "dependencies": {
+    "@pansy/react-amap-core": "1.1.0"
+  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
     "access": "public"
