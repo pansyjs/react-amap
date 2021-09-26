@@ -13,10 +13,10 @@
     "release": "release --commit-message 'release publish'"
   },
   "devDependencies": {
-    "@pansy/react-amap-ui": "workspace:packages/react-amap-ui",
     "@pansy/amap-api-loader": "workspace:packages/api-loader",
     "@pansy/amap-types": "workspace:packages/types",
     "@pansy/react-amap": "workspace:packages/amap",
+    "@pansy/react-amap-ui": "workspace:packages/amap-ui",
     "@types/react": "17.0.24",
     "@types/react-dom": "17.0.9",
     "@umijs/plugin-antd": "0.11.0",
