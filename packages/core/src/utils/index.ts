@@ -18,6 +18,15 @@ export const getAMap = (): typeof AMap => {
   return window.AMap || window.proxy.AMap;
 }
 
+/**
+ * 获取AMapUI对象，主要为了兼容乾坤
+ * @returns AMapUI
+ */
+ export const getAMapUI = (): typeof AMapUI => {
+  // @ts-ignore
+  return window.AMapUI || window.proxy.AMapUI;
+}
+
 export { toLnglat } from './toLnglat';
 export { toSize } from './toSize';
 export { toBounds } from './toBounds';
