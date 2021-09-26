@@ -8,7 +8,7 @@ export default {
   favicon: logo,
   mode: 'site',
   alias: {
-    '@pansy/react-amap': join(__dirname, 'packages/react-amap/src'),
+    '@pansy/react-amap': join(__dirname, 'packages/amap/src'),
   },
   navs: [
     null,
@@ -20,7 +20,7 @@ export default {
   resolve: {
     includes: [
       'docs',
-      'packages/react-amap/docs'
+      'packages/amap/docs'
     ]
   },
   hash: true,

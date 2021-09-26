@@ -1,0 +1,17 @@
+{
+  "name": "@pansy/amap-types",
+  "version": "2.11.1",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "loca",
+    "map",
+    "index.d.ts"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "packageManager": "yarn@3.0.1"
+}

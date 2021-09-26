@@ -1,0 +1,22 @@
+{
+  "name": "@pansy/react-amap",
+  "version": "2.10.1",
+  "files": [
+    "es",
+    "lib"
+  ],
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "license": "MIT",
+  "dependencies": {
+    "@pansy/amap-api-loader": "0.3.4",
+    "@pansy/amap-types": "2.11.1",
+    "@pansy/react-amap-core": "1.1.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "packageManager": "yarn@3.0.1"
+}
