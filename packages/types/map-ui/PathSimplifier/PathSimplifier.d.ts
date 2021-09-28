@@ -262,7 +262,7 @@ declare namespace AMap {
        * @param pathIndex 关联的轨迹索引
        * @param options 巡航器的配置选项
        */
-      createPathNavigator(pathIndex: number, options: PathNavigator.Options): typeof PathNavigator;
+      createPathNavigator(pathIndex: number, options: PathNavigator.Options): PathNavigator;
 
       /**
        * 返回现存的所有轨迹巡航器

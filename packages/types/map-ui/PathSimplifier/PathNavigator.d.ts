@@ -96,7 +96,7 @@ declare namespace AMap {
        * 开始路径巡航。 pointIndex用于指定巡航的起始节点索引，默认为节点索引范围（range）的最小值
        * @param pointIndex
        */
-      start(pointIndex: number): void;
+      start(pointIndex?: number): void;
 
       /**
        * 暂停巡航
