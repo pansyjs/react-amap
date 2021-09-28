@@ -3220,25 +3220,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pansy/amap-api-loader@0.3.3, @pansy/amap-api-loader@workspace:packages/api-loader":
+"@pansy/amap-api-loader@0.3.4, @pansy/amap-api-loader@workspace:packages/api-loader":
   version: 0.0.0-use.local
   resolution: "@pansy/amap-api-loader@workspace:packages/api-loader"
   dependencies:
-    "@pansy/amap-types": 2.11.0
+    "@pansy/amap-types": 2.11.1
   languageName: unknown
   linkType: soft
 
-"@pansy/amap-types@2.11.0, @pansy/amap-types@workspace:packages/types":
+"@pansy/amap-types@2.11.1, @pansy/amap-types@workspace:packages/types":
   version: 0.0.0-use.local
   resolution: "@pansy/amap-types@workspace:packages/types"
   languageName: unknown
   linkType: soft
 
-"@pansy/react-amap-core@1.0.0, @pansy/react-amap-core@workspace:packages/core":
+"@pansy/react-amap-core@1.1.0, @pansy/react-amap-core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@pansy/react-amap-core@workspace:packages/core"
   dependencies:
-    "@pansy/amap-types": 2.11.0
+    "@pansy/amap-types": 2.11.1
   languageName: unknown
   linkType: soft
 
@@ -3246,9 +3246,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@pansy/react-amap@workspace:packages/amap"
   dependencies:
-    "@pansy/amap-api-loader": 0.3.3
-    "@pansy/amap-types": 2.11.0
-    "@pansy/react-amap-core": 1.0.0
+    "@pansy/amap-api-loader": 0.3.4
+    "@pansy/amap-types": 2.11.1
+    "@pansy/react-amap-core": 1.1.0
   languageName: unknown
   linkType: soft
 
@@ -3273,7 +3273,7 @@ __metadata:
     "@walrus/commit": 1.2.1
     "@walrus/release-cli": 1.0.5
     antd: 4.16.13
-    dumi: 1.1.29
+    dumi: 1.1.30
     father-build: 1.20.0
     lerna: 4.0.0
     react: 17.0.2
@@ -4301,9 +4301,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@umijs/preset-dumi@npm:1.1.29":
-  version: 1.1.29
-  resolution: "@umijs/preset-dumi@npm:1.1.29"
+"@umijs/preset-dumi@npm:1.1.30":
+  version: 1.1.30
+  resolution: "@umijs/preset-dumi@npm:1.1.30"
   dependencies:
     "@babel/core": ^7.7.2
     "@babel/generator": ^7.7.2
@@ -4319,7 +4319,7 @@ __metadata:
     copy-text-to-clipboard: ^2.2.0
     deepmerge: ^4.2.2
     dumi-assets-types: 1.0.0
-    dumi-theme-default: 1.1.12
+    dumi-theme-default: 1.1.13
     enhanced-resolve: ^4.1.1
     github-slugger: ^1.3.0
     hast-util-has-property: ^1.0.4
@@ -4351,7 +4351,7 @@ __metadata:
     unist-util-visit-parents: ^3.0.1
   peerDependencies:
     umi: 3.x
-  checksum: 8c0953852a1eae0109d56389141c77d90bb8fdac4e69057b2a8f29a58e9384272b7a899663dc3385e34ccfdf2f22e61f6869cc8d5d9368649dc6f464e8dd27ea
+  checksum: 0cabd6783fc82c83c3c7d0f8bb8c00f70fea53802e06d7695681ba348e9097a1fce45dff8a37d44aa01764b39a729d678bfa58c9f997de02b68913a2071ed232
   languageName: node
   linkType: hard
 
@@ -7484,9 +7484,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dumi-theme-default@npm:1.1.12":
-  version: 1.1.12
-  resolution: "dumi-theme-default@npm:1.1.12"
+"dumi-theme-default@npm:1.1.13":
+  version: 1.1.13
+  resolution: "dumi-theme-default@npm:1.1.13"
   dependencies:
     prism-react-renderer: ^1.1.1
     prismjs: ^1.21.0
@@ -7494,19 +7494,19 @@ __metadata:
   peerDependencies:
     "@umijs/preset-dumi": 1.x
     react: ^16.13.1 || ^17.0.0
-  checksum: ce0729334fb59c421725220fddcb227d69ee61eec746372bfc7cef1034053ccb6e296da2248d5339133e83441bf044e9043f9648fc497a11d963698044efcc18
+  checksum: 4b5e0f21ac7fe89ace5246cecdd20c1067fbbcd8996dd362b7797642182e902c7940678073503a6c9c9b8d4e02a85690d0bf36c913137fd0df7f75b63becf1b1
   languageName: node
   linkType: hard
 
-"dumi@npm:1.1.29":
-  version: 1.1.29
-  resolution: "dumi@npm:1.1.29"
+"dumi@npm:1.1.30":
+  version: 1.1.30
+  resolution: "dumi@npm:1.1.30"
   dependencies:
-    "@umijs/preset-dumi": 1.1.29
+    "@umijs/preset-dumi": 1.1.30
     umi: ^3.0.0
   bin:
     dumi: bin/dumi.js
-  checksum: aeebea8219e73883213139623955954ed957254f8b24ec052c5dffae0d2e017a00a8c5e56791679f8f27af10ef905244a9d44ba84c6114cb94215874d7ae22f8
+  checksum: 439b6489dce5ae7d188e52713b589cc79a243d320a02a6281a16426c27ed54a93774982a6d6bc9a6d4dcd0f701f79c8054512f02c04f84cd396d992c6bdb49d1
   languageName: node
   linkType: hard
 
