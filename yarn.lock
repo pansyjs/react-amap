@@ -3285,7 +3285,7 @@ __metadata:
     "@walrus/release-cli": 1.0.5
     antd: 4.16.13
     dumi: 1.1.30
-    father-build: 1.20.0
+    father-build: 1.20.1
     lerna: 4.0.0
     react: 17.0.2
     react-dom: 17.0.2
@@ -8040,9 +8040,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"father-build@npm:1.20.0":
-  version: 1.20.0
-  resolution: "father-build@npm:1.20.0"
+"father-build@npm:1.20.1":
+  version: 1.20.1
+  resolution: "father-build@npm:1.20.1"
   dependencies:
     "@babel/core": 7.12.3
     "@babel/plugin-proposal-class-properties": 7.12.1
@@ -8100,7 +8100,7 @@ __metadata:
     yargs-parser: 13.1.2
   bin:
     father-build: bin/father-build.js
-  checksum: f13b3ac0f7122b3d86c907095b72cac501f9840b0bfb8aaef0720b2a0f85f4fcb4870a9a6d60db31ae01deee427933ba52f455e8dd7c1044772cee158ac77334
+  checksum: 3588c1e5b2d3666577bef3543e47fc18acb5708129da65b08b060943c0f2d9ac36d4ca88ba86b8d5f02bc6216fcc84c0ebf523fd8d137840eaa3960eb663b59c
   languageName: node
   linkType: hard
 
