@@ -8,7 +8,7 @@ group:
   title: 工具
 ---
 
-# CircleEditor 折线/多边形编辑
+# PolyEditor 折线/多边形编辑
 
 ## 何时使用
 
