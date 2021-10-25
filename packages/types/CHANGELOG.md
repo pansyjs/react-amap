@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.13.0](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.12.0...@pansy/amap-types@2.13.0) (2021-10-25)
+
+
+### Features
+
+* **types:** add map-ui ([b048828](https://github.com/pansyjs/react-amap/commit/b0488281813cad0500c4eec8125783d8d315a471))
+
+
+
+
+
 # [2.12.0](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.11.1...@pansy/amap-types@2.12.0) (2021-09-28)
 
 
