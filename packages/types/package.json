@@ -6,6 +6,7 @@
   "files": [
     "loca",
     "map",
+    "map-ui",
     "index.d.ts"
   ],
   "license": "MIT",
