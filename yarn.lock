@@ -3282,7 +3282,7 @@ __metadata:
     "@umijs/plugin-antd": 0.11.0
     "@walrus/cli": 1.3.4
     "@walrus/commit": 1.2.1
-    "@walrus/release-cli": 1.0.5
+    "@walrus/plugin-release": 1.14.0
     antd: 4.16.13
     dumi: 1.1.31
     father-build: 1.20.1
@@ -4542,23 +4542,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@walrus/plugin-release@npm:1.14.0":
+  version: 1.14.0
+  resolution: "@walrus/plugin-release@npm:1.14.0"
+  dependencies:
+    "@walrus/release": 1.0.5
+  peerDependencies:
+    "@walrus/cli": 1.x
+  checksum: c805841cfe2706425b7269b1ee7fb6cd51fe570a99ac0ce5a18ad5c7cf756a8e2f4e78e480f9cceac158ea089624f4c4525ecd6cb9cdf4b3f5826a7ad91c3550
+  languageName: node
+  linkType: hard
+
 "@walrus/preset-internal@npm:1.3.4":
   version: 1.3.4
   resolution: "@walrus/preset-internal@npm:1.3.4"
   dependencies:
     "@walrus/types": 1.3.4
   checksum: 8ce048fe065d96a5b7f2c39ad4fec80ed7bdad2f7767a64c3eb82ed66e1c92fa22cdc886d7f4ad8e445220099ad25d888484295003bf65dc2923133c69bf4822
-  languageName: node
-  linkType: hard
-
-"@walrus/release-cli@npm:1.0.5":
-  version: 1.0.5
-  resolution: "@walrus/release-cli@npm:1.0.5"
-  dependencies:
-    "@walrus/release": 1.0.5
-  bin:
-    release: lib/index.js
-  checksum: 4a3bb7258edcdfb861caf3939d9afb2c4c8229aab4c15bbb94192e393aa311c3a4d38f160ae17f9cabba46e638e1cc5b80a536c8ef8b9c24437a4dce528264bc
   languageName: node
   linkType: hard
 
