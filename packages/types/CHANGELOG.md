@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.14.0](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.13.0...@pansy/amap-types@2.14.0) (2021-10-29)
+
+
+### Features
+
+* **amap:** add MassMarks component ([942671a](https://github.com/pansyjs/react-amap/commit/942671a562a65425997191ea91dc0563e63445d9))
+
+
+
+
+
 # [2.13.0](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.12.0...@pansy/amap-types@2.13.0) (2021-10-25)
 
 
