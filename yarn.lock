@@ -3220,25 +3220,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pansy/amap-api-loader@0.3.6, @pansy/amap-api-loader@workspace:packages/api-loader":
+"@pansy/amap-api-loader@0.3.7, @pansy/amap-api-loader@workspace:packages/api-loader":
   version: 0.0.0-use.local
   resolution: "@pansy/amap-api-loader@workspace:packages/api-loader"
   dependencies:
-    "@pansy/amap-types": 2.13.0
+    "@pansy/amap-types": 2.14.0
   languageName: unknown
   linkType: soft
 
-"@pansy/amap-types@2.13.0, @pansy/amap-types@workspace:packages/types":
+"@pansy/amap-types@2.14.0, @pansy/amap-types@workspace:packages/types":
   version: 0.0.0-use.local
   resolution: "@pansy/amap-types@workspace:packages/types"
   languageName: unknown
   linkType: soft
 
-"@pansy/react-amap-core@1.2.1, @pansy/react-amap-core@workspace:packages/core":
+"@pansy/react-amap-core@1.2.2, @pansy/react-amap-core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@pansy/react-amap-core@workspace:packages/core"
   dependencies:
-    "@pansy/amap-types": 2.13.0
+    "@pansy/amap-types": 2.14.0
   languageName: unknown
   linkType: soft
 
@@ -3246,7 +3246,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@pansy/react-amap-ui@workspace:packages/amap-ui"
   dependencies:
-    "@pansy/react-amap-core": 1.2.1
+    "@pansy/react-amap-core": 1.2.2
   peerDependencies:
     "@pansy/react-amap": ">2"
   languageName: unknown
@@ -3256,9 +3256,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@pansy/react-amap@workspace:packages/amap"
   dependencies:
-    "@pansy/amap-api-loader": 0.3.6
-    "@pansy/amap-types": 2.13.0
-    "@pansy/react-amap-core": 1.2.1
+    "@pansy/amap-api-loader": 0.3.7
+    "@pansy/amap-types": 2.14.0
+    "@pansy/react-amap-core": 1.2.2
   languageName: unknown
   linkType: soft
 
