@@ -6,7 +6,7 @@ import { setterMap, converterMap } from './config';
 export const PolyEditor = React.forwardRef<AMap.PolyEditor, PolyEditorProps>((props = {}, ref) => {
   const instanceObj = useRef<AMap.PolyEditor>(null);
 
-  const { onInstanceCreated } = usePropsReactive(
+  const { loaded, onInstanceCreated } = usePropsReactive(
     props,
     instanceObj,
     {
@@ -30,7 +30,7 @@ export const PolyEditor = React.forwardRef<AMap.PolyEditor, PolyEditorProps>((pr
   useImperativeHandle(
     ref,
     () => instanceObj.current,
-    [instanceObj.current]
+    [loaded]
   );
 
   const createInstance = () => {

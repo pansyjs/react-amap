@@ -16,6 +16,11 @@ export default () => {
           center={[116.407394, 39.904211]}
           radius={10+Math.random()*10}
           style={circleMarkerStyle}
+          events={{
+            click: () => {
+              console.log('click');
+            }
+          }}
         />
         <CircleMarker
           center={[113.26641, 23.132324]}

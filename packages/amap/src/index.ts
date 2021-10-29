@@ -32,6 +32,7 @@ import { APILoader } from './api-loader';
 import { Satellite } from './satellite';
 import { Traffic } from './traffic';
 import { Heatmap } from './heatmap';
+import { MassMarks } from './mass-marks';
 import { toLnglat, toSize, toPixel, toBounds } from './utils';
 
 export {
@@ -70,6 +71,7 @@ export {
   Traffic,
   Heatmap,
   Satellite,
+  MassMarks,
   toLnglat,
   toSize,
   toPixel,
@@ -112,6 +114,7 @@ export default {
   Traffic,
   Heatmap,
   Satellite,
+  MassMarks,
   toLnglat,
   toSize,
   toPixel,
