@@ -26,7 +26,7 @@ const MyMapComponent = (props) => {
 </Map>
 ```
 
-我们会使用Content共享`map`示例，你可以通过`useMap`在你的自定义组件中获取；
+我们会使用`React Context`共享`map`示例，你可以通过`const { map } = useMap()`在你的自定义组件中获取；
 
 拥有访问这`map`实例的能力后，你可以根据高德原生 API 做高德允许你做的一切事情。
 
