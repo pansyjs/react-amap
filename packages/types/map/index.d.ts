@@ -5,6 +5,7 @@
 /// <reference path="./overlay/index.d.ts" />
 /// <reference path="./utils/index.d.ts" />
 /// <reference path="./map/index.d.ts" />
+/// <reference path="./others/index.d.ts" />
 /// <reference path="./info-window/index.d.ts" />
 /// <reference path="./point-mark/index.d.ts" />
 /// <reference path="./position/index.d.ts" />

@@ -33,6 +33,7 @@ import { Satellite } from './satellite';
 import { Traffic } from './traffic';
 import { Heatmap } from './heatmap';
 import { MassMarks } from './mass-marks';
+import { DistrictSearch } from './district-search';
 import { toLnglat, toSize, toPixel, toBounds } from './utils';
 
 export {
@@ -72,6 +73,7 @@ export {
   Heatmap,
   Satellite,
   MassMarks,
+  DistrictSearch,
   toLnglat,
   toSize,
   toPixel,
@@ -115,6 +117,7 @@ export default {
   Heatmap,
   Satellite,
   MassMarks,
+  DistrictSearch,
   toLnglat,
   toSize,
   toPixel,
