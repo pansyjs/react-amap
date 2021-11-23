@@ -30,7 +30,7 @@ export default () => {
           getPath={(pathData) => {
             return pathData.path;
           }}
-          autoSetFitView={false}
+          // autoSetFitView={false}
           getHoverTitle={(pathData, pathIndex, pointIndex) => {
             if (pointIndex >= 0) {
               return `${pathData.name}，点：${pointIndex}/${pathData.path.length}`;
