@@ -3279,7 +3279,7 @@ __metadata:
     "@pansy/react-amap-ui": "workspace:packages/amap-ui"
     "@types/react": 17
     "@types/react-dom": 17
-    "@umijs/plugin-antd": 0.11.0
+    "@umijs/plugin-antd": 0.13.0
     "@walrus/cli": 1.3.4
     "@walrus/commit": 1.2.1
     "@walrus/plugin-release": 1.14.0
@@ -4265,15 +4265,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@umijs/plugin-antd@npm:0.11.0":
-  version: 0.11.0
-  resolution: "@umijs/plugin-antd@npm:0.11.0"
+"@umijs/plugin-antd@npm:0.13.0":
+  version: 0.13.0
+  resolution: "@umijs/plugin-antd@npm:0.13.0"
   dependencies:
     antd: ^4.1.3
     antd-mobile: ^2.3.1
+    semver: ^7.3.5
   peerDependencies:
     umi: 3.x
-  checksum: 2f73d100f53d4fa6ec60a5d8ea4333eeef540b7fda15e5b07ad4fd3bdc305694520b83667ed172574bff4e0b8e93066f0f94cece5a942cda4d816a5336f36de0
+  checksum: 50db9cf60387b4347c83b9a3f0b098917438578e09a6d9140c57ecaa200a59879c573799e9c7c2a984e1970dc7e04f0fd1718959f33e1fd90e49b2b8306e8290
   languageName: node
   linkType: hard
 
