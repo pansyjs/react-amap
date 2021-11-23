@@ -1,6 +1,6 @@
 {
   "name": "@pansy/react-amap-core",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "files": [
     "es",
     "lib"
@@ -10,7 +10,7 @@
   "types": "es/index.d.ts",
   "license": "MIT",
   "dependencies": {
-    "@pansy/amap-types": "2.14.0"
+    "@pansy/amap-types": "2.15.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",

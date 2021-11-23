@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.15.0](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.14.0...@pansy/amap-types@2.15.0) (2021-11-23)
+
+
+### Features
+
+* **amap:** add DistrictSearch component ([d4a8fa0](https://github.com/pansyjs/react-amap/commit/d4a8fa0dd4c298125a9973e5322c10483d04631c))
+
+
+
+
+
 # [2.14.0](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.13.0...@pansy/amap-types@2.14.0) (2021-10-29)
 
 
