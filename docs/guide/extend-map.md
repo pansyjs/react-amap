@@ -8,6 +8,13 @@ nav:
   path: /docs
 ---
 
+**注意: 封装高德插件的时候，需要注意，所有参数分为静态属性和动态属性**
+
+- 动态属性 - 高德插件实例提供了方法可对其进行重新设置的即为动态属性
+- 静态属性 - 高德插件创建实例之后无法修改的属性即为静态属性
+
+可使用 `@pansy/react-amap-core` 暴露的方法进行插件封装
+
 # 自定义地图组件
 
 如果 `@pansy/react-amap` 所包含的组件 不满足您的需求，完全可以基于 `@pansy/react-amap` 扩展能力，封装一个地图组件。
@@ -59,3 +66,7 @@ const ZoomCtrl: React.FC = () => {
 
 export default ZoomCtrl;
 ```
+
+如果需求使用不到展示时，可以使用 `APILoader`组件提供的加载高德JS API 的能力进行组件的封装
+
+例如[AutoComplete](https://github.com/pansyjs/react-amap/blob/main/packages/amap/src/auto-complete/auto-complete.tsx)

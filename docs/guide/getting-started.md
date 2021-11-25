@@ -48,11 +48,12 @@ ReactDOM.render(
 )
 ```
 
-version 指定高德地图版本 不填则使用默认值: 1.4.15
+version 指定高德地图版本 不填则使用默认值: 2.0
 
-## 关于 Key
+## 关于 mapKey
+
 在上面的例子中需要给 Map 组件传入 `mapKey` 属性，这个是高德地图给开发者分配的开发者 Key；你可以在[高德开放平台](https://lbs.amap.com/faq/account/key/67)申请你自己的 Key。
 
-在 react-amap 中 Key 的传入方式有两种:
+在 react-amap 中 `mapKey` 的传入方式有两种:
 - 给 Map 组件传入 mapKey 属性（因为 React 框架本身对 key 属性有其他作用，所以不能用 key，所以我们用 mapKey），这样的缺点是如果多个地方使用就要每次都要传入；
-- 定义一个纯组件,把 Map 组件的 mapKey 属性写好后返回新组件。
+- 对Map组件进行再封装，将一些常量属性内置，再在项目中使用。 -- 推荐
