@@ -14,6 +14,10 @@ export default {
   navs: [
     null,
     {
+      title: 'AMap',
+      path: 'https://lbs.amap.com/api/jsapi-v2/documentation',
+    },
+    {
       title: 'GitHub',
       path: 'https://github.com/pansyjs/react-amap',
     },
