@@ -155,6 +155,7 @@ ReactDOM.render(
 |名称|说明|
 |--|--|
 |AutoComplete|关键字搜索|
+|DistrictSearch|行政区查询|
 
 ### 地理编码
 
