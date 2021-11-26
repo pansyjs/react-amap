@@ -29,9 +29,9 @@ export default () => {
           return response.text();
         })
         .then((csv) => {
-          const data = csv.split('\n');
+          const list = csv.split('\n').slice(0, 5000).map(item => item.split(','));
 
-          setData(data.slice(0, 5000).map(item => item.split(',')))
+          setData(list)
         })
     },
     []
@@ -50,7 +50,52 @@ export default () => {
       }
     },
     [pointSimplifier]
-  )
+  );
+
+  const renderOptions: AMap.AMapUI.PointSimplifier.Options['renderOptions'] = {
+    eventSupport: false,
+    pointStyle: {
+      fillStyle: null,
+      width: 5,
+      height: 5
+    },
+    topNAreaStyle: null,
+    getGroupId: () => {
+      return Math.ceil(colors.length * Math.random());
+    },
+    groupStyleOptions: () => {
+      const radius = 2 + 10 * Math.random();
+
+      return {
+        pointStyle: radius > 0
+          ? {
+            content: (ctx, x, y, width, height) => {
+              const p = {
+                x: x + width / 2,
+                y: y + height / 2,
+                radius: radius
+              };
+
+              ctx.beginPath();
+              const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.radius);
+              gradient.addColorStop(0, "rgba(7,120,249,0.8)");
+              gradient.addColorStop(1, "rgba(7,120,249,0.1)");
+              ctx.fillStyle = gradient;
+              ctx.arc(p.x, p.y, p.radius, Math.PI * 2, 0);
+              ctx.fill();
+            },
+            width: radius * 2,
+            height: radius * 2
+          }
+          : null
+        ,
+        pointHardcoreStyle: {
+          width: radius * 2 + 3,
+          height: radius * 2 + 3
+        }
+      }
+    }
+  }
 
   return (
     <div style={{ height: 500 }}>
@@ -70,50 +115,7 @@ export default () => {
             return `序号: ${index}`;
           }}
           renderConstructor="GroupStyleRender"
-          renderOptions={{
-            eventSupport: false,
-            pointStyle: {
-              fillStyle: null,
-              width: 5,
-              height: 5
-            },
-            topNAreaStyle: null,
-            getGroupId: () => {
-              return Math.ceil(colors.length * Math.random());
-            },
-            groupStyleOptions: () => {
-              const radius = 2 + 10 * Math.random();
-
-              return {
-                pointStyle: radius > 0
-                  ? {
-                    content: (ctx, x, y, width, height) => {
-                      const p = {
-                        x: x + width / 2,
-                        y: y + height / 2,
-                        radius: radius
-                      };
-
-                      ctx.beginPath();
-                      const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.radius);
-                      gradient.addColorStop(0, "rgba(7,120,249,0.8)");
-                      gradient.addColorStop(1, "rgba(7,120,249,0.1)");
-                      ctx.fillStyle = gradient;
-                      ctx.arc(p.x, p.y, p.radius, Math.PI * 2, false);
-                      ctx.fill();
-                    },
-                    width: radius * 2,
-                    height: radius * 2
-                  }
-                  : null
-                ,
-                pointHardcoreStyle: {
-                  width: radius * 2 + 3,
-                  height: radius * 2 + 3
-                }
-              }
-            }
-          }}
+          renderOptions={renderOptions}
           events={{
             created: (instance) => {
               setPointSimplifier(instance);
