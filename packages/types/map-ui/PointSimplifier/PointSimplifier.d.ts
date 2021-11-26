@@ -1,6 +1,26 @@
 declare namespace AMap {
   namespace AMapUI {
     namespace PointSimplifier {
+      interface Point<D> {
+        data: D,
+        index:number
+      }
+
+      interface EventMap<D> {
+        /**
+         * 鼠标点击点的矩形区域时触发
+         */
+        pointClick?: (event: { type: string; }, point: Point<D>) => void;
+        /**
+         * 鼠标移入到点的矩形区域时触发
+         */
+        pointMouseover?: (event: { type: string; }, point: Point<D>) => void;
+        /**
+         * 鼠标移出到点的矩形区域时触发
+         */
+        pointMouseout?: (event: { type: string; }, point: Point<D>) => void;
+      }
+
       type GetPosition<D> = (dataItem: D, dataIndex: number) => AMap.LngLat | [number, number];
 
       type GetHoverTitle<D> = (dataItem: D, dataIndex: number) => string;

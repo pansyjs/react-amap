@@ -4,25 +4,27 @@ declare namespace AMap {
       namespace Render {
         namespace Canvas {
           namespace GroupStyleRender {
+            type GroupId = number | string;
+
             interface GroupStyle {
-              pointStyle: Canvas.PointStyle;
-              pointHardcoreStyle: Canvas.PointStyle;
-              pointPositionStyle: Canvas.PointStyle;
+              pointStyle?: Canvas.PointStyle;
+              pointHardcoreStyle?: Canvas.PointStyle;
+              pointPositionStyle?: Canvas.PointStyle;
             }
 
-            type GroupStyleOptionsO = Record<string, GroupStyle>;
+            type GroupStyleOptionsO = Record<GroupId, GroupStyle>;
 
-            type GroupStyleOptionsF = (groupId: string) => GroupStyle;
+            type GroupStyleOptionsF = (groupId: GroupId) => GroupStyle;
 
             interface Options extends Canvas.Options {
               /**
                * 返回某个数据项的分组Id
                */
-              getGroupId: (item: any, index: number) => string;
+              getGroupId?: (item: any, index: number) => GroupId;
               /**
                * 分组样式
                */
-              groupStyleOptions: GroupStyleOptionsO | GroupStyleOptionsF;
+              groupStyleOptions?: GroupStyleOptionsO | GroupStyleOptionsF;
             }
           }
 

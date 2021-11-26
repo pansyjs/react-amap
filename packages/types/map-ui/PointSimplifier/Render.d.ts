@@ -166,11 +166,11 @@ declare namespace AMap {
             /**
              * 返回一个面积阈值，当四叉树的节点区域小于该阈值时，会进行TopN选取。
              */
-            getAreaSizeForTopSelect: GetAreaSizeForTopSelect;
+            getAreaSizeForTopSelect?: GetAreaSizeForTopSelect;
             /**
              * 返回某个区域内按优先级
              */
-            getNumForTopSelect: GetNumForTopSelect;
+            getNumForTopSelect?: GetNumForTopSelect;
           }
         }
 
