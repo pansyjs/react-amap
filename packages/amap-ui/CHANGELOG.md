@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.5](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap-ui@2.1.4...@pansy/react-amap-ui@2.1.5) (2021-11-26)
+
+**Note:** Version bump only for package @pansy/react-amap-ui
+
+
+
+
+
 ## [2.1.4](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap-ui@2.1.3...@pansy/react-amap-ui@2.1.4) (2021-11-26)
 
 **Note:** Version bump only for package @pansy/react-amap-ui
