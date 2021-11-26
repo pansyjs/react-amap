@@ -169,6 +169,7 @@ ReactDOM.render(
 |名称|说明|
 |--|--|
 |[PathNavigator](https://react-amap-pansyjs.vercel.app/components/amap-ui/path-simplifier)|轨迹巡航控制|
+|[PointSimplifier](https://react-amap-pansyjs.vercel.app/components/amap-ui/point-simplifier)|海量点展示|
 
 ## 👥 社区互助
 
