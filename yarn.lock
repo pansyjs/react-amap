@@ -3232,25 +3232,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pansy/amap-api-loader@0.3.9, @pansy/amap-api-loader@workspace:packages/api-loader":
+"@pansy/amap-api-loader@0.3.10, @pansy/amap-api-loader@workspace:packages/api-loader":
   version: 0.0.0-use.local
   resolution: "@pansy/amap-api-loader@workspace:packages/api-loader"
   dependencies:
-    "@pansy/amap-types": 2.16.0
+    "@pansy/amap-types": 2.16.1
   languageName: unknown
   linkType: soft
 
-"@pansy/amap-types@2.16.0, @pansy/amap-types@workspace:packages/types":
+"@pansy/amap-types@2.16.1, @pansy/amap-types@workspace:packages/types":
   version: 0.0.0-use.local
   resolution: "@pansy/amap-types@workspace:packages/types"
   languageName: unknown
   linkType: soft
 
-"@pansy/react-amap-core@1.2.4, @pansy/react-amap-core@workspace:packages/core":
+"@pansy/react-amap-core@1.2.5, @pansy/react-amap-core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@pansy/react-amap-core@workspace:packages/core"
   dependencies:
-    "@pansy/amap-types": 2.16.0
+    "@pansy/amap-types": 2.16.1
   languageName: unknown
   linkType: soft
 
@@ -3258,8 +3258,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@pansy/react-amap-ui@workspace:packages/amap-ui"
   dependencies:
-    "@pansy/amap-types": 2.16.0
-    "@pansy/react-amap-core": 1.2.4
+    "@pansy/amap-types": 2.16.1
+    "@pansy/react-amap-core": 1.2.5
   peerDependencies:
     "@pansy/react-amap": ">2"
   languageName: unknown
@@ -3269,9 +3269,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@pansy/react-amap@workspace:packages/amap"
   dependencies:
-    "@pansy/amap-api-loader": 0.3.9
-    "@pansy/amap-types": 2.16.0
-    "@pansy/react-amap-core": 1.2.4
+    "@pansy/amap-api-loader": 0.3.10
+    "@pansy/amap-types": 2.16.1
+    "@pansy/react-amap-core": 1.2.5
   languageName: unknown
   linkType: soft
 
@@ -17437,11 +17437,11 @@ __metadata:
 
 "typescript@patch:typescript@4.5.2#~builtin<compat/typescript>, typescript@patch:typescript@^4.0.5#~builtin<compat/typescript>":
   version: 4.5.2
-  resolution: "typescript@patch:typescript@npm%3A4.5.2#~builtin<compat/typescript>::version=4.5.2&hash=ddd1e8"
+  resolution: "typescript@patch:typescript@npm%3A4.5.2#~builtin<compat/typescript>::version=4.5.2&hash=493e53"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 24a439e062a05e3285a4f0e8a40644116ecdca89f3e908bed01e5a01b9aee747e3bcf0e85fe9e017e5ebf0c0863437c39479f2616f55a244c2d82d37022cdc4f
+  checksum: 53838d56aba6fcc947d63aa0771e5d966b1b648fddafed6e221d7f38c71219c4e036ece8cfe9e35ed80cf5a35ff4eb958934c993f99c3233773ec4f9ccd53f69
   languageName: node
   linkType: hard
 
