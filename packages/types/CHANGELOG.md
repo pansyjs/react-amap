@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.16.0](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.15.0...@pansy/amap-types@2.16.0) (2021-11-26)
+
+
+### Features
+
+* **map-ui:** add PointSimplifier types ([03db6d7](https://github.com/pansyjs/react-amap/commit/03db6d719fee32dc3a032585bee9d2a6d1d9bcfb))
+
+
+
+
+
 # [2.15.0](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.14.0...@pansy/amap-types@2.15.0) (2021-11-23)
 
 
