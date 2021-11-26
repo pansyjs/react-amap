@@ -15,7 +15,7 @@ export default {
     null,
     {
       title: 'AMap',
-      path: 'https://lbs.amap.com/api/jsapi-v2/documentation',
+      path: 'https://lbs.amap.com/api/jsapi-v2/summary',
     },
     {
       title: 'GitHub',

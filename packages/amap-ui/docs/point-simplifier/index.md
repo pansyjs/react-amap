@@ -14,6 +14,10 @@ group:
 
 ## 代码示例
 
-### 基本使用
+### 闪烁效果
 
 <code src="./demo/demo-01.tsx" />
+
+### 图片内容
+
+<code src="./demo/demo-02.tsx" />

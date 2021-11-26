@@ -72,6 +72,10 @@ export const PointSimplifier = React.forwardRef<AMap.AMapUI.PointSimplifier, Rea
       options.renderConstructor = PointSimplifier.Render.Canvas.GroupStyleRender;
     }
 
+    if (props.getRenderOptions) {
+      options.renderOptions = props.getRenderOptions(PointSimplifier);
+    }
+
     return options;
   }
 

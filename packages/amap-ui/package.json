@@ -13,6 +13,7 @@
     "@pansy/react-amap": ">2"
   },
   "dependencies": {
+    "@pansy/amap-types": "2.16.0",
     "@pansy/react-amap-core": "1.2.4"
   },
   "publishConfig": {
