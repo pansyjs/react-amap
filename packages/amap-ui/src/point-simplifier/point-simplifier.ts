@@ -1,19 +1,19 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '@pansy/react-amap';
 import { getAMapUI, usePropsReactive } from '@pansy/react-amap-core';
-import { PathSimplifierProps } from './types';
+import { PointSimplifierProps } from './types';
 import { setterMap, converterMap, allProps } from './config';
 
-export const PathSimplifier = React.forwardRef<AMap.AMapUI.PathSimplifier, React.PropsWithChildren<PathSimplifierProps>>((
+export const PointSimplifier = React.forwardRef<AMap.AMapUI.PointSimplifier, React.PropsWithChildren<PointSimplifierProps>>((
   props = {},
   ref
 ) => {
   const { map } = useMap();
-  const instanceObj = useRef<AMap.AMapUI.PathSimplifier>(null);
+  const pointSimplifier = useRef<AMap.AMapUI.PointSimplifier>(null);
 
   const { loaded, onInstanceCreated } = usePropsReactive(
     props,
-    instanceObj,
+    pointSimplifier,
     {
       setterMap,
       converterMap
@@ -24,7 +24,7 @@ export const PathSimplifier = React.forwardRef<AMap.AMapUI.PathSimplifier, React
     () => {
       if (map) {
         createInstance().then(() => {
-          onInstanceCreated?.(instanceObj.current);
+          onInstanceCreated?.(pointSimplifier.current);
         });
       }
     },
@@ -33,7 +33,7 @@ export const PathSimplifier = React.forwardRef<AMap.AMapUI.PathSimplifier, React
 
   useImperativeHandle(
     ref,
-    () => instanceObj.current,
+    () => pointSimplifier.current,
     [loaded]
   );
 
@@ -41,21 +41,21 @@ export const PathSimplifier = React.forwardRef<AMap.AMapUI.PathSimplifier, React
     return new Promise<void>((resolve) => {
       const AMapUI = getAMapUI();
 
-      const options = buildCreateOptions();
-      options.map = map;
+      AMapUI.load(['ui/misc/PointSimplifier'], (PointSimplifier) => {
+        const options = buildCreateOptions(PointSimplifier);
+        options.map = map;
 
-      AMapUI.load(['ui/misc/PathSimplifier'], (PathSimplifier) => {
-        instanceObj.current = new PathSimplifier(options);
+        pointSimplifier.current = new PointSimplifier(options);
 
         resolve();
       });
     });
   }
 
-  const buildCreateOptions = () => {
-    const options: PathSimplifierProps = {};
+  const buildCreateOptions = (PointSimplifier) => {
+    const options: AMap.AMapUI.PointSimplifier.Options = {};
 
-    const getSetterValue = (key: string, props: PathSimplifierProps) => {
+    const getSetterValue = (key: string, props: PointSimplifierProps) => {
       if (key in converterMap) {
         return converterMap[key](props[key])
       }
@@ -67,6 +67,10 @@ export const PathSimplifier = React.forwardRef<AMap.AMapUI.PathSimplifier, React
         options[key] = getSetterValue(key, props)
       }
     });
+
+    if (options.renderConstructor) {
+      options.renderConstructor = PointSimplifier.Render.Canvas.GroupStyleRender;
+    }
 
     return options;
   }

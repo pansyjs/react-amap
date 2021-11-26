@@ -1,4 +1,5 @@
 /// <reference path="./PathSimplifier/index.d.ts" />
+/// <reference path="./PointSimplifier/index.d.ts" />
 
 declare namespace AMapUI {
 
