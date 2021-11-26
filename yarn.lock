@@ -3232,25 +3232,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pansy/amap-api-loader@0.3.8, @pansy/amap-api-loader@workspace:packages/api-loader":
+"@pansy/amap-api-loader@0.3.9, @pansy/amap-api-loader@workspace:packages/api-loader":
   version: 0.0.0-use.local
   resolution: "@pansy/amap-api-loader@workspace:packages/api-loader"
   dependencies:
-    "@pansy/amap-types": 2.15.0
+    "@pansy/amap-types": 2.16.0
   languageName: unknown
   linkType: soft
 
-"@pansy/amap-types@2.15.0, @pansy/amap-types@workspace:packages/types":
+"@pansy/amap-types@2.16.0, @pansy/amap-types@workspace:packages/types":
   version: 0.0.0-use.local
   resolution: "@pansy/amap-types@workspace:packages/types"
   languageName: unknown
   linkType: soft
 
-"@pansy/react-amap-core@1.2.3, @pansy/react-amap-core@workspace:packages/core":
+"@pansy/react-amap-core@1.2.4, @pansy/react-amap-core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@pansy/react-amap-core@workspace:packages/core"
   dependencies:
-    "@pansy/amap-types": 2.15.0
+    "@pansy/amap-types": 2.16.0
   languageName: unknown
   linkType: soft
 
@@ -3258,7 +3258,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@pansy/react-amap-ui@workspace:packages/amap-ui"
   dependencies:
-    "@pansy/react-amap-core": 1.2.3
+    "@pansy/amap-types": 2.16.0
+    "@pansy/react-amap-core": 1.2.4
   peerDependencies:
     "@pansy/react-amap": ">2"
   languageName: unknown
@@ -3268,9 +3269,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@pansy/react-amap@workspace:packages/amap"
   dependencies:
-    "@pansy/amap-api-loader": 0.3.8
-    "@pansy/amap-types": 2.15.0
-    "@pansy/react-amap-core": 1.2.3
+    "@pansy/amap-api-loader": 0.3.9
+    "@pansy/amap-types": 2.16.0
+    "@pansy/react-amap-core": 1.2.4
   languageName: unknown
   linkType: soft
 
@@ -7575,9 +7576,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.3.896":
-  version: 1.4.1
-  resolution: "electron-to-chromium@npm:1.4.1"
-  checksum: cd2e5dad2c377d41859501bc39f131a5104fb87a130ba209a57ae3c2bddca0c882067e91c35a7ee77d71481867576d9e68dc8a5a11d6327b5d29c6ea8b94246e
+  version: 1.4.3
+  resolution: "electron-to-chromium@npm:1.4.3"
+  checksum: e78480718ca7c3c8e16c5c4d22bc8055b04f1ff17f33fe33767c62edd5af06e936ba40ef28839813222418376ecfa2fc5515134dba6f24b7e1c6e856ce5e0862
   languageName: node
   linkType: hard
 
@@ -13869,11 +13870,11 @@ __metadata:
   linkType: hard
 
 "prettier@npm:^2.0.5":
-  version: 2.4.1
-  resolution: "prettier@npm:2.4.1"
+  version: 2.5.0
+  resolution: "prettier@npm:2.5.0"
   bin:
     prettier: bin-prettier.js
-  checksum: cc6830588b401b0d742862fe9c46bc9118204fb307c3abe0e49e95b35ed23629573807ffdf9cdd65289c252a0bb51fc0171437f6626ee36378dea80f0ee80b91
+  checksum: aad1b35b73e7c14596d389d90977a83dad0db689ba5802a0ef319c357b7867f55b885db197972aa6a56c30f53088c9f8e0d7f7930ae074c275a4e9cbe091d21d
   languageName: node
   linkType: hard
 
@@ -14655,8 +14656,8 @@ __metadata:
   linkType: hard
 
 "rc-tabs@npm:^11.7.1, rc-tabs@npm:~11.10.0":
-  version: 11.10.3
-  resolution: "rc-tabs@npm:11.10.3"
+  version: 11.10.4
+  resolution: "rc-tabs@npm:11.10.4"
   dependencies:
     "@babel/runtime": ^7.11.2
     classnames: 2.x
@@ -14667,7 +14668,7 @@ __metadata:
   peerDependencies:
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
-  checksum: 0bcb0a3001d7e9abfb524827377402f949e75780c959b0c6caff4b4b3bf9d8e76347739e9defb654a138527d964c461437e9d7e6c3f47e5005ae268c4510f635
+  checksum: a370366abd7a4ec4c9c41f7a5385efc470fb0bc9fa205bb91161bf87fa021035cc1caaa28f5300ca95d98213d76ac17795859e3998e7e79f230e7958341c6853
   languageName: node
   linkType: hard
 
