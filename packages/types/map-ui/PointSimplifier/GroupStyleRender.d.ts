@@ -31,7 +31,6 @@ declare namespace AMap {
           class GroupStyleRender {
             constructor(opts: GroupStyleRender.Options);
           }
-
         }
       }
     }

@@ -85,6 +85,8 @@ declare namespace AMap {
     class PointSimplifier<D = any> {
       constructor(opts: PointSimplifier.Options);
 
+      Render: PointSimplifier.Render;
+
       /**
        * 立即重新绘制
        */
@@ -93,7 +95,7 @@ declare namespace AMap {
       /**
        * 延时设定的毫秒(默认10)后绘制；
        */
-      renderLater(delay: number): void;
+      renderLater(delay?: number): void;
 
       /**
        * 设定数据源数组，并触发重新绘制。data为空时将清除显示内容。

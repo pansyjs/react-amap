@@ -1,3 +1,5 @@
+/// <reference path="./GroupStyleRender.d.ts" />
+
 declare namespace AMap {
   namespace AMapUI {
     namespace PointSimplifier {
@@ -56,11 +58,11 @@ declare namespace AMap {
           ) => number;
 
           interface PointStyle {
-            content?: PointStyleContentS | PointStyleContentF;
+            content?: PointStyleContentS | PointStyleContentF | any;
             /**
              * 绘制区域相对于定位点的偏移，可以使用绝对数值，也可以使用百分比['-50%', '-100%']
              */
-            offset?: [number, number];
+            offset?: [number, number] | [string, string];
             /**
              * 绘制区域矩形的宽度
              */
@@ -176,7 +178,23 @@ declare namespace AMap {
 
         class Canvas {
           constructor(opts: Canvas.Options);
+
+          GroupStyleRender: Canvas.GroupStyleRender;
+
+          /**
+           * 用于创建图片内容的content
+           * @param url
+           * @param onload
+           * @param onerror
+           */
+          getImageContent(url: string, onload: () => void, onerror: (e: Error) => void): void;
         }
+      }
+
+      class Render {
+        constructor();
+
+        Canvas: Render.Canvas;
       }
     }
   }
