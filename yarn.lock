@@ -3232,25 +3232,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pansy/amap-api-loader@0.3.9, @pansy/amap-api-loader@workspace:packages/api-loader":
+"@pansy/amap-api-loader@0.3.10, @pansy/amap-api-loader@workspace:packages/api-loader":
   version: 0.0.0-use.local
   resolution: "@pansy/amap-api-loader@workspace:packages/api-loader"
   dependencies:
-    "@pansy/amap-types": 2.16.0
+    "@pansy/amap-types": 2.16.1
   languageName: unknown
   linkType: soft
 
-"@pansy/amap-types@2.16.0, @pansy/amap-types@workspace:packages/types":
+"@pansy/amap-types@2.16.1, @pansy/amap-types@workspace:packages/types":
   version: 0.0.0-use.local
   resolution: "@pansy/amap-types@workspace:packages/types"
   languageName: unknown
   linkType: soft
 
-"@pansy/react-amap-core@1.2.4, @pansy/react-amap-core@workspace:packages/core":
+"@pansy/react-amap-core@1.2.5, @pansy/react-amap-core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@pansy/react-amap-core@workspace:packages/core"
   dependencies:
-    "@pansy/amap-types": 2.16.0
+    "@pansy/amap-types": 2.16.1
   languageName: unknown
   linkType: soft
 
@@ -3258,8 +3258,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@pansy/react-amap-ui@workspace:packages/amap-ui"
   dependencies:
-    "@pansy/amap-types": 2.16.0
-    "@pansy/react-amap-core": 1.2.4
+    "@pansy/amap-types": 2.16.1
+    "@pansy/react-amap-core": 1.2.5
   peerDependencies:
     "@pansy/react-amap": ">2"
   languageName: unknown
@@ -3269,9 +3269,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@pansy/react-amap@workspace:packages/amap"
   dependencies:
-    "@pansy/amap-api-loader": 0.3.9
-    "@pansy/amap-types": 2.16.0
-    "@pansy/react-amap-core": 1.2.4
+    "@pansy/amap-api-loader": 0.3.10
+    "@pansy/amap-types": 2.16.1
+    "@pansy/react-amap-core": 1.2.5
   languageName: unknown
   linkType: soft
 
@@ -3294,7 +3294,7 @@ __metadata:
     "@types/react-dom": 17
     "@umijs/plugin-antd": 0.13.0
     "@walrus/cli": 1.3.4
-    "@walrus/commit": 1.2.1
+    "@walrus/commit": 1.2.2
     "@walrus/plugin-release": 1.14.0
     antd: 4.17.1
     dumi: 1.1.33
@@ -4500,31 +4500,31 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@walrus/commit-emoji@npm:1.0.1":
-  version: 1.0.1
-  resolution: "@walrus/commit-emoji@npm:1.0.1"
+"@walrus/commit-emoji@npm:1.0.2":
+  version: 1.0.2
+  resolution: "@walrus/commit-emoji@npm:1.0.2"
   dependencies:
-    "@walrus/commit-types": 1.0.1
-  checksum: bf12ee8f4cfb27be1247fd75d2810cafed3080e8fadf76d4808f888f06cbe9f5243a5edf9b53b19d7daff37fe42a047c16f6e563c880de5ce6287f8b61eab470
+    "@walrus/commit-types": 1.0.2
+  checksum: 35bb5a0e537b625f7f4ff615b7485064fdc7b6821fe7ab23b211df99e875b8586da0dcef501954220443ac24612a066f7d51e5265ba207699509907e0b38b806
   languageName: node
   linkType: hard
 
-"@walrus/commit-types@npm:1.0.1":
-  version: 1.0.1
-  resolution: "@walrus/commit-types@npm:1.0.1"
-  checksum: f176253652236a447344f2978eaabef27294b7c18366ed6cea1fb3106b16fb95d72b913f588b30ada3f1d289b44a92bc286457381998d72a0b043fe793119c5c
+"@walrus/commit-types@npm:1.0.2":
+  version: 1.0.2
+  resolution: "@walrus/commit-types@npm:1.0.2"
+  checksum: a726d97bb490fb76d7997a7c542eb46df4c1bd2c84bfc464b9faf37f582986a9e157e91bbe3c4eaec7531651559d7dabcf1fb0ccab2450384ad28f9b60ca6cc4
   languageName: node
   linkType: hard
 
-"@walrus/commit@npm:1.2.1":
-  version: 1.2.1
-  resolution: "@walrus/commit@npm:1.2.1"
+"@walrus/commit@npm:1.2.2":
+  version: 1.2.2
+  resolution: "@walrus/commit@npm:1.2.2"
   dependencies:
     "@walrus/cli-utils": ^1.1.1
-    "@walrus/commit-emoji": 1.0.1
+    "@walrus/commit-emoji": 1.0.2
   bin:
-    commit: ./lib/cli.js
-  checksum: ea5c469581d11356bde878fbbad2118887799985780145ed6f9d7dc0ab04ba5d742a62be8d7223d4117843c219db112e3f2d0951974d15e75d438e0edb4a551b
+    commit: lib/cli.js
+  checksum: 1cb20507759d3ec3837656bf0affd92de7a1498e99d21a6398911c0d25e7f05910b4dba3f00686c9388c409d83788d873fcd24e5e47de7bb82822077ffbaa6e5
   languageName: node
   linkType: hard
 
