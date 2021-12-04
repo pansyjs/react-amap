@@ -1,4 +1,4 @@
-/// <reference path="./layer.d.ts" />
+/// <reference path="./Layer.d.ts" />
 
 declare namespace AMap {
   namespace TileLayer {

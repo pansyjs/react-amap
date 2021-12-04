@@ -4,13 +4,18 @@
 declare namespace AMapUI {
 
   /**
-   * 加载其他模块
+   * 加载模块
    * @param module
    * @param callback
    */
   function load(module: string[], callback: (instance: any) => void): void;
 
-  function loadUI(module: string[], callback: (instance: any) => void)
+   /**
+    * 加载模块，模块名省略ui/前缀
+    * @param module
+    * @param callback
+    */
+  function loadUI(module: string[], callback: (instance: any) => void): void;
 
   /**
    * 高德JS API 版本
