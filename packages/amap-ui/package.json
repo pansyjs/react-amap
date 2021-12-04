@@ -1,6 +1,6 @@
 {
   "name": "@pansy/react-amap-ui",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "files": [
     "es",
     "lib"
@@ -13,8 +13,8 @@
     "@pansy/react-amap": ">2"
   },
   "dependencies": {
-    "@pansy/amap-types": "2.16.1",
-    "@pansy/react-amap-core": "1.2.5"
+    "@pansy/amap-types": "2.16.2",
+    "@pansy/react-amap-core": "1.2.6"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
