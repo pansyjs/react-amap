@@ -10,7 +10,7 @@
     "commit": "commit",
     "build": "father-build",
     "type-check": "lerna exec \"tsc --noEmit --skipLibCheck\"",
-    "release": "walrus release --commit-message 'release publish'"
+    "release": "walrus release --commit-message '🔖 release publish'"
   },
   "devDependencies": {
     "@pansy/amap-api-loader": "workspace:packages/api-loader",
@@ -24,7 +24,7 @@
     "@walrus/commit": "1.2.2",
     "@walrus/plugin-release": "1.14.0",
     "antd": "4.17.2",
-    "dumi": "1.1.33",
+    "dumi": "1.1.34",
     "father-build": "1.20.4",
     "lerna": "4.0.0",
     "react": "17.0.2",
