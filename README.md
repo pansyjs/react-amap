@@ -1,7 +1,10 @@
-<h1 align="center" style="line-height: 50px; height: 50px">
-  <img height="24" src="https://cdn.jsdelivr.net/gh/wangxingkang/pictures@latest/imgs/amap-logo.svg" />
-  <span style="padding-left: 8px">React AMap<span>
-</h1>
+<p align="center">
+  <a href="https://ant.design">
+    <img width="200" src="https://cdn.jsdelivr.net/gh/wangxingkang/pictures@latest/imgs/amap-logo.svg">
+  </a>
+</p>
+
+<h1 align="center">React AMap</h1>
 
 <div align="center">
   基于 React 封装的高德地图组件，助你轻松的接入高德地图到 React 项目中。
