@@ -1,4 +1,4 @@
-import { hasWindow } from '.';
+import { hasWindow, getAMap } from './base';
 
 /**
  * 将普通数据转换为 AMap.Size 类
@@ -11,5 +11,12 @@ export const toSize = (size: AMap.ExpandSize): AMap.Size | null => {
   if ('getWidth' in size) {
     return size;
   }
-  return hasWindow ? new AMap.Size(size.width, size.height) : null
+
+  const AMap = getAMap();
+
+  if (hasWindow && AMap) {
+    return new AMap.Size(size.width, size.height);
+  }
+
+  return null
 }

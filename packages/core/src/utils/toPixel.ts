@@ -1,4 +1,4 @@
-import { hasWindow } from '.';
+import { hasWindow, getAMap } from './base';
 
 /**
  * 将普通数据转换为 AMap.Pixel 类
@@ -22,5 +22,12 @@ export const toPixel = (offset: AMap.ExpandOffset): AMap.Pixel | null => {
     x = offset.x;
     y = offset.y;
   }
-  return hasWindow ? new window.AMap.Pixel(x, y) : null
+
+  const AMap = getAMap();
+
+  if (hasWindow && AMap) {
+    return new AMap.Pixel(x, y);
+  }
+
+  return null;
 }

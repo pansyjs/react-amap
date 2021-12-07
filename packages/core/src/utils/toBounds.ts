@@ -1,4 +1,4 @@
-import { hasWindow } from '.';
+import { hasWindow, getAMap } from './base';
 import { toLnglat } from './toLnglat';
 
 export type Bounds = AMap.Bounds | [AMap.ExpandPosition, AMap.ExpandPosition];
@@ -13,7 +13,12 @@ export const toBounds = (bounds: Bounds): AMap.Bounds | null => {
   if ('getSouthWest' in  bounds) {
     return bounds;
   }
-  return hasWindow
-    ? new window.AMap.Bounds(...bounds.map(toLnglat) as [AMap.LngLat, AMap.LngLat])
-    : null;
+
+  const AMap = getAMap();
+
+  if (hasWindow && AMap) {
+    return new AMap.Bounds(...bounds.map(toLnglat) as [AMap.LngLat, AMap.LngLat])
+  }
+
+  return null;
 }

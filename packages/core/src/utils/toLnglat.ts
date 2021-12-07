@@ -1,4 +1,4 @@
-import { hasWindow } from '.';
+import { hasWindow, getAMap } from './base';
 
 /**
  * 将经纬度转换为AMap.LngLat对象
@@ -25,5 +25,11 @@ export const toLnglat = (position: AMap.ExpandPosition): AMap.LngLat | null => {
     lat = position.latitude
   }
 
-  return hasWindow ? new window.AMap.LngLat(lng, lat) : null;
+  const AMap = getAMap();
+
+  if (hasWindow && AMap) {
+    return new AMap.LngLat(lng, lat);
+  }
+
+  return null;
 }
