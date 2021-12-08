@@ -23,7 +23,7 @@
     "@walrus/cli": "1.3.4",
     "@walrus/commit": "1.2.2",
     "@walrus/plugin-release": "1.14.0",
-    "antd": "4.17.2",
+    "antd": "4.17.3",
     "dumi": "1.1.34",
     "father-build": "1.20.4",
     "lerna": "4.0.0",
