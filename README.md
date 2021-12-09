@@ -21,9 +21,6 @@
   <a href="https://www.npmjs.com/package/@pansy/react-amap">
     <img src="https://img.shields.io/npm/v/@pansy/react-amap.svg" alt="npm version">
   </a>
-  <a href="https://packagephobia.com/result?p=@pansy/react-amap">
-    <img src="https://packagephobia.com/badge?p=@pansy/react-amap" alt="npm version">
-  </a>
 </p>
 
 本仓库提供了常用的地图组件，如不满足您的需求：
