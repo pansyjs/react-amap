@@ -3297,7 +3297,7 @@ __metadata:
     "@walrus/commit": 1.2.2
     "@walrus/plugin-release": 1.14.2
     antd: 4.17.3
-    dumi: 1.1.35
+    dumi: 1.1.37
     father-build: 1.20.4
     lerna: 4.0.0
     react: 17.0.2
@@ -4326,9 +4326,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@umijs/preset-dumi@npm:1.1.35":
-  version: 1.1.35
-  resolution: "@umijs/preset-dumi@npm:1.1.35"
+"@umijs/preset-dumi@npm:1.1.37":
+  version: 1.1.37
+  resolution: "@umijs/preset-dumi@npm:1.1.37"
   dependencies:
     "@babel/core": ^7.7.2
     "@babel/generator": ^7.7.2
@@ -4344,7 +4344,7 @@ __metadata:
     copy-text-to-clipboard: ^2.2.0
     deepmerge: ^4.2.2
     dumi-assets-types: 1.0.0
-    dumi-theme-default: 1.1.18
+    dumi-theme-default: 1.1.20
     enhanced-resolve: ^4.1.1
     github-slugger: ^1.3.0
     hast-util-has-property: ^1.0.4
@@ -4376,7 +4376,7 @@ __metadata:
     unist-util-visit-parents: ^3.0.1
   peerDependencies:
     umi: 3.x
-  checksum: f2f124c4a6439e3b0e10d61cf7b50f417bcf7795dc5ad7c60194c30d69ef92d776a4876448700e47f404da80e8e764a57def2492294bad5f3224e45fbe9fdf19
+  checksum: 6ba166c671b7dd2b6280f5f7f7f77f184a6ba8140118068b348824152d889371efaab9c192ce79e8f949e537d660183e23897cb592465f734b0cb8e2d3f19645
   languageName: node
   linkType: hard
 
@@ -7565,10 +7565,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dumi-theme-default@npm:1.1.18":
-  version: 1.1.18
-  resolution: "dumi-theme-default@npm:1.1.18"
+"dumi-theme-default@npm:1.1.20":
+  version: 1.1.20
+  resolution: "dumi-theme-default@npm:1.1.20"
   dependencies:
+    lodash.throttle: ^4.1.1
     prism-react-renderer: ^1.1.1
     prismjs: ^1.21.0
     rc-motion: ^2.4.1
@@ -7577,19 +7578,19 @@ __metadata:
   peerDependencies:
     "@umijs/preset-dumi": 1.x
     react: ^16.13.1 || ^17.0.0
-  checksum: 1e9c0d1c7ea11f5922dd44cc68be429583b6318c961f3cbb814382e7c8756d2bd489882f50bd2afe454de5fd0b21c35aa6a8ac77ed90509a66a74e0166c0f0f5
+  checksum: ff0605e672b5cb1d628f754f6e428f32a4858250ee1b326995e5cb55f690b6699d33be0d9c52e74190c1fc5db7be131f388227081fc2e43d4bc0afb30509e935
   languageName: node
   linkType: hard
 
-"dumi@npm:1.1.35":
-  version: 1.1.35
-  resolution: "dumi@npm:1.1.35"
+"dumi@npm:1.1.37":
+  version: 1.1.37
+  resolution: "dumi@npm:1.1.37"
   dependencies:
-    "@umijs/preset-dumi": 1.1.35
+    "@umijs/preset-dumi": 1.1.37
     umi: ^3.0.0
   bin:
     dumi: bin/dumi.js
-  checksum: 764011e23a74fd5fb7460346137a1e486692a8e4d46d49bedfb30a1b613643ffde010a656f41a2095c6c90438ea8d8f08d6c9c013cada0807859067cca22844d
+  checksum: fd4206b3fbde0980ada933e4800427505b0000c6ca400c75e0cab8bbcf5af1a60ecc0173b06109ca60fc1dc0e323d43c7f2fd6979c10bcb607e3bb75dbe1656b
   languageName: node
   linkType: hard
 
