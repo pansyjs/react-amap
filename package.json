@@ -24,7 +24,7 @@
     "@walrus/commit": "1.2.2",
     "@walrus/plugin-release": "1.14.2",
     "antd": "4.17.3",
-    "dumi": "1.1.37",
+    "dumi": "1.1.38",
     "father-build": "1.20.4",
     "lerna": "4.0.0",
     "react": "17.0.2",
