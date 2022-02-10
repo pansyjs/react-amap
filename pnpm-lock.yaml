@@ -4,7 +4,7 @@ importers:
 
   .:
     specifiers:
-      '@ant-design/icons': ^4.7.0
+      '@ant-design/icons': 4.7.0
       '@pansy/amap-api-loader': workspace:*
       '@pansy/amap-types': workspace:*
       '@pansy/react-amap': workspace:*
@@ -5222,7 +5222,7 @@ packages:
     resolution: {integrity: sha512-bHU8m0SrY89ub2hBBuYjbennOeH0YUYkVpH6jxKFk0uD8rhN+0jNHIPtXnac+Vn7N/hgkLGGDcIoYK7je3Hhew==}
     dependencies:
       '@babel/helper-module-imports': 7.16.7
-      '@babel/runtime': 7.11.2
+      '@babel/runtime': 7.17.2
     dev: true
 
   /babel-plugin-istanbul/5.2.0:
