@@ -13,25 +13,23 @@
     "release": "walrus release --commit-message '🔖 release publish'"
   },
   "devDependencies": {
-    "@pansy/amap-api-loader": "workspace:packages/api-loader",
-    "@pansy/amap-types": "workspace:packages/types",
-    "@pansy/react-amap": "workspace:packages/amap",
-    "@pansy/react-amap-ui": "workspace:packages/amap-ui",
+    "@ant-design/icons": "^4.7.0",
+    "@pansy/amap-api-loader": "workspace:*",
+    "@pansy/amap-types": "workspace:*",
+    "@pansy/react-amap": "workspace:*",
+    "@pansy/react-amap-ui": "workspace:*",
     "@types/react": "^17",
     "@types/react-dom": "^17",
     "@umijs/plugin-antd": "0.15.0",
     "@walrus/cli": "1.3.4",
     "@walrus/commit": "1.2.2",
     "@walrus/plugin-release": "1.14.3",
-    "antd": "4.18.3",
+    "antd": "4.18.6",
     "dumi": "1.1.38",
     "father-build": "1.20.4",
     "lerna": "4.0.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "typescript": "4.5.4"
-  },
-  "workspaces": [
-    "packages/*"
-  ]
+    "typescript": "4.5.5"
+  }
 }
