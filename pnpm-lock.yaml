@@ -15,7 +15,7 @@ importers:
       '@walrus/cli': 1.3.4
       '@walrus/commit': 1.2.2
       '@walrus/plugin-release': 1.14.3
-      antd: 4.18.6
+      antd: 4.18.7
       dumi: 1.1.38
       father-build: 1.20.4
       lerna: 4.0.0
@@ -34,7 +34,7 @@ importers:
       '@walrus/cli': 1.3.4
       '@walrus/commit': 1.2.2_typescript@4.5.5
       '@walrus/plugin-release': 1.14.3_@walrus+cli@1.3.4
-      antd: 4.18.6_react-dom@17.0.2+react@17.0.2
+      antd: 4.18.7_react-dom@17.0.2+react@17.0.2
       dumi: 1.1.38_3a6359ff0dae16692fd6f0778ea71593
       father-build: 1.20.4
       lerna: 4.0.0
@@ -4291,7 +4291,7 @@ packages:
     peerDependencies:
       umi: 3.x
     dependencies:
-      antd: 4.18.6_react-dom@17.0.2+react@17.0.2
+      antd: 4.18.7_react-dom@17.0.2+react@17.0.2
       semver: 7.3.5
     transitivePeerDependencies:
       - react
@@ -4961,8 +4961,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /antd/4.18.6_react-dom@17.0.2+react@17.0.2:
-    resolution: {integrity: sha512-CgliJK1iFUYVER2zJsBUManwxLKhdrRVdhpYeHByglZ8w/WXmgIJ3xoSwwM0o4A/FA+gRuDa0f7kVnzPDiqdYw==}
+  /antd/4.18.7_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-OJsrZOPy4+fEbIVoUFLXQ9quLthkOjQD+AGwIey3nC5+4hebloImbGqqwQ1/ypSFDxou8NtyZ2HCTfPP5WaO4g==}
     peerDependencies:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
@@ -5222,7 +5222,7 @@ packages:
     resolution: {integrity: sha512-bHU8m0SrY89ub2hBBuYjbennOeH0YUYkVpH6jxKFk0uD8rhN+0jNHIPtXnac+Vn7N/hgkLGGDcIoYK7je3Hhew==}
     dependencies:
       '@babel/helper-module-imports': 7.16.7
-      '@babel/runtime': 7.11.2
+      '@babel/runtime': 7.17.2
     dev: true
 
   /babel-plugin-istanbul/5.2.0:
