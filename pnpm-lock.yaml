@@ -4,7 +4,7 @@ importers:
 
   .:
     specifiers:
-      '@ant-design/icons': ^4.7.0
+      '@ant-design/icons': 4.7.0
       '@pansy/amap-api-loader': workspace:*
       '@pansy/amap-types': workspace:*
       '@pansy/react-amap': workspace:*
@@ -44,9 +44,9 @@ importers:
 
   packages/amap:
     specifiers:
-      '@pansy/amap-api-loader': 0.3.11
-      '@pansy/amap-types': 2.16.2
-      '@pansy/react-amap-core': 1.2.6
+      '@pansy/amap-api-loader': 0.3.12
+      '@pansy/amap-types': 2.16.3
+      '@pansy/react-amap-core': 1.3.0
     dependencies:
       '@pansy/amap-api-loader': link:../api-loader
       '@pansy/amap-types': link:../types
@@ -54,21 +54,21 @@ importers:
 
   packages/amap-ui:
     specifiers:
-      '@pansy/amap-types': 2.16.2
-      '@pansy/react-amap-core': 1.2.6
+      '@pansy/amap-types': 2.16.3
+      '@pansy/react-amap-core': 1.3.0
     dependencies:
       '@pansy/amap-types': link:../types
       '@pansy/react-amap-core': link:../core
 
   packages/api-loader:
     specifiers:
-      '@pansy/amap-types': 2.16.2
+      '@pansy/amap-types': 2.16.3
     dependencies:
       '@pansy/amap-types': link:../types
 
   packages/core:
     specifiers:
-      '@pansy/amap-types': 2.16.2
+      '@pansy/amap-types': 2.16.3
     dependencies:
       '@pansy/amap-types': link:../types
 
@@ -105,7 +105,7 @@ packages:
       '@ant-design/icons-svg': 4.2.1
       '@babel/runtime': 7.17.2
       classnames: 2.3.1
-      rc-util: 5.17.0_react-dom@17.0.2+react@17.0.2
+      rc-util: 5.19.6_react-dom@17.0.2+react@17.0.2
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
     dev: true
@@ -13123,19 +13123,6 @@ packages:
       rc-util: 5.19.6_react-dom@17.0.2+react@17.0.2
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
-    dev: true
-
-  /rc-util/5.17.0_react-dom@17.0.2+react@17.0.2:
-    resolution: {integrity: sha512-HWuTIKzBeZQQ7IBqdokE0wMp/xx39/KfUJ0gcquBigoldDCrf3YBcWFHrrQlJG7sI82Wg8mwp1uAKV3zMGfAgg==}
-    peerDependencies:
-      react: '>=16.9.0'
-      react-dom: '>=16.9.0'
-    dependencies:
-      '@babel/runtime': 7.17.2
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
-      react-is: 16.13.1
-      shallowequal: 1.1.0
     dev: true
 
   /rc-util/5.19.6_react-dom@17.0.2+react@17.0.2:
