@@ -17,6 +17,5 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
     "access": "public"
-  },
-  "packageManager": "yarn@3.0.1"
+  }
 }
