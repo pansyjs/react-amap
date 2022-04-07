@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap-core@1.2.6...@pansy/react-amap-core@1.3.0) (2022-04-07)
+
+
+### Features
+
+* **core:**  toBounds、toLnglat、toPixel、toSize 优化 ([63af25c](https://github.com/pansyjs/react-amap/commit/63af25c7df7deee887808af3fc0c44ca1d22a916))
+
+
+
+
+
 ## [1.2.6](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap-core@1.2.5...@pansy/react-amap-core@1.2.6) (2021-12-04)
 
 **Note:** Version bump only for package @pansy/react-amap-core
