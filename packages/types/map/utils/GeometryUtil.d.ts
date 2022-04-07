@@ -18,6 +18,12 @@ declare namespace AMap {
     function ringArea(ring: AMap.LngLat[]): number;
 
     /**
+     * 计算一个带有绝对海拔的经纬度高度路径围成区域的实际面积。单位：平米
+     * @param averageAltitude
+     */
+    function ringAreaByAltitude(averageAltitude: number): number;
+
+    /**
      * 判断一个经纬度路径是否为顺时针
      * @param ring
      */
@@ -46,6 +52,18 @@ declare namespace AMap {
      * @param ring
      */
     function distanceOfLine(ring: AMap.LngLat[]): number;
+
+    /**
+     * 计算一个经纬度带绝对海报高度路径的实际长度。单位：米
+     * @param ring
+     */
+    function distanceOfLineByAltitude(ring: AMap.LngLat[]): number;
+
+    /**
+     * 计算一个经纬度带绝对海报高度两点空间距离的实际长度。单位：米
+     * @param ring
+     */
+    function distanceLineByAltitude(pt1: number[], pt2: number[]): number;
 
     /**
      * 计算两个经纬度面的交叉区域。只适用于凸多边形。单位：平米
@@ -80,6 +98,13 @@ declare namespace AMap {
     function doesSegmentRingIntersect(p1: AMap.LngLat, p2: AMap.LngLat, ring1: AMap.LngLat[]): boolean;
 
     /**
+     * 判断线段和多个环是否相交
+     * @param p1
+     * @param p2
+     */
+    function doesSegmentPolygonIntersect(p1: AMap.LngLat, p2: AMap.LngLat): boolean;
+
+    /**
      * 判断P是否在line上
      * @param p
      * @param line
@@ -96,6 +121,25 @@ declare namespace AMap {
     function isPointOnRing(p: AMap.LngLat, ring: AMap.LngLat[], tolerance: number): boolean;
 
     /**
+     * 判断经纬度路径和经纬度面是否交叉
+     * @param line
+     * @param ring
+     */
+    function doesLineRingIntersect(line: AMap.LngLat[], ring: AMap.LngLat[]): boolean;
+
+    /**
+     * 判断两个经纬度面是否交叉
+     * @param ring1
+     * @param ring2
+     */
+    function doesRingRingIntersect(ring1: AMap.LngLat[], ring2: AMap.LngLat[]): boolean;
+
+    /**
+     * 判断两个经纬度路径是否相交
+     */
+    function doesLineLineIntersect(line1: AMap.LngLat[], line2: AMap.LngLat[]): boolean;
+
+    /**
      * 计算P2、P3上距离P1最近的点
      * @param p1
      * @param p2
@@ -109,6 +153,34 @@ declare namespace AMap {
      * @param line
      */
     function closestOnLine(p: AMap.LngLat, line: AMap.LngLat[]): number;
+
+    /**
+     * 判断P是否在多个ring的边上，tolerance为误差范围
+     * @param p
+     * @param line
+     */
+    function isPointOnPolygon(p: AMap.LngLat, tolerance: number): boolean;
+
+    /**
+     * 判断点是否在环内
+     * @param p
+     * @param ring
+     */
+    function pointInRing(p: AMap.LngLat, ring: AMap.LngLat[]): boolean;
+
+    /**
+     * 判断点是否在环内
+     * @param p
+     * @param ring
+     */
+    function isPointInRing(p: AMap.LngLat, ring: AMap.LngLat[]): boolean;
+
+    /**
+     * 判断环是否在另一个环内
+     * @param ring1
+     * @param ring2
+     */
+    function isRingInRing(ring1: AMap.LngLat[], ring2: AMap.LngLat[]): boolean;
 
     /**
      * 计算P2、P3到P1的距离。单位：米
