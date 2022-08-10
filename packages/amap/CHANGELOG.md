@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.13.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.12.4...@pansy/react-amap@2.13.0) (2022-08-10)
+
+
+### Features
+
+* 点聚合支持设置偏移量 ([d76635b](https://github.com/pansyjs/react-amap/commit/d76635be983fc0ff002a60069d68d89b118c428d))
+
+
+
+
+
 ## [2.12.4](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.12.3...@pansy/react-amap@2.12.4) (2022-04-07)
 
 **Note:** Version bump only for package @pansy/react-amap
