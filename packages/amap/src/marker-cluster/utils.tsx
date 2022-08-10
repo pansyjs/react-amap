@@ -1,13 +1,18 @@
 import { render } from 'react-dom';
-import { isFun, toLnglat } from '../utils';
+import { isFun, toLnglat, toPixel } from '../utils';
 import { MarkerClusterProps } from './types';
 
 export const renderMarkerComponent = (
   component: MarkerClusterProps['render'],
   renderMarkerData: AMap.MarkerCluster.RenderMarkerData,
+  offset?: [number, number]
 ) => {
   const { marker, data } = renderMarkerData;
   let child: string | React.ReactNode = component;
+
+  if (offset && offset.length === 2) {
+    marker.setOffset(toPixel(offset));
+  }
 
   if (isFun(component)) {
     // @ts-ignore
@@ -22,10 +27,15 @@ export const renderMarkerComponent = (
 export const renderClusterMarkerComponent = (
   component: MarkerClusterProps['renderCluster'],
   renderMarkerData: AMap.MarkerCluster.RenderClusterMarkerData,
+  offset?: [number, number]
 ) => {
   const { marker, clusterData, count } = renderMarkerData;
 
   let child: string | React.ReactNode;
+
+  if (offset && offset.length === 2) {
+    marker.setOffset(toPixel(offset));
+  }
 
   if (isFun(component)) {
     // @ts-ignore

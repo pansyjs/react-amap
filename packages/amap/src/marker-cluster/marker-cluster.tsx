@@ -78,13 +78,13 @@ export const MarkerCluster = React.forwardRef<
 
     if (props.render) {
       options.renderMarker = (data) => {
-        renderMarkerComponent(props.render, data);
+        renderMarkerComponent(props.render, data, props.offset);
       }
     }
 
     if (props.renderCluster) {
       options.renderClusterMarker = (data) => {
-        renderClusterMarkerComponent(props.renderCluster, data);
+        renderClusterMarkerComponent(props.renderCluster, data, props.clusterOffset || props.offset);
       }
     }
 

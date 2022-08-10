@@ -32,6 +32,7 @@ export default () => {
       <Map zoom={4}>
         <MarkerCluster
           data={list}
+          offset={[-16, -16]}
           render={
             <Avatar
               style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}

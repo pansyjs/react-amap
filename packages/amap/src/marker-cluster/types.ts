@@ -14,7 +14,10 @@ export interface MarkerClusterProps extends
    * 聚合点数据
    */
   data?: AMap.MarkerCluster.DataOptions[];
-
+  /** 标记点的偏移量 */
+  offset?: [number, number];
+  /** 标记点的偏移量 */
+  clusterOffset?: [number, number];
   /**
    * 点击聚合点时，是否散开。
    * @default true
