@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.13.1](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.13.0...@pansy/react-amap@2.13.1) (2022-08-24)
+
+
+### Bug Fixes
+
+* **HeatMap:** 修复zIndex属性不生效问题 ([b340084](https://github.com/pansyjs/react-amap/commit/b34008447787bca510c96259c4cb875b100f91b3))
+
+
+
+
+
 # [2.13.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.12.4...@pansy/react-amap@2.13.0) (2022-08-10)
 
 

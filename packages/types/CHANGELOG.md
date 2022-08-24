@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.17.0](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.16.4...@pansy/amap-types@2.17.0) (2022-08-24)
+
+
+### Features
+
+* **types:** add TruckDriving type ([b8e22bf](https://github.com/pansyjs/react-amap/commit/b8e22bfdb72d7f3430967e2b21747c79e3264103))
+
+
+
+
+
 ## [2.16.4](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.16.3...@pansy/amap-types@2.16.4) (2022-08-10)
 
 **Note:** Version bump only for package @pansy/amap-types
