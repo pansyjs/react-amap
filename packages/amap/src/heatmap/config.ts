@@ -25,6 +25,13 @@ export const setterMap = {
       }
     }
   },
+  zIndex(val: number, instance: AMap.HeatMap) {
+    if (instance) {
+      if (val) {
+        instance.setzIndex(val);
+      }
+    }
+  },
   dataSet(data: AMap.HeatMap.DataSet, instance: AMap.HeatMap) {
     if (instance) {
       instance.setDataSet(data);
