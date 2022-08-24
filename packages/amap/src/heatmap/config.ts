@@ -1,12 +1,14 @@
 export const configurableProps = [
   /** 动态属性 */
+  'zIndex',
+  'visible',
 
   /* 扩展属性 */
-  'visible',
   'dataSet'
 ];
 
 export const allProps = configurableProps.concat([
+  '3d',
   'radius',
   'gradient',
   'opacity',
