@@ -13,7 +13,7 @@ const colors = [
 ];
 
 export default () => {
-  const interval = useRef<NodeJS.Timeout>();
+  const interval = useRef<ReturnType<typeof setInterval>>();
   const [data, setData] = useState<string[][]>([])
   const [pointSimplifier, setPointSimplifier] = useState<AMap.AMapUI.PointSimplifier>();
 
