@@ -69,7 +69,7 @@ $ yarn add @pansy/react-amap
 ```tsx | pure
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Map } from 'react-amap';
+import { Map } from '@pansy/react-amap';
 
 ReactDOM.render(
   <Map mapKey={YOUR_AMAP_KEY} />,
