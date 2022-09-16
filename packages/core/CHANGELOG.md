@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.3](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap-core@1.3.2...@pansy/react-amap-core@1.3.3) (2022-09-16)
+
+
+### Bug Fixes
+
+* **Map:** 修复 react18 严格模式下渲染问题 ([a323818](https://github.com/pansyjs/react-amap/commit/a3238183c4878db5aa2aff249586540b1185362e))
+
+
+
+
+
 ## [1.3.2](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap-core@1.3.1...@pansy/react-amap-core@1.3.2) (2022-08-24)
 
 **Note:** Version bump only for package @pansy/react-amap-core

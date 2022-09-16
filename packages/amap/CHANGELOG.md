@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.14.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.13.1...@pansy/react-amap@2.14.0) (2022-09-16)
+
+
+### Bug Fixes
+
+* 修复类型报错 ([143aba9](https://github.com/pansyjs/react-amap/commit/143aba93dabfc9e5c97d0b9634291d45ba5e853a))
+* **Map:** 修复 react18 严格模式下渲染问题 ([a323818](https://github.com/pansyjs/react-amap/commit/a3238183c4878db5aa2aff249586540b1185362e))
+
+
+### Features
+
+* **HeatMap:** add zIndex setterMap ([dc14c76](https://github.com/pansyjs/react-amap/commit/dc14c761610cada775e799dc2cbc232a27304a75))
+* **InfoWindow:** 优化实现 ([9e66cfb](https://github.com/pansyjs/react-amap/commit/9e66cfbb3ddfe43fdd0a776e2fb2e1ade9136c65))
+* **Marker:** 优化实现 ([ccc3eb3](https://github.com/pansyjs/react-amap/commit/ccc3eb346b8ccb20f9debe90cb0aae6b7abcf630))
+
+
+
+
+
 ## [2.13.1](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.13.0...@pansy/react-amap@2.13.1) (2022-08-24)
 
 
