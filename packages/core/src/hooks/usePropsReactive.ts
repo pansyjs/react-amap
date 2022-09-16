@@ -40,9 +40,7 @@ export function usePropsReactive<P extends object = {}>(
 
         try {
           if ('destroy' in instanceRef.current) {
-            setTimeout(() => {
-              instanceRef.current.destroy()
-            }, 10);
+            instanceRef.current.destroy();
           }
 
           if ('hide' in instanceRef.current) {

@@ -28,7 +28,7 @@ export const BaseMap: React.FC<BaseMapProps> = (props = {}) => {
     () => {
       createInstance().then(() => {
         props.onMapCreate?.(instanceObj.current);
-        onInstanceCreated?.(instanceObj.current)
+        onInstanceCreated?.(instanceObj.current);
       });
     },
     []
@@ -97,7 +97,7 @@ export const BaseMap: React.FC<BaseMapProps> = (props = {}) => {
         {loaded ? null : props.loading}
       </div>
       <div>
-        { loaded ? props.children : null }
+        {loaded ? props.children : null}
       </div>
     </div>
   )
