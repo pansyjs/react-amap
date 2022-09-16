@@ -11,6 +11,7 @@ export interface APILoaderProps extends Omit<Options, 'key'> {
    * 加载效果组件
    * */
   loading?: React.ReactNode;
+  children?: any;
   /**
    * 资源加载完成
    */

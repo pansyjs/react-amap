@@ -27,6 +27,7 @@ export interface BaseMapProps extends Omit<MapOptions, 'center'> {
   hostAndPath?: string;
   /** 事件绑定 */
   events?: MapEventMap;
+  children?: any;
   /** 内部使用 */
   onMapCreate?: (map: AMap.Map) => void;
 }

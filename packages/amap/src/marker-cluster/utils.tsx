@@ -8,7 +8,7 @@ export const renderMarkerComponent = (
   offset?: [number, number]
 ) => {
   const { marker, data } = renderMarkerData;
-  let child: string | React.ReactNode = component;
+  let child: any = component;
 
   if (offset && offset.length === 2) {
     marker.setOffset(toPixel(offset));
@@ -31,7 +31,7 @@ export const renderClusterMarkerComponent = (
 ) => {
   const { marker, clusterData, count } = renderMarkerData;
 
-  let child: string | React.ReactNode;
+  let child: any;
 
   if (offset && offset.length === 2) {
     marker.setOffset(toPixel(offset));
