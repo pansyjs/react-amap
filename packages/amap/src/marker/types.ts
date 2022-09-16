@@ -22,10 +22,11 @@ export type PropKey = ReactAMap.$Keys<MarkerOptions>
 export interface MarkerProps<ExtraData = any> extends MarkerOptions<ExtraData> {
   /** 额外的样式 */
   className?: string;
+  // TODO: 意义不大，后续考虑删除
   /** 自定义标记点样式 */
-  render?: renderMarker<ExtraData>;
+  render?: renderMarker;
   /** 绑定的事件  */
   events?: EventMap<ExtraData>;
 }
 
-export type renderMarker<ExtraData = any> = (extData: ExtraData) => React.ReactNode | string;
+export type renderMarker = () => React.ReactNode | string;

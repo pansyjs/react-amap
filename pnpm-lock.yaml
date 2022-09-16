@@ -47,10 +47,12 @@ importers:
       '@pansy/amap-api-loader': 0.3.14
       '@pansy/amap-types': 2.17.0
       '@pansy/react-amap-core': 1.3.2
+      '@pansy/use-portal': ^0.2.0
     dependencies:
       '@pansy/amap-api-loader': link:../api-loader
       '@pansy/amap-types': link:../types
       '@pansy/react-amap-core': link:../core
+      '@pansy/use-portal': 0.2.0
 
   packages/amap-ui:
     specifiers:
@@ -4749,6 +4751,12 @@ packages:
   /@pansy/types/0.2.0:
     resolution: {integrity: sha512-p4Ii7nIICkFh51th3LHfooEQg8OEeC57raRNZ57UAm1Bmt+Z1EC1qVenznXmrIs1Qmup4LA6dxva7XQ5zVfb9Q==}
     dev: true
+
+  /@pansy/use-portal/0.2.0:
+    resolution: {integrity: sha512-QOwl6uHR2vq+JBnK19dPM9lLfFndhutWskFpppWd4h5xAp1vWZa/l+v4l7xCVzmyRN6MSwoMpNZxQZ+Fu5bMoA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dev: false
 
   /@parcel/watcher/2.0.4:
     resolution: {integrity: sha512-cTDi+FUDBIUOBKEtj+nhiJ71AZVlkAsQFuGQTun5tV9mwQBQgZvhCzG+URPQc8myeN32yRVZEfVAPCs1RW+Jvg==}

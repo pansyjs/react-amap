@@ -29,10 +29,6 @@ group:
 
 <code src="./demo/demo-03.tsx" />
 
-### render 方法渲染标记的外观
-
-<code src="./demo/demo-04.tsx" />
-
 ### 给 Marker 绑定事件
 
 <code src="./demo/demo-05.tsx" />

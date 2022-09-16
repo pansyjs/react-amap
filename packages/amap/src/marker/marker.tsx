@@ -1,15 +1,14 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
-import { render } from 'react-dom';
+import { usePortal } from '@pansy/use-portal';
 import { useMap } from '../map';
-import { usePropsReactive } from '../utils';
+import { usePropsReactive, isFun } from '../utils';
 import type { MarkerProps } from './types';
-import { renderMarkerComponent } from './utils';
 import { buildCreateOptions } from '../utils/control';
 import { allProps, setterMap, converterMap } from './config';
 
 export const Marker = React.forwardRef<AMap.Marker, React.PropsWithChildren<MarkerProps>>((props = {}, ref) => {
   const { map, AMap } = useMap();
-  const contentWrapper = useRef<HTMLDivElement>();
+  const { container, Portal } = usePortal();
   const instanceObj = useRef<AMap.Marker>(null);
 
   const { onInstanceCreated } = usePropsReactive(
@@ -34,9 +33,6 @@ export const Marker = React.forwardRef<AMap.Marker, React.PropsWithChildren<Mark
 
   useEffect(
     () => {
-      if (map) {
-        refreshMarkerLayout(props);
-      }
     },
     [props.className, props.render, props.children]
   )
@@ -58,14 +54,7 @@ export const Marker = React.forwardRef<AMap.Marker, React.PropsWithChildren<Mark
 
     instanceObj.current = marker;
 
-    marker['render'] = (function(marker) {
-      return function(component) {
-        renderMarkerComponent(component, marker)
-      }
-    })(instanceObj.current);
-
     setMarkerLayout(props);
-    setChildComponent(props);
 
     return Promise.resolve();
   }
@@ -74,35 +63,25 @@ export const Marker = React.forwardRef<AMap.Marker, React.PropsWithChildren<Mark
     if (('render' in props) || ('children' in props && props.children)) {
       createContentWrapper()
       if ('className' in props && props.className) {
-        contentWrapper.current.className = props.className;
+        container.className = props.className;
       }
     }
   }
 
   const createContentWrapper = () => {
-    contentWrapper.current = document.createElement('div');
-    instanceObj.current.setContent(contentWrapper.current);
+    instanceObj.current.setContent(container);
   }
 
-  const setChildComponent = (props: React.PropsWithChildren<MarkerProps<any>>) => {
-    if (contentWrapper.current) {
-      if ('className' in props && props.className) {
-        contentWrapper.current.className = props.className
-      }
-      if ('render' in props) {
-        renderMarkerComponent(props.render, instanceObj.current)
-      } else if ('children' in props) {
-        const child = props.children;
-        const childType = typeof child;
-        if (childType !== 'undefined' && contentWrapper.current) {
-          render(<div>{child}</div>, contentWrapper.current)
-        }
-      }
-    }
+  let children: any = props.render || props.children;
+
+  if (isFun(children)) {
+    children = children();
   }
 
-  const refreshMarkerLayout = (nextProps: MarkerProps) => {
-    setChildComponent(nextProps)
+  if (children) {
+    return (
+      <Portal>{props.children}</Portal>
+    );
   }
 
   return null;
