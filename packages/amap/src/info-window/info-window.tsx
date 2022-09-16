@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useImperativeHandle } from 'react';
-import { render } from 'react-dom';
+import { usePortal } from '@pansy/use-portal';
 import { useMap } from '../map';
 import { usePropsReactive } from '../utils';
 import type { InfoWindowProps } from './types';
@@ -7,7 +7,7 @@ import { allProps, converterMap } from './config';
 
 export const InfoWindow = React.forwardRef<AMap.InfoWindow, React.PropsWithChildren<InfoWindowProps>>((props = {}, ref) => {
   const { map, AMap } = useMap();
-  const infoDOM = useRef<HTMLDivElement>(null);
+  const { container, Portal } = usePortal();
   const instanceObj = useRef<AMap.InfoWindow>(null);
 
   const setterMap = {
@@ -15,7 +15,6 @@ export const InfoWindow = React.forwardRef<AMap.InfoWindow, React.PropsWithChild
       if (val) {
         showWindow();
         setClassName();
-        setChild();
       } else {
         closeWindow();
       }
@@ -62,7 +61,6 @@ export const InfoWindow = React.forwardRef<AMap.InfoWindow, React.PropsWithChild
   }
 
   const refreshWindowLayout = () => {
-    setChild()
     setClassName()
   }
 
@@ -79,8 +77,7 @@ export const InfoWindow = React.forwardRef<AMap.InfoWindow, React.PropsWithChild
     if ('content' in props) {
       options.content = props.content
     } else {
-      infoDOM.current = document.createElement('div')
-      options.content = infoDOM.current
+      options.content = container
     }
 
     allProps.forEach((key) => {
@@ -112,15 +109,8 @@ export const InfoWindow = React.forwardRef<AMap.InfoWindow, React.PropsWithChild
     }
   }
 
-  const setChild = () => {
-    const child = props.children
-    if (infoDOM.current && child) {
-      render(<div>{child}</div>, infoDOM.current)
-    }
-  }
-
   const setClassName = () => {
-    if (infoDOM.current) {
+    if (container) {
       let baseClsValue = ''
       // 刷新 className
       if ('className' in props && props.className) {
@@ -128,9 +118,9 @@ export const InfoWindow = React.forwardRef<AMap.InfoWindow, React.PropsWithChild
       } else if (props.isCustom === true) {
         baseClsValue += 'amap_markers_pop_window'
       }
-      infoDOM.current.className = baseClsValue
+      container.className = baseClsValue
     }
   }
 
-  return null;
+  return (<Portal>{props.children}</Portal>);
 });
