@@ -19,7 +19,7 @@ export const renderMarkerComponent = (
   component: renderMarker,
   marker: AMap.Marker
 ) => {
-  let child: string | React.ReactNode = component;
+  let child: string | React.ReactNode = component as any;
   if (isFun(component)) {
     const extData = marker.getExtData();
     child = component(extData);
