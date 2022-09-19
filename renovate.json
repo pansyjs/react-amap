@@ -6,6 +6,7 @@
     "@types/react",
     "@types/react-dom",
     "react",
-    "react-dom"
+    "react-dom",
+    "@umijs/babel-preset-umi"
   ]
 }
