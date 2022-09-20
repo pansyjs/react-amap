@@ -36,16 +36,15 @@ const PathSimplifier1 = (props: PathSimplifierProps) => {
 
         return `${pathData.name}，点数量${pathData.path.length}`;
       }}
-       // @ts-ignore
       renderOptions={(PathSimplifier) => {
         return {
           renderAllPointsIfNumberBelow: 100, //绘制路线节点，如不需要可设置为-1
           pathNavigatorStyle: {
+            // @ts-ignore
             content: PathSimplifier.Render.Canvas.getImageContent(
               'https://tdesign.gtimg.com/demo/demo-image-1.png',
               function onload() {
-                // @ts-ignore
-                pathSimplifier?.renderLater();
+                pathSimplifier?.render();
               },
             )
           },
