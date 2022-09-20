@@ -8,11 +8,12 @@ export const PathSimplifier = React.forwardRef<AMap.AMapUI.PathSimplifier, React
   props = {},
   ref
 ) => {
+  const { renderOptions, ...rest } = props;
   const { map } = useMap();
   const instanceObj = useRef<AMap.AMapUI.PathSimplifier>(null);
 
   const { loaded, onInstanceCreated } = usePropsReactive(
-    props,
+    rest,
     instanceObj,
     {
       setterMap,
@@ -41,10 +42,9 @@ export const PathSimplifier = React.forwardRef<AMap.AMapUI.PathSimplifier, React
     return new Promise<void>((resolve) => {
       const AMapUI = getAMapUI();
 
-      const options = buildCreateOptions();
-      options.map = map;
-
       AMapUI.load(['ui/misc/PathSimplifier'], (PathSimplifier) => {
+        const options = buildCreateOptions(PathSimplifier);
+        options.map = map;
         instanceObj.current = new PathSimplifier(options);
 
         resolve();
@@ -52,8 +52,12 @@ export const PathSimplifier = React.forwardRef<AMap.AMapUI.PathSimplifier, React
     });
   }
 
-  const buildCreateOptions = () => {
+  const buildCreateOptions = (PathSimplifier: AMap.AMapUI.PathSimplifier) => {
     const options: PathSimplifierProps = {};
+
+    if (typeof renderOptions === 'function') {
+      options.renderOptions = renderOptions(PathSimplifier)
+    }
 
     const getSetterValue = (key: string, props: PathSimplifierProps) => {
       if (key in converterMap) {
@@ -63,7 +67,7 @@ export const PathSimplifier = React.forwardRef<AMap.AMapUI.PathSimplifier, React
     }
 
     allProps.forEach((key) => {
-      if (key in props) {
+      if (key in rest) {
         options[key] = getSetterValue(key, props)
       }
     });

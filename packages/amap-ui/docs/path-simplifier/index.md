@@ -17,3 +17,7 @@ group:
 ### 基本使用
 
 <code src="./demo/demo-01.tsx" />
+
+### 自定义图片
+
+<code src="./demo/demo02.tsx" />
