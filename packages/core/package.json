@@ -9,6 +9,9 @@
   "module": "es/index.js",
   "types": "es/index.d.ts",
   "license": "MIT",
+  "scripts": {
+    "build": "redbud build"
+  },
   "dependencies": {
     "@pansy/amap-types": "2.17.0"
   },
