@@ -21,7 +21,7 @@ nav:
 $ npm i @pansy/react-amap --save
 
 # yarn install
-$ npm add @pansy/react-amap
+$ yarn add @pansy/react-amap
 ```
 
 ## 使用
