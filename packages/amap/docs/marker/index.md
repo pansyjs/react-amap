@@ -29,6 +29,10 @@ group:
 
 <code src="./demo/demo-03.tsx" />
 
+### render
+
+<code src="./demo/demo04.tsx" />
+
 ### 给 Marker 绑定事件
 
 <code src="./demo/demo-05.tsx" />

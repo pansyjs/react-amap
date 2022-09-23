@@ -31,12 +31,6 @@ export const Marker = React.forwardRef<AMap.Marker, React.PropsWithChildren<Mark
     [map]
   );
 
-  useEffect(
-    () => {
-    },
-    [props.className, props.render, props.children]
-  )
-
   useImperativeHandle(
     ref,
     () => instanceObj.current,
@@ -80,7 +74,7 @@ export const Marker = React.forwardRef<AMap.Marker, React.PropsWithChildren<Mark
 
   if (children) {
     return (
-      <Portal>{props.children}</Portal>
+      <Portal>{children}</Portal>
     );
   }
 
