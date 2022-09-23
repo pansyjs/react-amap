@@ -1,6 +1,6 @@
 {
   "name": "@pansy/amap-api-loader",
-  "version": "0.3.14",
+  "version": "0.3.15",
   "files": [
     "es",
     "lib"
