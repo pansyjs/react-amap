@@ -1,6 +1,8 @@
 import React, { useEffect, useState, } from 'react';
-import { Options, load } from '@pansy/amap-api-loader';
+import { load } from '@pansy/amap-api-loader';
 import { getAMap } from '@pansy/react-amap-core';
+
+import type { Options } from '@pansy/amap-api-loader';
 
 export interface APILoaderProps extends Omit<Options, 'key'> {
   /**

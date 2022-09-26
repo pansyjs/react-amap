@@ -2,7 +2,7 @@ import React, { useState, useImperativeHandle } from 'react';
 import { APILoader, APILoaderProps } from '../api-loader';
 import { BaseMap } from './map';
 import { MapContext } from './context';
-import { MapProps as BaseMapProps } from './types';
+import type { MapProps as BaseMapProps } from './types';
 
 export interface MapProps extends Omit<APILoaderProps, 'key'>, BaseMapProps {
   mapKey?: string;

@@ -1,2 +1,2 @@
 export { CircleEditor } from './circle-editor';
-export { CircleEditorProps } from './types';
+export type { CircleEditorProps } from './types';
