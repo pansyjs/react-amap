@@ -1,8 +1,9 @@
 /// <reference types="@pansy/amap-types" />
 
-import { Options } from './types';
 import { LoadStatus, defaultConfig } from './config';
 import { getScriptSrc } from './utils';
+
+import type { Options } from './types';
 
 let Status = {
   AMap: LoadStatus.notload,
@@ -384,4 +385,4 @@ export function reset() {
   };
 }
 
-export { Options };
+export type { Options } from './types';
