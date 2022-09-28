@@ -26,7 +26,7 @@
     "@walrus/plugin-release": "1.14.3",
     "@umijs/babel-preset-umi": "3.5.34",
     "antd": "4.23.2",
-    "dumi": "1.1.47",
+    "dumi": "1.1.48",
     "lerna": "5.5.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
