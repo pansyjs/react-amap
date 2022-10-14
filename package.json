@@ -27,7 +27,7 @@
     "@umijs/babel-preset-umi": "4.0.24",
     "antd": "4.23.4",
     "dumi": "1.1.48",
-    "lerna": "5.6.2",
+    "lerna": "6.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "redbud": "1.2.3",
