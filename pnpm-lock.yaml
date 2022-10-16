@@ -77,9 +77,9 @@ importers:
 
   packages/amap:
     specifiers:
-      '@pansy/amap-api-loader': 0.4.0
-      '@pansy/amap-types': 2.17.0
-      '@pansy/react-amap-core': 1.3.4
+      '@pansy/amap-api-loader': 0.4.1
+      '@pansy/amap-types': 2.17.1
+      '@pansy/react-amap-core': 1.3.5
       '@pansy/use-portal': ^0.2.0
     dependencies:
       '@pansy/amap-api-loader': link:../api-loader
@@ -89,21 +89,21 @@ importers:
 
   packages/amap-ui:
     specifiers:
-      '@pansy/amap-types': 2.17.0
-      '@pansy/react-amap-core': 1.3.4
+      '@pansy/amap-types': 2.17.1
+      '@pansy/react-amap-core': 1.3.5
     dependencies:
       '@pansy/amap-types': link:../types
       '@pansy/react-amap-core': link:../core
 
   packages/api-loader:
     specifiers:
-      '@pansy/amap-types': 2.17.0
+      '@pansy/amap-types': 2.17.1
     dependencies:
       '@pansy/amap-types': link:../types
 
   packages/core:
     specifiers:
-      '@pansy/amap-types': 2.17.0
+      '@pansy/amap-types': 2.17.1
     dependencies:
       '@pansy/amap-types': link:../types
 
