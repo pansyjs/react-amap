@@ -24,13 +24,13 @@
     "@walrus/cli": "1.3.4",
     "@walrus/commit": "1.2.2",
     "@walrus/plugin-release": "1.14.3",
-    "@umijs/babel-preset-umi": "4.0.24",
-    "antd": "4.23.4",
+    "@umijs/babel-preset-umi": "4.0.25",
+    "antd": "4.23.5",
     "dumi": "1.1.48",
-    "lerna": "5.6.2",
+    "lerna": "6.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "redbud": "1.2.3",
+    "redbud": "1.2.5",
     "typescript": "4.8.4"
   }
 }
