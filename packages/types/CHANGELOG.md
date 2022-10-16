@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.17.1](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.17.0...@pansy/amap-types@2.17.1) (2022-10-16)
+
+
+### Bug Fixes
+
+* **types:** `getImageContent` callback is optional ([063f809](https://github.com/pansyjs/react-amap/commit/063f80974b45ee2ab3d78a001c3542aadc8e8da4))
+
+
+
+
+
 # [2.17.0](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.16.4...@pansy/amap-types@2.17.0) (2022-08-24)
 
 
