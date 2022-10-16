@@ -187,7 +187,7 @@ declare namespace AMap {
            * @param onload
            * @param onerror
            */
-          getImageContent(url: string, onload: () => void, onerror: (e: Error) => void): void;
+          getImageContent(url: string, onload?: () => void, onerror?: (e: Error) => void): void;
         }
       }
 
