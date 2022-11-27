@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { APILoader } from "@pansy/react-amap";
 import { Avatar } from 'antd';
-import 'antd/dist/antd.css';
 import { usePortal } from '@pansy/use-portal';
 
 const Marker: React.FC<any> = ({ map, children }) => {
