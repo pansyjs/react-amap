@@ -11,6 +11,7 @@
   "scripts": {
     "build": "redbud build"
   },
+  "sideEffects": false,
   "license": "MIT",
   "dependencies": {
     "@pansy/amap-api-loader": "0.4.1",

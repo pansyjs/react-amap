@@ -12,6 +12,7 @@
   "scripts": {
     "build": "redbud build"
   },
+  "sideEffects": false,
   "dependencies": {
     "@pansy/amap-types": "2.17.1"
   },
