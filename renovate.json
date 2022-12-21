@@ -3,10 +3,7 @@
     "config:base"
   ],
   "ignoreDeps": [
-    "@types/react",
-    "@types/react-dom",
-    "react",
-    "react-dom",
+    "dumi",
     "@umijs/babel-preset-umi"
   ]
 }
