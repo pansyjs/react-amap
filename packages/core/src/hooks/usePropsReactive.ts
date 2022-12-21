@@ -63,6 +63,7 @@ export function usePropsReactive<P extends object = {}>(
   const onInstanceCreated = (instance?: any) => {
     setLoaded(true);
     if ('events' in props && instance) {
+      // @ts-ignore
       props['events'].created?.(instance);
     }
     reactivePropChange(props, false)

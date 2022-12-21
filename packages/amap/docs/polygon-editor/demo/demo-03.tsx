@@ -87,7 +87,7 @@ export default () => {
                 const polygons = overlayGroup.current.getOverlays();
 
                 if (polygons.length === 1) {
-                  message.warn('区域必须剩余一个');
+                  message.warning('区域必须剩余一个');
 
                   // 重新创建多边形覆盖物
                   const newPolygon = new AMap.Polygon({
