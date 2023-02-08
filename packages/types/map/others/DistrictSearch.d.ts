@@ -73,7 +73,7 @@ declare namespace AMap {
       districtList: District[];
     }
 
-    type DistrictSearchCallBack = (status: DistrictSearchStatus, result: any) => void;
+    type DistrictSearchCallBack = (status: DistrictSearchStatus, result: DistrictSearchResult) => void;
   }
 
   class DistrictSearch extends AMap.EventEmitter {
