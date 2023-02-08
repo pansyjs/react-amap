@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.4](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.15.3...@pansy/react-amap@2.15.4) (2023-02-08)
+
+
+### Bug Fixes
+
+* 修复类型检查报错 ([02f42e7](https://github.com/pansyjs/react-amap/commit/02f42e75ab4336f7f3aa0609e1c065223f970d41))
+
+
+
+
+
 ## [2.15.3](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.15.2...@pansy/react-amap@2.15.3) (2022-11-27)
 
 **Note:** Version bump only for package @pansy/react-amap
