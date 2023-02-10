@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.3](https://github.com/pansyjs/react-amap/compare/@pansy/amap-api-loader@0.4.2...@pansy/amap-api-loader@0.4.3) (2023-02-10)
+
+
+### Bug Fixes
+
+* 修复在 electron 使用资源加载协议问题 ([cd965ab](https://github.com/pansyjs/react-amap/commit/cd965ab6401342754c5a1c1b217b0da8aac98066))
+
+
+
+
+
 ## [0.4.2](https://github.com/pansyjs/react-amap/compare/@pansy/amap-api-loader@0.4.1...@pansy/amap-api-loader@0.4.2) (2023-02-08)
 
 **Note:** Version bump only for package @pansy/amap-api-loader
