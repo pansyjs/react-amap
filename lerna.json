@@ -5,7 +5,7 @@
   ],
   "command": {
     "publish": {
-      "npmClient": "npm",
+      "npmClient": "pnpm",
       "verifyAccess": false,
       "ignoreChanges": ["*.md", "**/test/**"],
       "message": "chore(release): publish"

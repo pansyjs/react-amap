@@ -20,6 +20,11 @@ dist
 .idea
 .vscode
 
+# dumi
+.dumi/tmp
+.dumi/tmp-test
+.dumi/tmp-production
+
 .DS_Store
 
 # Umi

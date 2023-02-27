@@ -1,11 +1,15 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "target": "esnext",
     "moduleResolution": "node",
     "lib": ["esnext", "dom"],
     "esModuleInterop": true,
     "declaration": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "paths": {
+      "@@/*": [".dumi/tmp/*"]
+    }
   },
   "exclude": [
     "node_modules",
