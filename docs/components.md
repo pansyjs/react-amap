@@ -1,12 +1,9 @@
 ---
 title: 基本介绍
+
 nav:
   title: 组件
   path: /components
-group:
-  path: /about
-  title: 介绍
-  order: 1
 ---
 
 # 基本介绍

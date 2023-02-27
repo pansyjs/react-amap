@@ -1,8 +1,7 @@
 ---
 title: 自定义地图组件
 order: 10
-group:
-  path: /
+
 nav:
   title: 文档
   path: /docs

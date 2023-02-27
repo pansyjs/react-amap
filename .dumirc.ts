@@ -14,7 +14,8 @@ export default defineConfig({
       github: 'https://github.com/pansyjs/react-amap',
     },
     nav: [
-      { title: '组件', link: '/components' }
+      { title: '文档', link: '/docs' },
+      { title: '组件', link: '/components' },
     ],
   },
   alias: {
