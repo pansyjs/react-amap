@@ -16,6 +16,7 @@ export default defineConfig({
     nav: [
       { title: '文档', link: '/docs' },
       { title: '组件', link: '/components' },
+      { title: '示例', link: '/examples' },
     ],
   },
   alias: {
