@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_pansy_workspace=self.webpackChunk_pansy_workspace||[]).push([[1009],{91284:function(v,n,e){e.r(n),e.d(n,{default:function(){return t}});var a=e(17910),r=e(79685),s=function(){var u=(0,a.UO)(),d=u.id,m=(0,a.WF)(),c=m.demos,f=c[d]||{},o=f.component;return o&&(0,r.createElement)(o)},t=s}}]);
