@@ -19,17 +19,17 @@
     "@pansy/amap-types": "workspace:*",
     "@pansy/react-amap": "workspace:*",
     "@pansy/react-amap-ui": "workspace:*",
-    "@types/react": "^18.0.28",
+    "@types/react": "^18.0.31",
     "@types/react-dom": "^18.0.11",
     "@walrus/cli": "1.3.4",
     "@walrus/commit": "1.2.2",
     "@walrus/plugin-release": "1.14.3",
-    "antd": "5.3.1",
-    "dumi": "2.1.15",
-    "lerna": "6.5.1",
+    "antd": "5.3.3",
+    "dumi": "2.1.17",
+    "lerna": "6.6.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "redbud": "1.6.0",
-    "typescript": "4.9.5"
+    "typescript": "5.0.3"
   }
 }
