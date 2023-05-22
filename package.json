@@ -26,7 +26,7 @@
     "@walrus/plugin-release": "1.14.3",
     "antd": "5.3.3",
     "dumi": "2.1.17",
-    "lerna": "6.6.1",
+    "lerna": "6.6.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "redbud": "1.6.0",
