@@ -14,7 +14,7 @@
     "release": "walrus release --commit-message '🔖 release publish'"
   },
   "devDependencies": {
-    "@ant-design/icons": "5.0.1",
+    "@ant-design/icons": "5.1.0",
     "@pansy/amap-api-loader": "workspace:*",
     "@pansy/amap-types": "workspace:*",
     "@pansy/react-amap": "workspace:*",
