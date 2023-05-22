@@ -15,6 +15,7 @@ export const Map = React.forwardRef<AMap.Map, React.PropsWithChildren<MapProps>>
   AMapUI,
   Loca,
   loading,
+  onComplete,
   onMapCreate,
   ...rest
 }, ref) => {
@@ -42,6 +43,7 @@ export const Map = React.forwardRef<AMap.Map, React.PropsWithChildren<MapProps>>
         AMapUI={AMapUI}
         loading={loading}
         onComplete={(obj) => {
+          onComplete?.(obj);
           setAMap(obj);
         }}
       >

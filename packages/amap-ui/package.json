@@ -14,7 +14,7 @@
   "sideEffects": false,
   "license": "MIT",
   "peerDependencies": {
-    "@pansy/react-amap": ">2"
+    "@pansy/react-amap": "^2"
   },
   "dependencies": {
     "@pansy/amap-types": "2.17.2",
