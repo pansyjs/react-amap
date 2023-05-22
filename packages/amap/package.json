@@ -1,6 +1,6 @@
 {
   "name": "@pansy/react-amap",
-  "version": "2.15.5",
+  "version": "2.15.6",
   "files": [
     "es",
     "lib"
