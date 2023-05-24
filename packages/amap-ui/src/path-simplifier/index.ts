@@ -1,2 +1,2 @@
 export { PathSimplifier } from './path-simplifier';
-export { PathSimplifierProps } from './types';
+export type { PathSimplifierProps } from './types';
