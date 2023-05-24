@@ -1,0 +1,33 @@
+{
+  "name": "vite-react-starter",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "vite"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.0.1",
+    "@emotion/react": "^11.11.0",
+    "@pansy/react-amap": "workspace:*",
+    "@pansy/react-amap-ui": "workspace:*",
+    "antd": "^5.4.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@emotion/babel-plugin": "^11.11.0",
+    "@types/node": "^20.1.0",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^4.0.0",
+    "less": "^4.1.3",
+    "postcss": "^8.4.23",
+    "rollup-plugin-visualizer": "^5.9.0",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.2",
+    "vite-plugin-html": "^3.2.0",
+    "vite-plugin-pages": "^0.29.0",
+    "vite-tsconfig-paths": "^4.2.0"
+  }
+}
