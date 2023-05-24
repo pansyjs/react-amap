@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.16](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap-ui@2.1.15...@pansy/react-amap-ui@2.1.16) (2023-05-24)
+
+
+### Bug Fixes
+
+* 修复 Vite 启动报错 ([1d270d8](https://github.com/pansyjs/react-amap/commit/1d270d85efaed41454c6309ad221001aaf5c7970))
+
+
+
+
+
 ## [2.1.15](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap-ui@2.1.14...@pansy/react-amap-ui@2.1.15) (2023-05-22)
 
 
