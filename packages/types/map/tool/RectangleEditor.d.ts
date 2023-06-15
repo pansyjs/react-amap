@@ -1,6 +1,6 @@
 declare namespace AMap {
   namespace RectangleEditor {
-    interface EventMap<I = BezierCurve> {
+    interface EventMap<I = Rectangle> {
       adjust: MapsEvent<'adjust', { radius: number, target: I }>;
       end: MapsEvent<'end', I>;
     }
