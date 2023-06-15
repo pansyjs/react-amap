@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.17.3](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.17.2...@pansy/amap-types@2.17.3) (2023-06-15)
+
+
+### Bug Fixes
+
+* 🤖 修复 RectangleEditor 类型错误 ([033ed56](https://github.com/pansyjs/react-amap/commit/033ed56f115a6a1236fe2cec64537e685b387b66))
+
+
+
+
+
 ## [2.17.2](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.17.1...@pansy/amap-types@2.17.2) (2023-02-08)
 
 
