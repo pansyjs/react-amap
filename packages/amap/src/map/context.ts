@@ -1,12 +1,12 @@
-import React from 'react';
+import { useContext, createContext }  from 'react';
 
 export interface MapContextProps {
   map: AMap.Map;
   AMap: typeof AMap;
 }
 
-export const MapContext = React.createContext<MapContextProps>({} as MapContextProps);
+export const MapContext = createContext<MapContextProps>({} as MapContextProps);
 
 export const useMap = () => {
-  return React.useContext(MapContext);
+  return useContext(MapContext);
 };

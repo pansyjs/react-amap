@@ -97,14 +97,14 @@ declare namespace Loca {
      * @param duration 淡入效果，单位毫秒。
      * @param callback  完全显示之后执行的回调函数
      */
-    show(duration: number, callback: () => void): void;
+    show(duration?: number, callback?: () => void): void;
 
     /**
      * 设置图层的 visible 为 false，图层不可见。
      * @param duration 淡出效果，单位毫秒。
      * @param callback  完全隐藏之后执行的回调函数
      */
-    hide(duration: number, callback: () => void): void;
+    hide(duration?: number, callback?: () => void): void;
 
     /**
      * 从地图上移除图层

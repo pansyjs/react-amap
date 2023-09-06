@@ -49,7 +49,7 @@ declare namespace Loca {
      */
     static pointLight: Container.Light;
 
-    static animate: {
+    animate: {
       /**
        * 开启动画
        */

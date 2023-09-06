@@ -20,16 +20,19 @@ export default defineConfig({
     ],
   },
   alias: {
-    '@pansy/react-amap': join(__dirname, 'packages/amap/src'),
-    '@pansy/react-amap-ui': join(__dirname, 'packages/amap-ui/src'),
-    '@pansy/react-amap-core': join(__dirname, 'packages/core/src'),
-    '@pansy/amap-api-loader': join(__dirname, 'packages/api-loader/src'),
+    // '@pansy/react-amap': join(__dirname, 'packages/amap/src'),
+    // '@pansy/react-amap/es': join(__dirname, 'packages/amap/src'),
+    // '@pansy/react-amap-ui': join(__dirname, 'packages/amap-ui/src'),
+    '@pansy/react-amap-loca': join(__dirname, 'packages/amap-loca/src'),
+    // '@pansy/react-amap-core': join(__dirname, 'packages/core/src'),
+    // '@pansy/amap-api-loader': join(__dirname, 'packages/api-loader/src'),
   },
   resolve: {
     docDirs: ['docs'],
     atomDirs: [
       { type: 'component', dir: 'packages/amap/src' },
-      { type: 'component', dir: 'packages/amap-ui/src' }
+      { type: 'component', dir: 'packages/amap-ui/src' },
+      { type: 'component', dir: 'packages/amap-loca/src' }
     ],
     codeBlockMode: 'passive',
   },

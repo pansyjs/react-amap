@@ -1,9 +1,4 @@
 {
-  "name": "@pansy/workspace",
-  "private": true,
-  "repository": "git@github.com:pansyjs/react-amap.git",
-  "author": "wangxingkang <wang_xingkang@qq.com>",
-  "license": "MIT",
   "scripts": {
     "start": "dumi dev",
     "build": "pnpm -r --filter @pansy/* run build",
@@ -19,6 +14,7 @@
     "@pansy/amap-types": "workspace:*",
     "@pansy/react-amap": "workspace:*",
     "@pansy/react-amap-ui": "workspace:*",
+    "@pansy/react-amap-loca": "workspace:*",
     "@types/react": "^18.0.31",
     "@types/react-dom": "^18.0.11",
     "@walrus/cli": "1.3.4",
