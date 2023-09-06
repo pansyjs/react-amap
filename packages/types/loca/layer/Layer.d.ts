@@ -126,5 +126,7 @@ declare namespace Loca {
      * 设置图层支持的动画属性。
      */
     addAnimate(config: Layer.AnimateConfig, callback: () => void): void;
+
+    setSource(data: any): void;
   }
 }
