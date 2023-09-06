@@ -58,6 +58,8 @@ declare namespace Loca {
   class ScatterLayer extends Layer {
     constructor(opts: ScatterLayer.Options);
 
+    setSource(data: any): void;
+
     /**
      * 更新图层样式，如果有的字段被缺省，那么它的值将会被重置为默认值。
      * @param style

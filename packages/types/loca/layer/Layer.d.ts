@@ -4,7 +4,7 @@ declare namespace Loca {
       /**
        * 默认会添加到地图上
        */
-      loca?: typeof Loca;
+      loca?: Loca.Container;
 
       /**
        * 图层显示层级
