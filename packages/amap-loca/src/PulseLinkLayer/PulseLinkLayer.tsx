@@ -2,6 +2,7 @@ import React, { forwardRef, useEffect, useRef, useImperativeHandle } from 'react
 import { buildCreateOptions } from '@pansy/react-amap/es/utils/control';
 import { usePropsReactive } from '@pansy/react-amap-core';
 import { allProps, converterMap, setterMap } from './config';
+import { useLoca } from '../Loca';
 
 import type { PulseLinkLayerProps } from './types';
 
@@ -9,6 +10,7 @@ export const PulseLinkLayer = forwardRef<Loca.PulseLinkLayer, React.PropsWithChi
   props = {},
   ref
 ) => {
+  const { loca } = useLoca();
   const ins = useRef<Loca.PulseLinkLayer>();
 
   const { onInstanceCreated } = usePropsReactive(
@@ -21,16 +23,22 @@ export const PulseLinkLayer = forwardRef<Loca.PulseLinkLayer, React.PropsWithChi
   );
 
   useEffect(() => {
-    const options = buildCreateOptions<PulseLinkLayerProps, Loca.PulseLinkLayer.Options>(
-      props,
-      allProps,
-      converterMap,
-    );
+    if (loca) {
+      const options = buildCreateOptions<PulseLinkLayerProps, Loca.PulseLinkLayer.Options>(
+        props,
+        allProps,
+        converterMap,
+      );
 
-    ins.current = new window.Loca.PulseLinkLayer(options);
+      ins.current = new window.Loca.PulseLinkLayer({
+        loca,
+        ...options,
+      });
 
-    onInstanceCreated?.(ins.current);
-  }, [])
+      onInstanceCreated?.(ins.current);
+    }
+
+  }, [loca])
 
   useImperativeHandle(
     ref,
