@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap-loca@0.1.0...@pansy/react-amap-loca@0.1.1) (2023-09-07)
+
+
+### Bug Fixes
+
+* 修复偶发报错 ([bac3054](https://github.com/pansyjs/react-amap/commit/bac305401adaa9a575341fa480305d66069dbc6a))
+
+
+
+
+
 # 0.1.0 (2023-09-07)
 
 
