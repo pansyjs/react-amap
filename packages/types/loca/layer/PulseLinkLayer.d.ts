@@ -9,6 +9,7 @@ declare namespace Loca {
     }
 
     interface Style {
+      unit: string;
       /**
        * 链接线颜色数组。
        * 类型为String时代表单根线的颜色，支持16进制，rgb，rgba和"red"，"blue"等color keywords；
@@ -21,17 +22,27 @@ declare namespace Loca {
        * 高度，单位为米，代表弧顶的高度。
        * 类型为Function时，返回每根线的高度。参数为(index,item)，item中有distance属性，代表两点间的距离（米），可以用该属性处理高度。
        */
-      height?: number;
+      height?: number | ((index: number, item: any) => number);
 
       /**
        * 平滑步数，代表弧线的分隔段数，越大平滑度越好，但更消耗性能，默认为50。
        */
       smoothSteps?: number;
 
+      speed: (index: number, item: any) => number;
+
+      flowLength: number;
+
+      maxHeightScale: number;
+
+      headColor: string;
+
+      trailColor: string;
+
       /**
        * 连接线的头尾宽度设置：[起点宽度，终点宽度];
        */
-      lineWidth?: number;
+      lineWidth?: number | (() => [number, number]);
 
       /**
        * 连接线的虚线配置信息：[实线长度, 虚线长度, 实线长度, 虚线长度];
