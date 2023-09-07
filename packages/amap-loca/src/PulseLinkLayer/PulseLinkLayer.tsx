@@ -30,10 +30,7 @@ export const PulseLinkLayer = forwardRef<Loca.PulseLinkLayer, React.PropsWithChi
         converterMap,
       );
 
-      ins.current = new window.Loca.PulseLinkLayer({
-        loca,
-        ...options,
-      });
+      ins.current = new window.Loca.PulseLinkLayer(options);
 
       onInstanceCreated?.(ins.current);
     }
