@@ -30,7 +30,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-
 
-     - name: Install pnpm
+      - name: Install pnpm
         if: ${{ matrix.node-version != '14.x' }}
         uses: pnpm/action-setup@v2.2.4
 
@@ -42,6 +42,9 @@ jobs:
         run: pnpm i
 
       - name: Build
+        run: pnpm build
+
+      - name: Build Site
         run: pnpm site
 
       - name: Deploy
