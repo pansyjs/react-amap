@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.16.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.15.7...@pansy/react-amap@2.16.0) (2023-09-07)
+
+
+### Features
+
+* **react-amap-loca:** add  useLoca、Loca、ScatterLayer ([c7c419b](https://github.com/pansyjs/react-amap/commit/c7c419b23b5c893bfb7ff15ae88a22118acaae4a))
+
+
+
+
+
 ## [2.15.7](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.15.6...@pansy/react-amap@2.15.7) (2023-06-15)
 
 **Note:** Version bump only for package @pansy/react-amap

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.5](https://github.com/pansyjs/react-amap/compare/@pansy/amap-api-loader@0.4.4...@pansy/amap-api-loader@0.4.5) (2023-09-07)
+
+**Note:** Version bump only for package @pansy/amap-api-loader
+
+
+
+
+
 ## [0.4.4](https://github.com/pansyjs/react-amap/compare/@pansy/amap-api-loader@0.4.3...@pansy/amap-api-loader@0.4.4) (2023-06-15)
 
 **Note:** Version bump only for package @pansy/amap-api-loader

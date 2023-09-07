@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.18.0](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.17.3...@pansy/amap-types@2.18.0) (2023-09-07)
+
+
+### Bug Fixes
+
+* 修复类型报错 ([c1f11a9](https://github.com/pansyjs/react-amap/commit/c1f11a99f3804fa45292b47dad748c3ecf913c7a))
+* **amap-types:** 类型定义错误 ([5f4b48b](https://github.com/pansyjs/react-amap/commit/5f4b48b25462c4b46f4b554f39b850cbc47d58a8))
+
+
+### Features
+
+* **loca:** add PulseLinkLayer ([e5fda7e](https://github.com/pansyjs/react-amap/commit/e5fda7ef0b38d2d8a628f09647e9a3d4368fdaf0))
+* **react-amap-loca:** add  useLoca、Loca、ScatterLayer ([c7c419b](https://github.com/pansyjs/react-amap/commit/c7c419b23b5c893bfb7ff15ae88a22118acaae4a))
+
+
+
+
+
 ## [2.17.3](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.17.2...@pansy/amap-types@2.17.3) (2023-06-15)
 
 
