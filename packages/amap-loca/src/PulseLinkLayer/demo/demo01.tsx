@@ -61,17 +61,6 @@ const Demo = () => {
   return (
     <>
       <Button onClick={() => { setVisible((val) => !val) }}>切换显隐</Button>
-      <ScatterLayer
-        zIndex={10}
-        opacity={0.6}
-        visible={visible}
-        zooms={[2, 22]}
-        events={{
-          created: (instance) => {
-            setScatter(instance);
-          }
-        }}
-      />
 
       <ScatterLayer
         zIndex={10}
