@@ -11,7 +11,7 @@ export const allProps = configurableProps.concat([
 ]);
 
 export const setterMap = {
-  visible(val: boolean, instance: Loca.ScatterLayer) {
+  visible(val: boolean, instance: Loca.PulseLineLayer) {
     if (instance) {
       if (val) {
         instance.show()
