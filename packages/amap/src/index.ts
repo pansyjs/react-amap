@@ -1,4 +1,5 @@
 import { Map, useMap } from './map';
+import { MapContext } from './map/context';
 import { Ellipse } from './ellipse';
 import { AutoComplete } from './auto-complete';
 import { EllipseEditor } from './ellipse-editor';
@@ -39,6 +40,7 @@ import { toLnglat, toSize, toPixel, toBounds } from './utils';
 export {
   APILoader,
   Map,
+  MapContext,
   useMap,
   Marker,
   MarkerCluster,
@@ -83,6 +85,7 @@ export {
 export default {
   APILoader,
   Map,
+  MapContext,
   useMap,
   Marker,
   MarkerCluster,
