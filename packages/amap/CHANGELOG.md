@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.17.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.16.0...@pansy/react-amap@2.17.0) (2023-11-16)
+
+
+### Features
+
+* export MapContext ([bb1bb77](https://github.com/pansyjs/react-amap/commit/bb1bb778444f1d7dfede665ed49e04cc9850a8fe))
+
+
+
+
+
 # [2.16.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.15.7...@pansy/react-amap@2.16.0) (2023-09-07)
 
 
