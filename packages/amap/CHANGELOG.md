@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.18.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.17.0...@pansy/react-amap@2.18.0) (2023-11-21)
+
+
+### Features
+
+* **map:** add WebGLParams ([c40d94d](https://github.com/pansyjs/react-amap/commit/c40d94d4ebc5cc0e397954027e27f83242ec6d63))
+
+
+
+
+
 # [2.17.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.16.0...@pansy/react-amap@2.17.0) (2023-11-16)
 
 
