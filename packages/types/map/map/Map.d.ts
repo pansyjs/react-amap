@@ -249,6 +249,13 @@ declare namespace AMap {
       logoUrl?: string;
 
       logoUrlRetina?: string;
+      /**
+       * 额外配置的 WebGL 参数
+       */
+      WebGLParams: {
+        preserveDrawingBuffer?: boolean;
+        [key: string]: any;
+      };
     }
 
     interface Status {

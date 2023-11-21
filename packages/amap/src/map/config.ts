@@ -46,7 +46,8 @@ export const StaticProps: PropKey[] = [
   'showBuildingBlock',
   'viewMode',
   'buildingAnimation',
-  'skyColor'
+  'skyColor',
+  'WebGLParams'
 ];
 
 export const wrapperStyle: React.CSSProperties = {
