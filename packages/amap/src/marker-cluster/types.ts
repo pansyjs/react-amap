@@ -1,4 +1,4 @@
-export interface EventMap extends ReactAMap.GetEventFunObject<AMap.MarkerCluster.EventMap> {
+export interface EventMap extends Partial<AMap.MarkerCluster.EventMap> {
   /** 创建事件 */
   created?: (instance: AMap.MarkerCluster) => void;
 }

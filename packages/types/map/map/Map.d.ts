@@ -252,7 +252,7 @@ declare namespace AMap {
       /**
        * 额外配置的 WebGL 参数
        */
-      WebGLParams: {
+      WebGLParams?: {
         preserveDrawingBuffer?: boolean;
         [key: string]: any;
       };
