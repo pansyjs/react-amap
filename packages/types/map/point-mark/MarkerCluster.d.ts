@@ -1,7 +1,15 @@
 declare namespace AMap {
   namespace MarkerCluster {
+    interface ClickEvent<I = any> {
+      cluster: MarkerCluster,
+      lnglat: AMap.LngLat,
+      target: I,
+      markers: AMap.Marker[],
+      clusterData: any[];
+    }
+
     interface EventMap<I = any> {
-      click: (data: { cluster: MarkerCluster, lnglat: AMap.LngLat,target: I, markers: AMap.Marker[]}) => void;
+      click: (data: ClickEvent<I>) => void;
     }
 
     interface Style {
