@@ -108,3 +108,5 @@ const MarkerCluster = forwardRef(InternalCluster) as RefInternalCluster & {
 MarkerCluster.defaultProps = {
   zoomOnClick: true
 }
+
+export default MarkerCluster;

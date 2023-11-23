@@ -41,10 +41,6 @@ group:
 
 <code src="./demo/demo-07.tsx"></code>
 
-### 案例1
-
-<code src="./demo/demo-06/index.tsx"></code>
-
 ## API
 
 ### 动态属性

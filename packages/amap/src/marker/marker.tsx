@@ -1,12 +1,13 @@
-import React, { useRef, useEffect, useImperativeHandle } from 'react';
+import React, { forwardRef, useRef, useEffect, useImperativeHandle } from 'react';
 import { usePortal } from '@pansy/use-portal';
 import { useMap } from '../map';
 import { usePropsReactive, isFun } from '../utils';
-import type { MarkerProps } from './types';
 import { buildCreateOptions } from '../utils/control';
 import { allProps, setterMap, converterMap } from './config';
 
-export const Marker = React.forwardRef<AMap.Marker, React.PropsWithChildren<MarkerProps>>((props = {}, ref) => {
+import type { MarkerProps } from './types';
+
+export const Marker = forwardRef<AMap.Marker, React.PropsWithChildren<MarkerProps>>((props = {}, ref) => {
   const { map, AMap } = useMap();
   const { container, Portal } = usePortal();
   const instanceObj = useRef<AMap.Marker>(null);
