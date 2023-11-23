@@ -1,4 +1,4 @@
-export interface EventMap extends Partial<AMap.MarkerCluster.EventMap> {
+export interface EventMap<D = any> extends Partial<AMap.MarkerCluster.EventMap<D>> {
   /** 创建事件 */
   created?: (instance: AMap.MarkerCluster) => void;
 }
@@ -7,7 +7,7 @@ export type RenderMarkerFun = (data: AMap.MarkerCluster.DataOptions) => React.Re
 
 export type RenderClusterMarkerFun = (data: { count: number; list: AMap.MarkerCluster.DataOptions[] }) => React.ReactNode | string;
 
-export interface MarkerClusterProps extends
+export interface MarkerClusterProps<D = any> extends
   AMap.MarkerCluster.Options
 {
   /**
@@ -27,7 +27,7 @@ export interface MarkerClusterProps extends
   /**
    * 可以绑定的事件
    * */
-  events?: EventMap;
+  events?: EventMap<D>;
 
   /**
    * 非聚合点渲染扩展

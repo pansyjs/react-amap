@@ -1,14 +1,21 @@
-import React, { useRef, useEffect, useImperativeHandle } from 'react';
+import React, { forwardRef, useRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../map';
 import { usePropsReactive } from '../utils';
 import { converterMap, setterMap, allProps } from './config';
 import { renderMarkerComponent, renderClusterMarkerComponent } from './utils';
 import type { MarkerClusterProps } from './types';
 
-export const MarkerCluster = React.forwardRef<
-  AMap.MarkerCluster,
-  MarkerClusterProps
->((props = {}, ref) => {
+export type RefInternalCluster = <RecordType = any>(
+  props: MarkerClusterProps<RecordType> & {
+    ref?: React.Ref<AMap.MarkerCluster>;
+  },
+) => React.ReactElement;
+
+
+const InternalCluster = <RecordType = any>(
+  props: MarkerClusterProps<RecordType> = {},
+  ref: React.ForwardedRef<AMap.MarkerCluster>
+) => {
   const { map, AMap} = useMap();
   const cluster = useRef<AMap.MarkerCluster>(null);
 
@@ -92,7 +99,11 @@ export const MarkerCluster = React.forwardRef<
   }
 
   return null;
-});
+};
+
+const MarkerCluster = forwardRef(InternalCluster) as RefInternalCluster & {
+  defaultProps?: Partial<MarkerClusterProps> | undefined;
+};
 
 MarkerCluster.defaultProps = {
   zoomOnClick: true
