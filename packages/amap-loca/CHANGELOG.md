@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.4](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap-loca@0.1.3...@pansy/react-amap-loca@0.1.4) (2023-11-23)
+
+**Note:** Version bump only for package @pansy/react-amap-loca
+
+
+
+
+
 ## [0.1.3](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap-loca@0.1.2...@pansy/react-amap-loca@0.1.3) (2023-11-21)
 
 **Note:** Version bump only for package @pansy/react-amap-loca
