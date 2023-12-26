@@ -1,4 +1,5 @@
 export interface EventMap {
+  init?: (instance: AMap.AMapUI.PathSimplifier) => void;
   /** 创建事件 */
   created?: (instance: AMap.AMapUI.PathSimplifier) => void;
 }

@@ -1,28 +1,69 @@
-import { useState, useEffect } from 'react';
-import { Map } from '@pansy/react-amap';
+import { useState, useEffect, useRef } from 'react';
+import { Map, useMap } from '@pansy/react-amap';
 import { PathSimplifier } from '@pansy/react-amap-ui';
 import { data } from './config';
 
 import type { PathSimplifierProps } from '@pansy/react-amap-ui/es/path-simplifier';
 
-const PathSimplifier1 = (props: PathSimplifierProps) => {
+const PathSimplifierDemo = (props: PathSimplifierProps) => {
+  const { map } = useMap();
+  const navigator = useRef<AMap.AMapUI.PathNavigator>();
+  const AMapPathSimplifier = useRef<AMap.AMapUI.PathSimplifier>();
   const [pathSimplifier, setPathSimplifier] = useState<AMap.AMapUI.PathSimplifier>();
 
   useEffect(
     () => {
-      if (pathSimplifier) {
+      if (pathSimplifier && AMapPathSimplifier.current) {
         pathSimplifier.setData(data);
 
-        const navg1 = pathSimplifier.createPathNavigator(0, {
-          // loop: true, //循环播放
-          speed: 1000000 //巡航速度，单位千米/小时
-        });
+        if (!navigator.current) {
+          navigator.current = pathSimplifier.createPathNavigator(0, {
+            // 巡航速度，单位千米/小时
+            speed: 1000000,
+            pathNavigatorStyle: {
+              width: 10,
+              height: 10,
+              // @ts-ignore
+              content: AMapPathSimplifier.current.Render.Canvas.getImageContent(
+                'https://tdesign.gtimg.com/demo/demo-image-1.png',
+                function onload() {
+                  pathSimplifier?.renderLater();
+                },
+              )
+            },
+          });
 
-        navg1.start();
+          navigator.current.start();
+        }
+      }
+
+      if (map && pathSimplifier) {
+        map.on('zoomchange', handleMapZoomChange)
       };
+
+      return () => {
+        map && map.off('zoomchange', handleMapZoomChange)
+      }
     },
-    [pathSimplifier]
+    [pathSimplifier, AMapPathSimplifier.current]
   );
+
+  const handleMapZoomChange = () => {
+    const zoom = map.getZoom();
+
+    if (navigator.current && AMapPathSimplifier.current) {
+      if (zoom <= 4) {
+        navigator.current.setOption('pathNavigatorStyle', {
+          ...navigator.current.getOption('pathNavigatorStyle'),
+          width: 50,
+          height: 50,
+        })
+
+        pathSimplifier.renderLater();
+      }
+    }
+  }
+
   return (
     <PathSimplifier
       zIndex={100}
@@ -36,23 +77,10 @@ const PathSimplifier1 = (props: PathSimplifierProps) => {
 
         return `${pathData.name}，点数量${pathData.path.length}`;
       }}
-      renderOptions={(PathSimplifier) => {
-        return {
-          renderAllPointsIfNumberBelow: 100, //绘制路线节点，如不需要可设置为-1
-          pathNavigatorStyle: {
-            width: 10,
-            height: 10,
-            // @ts-ignore
-            content: PathSimplifier.Render.Canvas.getImageContent(
-              'https://tdesign.gtimg.com/demo/demo-image-1.png',
-              function onload() {
-                pathSimplifier?.renderLater();
-              },
-            )
-          },
-        }
-      }}
       events={{
+        init: (PathSimplifier) => {
+          AMapPathSimplifier.current = PathSimplifier;
+        },
         created: (instance) => {
           setPathSimplifier(instance);
         }
@@ -66,7 +94,7 @@ export default () => {
   return (
     <div style={{ height: 500 }}>
       <Map AMapUI={{}} zoom={4}>
-        <PathSimplifier1 />
+        <PathSimplifierDemo />
       </Map>
     </div>
   );

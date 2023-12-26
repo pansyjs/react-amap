@@ -156,6 +156,8 @@ declare namespace AMap {
        */
       getPathStartIdx(): number;
 
+      getStyleOptions(): PathNavigator.Options;
+
       /**
        * 返回巡航路径的结束节点索引
        */
@@ -200,6 +202,10 @@ declare namespace AMap {
        * @param handler
        */
       off(eventname: string, handler: Function): void;
+
+      getOption(key: string): any;
+
+      setOption(key: string, data: any): void;
 
       isCursorAtPathEnd(): boolean;
 
