@@ -24,6 +24,10 @@ Map 组件是其他组件的基础，Map 组件通过`context`共享`map`实例�
 
 <code src="./demo/demo-01.tsx"></code>
 
+### 切换主题
+
+<code src="./demo/demo-12.tsx"></code>
+
 ### 插件的使用
 
 <code src="./demo/demo-09.tsx"></code>
