@@ -43,6 +43,7 @@ export const PathSimplifier = React.forwardRef<AMap.AMapUI.PathSimplifier, React
       const AMapUI = getAMapUI();
 
       AMapUI.load(['ui/misc/PathSimplifier'], (PathSimplifier) => {
+        props.events.init && props.events.init(PathSimplifier)
         const options = buildCreateOptions(PathSimplifier);
         options.map = map;
         instanceObj.current = new PathSimplifier(options);
