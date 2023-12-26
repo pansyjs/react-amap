@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap-ui@2.1.21...@pansy/react-amap-ui@2.2.0) (2023-12-26)
+
+
+### Features
+
+* 添加 init 事件，传递 PathSimplifier 对象 ([5f6120a](https://github.com/pansyjs/react-amap/commit/5f6120afae47dfc3d86685efb6443cf536fa0a7c))
+* **type:** 补充类型定义 ([66db267](https://github.com/pansyjs/react-amap/commit/66db267cbea3b2a1c3b048d6c41c725f53c172f6))
+
+
+
+
+
 ## [2.1.21](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap-ui@2.1.20...@pansy/react-amap-ui@2.1.21) (2023-12-26)
 
 **Note:** Version bump only for package @pansy/react-amap-ui

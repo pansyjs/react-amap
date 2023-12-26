@@ -1,6 +1,6 @@
 {
   "name": "@pansy/react-amap-loca",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "files": [
     "es",
     "lib"
@@ -17,8 +17,8 @@
     "@pansy/react-amap": "^2"
   },
   "dependencies": {
-    "@pansy/amap-types": "2.20.0",
-    "@pansy/react-amap-core": "1.3.12"
+    "@pansy/amap-types": "2.21.0",
+    "@pansy/react-amap-core": "1.3.13"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
