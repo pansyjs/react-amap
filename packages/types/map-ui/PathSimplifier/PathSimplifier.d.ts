@@ -304,7 +304,7 @@ declare namespace AMap {
       /**
        * 延时设定的毫秒(默认10)后绘制；该时间段内重复调用只会触发一次。该函数适合短时间内多次触发绘制的场景。
        */
-      renderLater(delay: any): void;
+      renderLater(delay?: number): void;
 
       /**
        * 设定数据源数组，并触发重新绘制。data为空时将清除显示内容。
