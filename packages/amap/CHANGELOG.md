@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.19.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.18.1...@pansy/react-amap@2.19.0) (2023-12-26)
+
+
+### Features
+
+* 聚合组件支持传递类型定义 ([94a9bb4](https://github.com/pansyjs/react-amap/commit/94a9bb4df2e1fd3eaee3916490b78c2d6f1b9da5))
+* 修复类型 ([d64bb96](https://github.com/pansyjs/react-amap/commit/d64bb966c4b8c879a4c3ee643022681d22bd42ec))
+
+
+
+
+
 ## [2.18.1](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.18.0...@pansy/react-amap@2.18.1) (2023-11-23)
 
 **Note:** Version bump only for package @pansy/react-amap
