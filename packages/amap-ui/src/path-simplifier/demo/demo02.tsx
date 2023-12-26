@@ -40,11 +40,13 @@ const PathSimplifier1 = (props: PathSimplifierProps) => {
         return {
           renderAllPointsIfNumberBelow: 100, //绘制路线节点，如不需要可设置为-1
           pathNavigatorStyle: {
+            width: 10,
+            height: 10,
             // @ts-ignore
             content: PathSimplifier.Render.Canvas.getImageContent(
               'https://tdesign.gtimg.com/demo/demo-image-1.png',
               function onload() {
-                pathSimplifier?.render();
+                pathSimplifier?.renderLater();
               },
             )
           },
