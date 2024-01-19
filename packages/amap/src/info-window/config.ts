@@ -14,7 +14,8 @@ export const allProps = configurableProps.concat([
   'isCustom',
   'autoMove',
   'closeWhenClickMap',
-  'showShadow'
+  'showShadow',
+  'avoid',
 ]);
 
 export const converterMap = {
