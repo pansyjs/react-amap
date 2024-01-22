@@ -18,6 +18,11 @@ declare namespace AMap {
        */
       autoMove?: boolean;
       /**
+       * autoMove 为 true 时，自动平移到视野内后的上右下左的避让宽度
+       * @default [20, 20, 20, 20]
+       */
+      avoid?: [number, number, number, number];
+      /**
        * 控制是否在鼠标点击地图后关闭信息窗体
        */
       closeWhenClickMap?: boolean;
