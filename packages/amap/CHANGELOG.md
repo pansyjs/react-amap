@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.20.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.19.1...@pansy/react-amap@2.20.0) (2024-01-22)
+
+
+### Features
+
+* 添加infoWindow的avoid属性 ([33e5e9d](https://github.com/pansyjs/react-amap/commit/33e5e9de0eca13824b35d2b17865440e0830a46c))
+
+
+
+
+
 ## [2.19.1](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.19.0...@pansy/react-amap@2.19.1) (2023-12-26)
 
 **Note:** Version bump only for package @pansy/react-amap

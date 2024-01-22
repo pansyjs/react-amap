@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.22.0](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.21.0...@pansy/amap-types@2.22.0) (2024-01-22)
+
+
+### Features
+
+* **types:** 补充类型定义 ([8aacef9](https://github.com/pansyjs/react-amap/commit/8aacef93ae599150a71b15cf172a7a3633f8fadf))
+
+
+
+
+
 # [2.21.0](https://github.com/pansyjs/react-amap/compare/@pansy/amap-types@2.20.0...@pansy/amap-types@2.21.0) (2023-12-26)
 
 

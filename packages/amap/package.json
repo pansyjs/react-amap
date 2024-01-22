@@ -1,6 +1,6 @@
 {
   "name": "@pansy/react-amap",
-  "version": "2.19.1",
+  "version": "2.20.0",
   "files": [
     "es",
     "lib"
@@ -14,9 +14,9 @@
   "sideEffects": false,
   "license": "MIT",
   "dependencies": {
-    "@pansy/amap-api-loader": "0.4.9",
-    "@pansy/amap-types": "2.21.0",
-    "@pansy/react-amap-core": "1.3.13",
+    "@pansy/amap-api-loader": "0.4.10",
+    "@pansy/amap-types": "2.22.0",
+    "@pansy/react-amap-core": "1.3.14",
     "@pansy/use-portal": "^0.2.0"
   },
   "publishConfig": {

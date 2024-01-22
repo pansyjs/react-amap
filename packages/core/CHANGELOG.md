@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.14](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap-core@1.3.13...@pansy/react-amap-core@1.3.14) (2024-01-22)
+
+**Note:** Version bump only for package @pansy/react-amap-core
+
+
+
+
+
 ## [1.3.13](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap-core@1.3.12...@pansy/react-amap-core@1.3.13) (2023-12-26)
 
 **Note:** Version bump only for package @pansy/react-amap-core
