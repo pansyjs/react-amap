@@ -1,3 +1,4 @@
+import React from 'react';
 import { APILoaderProps } from '../api-loader';
 
 export type MapEventMap = ReactAMap.GetEventFunObject<AMap.Map.EventMap> & {
@@ -15,6 +16,8 @@ export type StatusPropKey = ReactAMap.$Keys<MapStatus>;
 export type PropKey = ReactAMap.$Keys<MapOptions>;
 
 export interface BaseMapProps extends Omit<MapOptions, 'center'> {
+  className?: string;
+  style?: React.CSSProperties;
   /** 地图Loading组件 */
   loading?: React.ReactNode;
   /** 地图状态 */

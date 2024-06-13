@@ -92,7 +92,7 @@ export const BaseMap: React.FC<BaseMapProps> = (props = {}) => {
   }
 
   return (
-    <div style={wrapperStyle}>
+    <div className={props.className} style={{ ...wrapperStyle, ...props.style }}>
       <div ref={mapWrapper} style={containerStyle}>
         {loaded ? null : props.loading}
       </div>
