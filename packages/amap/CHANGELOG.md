@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.21.0](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.20.1...@pansy/react-amap@2.21.0) (2024-06-13)
+
+
+### Features
+
+* **map:** 支持设置 className、style ([5e0ed1a](https://github.com/pansyjs/react-amap/commit/5e0ed1a55afd99cbe6c22137ef27c914f0746777))
+
+
+
+
+
 ## [2.20.1](https://github.com/pansyjs/react-amap/compare/@pansy/react-amap@2.20.0...@pansy/react-amap@2.20.1) (2024-01-24)
 
 **Note:** Version bump only for package @pansy/react-amap
